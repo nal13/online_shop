@@ -1,0 +1,1567 @@
+<?xml version="1.0"?>
+
+<root>
+    <Lojas>
+
+        <Loja>
+            <ID>11</ID>
+            <Nome>Media Markt Aveiro</Nome>
+            <Grupo>Media Markt</Grupo>
+            <Morada>
+                <Detalhes>Aveiro Shopping Center</Detalhes>
+                <Rua>Estrada da Taboeira</Rua>
+                <CodigoPostal>3800-042</CodigoPostal>
+                <Distrito>Aveiro</Distrito>
+                <Pais>Portugal</Pais>
+            </Morada>
+            <Contacto>
+                <Telefone>+351 234 001 100</Telefone>
+                <Fax>+351 234 001 119</Fax>
+                <Email>clientes@mediamarkt.pt</Email>
+                <Website></Website>
+            </Contacto>
+        </Loja>
+
+        <Loja>
+            <ID>12</ID>
+            <Nome>Media Markt Braga</Nome>
+            <Grupo>Media Markt</Grupo>
+            <Morada>
+                <Detalhes>Lamaçães</Detalhes>
+                <Rua>Lugar da Senra de Baixo</Rua>
+                <CodigoPostal>4715-276</CodigoPostal>
+                <Distrito>Braga</Distrito>
+                <Pais>Portugal</Pais>
+            </Morada>
+            <Contacto>
+                <Telefone>+351 253 003 100</Telefone>
+                <Fax>+351 253 003 119</Fax>
+                <Email>mm.info.braga@mediamarkt.pt</Email>
+                <Website></Website>
+            </Contacto>
+        </Loja>
+
+        <Loja>
+            <ID>13</ID>
+            <Nome>Media Markt Gaia</Nome>
+            <Grupo>Media Markt</Grupo>
+            <Morada>
+                <Detalhes>Santa Marinha</Detalhes>
+                <Rua>Rua D. Henrique de Cernache</Rua>
+                <CodigoPostal>4400-625</CodigoPostal>
+                <Distrito>Vila Nova de Gaia</Distrito>
+                <Pais>Portugal</Pais>
+            </Morada>
+            <Contacto>
+                <Telefone>+351 220 034 500</Telefone>
+                <Fax>+351 220 034 519</Fax>
+                <Email> mm.gaia1.info@mediamarkt.pt</Email>
+                <Website></Website>
+            </Contacto>
+        </Loja>
+
+    </Lojas>
+
+    <Produtos>
+        <Computadores>
+            <Modelo>
+                <ID>001</ID>
+                <Nome>Vivobook Flip TP410UA-57DHDCB2</Nome>
+                <Marca>Asus</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>8 GB</Ram>
+                <Processador>i5-7200U 2.5GHz</Processador>
+                <CapacidadeDisco>256 GB</CapacidadeDisco>
+                <Grafica>HD Graphics 620</Grafica>
+                <TamanhoEcra>14.0</TamanhoEcra>
+                <Preco>799.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>002</ID>
+                <Nome>Zenbook UX430UA-78DHDCB1</Nome>
+                <Marca>Asus</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>16 GB</Ram>
+                <Processador>i7-8550U 1.8GHz</Processador>
+                <CapacidadeDisco>512 GB</CapacidadeDisco>
+                <Grafica>HD Graphics 620</Grafica>
+                <TamanhoEcra>14.0</TamanhoEcra>
+                <Preco>1182.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>003</ID>
+                <Nome>15-DA0002NP</Nome>
+                <Marca>HP</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>i3-7020U 2.3GHz</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>GeForce MX110 2GB</Grafica>
+                <TamanhoEcra>15.6</TamanhoEcra>
+                <Preco>499.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>004</ID>
+                <Nome>15-DAO117NP</Nome>
+                <Marca>Asus</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>12 GB</Ram>
+                <Processador>i5-825OU 1.6 GHz</Processador>
+                <CapacidadeDisco>256 GB</CapacidadeDisco>
+                <Grafica>GeForce MX110 2GB</Grafica>
+                <TamanhoEcra>15.6</TamanhoEcra>
+                <Preco>749.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>005</ID>
+                <Nome>IDEAPAD 330-15IKB-472</Nome>
+                <Marca>LeNovo</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>i7-855OU 1.8 GHz</Processador>
+                <CapacidadeDisco>256 GB</CapacidadeDisco>
+                <Grafica>Radeon R5 530 2GB</Grafica>
+                <TamanhoEcra>15.6</TamanhoEcra>
+                <Preco>799.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>006</ID>
+                <Nome>IDEAPAD 330-15IKB-534</Nome>
+                <Marca>LeNovo</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>8 GB</Ram>
+                <Processador>i5-825OU 1.6 GHz</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>Radeon R5 530 2GB</Grafica>
+                <TamanhoEcra>15.6</TamanhoEcra>
+                <Preco>575.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+        </Computadores>
+        <Telemoveis>
+            <Modelo>
+                <ID>007</ID>
+                <Nome>REDMI 64 PRETO</Nome>
+                <Marca>Xiaomi</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Quad-Core 2.0 GHz Cortex-A53</Processador>
+                <CapacidadeMemoria>16 GB</CapacidadeMemoria>
+                <Camara>13 MP</Camara>
+                <TamanhoEcra>5.45</TamanhoEcra>
+                <Preco>99.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>008</ID>
+                <Nome>REDMI S2 CINZENTO</Nome>
+                <Marca>Xiaomi</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>Octa-core 2.0 GHz Cortex-A53</Processador>
+                <CapacidadeMemoria>64 GB</CapacidadeMemoria>
+                <Camara>Dual(12 MP + 5MP)</Camara>
+                <TamanhoEcra>5.99</TamanhoEcra>
+                <Preco>229.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>009</ID>
+                <Nome>IPHONE XR PRETO</Nome>
+                <Marca>Apple</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>3 GB</Ram>
+                <Processador>Hexa-core A12 Bionic</Processador>
+                <CapacidadeMemoria>64 GB</CapacidadeMemoria>
+                <Camara>12 MP</Camara>
+                <TamanhoEcra>6.10</TamanhoEcra>
+                <Preco>799.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>010</ID>
+                <Nome>IPHONE 7 DOURADO</Nome>
+                <Marca>Apple</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Quad-core 2.23 GHz A10 Fusion</Processador>
+                <CapacidadeMemoria>32 GB</CapacidadeMemoria>
+                <Camara>12 MP</Camara>
+                <TamanhoEcra>7.70</TamanhoEcra>
+                <Preco>499.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>011</ID>
+                <Nome>MATE 10 LITE AZUL</Nome>
+                <Marca>Huawei</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)</Processador>
+                <CapacidadeMemoria>64 GB</CapacidadeMemoria>
+                <Camara>DUAL(16 MP + 2 MP)</Camara>
+                <TamanhoEcra>5.90</TamanhoEcra>
+                <Preco>259.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>012</ID>
+                <Nome>P20 LITE PRETO</Nome>
+                <Marca>Huawei</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7GHz)</Processador>
+                <CapacidadeMemoria>32 GB</CapacidadeMemoria>
+                <Camara>DUAL(16 MP + 2 MP)</Camara>
+                <TamanhoEcra>5.84</TamanhoEcra>
+                <Preco>299.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+            </Modelo>
+        </Telemoveis>
+        <Tablets>
+            <Modelo>
+                <ID>013</ID>
+                <Nome>TAB 4 TB-X304F</Nome>
+                <Marca>LeNovo</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Quad-Core 1.4 GHz</Processador>
+                <CapacidadeMemoria>16 GB</CapacidadeMemoria>
+                <Camara>5 MP + 2 MP</Camara>
+                <TamanhoEcra>10.0</TamanhoEcra>
+                <Preco>149.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>014</ID>
+                <Nome>TAB 4 TB-8504F</Nome>
+                <Marca>LeNovo</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Quad-Core 1.4 GHz</Processador>
+                <CapacidadeMemoria>16 GB</CapacidadeMemoria>
+                <Camara>5 MP + 2 MP</Camara>
+                <TamanhoEcra>8.0</TamanhoEcra>
+                <Preco>151.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>015</ID>
+                <Nome>IPAD CINZENTO SIDERAL</Nome>
+                <Marca>Apple</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Dual-Core A10 Fusion</Processador>
+                <CapacidadeMemoria>32 GB</CapacidadeMemoria>
+                <Camara>8 MP + 1.2 MP</Camara>
+                <TamanhoEcra>9.70</TamanhoEcra>
+                <Preco>335.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>016</ID>
+                <Nome>IPAD PRO CINZENTO SIDERAL</Nome>
+                <Marca>Apple</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>4 GB</Ram>
+                <Processador>Dual-core A10X Fusion</Processador>
+                <CapacidadeMemoria>64 GB</CapacidadeMemoria>
+                <Camara>12 MP + 7 MP</Camara>
+                <TamanhoEcra>12.9</TamanhoEcra>
+                <Preco>919.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>017</ID>
+                <Nome>MEDIAPAD T3</Nome>
+                <Marca>Huawei</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>2 GB</Ram>
+                <Processador>Quad-Core 1.4 GHz Snapdragon 425</Processador>
+                <CapacidadeMemoria>16 GB</CapacidadeMemoria>
+                <Camara>5 MP + 2 MP</Camara>
+                <TamanhoEcra>9.6</TamanhoEcra>
+                <Preco>168.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>018</ID>
+                <Nome>MEDIAPAD T3 - 7</Nome>
+                <Marca>Huawei</Marca>
+                <Categoria>Comunicação Móvel</Categoria>
+                <Ram>1 GB</Ram>
+                <Processador>Quad-core 1.3 GHz</Processador>
+                <CapacidadeMemoria>8 GB</CapacidadeMemoria>
+                <Camara>2 MP</Camara>
+                <TamanhoEcra>7.0</TamanhoEcra>
+                <Preco>92.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+        </Tablets>
+        <Camaras>
+            <Modelo>
+                <ID>019</ID>
+                <Nome>EOS M100 Branca + 15-45 IS STM</Nome>
+                <Marca>Canon</Marca>
+                <Categoria>Fotografia</Categoria>
+                <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
+                <Wireless>Sim</Wireless>
+                <ResolucaoFoto>24 MP</ResolucaoFoto>
+                <Preco>529.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>020</ID>
+                <Nome>EOS 4000D Preta + 18-55 + Mochila + SD 16GB</Nome>
+                <Marca>Canon</Marca>
+                <Categoria>Fotografia</Categoria>
+                <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
+                <Wireless>Sim</Wireless>
+                <ResolucaoFoto>18 MP</ResolucaoFoto>
+                <Preco>349.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>021</ID>
+                <Nome>D5300 + 18-55 VR + Estojo + EBook</Nome>
+                <Marca>Nikon</Marca>
+                <Categoria>Fotografia</Categoria>
+                <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
+                <Wireless>Sim</Wireless>
+                <ResolucaoFoto>24 MP</ResolucaoFoto>
+                <Preco>499.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>022</ID>
+                <Nome>D7500 + 18-105 VR</Nome>
+                <Marca>Nikon</Marca>
+                <Categoria>Fotografia</Categoria>
+                <ResolucaoVideo>UHD 4K</ResolucaoVideo>
+                <Wireless>Sim</Wireless>
+                <ResolucaoFoto>22 MP</ResolucaoFoto>
+                <Preco>1789.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+        </Camaras>
+        <Drones>
+            <Modelo>
+                <ID>023</ID>
+                <Nome>Mambo Mission-Drone + Comando + Canhao + Garra</Nome>
+                <Marca>Parrot</Marca>
+                <Categoria>Fotografia</Categoria>
+                <Autonomia>Ate 9 min</Autonomia>
+                <Raio>200 m</Raio>
+                <CamaraImb>Sim</CamaraImb>
+                <Preco>58.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>024</ID>
+                <Nome>DRONE BEBOP 2 BRANCO</Nome>
+                <Marca>Parrot</Marca>
+                <Categoria>Fotografia</Categoria>
+                <Autonomia>Ate 25 min</Autonomia>
+                <Raio>300 m</Raio>
+                <CamaraImb>Sim</CamaraImb>
+                <Preco>298.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+            </Modelo>
+        </Drones>
+        <TVs>
+            <Modelo>
+                <ID>025</ID>
+                <Nome>LE24IP43973 TVs LED</Nome>
+                <Marca>Silver</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <TamanhoEcra>24.0</TamanhoEcra>
+                <QualidadeImagem>HD 720p</QualidadeImagem>
+                <Frequencia>50 Hz</Frequencia>
+                <Preco>129.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>026</ID>
+                <Nome>IP-LE410005 SMART TVs LED</Nome>
+                <Marca>Silver</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <TamanhoEcra>40.0</TamanhoEcra>
+                <QualidadeImagem>HD</QualidadeImagem>
+                <Frequencia>60 Hz</Frequencia>
+                <Preco>269.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>027</ID>
+                <Nome>49SK8000 SMART TVs LED</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <TamanhoEcra>49.0</TamanhoEcra>
+                <QualidadeImagem>UHD 4K</QualidadeImagem>
+                <Frequencia>50 Hz</Frequencia>
+                <Preco>549.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>028</ID>
+                <Nome>55SK8000 SMART TVs</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <TamanhoEcra>55.0</TamanhoEcra>
+                <QualidadeImagem>UHD 4K</QualidadeImagem>
+                <Frequencia>100 Hz</Frequencia>
+                <Preco>1499.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+        </TVs>
+        <LeitoresBlueray>
+            <Modelo>
+                <ID>029</ID>
+                <Nome>2D BP250</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
+                <Resolucao>Full-HD 1080p</Resolucao>
+                <Preco>69.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>030</ID>
+                <Nome>UBK90</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
+                <Resolucao>4K</Resolucao>
+                <Preco>250.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>031</ID>
+                <Nome>BDP-S1700</Nome>
+                <Marca>Sony</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
+                <Resolucao>Full HD 1080p</Resolucao>
+                <Preco>85.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>032</ID>
+                <Nome>UBP-X700</Nome>
+                <Marca>Sony</Marca>
+                <Categoria>Tecnologia de Casa</Categoria>
+                <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
+                <Resolucao>4K</Resolucao>
+                <Preco>199.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+        </LeitoresBlueray>
+        <MaquinasCafe>
+            <Modelo>
+                <ID>033</ID>
+                <Nome>KRUPS INISSIA XN1001</Nome>
+                <Marca>Nespresso</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Cor>Branco</Cor>
+                <Agua>0.8 L</Agua>
+                <Potencia>1260 W</Potencia>
+                <Preco>39.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>10</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>034</ID>
+                <Nome>KRUPS EXPERT XN6008</Nome>
+                <Marca>Nespresso</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Cor>Preto</Cor>
+                <Agua>1.2 L</Agua>
+                <Potencia>1260 W</Potencia>
+                <Preco>169.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>24</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>8</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>20</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>035</ID>
+                <Nome>QOOL EVOLUTION</Nome>
+                <Marca>Delta</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Cor>Vermelho</Cor>
+                <Agua>1 L</Agua>
+                <Potencia>1200 W</Potencia>
+                <Preco>80.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>21</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>036</ID>
+                <Nome>Q Capsulas Qool Evolution + 50 Capsulas</Nome>
+                <Marca>Delta</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Cor>Preto</Cor>
+                <Agua>1 L</Agua>
+                <Potencia>1200 W</Potencia>
+                <Preco>49.90</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>32</Unidades>
+                </Loja>
+            </Modelo>
+        </MaquinasCafe>
+        <Microondas>
+            <Modelo>
+                <ID>037</ID>
+                <Nome>MS23F301TAK</Nome>
+                <Marca>Samsung</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Grill>Nao</Grill>
+                <VolumeMax>23 L</VolumeMax>
+                <PotenciaMax>800 W</PotenciaMax>
+                <Preco>89.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>038</ID>
+                <Nome>MG28J5215AB</Nome>
+                <Marca>Samsung</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Grill>Sim</Grill>
+                <VolumeMax>28 L</VolumeMax>
+                <PotenciaMax>1500 W</PotenciaMax>
+                <Preco>140.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>039</ID>
+                <Nome>1824FL</Nome>
+                <Marca>Flama</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Grill>Nao</Grill>
+                <VolumeMax>20 L</VolumeMax>
+                <PotenciaMax>700 W</PotenciaMax>
+                <Preco>60.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>040</ID>
+                <Nome>1834FL</Nome>
+                <Marca>Flama</Marca>
+                <Categoria>Cozinha</Categoria>
+                <Grill>Nao</Grill>
+                <VolumeMax>20 L</VolumeMax>
+                <PotenciaMax>700 W</PotenciaMax>
+                <Preco>54.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+        </Microondas>
+        <MaquinaLavarRoupa>
+            <Modelo>
+                <ID>041</ID>
+                <Nome>FWG91284W</Nome>
+                <Marca>Whirlpoll</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>9.0 Kg</Capacidade>
+                <VelocidadeCen>1200 Rpm</VelocidadeCen>
+                <Preco>279.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>8</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>042</ID>
+                <Nome>FWG71283W</Nome>
+                <Marca>Whirlpoll</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>7.0 Kg</Capacidade>
+                <VelocidadeCen>1200 Rpm</VelocidadeCen>
+                <Preco>305.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>043</ID>
+                <Nome>F4J5TN3W</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <VelocidadeCen>1400 Rpm</VelocidadeCen>
+                <Preco>299.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>044</ID>
+                <Nome>FH495BDS2 TWINWASH</Nome>
+                <Marca>LG</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>12.0 Kg</Capacidade>
+                <VelocidadeCen>1400 Rpm</VelocidadeCen>
+                <Preco>799.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>045</ID>
+                <Nome>FMG823B</Nome>
+                <Marca>Hotpoint</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <VelocidadeCen>1200 Rpm</VelocidadeCen>
+                <Preco>310.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>046</ID>
+                <Nome>RSF 925 JA</Nome>
+                <Categoria>Limpeza</Categoria>
+                <Marca>Hotpoint</Marca>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>9.0 Kg</Capacidade>
+                <VelocidadeCen>1200 Kg</VelocidadeCen>
+                <Preco>355.49</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+        </MaquinaLavarRoupa>
+        <MaquinaSecarRoupa>
+            <Modelo>
+                <ID>047</ID>
+                <Nome>EDPE-G 45-A1</Nome>
+                <Marca>Indesit</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <Consumo>306 kWh</Consumo>
+                <Preco>349.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>048</ID>
+                <Nome>IDCL-G5.B.H</Nome>
+                <Marca>Indesit</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>B</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <Consumo>560 KWh</Consumo>
+                <Preco>375.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>049</ID>
+                <Nome>AQC9 4F5 T/Z1 EU</Nome>
+                <Marca>Hotpoint</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+</Eficiencia>
+                <Capacidade>9.0 Kg</Capacidade>
+                <Consumo>338 KWh</Consumo>
+                <Preco>459.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>050</ID>
+                <Nome>TCD-874-6H1</Nome>
+                <Marca>Hotpoint</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <Consumo>306 KWh</Consumo>
+                <Preco>529.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>051</ID>
+                <Nome>WTG85231EE</Nome>
+                <Marca>Bosh</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A++</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <Consumo>236 KWh</Consumo>
+                <Preco>737.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>052</ID>
+                <Nome>WTW87640ES</Nome>
+                <Marca>Bosh</Marca>
+                <Categoria>Limpeza</Categoria>
+                <Eficiencia>A+++</Eficiencia>
+                <Capacidade>8.0 Kg</Capacidade>
+                <Consumo>177 KWh</Consumo>
+                <Preco>999.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+            </Modelo>
+        </MaquinaSecarRoupa>
+        <Aspirador>
+            <Modelo>
+                <ID>053</ID>
+                <Nome>Roomba 616</Nome>
+                <Marca>IronBot</Marca>
+                <Categoria>Limpeza</Categoria>
+                <TempoCarga>3 h</TempoCarga>
+                <TempoBateria>60 min</TempoBateria>
+                <PotenciaMax>33 W</PotenciaMax>
+                <Preco>279.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>8</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>054</ID>
+                <Nome>Roomba 980</Nome>
+                <Marca>IronBot</Marca>
+                <Categoria>Limpeza</Categoria>
+                <TempoCarga>4 h</TempoCarga>
+                <TempoBateria>120 min</TempoBateria>
+                <PotenciaMax>33 W</PotenciaMax>
+                <Preco>884.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>055</ID>
+                <Nome>TE70 TE75011 CLASSE A</Nome>
+                <Marca>Hoover</Marca>
+                <Categoria>Limpeza</Categoria>
+                <PotenciaMax>700 W</PotenciaMax>
+                <VolumeMaxDep>3.5 L</VolumeMaxDep>
+                <Preco>135.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>056</ID>
+                <Nome>HY70 HYDROPOWER COM FILTRO AGUA CLASSE A</Nome>
+                <Marca>Hoover</Marca>
+                <Categoria>Limpeza</Categoria>
+                <PotenciaMax>700 W</PotenciaMax>
+                <VolumeMaxDep>3.5 L</VolumeMaxDep>
+                <Preco>179.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>057</ID>
+                <Nome>COMPACT P PARQUET R03953EA CLASSE A</Nome>
+                <Marca>Rowenta</Marca>
+                <Categoria>Limpeza</Categoria>
+                <PotenciaMax>750 W</PotenciaMax>
+                <VolumeMaxDep>3 L</VolumeMaxDep>
+                <Preco>85.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>058</ID>
+                <Nome>SILENCE FORCE A4 ANIMAL CARE PRO R07681EA CLASSE A</Nome>
+                <Marca>Rowenta</Marca>
+                <Categoria>Limpeza</Categoria>
+                <PotenciaMax>750 W</PotenciaMax>
+                <VolumeMaxDep>3.5 L</VolumeMaxDep>
+                <Preco>268.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>9</Unidades>
+                </Loja>
+            </Modelo>
+        </Aspirador>
+        <GamingPc>
+            <Modelo>
+                <ID>059</ID>
+                <Nome>Desktop 880-140NP</Nome>
+                <Marca>HP</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Ram>16 GB</Ram>
+                <Processador>i7-8700 Hex-core</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>Geforce GTX 1050 Ti 4GB</Grafica>
+                <TamanhoEcra> </TamanhoEcra>
+                <Preco>1299.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>060</ID>
+                <Nome>Omen Laptop 17-AN100NP</Nome>
+                <Marca>HP</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Ram>16 GB</Ram>
+                <Processador>i7-8750H 2.2 GHz</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>Geforce GTX 1050 4GB</Grafica>
+                <TamanhoEcra>17.30</TamanhoEcra>
+                <Preco>1389.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>29</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>061</ID>
+                <Nome>VIVOBOOK A560UD-58A05PB2</Nome>
+                <Marca>Asus</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Ram>8 GB</Ram>
+                <Processador>i5-825OU 1.60GHz</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>Geforce GTX 1050 4GB</Grafica>
+                <TamanhoEcra>15.60</TamanhoEcra>
+                <Preco>799.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>9</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>8</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>062</ID>
+                <Nome>TUF FX504GD-78A05PB1</Nome>
+                <Marca>Asus</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Ram>8 GB</Ram>
+                <Processador>i7-8750H 2.2 GHz</Processador>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Grafica>Geforce GTX 1050 4GB</Grafica>
+                <TamanhoEcra>15.60</TamanhoEcra>
+                <Preco>1066.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+        </GamingPc>
+        <Consolas>
+            <Modelo>
+                <ID>063</ID>
+                <Nome>PS4 Slim 1TB Preta + Red Dead Redemption II</Nome>
+                <Marca>Sony</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Cor>Preta</Cor>
+                <JogoIncluido>Red Dead Redemption II</JogoIncluido>
+                <Preco>348.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>064</ID>
+                <Nome>PS4 1TB Preta + FIFA 19</Nome>
+                <Marca>Sony</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Cor>Preta</Cor>
+                <JogoIncluido>FIFA 19</JogoIncluido>
+                <Preco>348.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>15</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>065</ID>
+                <Nome>XBOX ONE S 1TB + GAME PASS 3 MESES</Nome>
+                <Marca>Microsoft</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Cor>Branco</Cor>
+                <JogoIncluido>None</JogoIncluido>
+                <Preco>248.00</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>10</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>066</ID>
+                <Nome>XBOX ONE S 1TB + TOMB RAIDER</Nome>
+                <Marca>Microsoft</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <Cor>Branco</Cor>
+                <JogoIncluido>TOMB RAIDER</JogoIncluido>
+                <Preco>248.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>067</ID>
+                <Nome>SWITCH AZUL/VERMELHO NEON</Nome>
+                <Marca>Nintendo</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>32 GB</CapacidadeDisco>
+                <Cor>Azul/Vermelho</Cor>
+                <JogoIncluido>None</JogoIncluido>
+                <Preco>319.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>068</ID>
+                <Nome>SWITCH POKEMON EEVEE + POKEBALL</Nome>
+                <Marca>Nintendo</Marca>
+                <Categoria>Videojogos</Categoria>
+                <CapacidadeDisco>32 GB</CapacidadeDisco>
+                <Cor>Varias</Cor>
+                <JogoIncluido>Pokemon Lets Go Eevee</JogoIncluido>
+                <Preco>389.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+        </Consolas>
+        <Jogos>
+            <Modelo>
+                <ID>069</ID>
+                <Nome>Marvel's Spider Man</Nome>
+                <Marca>PS4</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>68.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>5</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>070</ID>
+                <Nome>Assassin's Creed Odyssey</Nome>
+                <Marca>PS4</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>39.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>071</ID>
+                <Nome>Fifa 19</Nome>
+                <Marca>PS4</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>68.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>072</ID>
+                <Nome>One WWE 2k19</Nome>
+                <Marca>XBOX</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>68.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>7</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>073</ID>
+                <Nome>One Fifa 19</Nome>
+                <Marca>XBOX</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco> 68.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>4</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>074</ID>
+                <Nome>One Fallout 4 GOTY</Nome>
+                <Marca>XBOX</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>49.90</Preco>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>075</ID>
+                <Nome>Pokemon Let's Go Pikachu</Nome>
+                <Marca>SWITCH</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>55.00</Preco>
+                <Loja>
+                    <ID>12</ID>
+                    <Unidades>1</Unidades>
+                </Loja>
+                <Loja>
+                    <ID>13</ID>
+                    <Unidades>3</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>076</ID>
+                <Nome>Snipperclips Cut It Out</Nome>
+                <Marca>SWITCH</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>29.90</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>2</Unidades>
+                </Loja>
+            </Modelo>
+
+            <Modelo>
+                <ID>077</ID>
+                <Nome>Legend od Zelda: Breath Of The Wild</Nome>
+                <Marca>SWITCH</Marca>
+                <Categoria>Videojogos</Categoria>
+                <Preco>69.00</Preco>
+                <Loja>
+                    <ID>11</ID>
+                    <Unidades>6</Unidades>
+                </Loja>
+            </Modelo>
+        </Jogos>
+    </Produtos>
+
+</root>

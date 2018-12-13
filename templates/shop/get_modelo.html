@@ -1,0 +1,11 @@
+{% extends 'shop/base_index.html' %}
+
+{% block content %}
+
+<ul>
+  {% for pred, obj in modelo.items %}
+  <li>{{ pred }} : {{ obj }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

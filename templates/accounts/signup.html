@@ -1,0 +1,18 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  <form method="post">
+
+    {% include 'accounts/includes/form.html' %}
+
+    <div class="container-login100-form-btn p-t-10">
+      <button type="submit" class="login100-form-btn">
+        Create an account
+      </button>
+    </div>
+
+  </form>
+{% endblock %}

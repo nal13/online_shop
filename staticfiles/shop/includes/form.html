@@ -1,0 +1,49 @@
+{% load form_tags %}
+
+{% csrf_token %}
+
+{% for field in form %}
+<div class="form-group">
+
+  {% if field.name == 'username' %}
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+    {{ field|add_css:"input100, Username"}}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-user"></i>
+    </span>
+  </div>
+  {% endif %}
+
+  {% if field.name == 'email' %}
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Email is required">
+    {{ field|add_css:"input100, Email"}}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-envelope"></i>
+    </span>
+  </div>
+  {% endif %}
+
+  {% if field.name == 'password1' %}
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+    {{ field|add_css:"input100, Password"}}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-lock"></i>
+    </span>
+  </div>
+  {% endif %}
+
+  {% if field.name == 'password2' %}
+  <div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+    {{ field|add_css:"input100, Password confirmation"}}
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <i class="fa fa-lock"></i>
+    </span>
+  </div>
+  {% endif %}
+
+</div>
+{% endfor %}

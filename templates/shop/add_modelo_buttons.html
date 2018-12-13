@@ -1,0 +1,11 @@
+{% extends 'shop/base_index.html' %}
+
+{% block content %}
+
+<ul>
+  {% for type in modelos %}
+  <li><a href="{% url 'add_modelo' type %}">{{ type }}</a></li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
