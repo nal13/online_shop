@@ -750,7 +750,7 @@ modelo:033
 	modelo:marca "Nespresso" ; 
 	modelo:categoria "Cozinha" ; 
 	modelo:cor "Branco" ; 
-	modelo:Agua "0.8 L" ; 
+	modelo:agua "0.8 L" ; 
 	modelo:potencia "1260 W" ; 
 	modelo:preco "39.00" ; 
 	modelo:loja modelo_em_loja:03311 , 
@@ -773,7 +773,7 @@ modelo:034
 	modelo:marca "Nespresso" ; 
 	modelo:categoria "Cozinha" ; 
 	modelo:cor "Preto" ; 
-	modelo:Agua "1.2 L" ; 
+	modelo:agua "1.2 L" ; 
 	modelo:potencia "1260 W" ; 
 	modelo:preco "169.00" ; 
 	modelo:loja modelo_em_loja:03411 , 
@@ -796,7 +796,7 @@ modelo:035
 	modelo:marca "Delta" ; 
 	modelo:categoria "Cozinha" ; 
 	modelo:cor "Vermelho" ; 
-	modelo:Agua "1 L" ; 
+	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
 	modelo:preco "80.00" ; 
 	modelo:loja modelo_em_loja:03512 . 
@@ -811,7 +811,7 @@ modelo:036
 	modelo:marca "Delta" ; 
 	modelo:categoria "Cozinha" ; 
 	modelo:cor "Preto" ; 
-	modelo:Agua "1 L" ; 
+	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
 	modelo:preco "49.90" ; 
 	modelo:loja modelo_em_loja:03612 . 

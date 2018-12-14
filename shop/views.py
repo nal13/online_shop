@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import os
 from lxml import etree
+import pprint
 
 from .queries import GraphDB
 from .forms import AddModelForm
@@ -42,6 +43,7 @@ def list_modelo(request):
 
 
 def get_modelo(request, id):
+    # get modelo's regular obj
     query = g.get_modelo(id)
     modelo = {}
 
@@ -50,16 +52,54 @@ def get_modelo(request, id):
         obj = e['obj']['value']
         modelo.update({pred: obj})
 
+    # get modelo_em_loja and their obj
     query = g.list_modelo_em_loja(id)
-    print(query)
-    # modelo = {}
-    #
-    # for e in query['results']['bindings']:
-    #     pred = e['pred']['value'].split('/')[-1]
-    #     obj = e['obj']['value']
-    #     modelo.update({pred: obj})
+    pairs = {}
+    em_lojas = {}   # dict of dicts, ex: {12, {'nome', 'Loja de Aveiro'}, {'unidades', 3}}
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo})
+    for e in query['results']['bindings']:
+        nome = e['nome']['value']
+        pairs.update({'nome': nome})
+
+        unidades = e['unidades']['value']
+        pairs.update({'unidades': unidades})
+
+        loja_id = e['loja_id']['value'].split('/')[-1]
+        em_lojas.update({loja_id: pairs})
+        pairs = {}
+
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas})
+
+def get_loja(request, id):
+
+    loja = {}
+    pairs = {}
+    query_regular = g.get_loja_regular(id)
+    query_morada = g.get_loja_morada(id)
+    query_contacto = g.get_loja_contacto(id)
+    # pprint.pprint(query_morada)
+    # pprint.pprint(query_regular)
+    # pprint.pprint(query_contacto)
+
+    for e in query_regular['results']['bindings']:
+        pred = e['pred']['value'].split('/')[-1]
+        obj = e['obj']['value']
+        loja.update({pred: obj})
+
+    for e in query_morada['results']['bindings']:
+        pred = e['pred']['value'].split('/')[-1]
+        obj = e['obj']['value']
+        pairs.update({pred: obj})
+    loja.update( {'morada':pairs} )
+    pairs = {}
+
+    for e in query_contacto['results']['bindings']:
+        pred = e['pred']['value'].split('/')[-1]
+        obj = e['obj']['value']
+        pairs.update({pred: obj})
+    loja.update( {'contacto':pairs} )
+
+    return render(request, 'shop/get_loja.html', {'loja': loja})
 
 
 def add_modelo_buttons(request):

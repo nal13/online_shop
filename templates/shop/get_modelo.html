@@ -8,4 +8,21 @@
   {% endfor %}
 </ul>
 
+<ul>
+  {% for id, pairs in em_lojas.items %}
+
+    {% for pred, obj in pairs.items %}
+      <li>
+        {{ pred }} :
+        {% if pred == 'nome' %}
+          <a href="{% url 'get_loja' id %}">{{ obj }}</a>
+        {% else %}
+          {{ obj }}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+  {% endfor %}
+</ul>
+
 {% endblock %}

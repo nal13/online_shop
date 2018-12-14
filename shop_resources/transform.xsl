@@ -781,7 +781,7 @@
           <xsl:text>" ; &#xa;</xsl:text>
 
           <!-- Agua -->
-          <xsl:text>&#9;modelo:Agua "</xsl:text>
+          <xsl:text>&#9;modelo:agua "</xsl:text>
           <xsl:value-of select="Agua"/>
           <xsl:text>" ; &#xa;</xsl:text>
 

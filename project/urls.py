@@ -27,6 +27,7 @@ urlpatterns = [
     path('store/', views.store, name='store'),
     path('list_modelo/', views.list_modelo, name='list_modelo'),
     re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),
+    re_path('get_loja/(?P<id>\d+)/', views.get_loja, name='get_loja'),
     path('add_modelo_buttons/', views.add_modelo_buttons, name='add_modelo_buttons'),
     re_path('add_modelo/(?P<type>\w+)/', views.add_modelo, name='add_modelo'),
     path('admin/', admin.site.urls),

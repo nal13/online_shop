@@ -23,7 +23,7 @@ class GraphDB:
         return self.run_query( query )
 
     def get_modelo(self, id):
-        # all pred and obj of a given modelo, except if pred=a or pred=loja
+        # all pred and obj of a given modelo, except pred=a or pred=loja
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?pred ?obj
@@ -83,10 +83,11 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
-            SELECT ?nome
+            SELECT ?loja_id ?unidades ?nome
             WHERE {
                 modelo:"""+id+""" modelo:loja ?modelo_em_loja .
                 ?modelo_em_loja modelo_em_loja:LojaID ?loja_id .
+                ?modelo_em_loja modelo_em_loja:unidades ?unidades .
                 ?loja_id loja:nome ?nome .
             }
             """
@@ -105,16 +106,82 @@ class GraphDB:
             """
         return self.run_query( query )
 
+    def get_loja_regular(self, id):
+        # regular pred and obj of a given loja, except if pred=[a, morada, contacto]
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT ?obj ?pred
+            WHERE {
+                loja:"""+id+""" ?pred ?obj .
+
+                MINUS { ?s a ?obj }
+                MINUS { ?s loja:morada ?obj }
+                MINUS { ?s loja:contacto ?obj }
+            }
+            """
+        return self.run_query( query )
+
+    def get_loja_morada(self, id):
+        # pred and obj of morada a given loja
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX morada: <http://www.shop.pt/morada/>
+            SELECT ?obj ?pred
+            WHERE {
+                    loja:"""+id+""" loja:morada ?morada_id .
+                    ?morada_id ?pred ?obj .
+
+                    MINUS { ?s a ?obj }
+            }
+            """
+        return self.run_query( query )
+
+    def get_loja_contacto(self, id):
+        # pred and obj of contacto a given loja
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX contacto: <http://www.shop.pt/contacto/>
+            SELECT ?obj ?pred
+            WHERE {
+                    loja:"""+id+""" loja:contacto ?contacto_id .
+                    ?contacto_id ?pred ?obj .
+
+                    MINUS { ?s a ?obj }
+            }
+            """
+        return self.run_query( query )
+
+    # def get_loja_morada_contacto(self, id):
+    #     # all pred and obj of a given morada and contacto, except pred=a that is saved in ?m_type and c_type
+    #     query = """
+    #         PREFIX loja: <http://www.shop.pt/loja/>
+    #         PREFIX morada: <http://www.shop.pt/morada/>
+    #         PREFIX contacto: <http://www.shop.pt/contacto/>
+    #         SELECT ?obj ?pred ?m_pred ?m_obj ?m_type ?c_pred ?c_obj ?c_type
+    #         WHERE {
+    #             {
+    #                 loja:"""+id+""" loja:morada ?morada_id .
+    #                 ?morada_id ?m_pred ?m_obj .
+    #                 MINUS {
+    #                     ?s a ?m_obj
+    #                 }
+    #                 ?morada_id a ?m_type .
+    #             }
+    #             UNION
+    #             {
+    #                 loja:"""+id+""" loja:contacto ?contacto_id .
+    #                 ?contacto_id ?c_pred ?c_obj .
+    #                 MINUS {
+    #                     ?s a ?c_obj
+    #                 }
+    #                 ?contacto_id a ?c_type .
+    #             }
+    #         }
+    #         """
+    #     return self.run_query( query )
 
     def run_query( self, query ):
         payload_query = {"query": query}
         res = self.accessor.sparql_select(body=payload_query, repo_name=self.repo_name)
-        res = json.loads(res)
-        # result = []
 
-        # for e in res['results']['bindings']:
-        #     for ee in e:
-        #         print({ee:e[ee]['value']})
-        #         # result.append({ee:e[ee]['value']})
-        # print('\n\n')
-        return res
+        return json.loads(res)
