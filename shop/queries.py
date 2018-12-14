@@ -12,29 +12,38 @@ class GraphDB:
         client = ApiClient(endpoint=endpoint)
         self.accessor = GraphDBApi(client)
 
-    def list_modelo_nome(self):
+
+    def list_modelo_id_nome(self):
+        # id and nome of all modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
-            SELECT ?nome ?id
+            SELECT ?id ?nome
             WHERE {
                 ?id modelo:nome ?nome .
             }
             """
         return self.run_query( query )
 
-    def get_modelo(self, id):
-        # all pred and obj of a given modelo, except pred=a or pred=loja
+    def list_modelo_a(self):
+        # type of all modelo
+        query = """
+            SELECT DISTINCT ?type
+            WHERE {
+                ?s a ?type .
+                FILTER ( regex(str(?s), "http://www.shop.pt/modelo/[0-9]+") )
+            }
+            """
+        return self.run_query( query )
+
+    def get_modelo_regular(self, id):
+        # regular pred and obj of a given modelo, except if pred=[a, loja]
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?pred ?obj
             WHERE {
                 modelo:"""+id+""" ?pred ?obj .
-                MINUS {
-                    modelo:"""+id+""" a ?obj
-                }
-                MINUS {
-                    modelo:"""+id+""" modelo:loja ?obj
-                }
+                MINUS { ?s a ?obj }
+                MINUS { ?s modelo:loja ?obj }
             }
             """
         return self.run_query( query )
@@ -62,33 +71,25 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT DISTINCT ?marca
             WHERE {
-                ?sub modelo:categoria ?marca .
-            }
-            """
-        return self.run_query( query )
-
-    def list_modelo_a(self):
-        # type of all modelo
-        query = """
-            SELECT DISTINCT ?type
-            WHERE {
-                ?sub a ?type .
-                FILTER ( regex(str(?sub), "http://www.shop.pt/modelo/[0-9]+") )
+                ?s modelo:categoria ?marca .
             }
             """
         return self.run_query( query )
 
     def list_modelo_em_loja(self, id):
+        # loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
-            SELECT ?loja_id ?unidades ?nome
+            SELECT ?loja_uri ?pred ?obj ?nome
             WHERE {
-                modelo:"""+id+""" modelo:loja ?modelo_em_loja .
-                ?modelo_em_loja modelo_em_loja:LojaID ?loja_id .
-                ?modelo_em_loja modelo_em_loja:unidades ?unidades .
-                ?loja_id loja:nome ?nome .
+                modelo:"""+id+"""       modelo:loja                 ?modelo_em_loja_uri .
+                ?modelo_em_loja_uri     modelo_em_loja:LojaID       ?loja_uri ;
+                                        ?pred                       ?obj .
+                ?loja_uri               loja:nome                   ?nome .
+
+                MINUS { ?s modelo_em_loja:LojaID ?obj }
             }
             """
         return self.run_query( query )
@@ -96,10 +97,11 @@ class GraphDB:
     #
     #not used atm
     #
-    def list_loja_nome(self):
+    def list_loja_id_nome(self):
+        # id and nome of all loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
-            SELECT ?nome ?id
+            SELECT ?id ?nome
             WHERE {
                 ?id loja:nome ?nome .
             }
@@ -128,8 +130,8 @@ class GraphDB:
             PREFIX morada: <http://www.shop.pt/morada/>
             SELECT ?obj ?pred
             WHERE {
-                    loja:"""+id+""" loja:morada ?morada_id .
-                    ?morada_id ?pred ?obj .
+                    loja:"""+id+""" loja:morada ?morada_uri .
+                    ?morada_uri ?pred ?obj .
 
                     MINUS { ?s a ?obj }
             }
@@ -143,8 +145,8 @@ class GraphDB:
             PREFIX contacto: <http://www.shop.pt/contacto/>
             SELECT ?obj ?pred
             WHERE {
-                    loja:"""+id+""" loja:contacto ?contacto_id .
-                    ?contacto_id ?pred ?obj .
+                    loja:"""+id+""" loja:contacto ?contacto_uri .
+                    ?contacto_uri ?pred ?obj .
 
                     MINUS { ?s a ?obj }
             }
