@@ -3,21 +3,21 @@
 @prefix contacto: <http://www.shop.pt/contacto/> . 
 @prefix modelo: <http://www.shop.pt/modelo/> . 
 @prefix modelo_em_loja: <http://www.shop.pt/modelo/loja/> . 
-@prefix Computador: <http://www.shop.pt/computador/> . 
-@prefix Telemovel: <http://www.shop.pt/telemovel/> . 
-@prefix Tablet: <http://www.shop.pt/tablet/> . 
-@prefix Camara: <http://www.shop.pt/camara/> . 
-@prefix Drone: <http://www.shop.pt/drone/> . 
-@prefix Tv: <http://www.shop.pt/tv/> . 
-@prefix LeitorBlueray: <http://www.shop.pt/leitorblueray/> . 
-@prefix MaquinaCafe: <http://www.shop.pt/maquinacafe/> . 
-@prefix Microondas: <http://www.shop.pt/microondas/> . 
-@prefix MaquinaLavarRoupa: <http://www.shop.pt/maquinalavarroupa/> . 
-@prefix MaquinaSecarRoupa: <http://www.shop.pt/maquinasecarroupa/> . 
-@prefix Aspirador: <http://www.shop.pt/aspirador/> . 
-@prefix GamingPc: <http://www.shop.pt/gamingpc/> . 
-@prefix Consola: <http://www.shop.pt/consola/> . 
-@prefix Jogo: <http://www.shop.pt/jogo/> . 
+@prefix computador: <http://www.shop.pt/computador/> . 
+@prefix telemovel: <http://www.shop.pt/telemovel/> . 
+@prefix tablet: <http://www.shop.pt/tablet/> . 
+@prefix camara: <http://www.shop.pt/camara/> . 
+@prefix drone: <http://www.shop.pt/drone/> . 
+@prefix tv: <http://www.shop.pt/tv/> . 
+@prefix leitor_blueray: <http://www.shop.pt/leitor_blueray/> . 
+@prefix maquina_cafe: <http://www.shop.pt/maquina_cafe/> . 
+@prefix microondas: <http://www.shop.pt/microondas/> . 
+@prefix maquina_lavar_roupa: <http://www.shop.pt/maquina_lavar_roupa/> . 
+@prefix maquina_secar_roupa: <http://www.shop.pt/maquina_secar_roupa/> . 
+@prefix aspirador: <http://www.shop.pt/aspirador/> . 
+@prefix gaming_pc: <http://www.shop.pt/gaming_pc/> . 
+@prefix consola: <http://www.shop.pt/consola/> . 
+@prefix jogo: <http://www.shop.pt/jogo/> . 
 
 
 
@@ -85,7 +85,7 @@ contacto:13
 
 
 modelo:001
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "Vivobook Flip TP410UA-57DHDCB2" ; 
 	modelo:marca "Asus" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -106,7 +106,7 @@ modelo_em_loja:00113
 
 
 modelo:002
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "Zenbook UX430UA-78DHDCB1" ; 
 	modelo:marca "Asus" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -127,7 +127,7 @@ modelo_em_loja:00212
 
 
 modelo:003
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "15-DA0002NP" ; 
 	modelo:marca "HP" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -152,7 +152,7 @@ modelo_em_loja:00313
 
 
 modelo:004
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "15-DAO117NP" ; 
 	modelo:marca "Asus" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -177,7 +177,7 @@ modelo_em_loja:00413
 
 
 modelo:005
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-472" ; 
 	modelo:marca "LeNovo" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -194,7 +194,7 @@ modelo_em_loja:00511
 
 
 modelo:006
-	a Computador: ; 
+	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-534" ; 
 	modelo:marca "LeNovo" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -215,7 +215,7 @@ modelo_em_loja:00612
 
 
 modelo:007
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "REDMI 64 PRETO" ; 
 	modelo:marca "Xiaomi" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -236,7 +236,7 @@ modelo_em_loja:00713
 
 
 modelo:008
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "REDMI S2 CINZENTO" ; 
 	modelo:marca "Xiaomi" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -253,7 +253,7 @@ modelo_em_loja:00813
 
 
 modelo:009
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "IPHONE XR PRETO" ; 
 	modelo:marca "Apple" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -278,7 +278,7 @@ modelo_em_loja:00913
 
 
 modelo:010
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "IPHONE 7 DOURADO" ; 
 	modelo:marca "Apple" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -303,7 +303,7 @@ modelo_em_loja:01013
 
 
 modelo:011
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "MATE 10 LITE AZUL" ; 
 	modelo:marca "Huawei" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -324,7 +324,7 @@ modelo_em_loja:01113
 
 
 modelo:012
-	a Telemovel: ; 
+	a telemovel: ; 
 	modelo:nome "P20 LITE PRETO" ; 
 	modelo:marca "Huawei" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -345,7 +345,7 @@ modelo_em_loja:01213
 
 
 modelo:013
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "TAB 4 TB-X304F" ; 
 	modelo:marca "LeNovo" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -366,7 +366,7 @@ modelo_em_loja:01312
 
 
 modelo:014
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "TAB 4 TB-8504F" ; 
 	modelo:marca "LeNovo" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -383,7 +383,7 @@ modelo_em_loja:01413
 
 
 modelo:015
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "IPAD CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -408,7 +408,7 @@ modelo_em_loja:01513
 
 
 modelo:016
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "IPAD PRO CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -433,7 +433,7 @@ modelo_em_loja:01613
 
 
 modelo:017
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "MEDIAPAD T3" ; 
 	modelo:marca "Huawei" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -458,7 +458,7 @@ modelo_em_loja:01713
 
 
 modelo:018
-	a Tablet: ; 
+	a tablet: ; 
 	modelo:nome "MEDIAPAD T3 - 7" ; 
 	modelo:marca "Huawei" ; 
 	modelo:categoria "Comunicação Móvel" ; 
@@ -475,7 +475,7 @@ modelo_em_loja:01813
 
 
 modelo:019
-	a Camara: ; 
+	a camara: ; 
 	modelo:nome "EOS M100 Branca + 15-45 IS STM" ; 
 	modelo:marca "Canon" ; 
 	modelo:categoria "Fotografia" ; 
@@ -494,7 +494,7 @@ modelo_em_loja:01913
 
 
 modelo:020
-	a Camara: ; 
+	a camara: ; 
 	modelo:nome "EOS 4000D Preta + 18-55 + Mochila + SD 16GB" ; 
 	modelo:marca "Canon" ; 
 	modelo:categoria "Fotografia" ; 
@@ -513,7 +513,7 @@ modelo_em_loja:02013
 
 
 modelo:021
-	a Camara: ; 
+	a camara: ; 
 	modelo:nome "D5300 + 18-55 VR + Estojo + EBook" ; 
 	modelo:marca "Nikon" ; 
 	modelo:categoria "Fotografia" ; 
@@ -528,7 +528,7 @@ modelo_em_loja:02112
 
 
 modelo:022
-	a Camara: ; 
+	a camara: ; 
 	modelo:nome "D7500 + 18-105 VR" ; 
 	modelo:marca "Nikon" ; 
 	modelo:categoria "Fotografia" ; 
@@ -551,7 +551,7 @@ modelo_em_loja:02213
 
 
 modelo:023
-	a Drone: ; 
+	a drone: ; 
 	modelo:nome "Mambo Mission-Drone + Comando + Canhao + Garra" ; 
 	modelo:marca "Parrot" ; 
 	modelo:categoria "Fotografia" ; 
@@ -570,7 +570,7 @@ modelo_em_loja:02313
 
 
 modelo:024
-	a Drone: ; 
+	a drone: ; 
 	modelo:nome "DRONE BEBOP 2 BRANCO" ; 
 	modelo:marca "Parrot" ; 
 	modelo:categoria "Fotografia" ; 
@@ -593,7 +593,7 @@ modelo_em_loja:02413
 
 
 modelo:025
-	a Tv: ; 
+	a tv: ; 
 	modelo:nome "LE24IP43973 TVs LED" ; 
 	modelo:marca "Silver" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -608,7 +608,7 @@ modelo_em_loja:02513
 
 
 modelo:026
-	a Tv: ; 
+	a tv: ; 
 	modelo:nome "IP-LE410005 SMART TVs LED" ; 
 	modelo:marca "Silver" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -627,7 +627,7 @@ modelo_em_loja:02613
 
 
 modelo:027
-	a Tv: ; 
+	a tv: ; 
 	modelo:nome "49SK8000 SMART TVs LED" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -650,7 +650,7 @@ modelo_em_loja:02713
 
 
 modelo:028
-	a Tv: ; 
+	a tv: ; 
 	modelo:nome "55SK8000 SMART TVs" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -673,7 +673,7 @@ modelo_em_loja:02813
 
 
 modelo:029
-	a LeitorBlueray: ; 
+	a leitor_blueray: ; 
 	modelo:nome "2D BP250" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -687,7 +687,7 @@ modelo_em_loja:02911
 
 
 modelo:030
-	a LeitorBlueray: ; 
+	a leitor_blueray: ; 
 	modelo:nome "UBK90" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -705,7 +705,7 @@ modelo_em_loja:03013
 
 
 modelo:031
-	a LeitorBlueray: ; 
+	a leitor_blueray: ; 
 	modelo:nome "BDP-S1700" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -723,7 +723,7 @@ modelo_em_loja:03112
 
 
 modelo:032
-	a LeitorBlueray: ; 
+	a leitor_blueray: ; 
 	modelo:nome "UBP-X700" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "Tecnologia de Casa" ; 
@@ -745,7 +745,7 @@ modelo_em_loja:03213
 
 
 modelo:033
-	a MaquinaCafe: ; 
+	a maquina_cafe: ; 
 	modelo:nome "KRUPS INISSIA XN1001" ; 
 	modelo:marca "Nespresso" ; 
 	modelo:categoria "Cozinha" ; 
@@ -768,7 +768,7 @@ modelo_em_loja:03313
 
 
 modelo:034
-	a MaquinaCafe: ; 
+	a maquina_cafe: ; 
 	modelo:nome "KRUPS EXPERT XN6008" ; 
 	modelo:marca "Nespresso" ; 
 	modelo:categoria "Cozinha" ; 
@@ -791,7 +791,7 @@ modelo_em_loja:03413
 
 
 modelo:035
-	a MaquinaCafe: ; 
+	a maquina_cafe: ; 
 	modelo:nome "QOOL EVOLUTION" ; 
 	modelo:marca "Delta" ; 
 	modelo:categoria "Cozinha" ; 
@@ -806,7 +806,7 @@ modelo_em_loja:03512
 
 
 modelo:036
-	a MaquinaCafe: ; 
+	a maquina_cafe: ; 
 	modelo:nome "Q Capsulas Qool Evolution + 50 Capsulas" ; 
 	modelo:marca "Delta" ; 
 	modelo:categoria "Cozinha" ; 
@@ -821,7 +821,7 @@ modelo_em_loja:03612
 
 
 modelo:037
-	a Microondas: ; 
+	a microondas: ; 
 	modelo:nome "MS23F301TAK" ; 
 	modelo:marca "Samsung" ; 
 	modelo:categoria "Cozinha" ; 
@@ -840,7 +840,7 @@ modelo_em_loja:03713
 
 
 modelo:038
-	a Microondas: ; 
+	a microondas: ; 
 	modelo:nome "MG28J5215AB" ; 
 	modelo:marca "Samsung" ; 
 	modelo:categoria "Cozinha" ; 
@@ -863,7 +863,7 @@ modelo_em_loja:03813
 
 
 modelo:039
-	a Microondas: ; 
+	a microondas: ; 
 	modelo:nome "1824FL" ; 
 	modelo:marca "Flama" ; 
 	modelo:categoria "Cozinha" ; 
@@ -882,7 +882,7 @@ modelo_em_loja:03913
 
 
 modelo:040
-	a Microondas: ; 
+	a microondas: ; 
 	modelo:nome "1834FL" ; 
 	modelo:marca "Flama" ; 
 	modelo:categoria "Cozinha" ; 
@@ -905,7 +905,7 @@ modelo_em_loja:04013
 
 
 modelo:041
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG91284W" ; 
 	modelo:marca "Whirlpoll" ; 
 	modelo:categoria "Limpeza" ; 
@@ -928,7 +928,7 @@ modelo_em_loja:04113
 
 
 modelo:042
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG71283W" ; 
 	modelo:marca "Whirlpoll" ; 
 	modelo:categoria "Limpeza" ; 
@@ -951,7 +951,7 @@ modelo_em_loja:04213
 
 
 modelo:043
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "F4J5TN3W" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Limpeza" ; 
@@ -966,7 +966,7 @@ modelo_em_loja:04311
 
 
 modelo:044
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "FH495BDS2 TWINWASH" ; 
 	modelo:marca "LG" ; 
 	modelo:categoria "Limpeza" ; 
@@ -985,7 +985,7 @@ modelo_em_loja:04412
 
 
 modelo:045
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "FMG823B" ; 
 	modelo:marca "Hotpoint" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1004,7 +1004,7 @@ modelo_em_loja:04513
 
 
 modelo:046
-	a MaquinaLavarRoupa: ; 
+	a maquina_lavar_roupa: ; 
 	modelo:nome "RSF 925 JA" ; 
 	modelo:marca "Hotpoint" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1019,7 +1019,7 @@ modelo_em_loja:04611
 
 
 modelo:047
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "EDPE-G 45-A1" ; 
 	modelo:marca "Indesit" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1034,7 +1034,7 @@ modelo_em_loja:04712
 
 
 modelo:048
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "IDCL-G5.B.H" ; 
 	modelo:marca "Indesit" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1049,7 +1049,7 @@ modelo_em_loja:04812
 
 
 modelo:049
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "AQC9 4F5 T/Z1 EU" ; 
 	modelo:marca "Hotpoint" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1072,7 +1072,7 @@ modelo_em_loja:04913
 
 
 modelo:050
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "TCD-874-6H1" ; 
 	modelo:marca "Hotpoint" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1095,7 +1095,7 @@ modelo_em_loja:05013
 
 
 modelo:051
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "WTG85231EE" ; 
 	modelo:marca "Bosh" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1114,7 +1114,7 @@ modelo_em_loja:05113
 
 
 modelo:052
-	a MaquinaSecarRoupa: ; 
+	a maquina_secar_roupa: ; 
 	modelo:nome "WTW87640ES" ; 
 	modelo:marca "Bosh" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1133,7 +1133,7 @@ modelo_em_loja:05213
 
 
 modelo:053
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "Roomba 616" ; 
 	modelo:marca "IronBot" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1151,7 +1151,7 @@ modelo_em_loja:05313
 
 
 modelo:054
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "Roomba 980" ; 
 	modelo:marca "IronBot" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1173,7 +1173,7 @@ modelo_em_loja:05413
 
 
 modelo:055
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "TE70 TE75011 CLASSE A" ; 
 	modelo:marca "Hoover" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1187,7 +1187,7 @@ modelo_em_loja:05512
 
 
 modelo:056
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "HY70 HYDROPOWER COM FILTRO AGUA CLASSE A" ; 
 	modelo:marca "Hoover" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1209,7 +1209,7 @@ modelo_em_loja:05613
 
 
 modelo:057
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "COMPACT P PARQUET R03953EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1227,7 +1227,7 @@ modelo_em_loja:05712
 
 
 modelo:058
-	a Aspirador: ; 
+	a aspirador: ; 
 	modelo:nome "SILENCE FORCE A4 ANIMAL CARE PRO R07681EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
 	modelo:categoria "Limpeza" ; 
@@ -1241,7 +1241,7 @@ modelo_em_loja:05813
 
 
 modelo:059
-	a GamingPc: ; 
+	a gaming_pc: ; 
 	modelo:nome "Desktop 880-140NP" ; 
 	modelo:marca "HP" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1262,7 +1262,7 @@ modelo_em_loja:05913
 
 
 modelo:060
-	a GamingPc: ; 
+	a gaming_pc: ; 
 	modelo:nome "Omen Laptop 17-AN100NP" ; 
 	modelo:marca "HP" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1279,7 +1279,7 @@ modelo_em_loja:06011
 
 
 modelo:061
-	a GamingPc: ; 
+	a gaming_pc: ; 
 	modelo:nome "VIVOBOOK A560UD-58A05PB2" ; 
 	modelo:marca "Asus" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1304,7 +1304,7 @@ modelo_em_loja:06113
 
 
 modelo:062
-	a GamingPc: ; 
+	a gaming_pc: ; 
 	modelo:nome "TUF FX504GD-78A05PB1" ; 
 	modelo:marca "Asus" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1329,7 +1329,7 @@ modelo_em_loja:06213
 
 
 modelo:063
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "PS4 Slim 1TB Preta + Red Dead Redemption II" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1348,7 +1348,7 @@ modelo_em_loja:06313
 
 
 modelo:064
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "PS4 1TB Preta + FIFA 19" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1367,7 +1367,7 @@ modelo_em_loja:06413
 
 
 modelo:065
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + GAME PASS 3 MESES" ; 
 	modelo:marca "Microsoft" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1382,7 +1382,7 @@ modelo_em_loja:06513
 
 
 modelo:066
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + TOMB RAIDER" ; 
 	modelo:marca "Microsoft" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1405,7 +1405,7 @@ modelo_em_loja:06613
 
 
 modelo:067
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "SWITCH AZUL/VERMELHO NEON" ; 
 	modelo:marca "Nintendo" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1420,7 +1420,7 @@ modelo_em_loja:06711
 
 
 modelo:068
-	a Consola: ; 
+	a consola: ; 
 	modelo:nome "SWITCH POKEMON EEVEE + POKEBALL" ; 
 	modelo:marca "Nintendo" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1435,7 +1435,7 @@ modelo_em_loja:06811
 
 
 modelo:069
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Marvel's Spider Man" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1451,7 +1451,7 @@ modelo_em_loja:06913
 
 
 modelo:070
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Assassin's Creed Odyssey" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1467,7 +1467,7 @@ modelo_em_loja:07013
 
 
 modelo:071
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Fifa 19" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1483,7 +1483,7 @@ modelo_em_loja:07113
 
 
 modelo:072
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "One WWE 2k19" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1499,7 +1499,7 @@ modelo_em_loja:07213
 
 
 modelo:073
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "One Fifa 19" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1515,7 +1515,7 @@ modelo_em_loja:07313
 
 
 modelo:074
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "One Fallout 4 GOTY" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1527,7 +1527,7 @@ modelo_em_loja:07413
 
 
 modelo:075
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Pokemon Let's Go Pikachu" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1543,7 +1543,7 @@ modelo_em_loja:07513
 
 
 modelo:076
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Snipperclips Cut It Out" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 
@@ -1555,7 +1555,7 @@ modelo_em_loja:07611
 
 
 modelo:077
-	a Jogo: ; 
+	a jogo: ; 
 	modelo:nome "Legend od Zelda: Breath Of The Wild" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 

@@ -3,6 +3,8 @@ import json
 from s4api.graphdb_api import GraphDBApi
 from s4api.swagger import ApiClient
 
+from pprint import pprint
+
 class GraphDB:
 
     # upload rdf file to repository
@@ -11,6 +13,30 @@ class GraphDB:
         self.repo_name = "shop"
         client = ApiClient(endpoint=endpoint)
         self.accessor = GraphDBApi(client)
+
+
+    def get_next_id(self, type):
+        # higher uri from all type
+        # allowed type: loja, modelo
+
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT (max(?uri) as ?uri_max)
+            WHERE {
+                ?uri    """+type+""":nome   ?o .
+            }
+            """
+
+        query_result = self.select_query( query )
+
+        # get higher id from query_result
+        for e in query_result['results']['bindings']:
+            id_max = e['uri_max']['value'].split('/')[-1]
+
+        next_id = str( int(id_max)+1 )
+
+        return next_id
 
 
     def list_modelo_uri_nome(self):
@@ -96,6 +122,30 @@ class GraphDB:
             """
         return self.select_query( query )
 
+    def add_modelo(self, type, fields):
+        # insert loja with the new highest id in DB
+
+        nome = fields['nome']
+        marca = fields['marca']
+        categoria = fields['categoria']
+        preco = str(fields['preco'])
+
+        id = '0'+self.get_next_id( 'modelo' )
+
+        update = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX jogo: <http://www.shop.pt/jogo/>
+            INSERT DATA {
+                    modelo:"""+id+"""   a                   """+type+""": ;
+                                        modelo:nome         '"""+nome+"""' ;
+                                        modelo:marca        '"""+marca+"""' ;
+                                        modelo:categoria    '"""+categoria+"""' ;
+                                        modelo:preco        '"""+preco+"""' .
+            }
+            """
+        self.update_query( update )
+
+
     #
     #not used atm
     #
@@ -155,17 +205,6 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def get_loja_uri_max(self):
-        # higher uri from all loja
-        query = """
-            PREFIX loja: <http://www.shop.pt/loja/>
-            SELECT (max(?uri) as ?uri_max)
-            WHERE {
-                ?uri    loja:nome   ?o .
-            }
-            """
-        return self.select_query( query )
-
     def exists_modelo_name(self, nome):
         # boolean exists_nome if any modelo has nome==arg
         query = """
@@ -192,8 +231,8 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def add_loja(self, id, fields):
-        # add Loja to DB
+    def add_loja(self, fields):
+        # insert loja with the new highest id in DB
 
         nome = fields['nome']
         grupo = fields['grupo']
@@ -206,6 +245,8 @@ class GraphDB:
         fax = fields['fax']
         email = fields['email']
         website = fields['website']
+
+        id = self.get_next_id( 'loja' )
 
         update = """
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -230,7 +271,7 @@ class GraphDB:
                                         contacto:website    '"""+website+"""' .
             }
             """
-        return self.update_query( update )
+        self.update_query( update )
 
     # def get_loja_morada_contacto(self, id):
     #     # all pred and obj of a given morada and contacto, except pred=a that is saved in ?m_type and c_type
@@ -269,4 +310,7 @@ class GraphDB:
 
     def update_query( self, update ):
         payload_query = {"update": update}
-        res = self.accessor.sparql_update(body=payload_query, repo_name=self.repo_name)
+        res = str( self.accessor.sparql_update(body=payload_query, repo_name=self.repo_name) )
+
+        if res.__contains__('Exception'):
+            pprint(res)

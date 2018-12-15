@@ -126,21 +126,19 @@ class AddModeloForm(forms.Form):
             self.drone()
         if type=='tv':
             self.tv()
-        if type=='leitorblueray':
+        if type=='leitor_blueray':
             self.leitorblueray()
-        if type=='maquinacafe':
+        if type=='maquina_cafe':
             self.maquinacafe()
         if type=='microondas':
             self.microondas()
-        if type=='maquinalavarroupa':
+        if type=='maquina_lavar_roupa':
             self.maquinalavarroupa()
-        if type=='maquinasecarroupa':
+        if type=='maquina_secar_roupa':
             self.maquinasecarroupa()
         if type=='aspirador':
             self.aspirador()
-        if type=='aspirador':
-            self.aspirador()
-        if type=='gamingpc':
+        if type=='gaming_pc':
             self.gamingpc()
         if type=='consola':
             self.consola()

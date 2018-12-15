@@ -25,21 +25,21 @@
     <xsl:text disable-output-escaping="yes">@prefix contacto: &lt;http://www.shop.pt/contacto/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix modelo: &lt;http://www.shop.pt/modelo/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix modelo_em_loja: &lt;http://www.shop.pt/modelo/loja/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Computador: &lt;http://www.shop.pt/computador/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Telemovel: &lt;http://www.shop.pt/telemovel/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Tablet: &lt;http://www.shop.pt/tablet/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Camara: &lt;http://www.shop.pt/camara/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Drone: &lt;http://www.shop.pt/drone/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Tv: &lt;http://www.shop.pt/tv/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix LeitorBlueray: &lt;http://www.shop.pt/leitorblueray/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix MaquinaCafe: &lt;http://www.shop.pt/maquinacafe/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Microondas: &lt;http://www.shop.pt/microondas/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix MaquinaLavarRoupa: &lt;http://www.shop.pt/maquinalavarroupa/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix MaquinaSecarRoupa: &lt;http://www.shop.pt/maquinasecarroupa/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Aspirador: &lt;http://www.shop.pt/aspirador/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix GamingPc: &lt;http://www.shop.pt/gamingpc/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Consola: &lt;http://www.shop.pt/consola/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix Jogo: &lt;http://www.shop.pt/jogo/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix computador: &lt;http://www.shop.pt/computador/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix telemovel: &lt;http://www.shop.pt/telemovel/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix tablet: &lt;http://www.shop.pt/tablet/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix camara: &lt;http://www.shop.pt/camara/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix drone: &lt;http://www.shop.pt/drone/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix tv: &lt;http://www.shop.pt/tv/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix leitor_blueray: &lt;http://www.shop.pt/leitor_blueray/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_cafe: &lt;http://www.shop.pt/maquina_cafe/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix microondas: &lt;http://www.shop.pt/microondas/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_lavar_roupa: &lt;http://www.shop.pt/maquina_lavar_roupa/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_secar_roupa: &lt;http://www.shop.pt/maquina_secar_roupa/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix aspirador: &lt;http://www.shop.pt/aspirador/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix gaming_pc: &lt;http://www.shop.pt/gaming_pc/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix consola: &lt;http://www.shop.pt/consola/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix jogo: &lt;http://www.shop.pt/jogo/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">&#xa;&#xa;&#xa;</xsl:text>
 
     <xsl:apply-templates/>
@@ -158,7 +158,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Computador:</xsl:text>
+          <xsl:text>&#9;a computador:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -250,7 +250,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Telemovel:</xsl:text>
+          <xsl:text>&#9;a telemovel:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -342,7 +342,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Tablet:</xsl:text>
+          <xsl:text>&#9;a tablet:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -434,7 +434,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Camara:</xsl:text>
+          <xsl:text>&#9;a camara:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -516,7 +516,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Drone:</xsl:text>
+          <xsl:text>&#9;a drone:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -598,7 +598,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Tv:</xsl:text>
+          <xsl:text>&#9;a tv:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -680,7 +680,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a LeitorBlueray:</xsl:text>
+          <xsl:text>&#9;a leitor_blueray:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -757,7 +757,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a MaquinaCafe:</xsl:text>
+          <xsl:text>&#9;a maquina_cafe:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -839,7 +839,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Microondas:</xsl:text>
+          <xsl:text>&#9;a microondas:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -921,7 +921,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a MaquinaLavarRoupa:</xsl:text>
+          <xsl:text>&#9;a maquina_lavar_roupa:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -1003,7 +1003,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a MaquinaSecarRoupa:</xsl:text>
+          <xsl:text>&#9;a maquina_secar_roupa:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -1085,7 +1085,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Aspirador:</xsl:text>
+          <xsl:text>&#9;a aspirador:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -1162,7 +1162,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a GamingPc:</xsl:text>
+          <xsl:text>&#9;a gaming_pc:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -1254,7 +1254,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Consola:</xsl:text>
+          <xsl:text>&#9;a consola:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->
@@ -1336,7 +1336,7 @@
           <xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
-          <xsl:text>&#9;a Jogo:</xsl:text>
+          <xsl:text>&#9;a jogo:</xsl:text>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Nome -->

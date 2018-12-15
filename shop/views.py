@@ -85,10 +85,13 @@ def add_modelo(request, type):
     if request.method == 'POST':
         form = AddModeloForm(type, request.POST)
         if form.is_valid() and validate_modelo(form):
-            clean = form.cleaned_data
-            pprint(clean)
-            print('\n')
-            pprint(form.data)
+
+            # insert modelo with the new highest id in DB
+            g.add_modelo( form.type, form.cleaned_data )
+
+            # pprint(form.cleaned_data)
+            # print('\n')
+            # pprint(form.data)
             return redirect('list_modelo')
     else:
         form = AddModeloForm(type)
@@ -132,14 +135,8 @@ def add_loja(request):
         form = AddLojaForm(request.POST)
         if form.is_valid() and validate_loja(form):
 
-            # get loja higher id to use it in the add_loja
-            query = g.get_loja_uri_max()
-            for e in query['results']['bindings']:
-                id_max = e['uri_max']['value'].split('/')[-1]
-
-            # insert loja in DB
-            next_id = str(int(id_max)+1)
-            g.add_loja( next_id, form.cleaned_data )
+            # insert loja with the new highest id in DB
+            g.add_loja( form.cleaned_data )
 
             pprint( form.cleaned_data )
             return redirect('list_modelo')
