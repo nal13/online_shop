@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 import os
 from lxml import etree
-import pprint
+from pprint import pprint
 
-from .queries import GraphDB
+from .constants import *
 from .forms import AddModeloForm, AddLojaForm
+from .forms_validation import *
 
 
 def home(request):
@@ -60,13 +61,12 @@ def get_modelo(request, id):
 
 def add_buttons(request):
 
-    modelos = []
+    modelos_types = []
     query = g.list_modelo_a()
 
     for e in query['results']['bindings']:
         type = e['type']['value'].split('/')[-2]
-        modelos.append(type)
-    loja_type = 'loja'
+        modelos_types.append(type)
 
     ## for tests
     ##
@@ -78,24 +78,17 @@ def add_buttons(request):
     #     marcas.append((marca,marca))
     # print(marcas)
 
-    query = g.exists_loja_name('Media Markt Aveiro')
-    pprint.pprint(query)
-
-    return render(request, 'shop/add_buttons.html', {'modelos': modelos, 'loja_type': loja_type})
+    return render(request, 'shop/add_buttons.html', {'modelos_types': modelos_types, 'loja_type': 'loja'})
 
 def add_modelo(request, type):
 
     if request.method == 'POST':
         form = AddModeloForm(type, request.POST)
-        if form.is_valid():
+        if form.is_valid() and validate_modelo(form):
             clean = form.cleaned_data
-            nome = clean.get('nome')
-            marca = clean.get('marca')
-            categoria = clean.get('categoria')
-            preco = clean.get('preco')
-            pprint.pprint(clean)
+            pprint(clean)
             print('\n')
-            pprint.pprint(form.data)
+            pprint(form.data)
             return redirect('list_modelo')
     else:
         form = AddModeloForm(type)
@@ -109,15 +102,14 @@ def get_loja(request, id):
     query_regular = g.get_loja_regular(id)
     query_morada = g.get_loja_morada(id)
     query_contacto = g.get_loja_contacto(id)
-    # pprint.pprint(query_morada)
-    # pprint.pprint(query_regular)
-    # pprint.pprint(query_contacto)
 
+    # get regular pred and obj
     for e in query_regular['results']['bindings']:
         pred = e['pred']['value'].split('/')[-1]
         obj = e['obj']['value']
         loja.update({pred: obj})
 
+    # get morada pred and obj
     for e in query_morada['results']['bindings']:
         pred = e['pred']['value'].split('/')[-1]
         obj = e['obj']['value']
@@ -125,6 +117,7 @@ def get_loja(request, id):
     loja.update( {'morada':pairs} )
     pairs = {}
 
+    # get contacto pred and obj
     for e in query_contacto['results']['bindings']:
         pred = e['pred']['value'].split('/')[-1]
         obj = e['obj']['value']
@@ -136,23 +129,22 @@ def get_loja(request, id):
 def add_loja(request):
 
     if request.method == 'POST':
-        form = AddLojaForm(type, request.POST)
-        if form.is_valid():
+        form = AddLojaForm(request.POST)
+        if form.is_valid() and validate_loja(form):
 
+            # get loja higher id to use it in the add_loja
             query = g.get_loja_uri_max()
             for e in query['results']['bindings']:
                 id_max = e['uri_max']['value'].split('/')[-1]
-            pprint.pprint(id_max)
 
+            # insert loja in DB
             next_id = str(int(id_max)+1)
-            query = g.add_loja( next_id, form.cleaned_data )
-            pprint.pprint(query)
+            g.add_loja( next_id, form.cleaned_data )
 
-
-            pprint.pprint( form.cleaned_data )
+            pprint( form.cleaned_data )
             return redirect('list_modelo')
     else:
-        form = AddLojaForm(type)
+        form = AddLojaForm()
     return render(request, 'shop/add_loja.html', {'form': form})
 
 #
@@ -179,4 +171,4 @@ with open(path + 'dataset.n3', 'w', encoding='utf-8') as file:
 #
 #           start GraphDBapi
 #
-g = GraphDB()
+# initialized in: from .constants import *

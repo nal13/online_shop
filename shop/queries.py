@@ -19,7 +19,7 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?uri ?nome
             WHERE {
-                ?uri modelo:nome ?nome .
+                ?uri    modelo:nome  ?nome .
             }
             """
         return self.select_query( query )
@@ -29,7 +29,8 @@ class GraphDB:
         query = """
             SELECT DISTINCT ?type
             WHERE {
-                ?s a ?type .
+                ?s  a   ?type .
+
                 FILTER ( regex(str(?s), "http://www.shop.pt/modelo/[0-9]+") )
             }
             """
@@ -41,7 +42,8 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?pred ?obj
             WHERE {
-                modelo:"""+id+""" ?pred ?obj .
+                modelo:"""+id+"""   ?pred   ?obj .
+
                 MINUS { ?s a ?obj }
                 MINUS { ?s modelo:loja ?obj }
             }
@@ -57,7 +59,7 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT DISTINCT ?type
             WHERE {
-                modelo:"""+id+""" a ?type .
+                modelo:"""+id+"""   a   ?type .
             }
             """
         return self.select_query( query )
@@ -71,7 +73,7 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT DISTINCT ?marca
             WHERE {
-                ?s modelo:categoria ?marca .
+                ?s  modelo:categoria    ?marca .
             }
             """
         return self.select_query( query )
@@ -103,7 +105,7 @@ class GraphDB:
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT ?uri ?nome
             WHERE {
-                ?uri loja:nome ?nome .
+                ?uri    loja:nome   ?nome .
             }
             """
         return self.select_query( query )
@@ -114,7 +116,7 @@ class GraphDB:
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT ?obj ?pred
             WHERE {
-                loja:"""+id+""" ?pred ?obj .
+                loja:"""+id+""" ?pred   ?obj .
 
                 MINUS { ?s a ?obj }
                 MINUS { ?s loja:morada ?obj }
@@ -131,7 +133,7 @@ class GraphDB:
             SELECT ?obj ?pred
             WHERE {
                     loja:"""+id+""" loja:morada ?morada_uri .
-                    ?morada_uri ?pred ?obj .
+                    ?morada_uri     ?pred       ?obj .
 
                     MINUS { ?s a ?obj }
             }
@@ -145,48 +147,53 @@ class GraphDB:
             PREFIX contacto: <http://www.shop.pt/contacto/>
             SELECT ?obj ?pred
             WHERE {
-                    loja:"""+id+""" loja:contacto ?contacto_uri .
-                    ?contacto_uri ?pred ?obj .
+                    loja:"""+id+""" loja:contacto   ?contacto_uri .
+                    ?contacto_uri   ?pred           ?obj .
 
                     MINUS { ?s a ?obj }
             }
             """
         return self.select_query( query )
 
-    #
-    #not used atm
-    #
     def get_loja_uri_max(self):
         # higher uri from all loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT (max(?uri) as ?uri_max)
             WHERE {
-                ?uri loja:nome ?o .
+                ?uri    loja:nome   ?o .
             }
             """
         return self.select_query( query )
 
-    #
-    #not used atm
-    #
-    def exists_loja_name(self, nome):
-        # boolean exists_nome if any loja has nome==arg
+    def exists_modelo_name(self, nome):
+        # boolean exists_nome if any modelo has nome==arg
         query = """
-            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?exists_nome
             WHERE {
-                ?s loja:nome ?o .
+                ?s  modelo:nome   ?o .
 
                 BIND( (?o = '"""+nome+"""' ) AS ?exists_nome )
             }
             """
         return self.select_query( query )
 
-    #
-    #not used atm
-    #
+    def exists_loja_name(self, nome):
+        # boolean exists_nome if any loja has nome==arg
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT ?exists_nome
+            WHERE {
+                ?s  loja:nome   ?o .
+
+                BIND( (?o = '"""+nome+"""' ) AS ?exists_nome )
+            }
+            """
+        return self.select_query( query )
+
     def add_loja(self, id, fields):
+        # add Loja to DB
 
         nome = fields['nome']
         grupo = fields['grupo']
@@ -263,5 +270,3 @@ class GraphDB:
     def update_query( self, update ):
         payload_query = {"update": update}
         res = self.accessor.sparql_update(body=payload_query, repo_name=self.repo_name)
-
-        # return json.loads(res)

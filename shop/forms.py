@@ -2,7 +2,7 @@ from django import forms
 
 class AddLojaForm(forms.Form):
 
-    def __init__(self, type, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(AddLojaForm, self).__init__(*args, **kwargs)
 
         self.fields['nome'] = forms.CharField(
@@ -85,6 +85,8 @@ class AddModeloForm(forms.Form):
     def __init__(self, type, *args, **kwargs):
         super(AddModeloForm, self).__init__(*args, **kwargs)
 
+        self.type = type
+
         self.fields['nome'] = forms.CharField(
             label='Nome',
             required=True,
@@ -145,6 +147,8 @@ class AddModeloForm(forms.Form):
         if type=='jogo':
             pass
 
+    def get_type():
+        return self.type
 
 
     def computador(self):
@@ -248,7 +252,7 @@ class AddModeloForm(forms.Form):
         )
         self.fields['wireless'] = forms.BooleanField(
             label='Wireless',
-            required=True,
+            required=False,
         )
         self.fields['resolucaofoto'] = forms.ChoiceField(
             label='Resolução de Foto',
@@ -269,7 +273,7 @@ class AddModeloForm(forms.Form):
         )
         self.fields['camaraimb'] = forms.BooleanField(
             label='Camara Imb',
-            required=True,
+            required=False,
         )
 
     def tv(self):
@@ -325,7 +329,7 @@ class AddModeloForm(forms.Form):
     def microondas(self):
         self.fields['grill'] = forms.BooleanField(
             label='Grill',
-            required=True,
+            required=False,
         )
         self.fields['volumemax'] = forms.ChoiceField(
             label='Volume Máximo',
