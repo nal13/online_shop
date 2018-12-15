@@ -1,31 +1,111 @@
 from django import forms
 
-
-class AddModelForm(forms.Form):
+class AddLojaForm(forms.Form):
 
     def __init__(self, type, *args, **kwargs):
-        super(AddModelForm, self).__init__(*args, **kwargs)
+        super(AddLojaForm, self).__init__(*args, **kwargs)
 
         self.fields['nome'] = forms.CharField(
             label='Nome',
             required=True,
+            initial='Nova Loja',
+            min_length=4,
+            max_length=40
+        )
+        self.fields['grupo'] = forms.ChoiceField(
+            label='Grupo',
+            required=True,
+            choices=Lvars().grupo
+        )
+        self.fields['detalhes'] = forms.CharField(
+            label='Detalhes',
+            required=True,
+            initial='Novos Detalhes',
+            min_length=4,
+            max_length=40
+        )
+        self.fields['rua'] = forms.CharField(
+            label='Rua',
+            required=True,
+            initial='Nova Rua',
+            min_length=4,
+            max_length=40
+        )
+        self.fields['codigopostal'] = forms.CharField(
+            label='Codigo Postal',
+            required=True,
+            initial='9999-999',
             min_length=8,
+            max_length=8
+        )
+        self.fields['distrito'] = forms.ChoiceField(
+            label='Distrito',
+            required=True,
+            choices=Lvars().distrito
+        )
+        self.fields['pais'] = forms.ChoiceField(
+            label='País',
+            required=True,
+            choices=Lvars().pais
+        )
+        self.fields['telefone'] = forms.CharField(
+            label='Telefone',
+            required=True,
+            initial='+351 000 000 000',
+            min_length=9,
+            max_length=16
+        )
+        self.fields['fax'] = forms.CharField(
+            label='Fax',
+            required=False,
+            min_length=9,
+            max_length=16
+        )
+        self.fields['email'] = forms.CharField(
+            label='Email',
+            required=True,
+            initial='shop@mail.com',
+            min_length=4,
+            max_length=40
+        )
+        self.fields['website'] = forms.CharField(
+            label='Website',
+            required=False,
+            min_length=4,
+            max_length=40
+        )
+
+class Lvars:
+    grupo = [('Media Markt','Media Markt'), ]
+    distrito = [('Aveiro','Aveiro'), ('Braga','Braga'), ('Lisboa','Lisboa'), ('Porto','Porto'), ]
+    pais = [('Portugal','Portugal'), ]
+
+class AddModeloForm(forms.Form):
+
+    def __init__(self, type, *args, **kwargs):
+        super(AddModeloForm, self).__init__(*args, **kwargs)
+
+        self.fields['nome'] = forms.CharField(
+            label='Nome',
+            required=True,
+            initial='Novo Produto',
+            min_length=4,
             max_length=40
         )
         self.fields['marca'] = forms.ChoiceField(
             label='Marca',
             required=True,
-            choices=Fvars().marca
+            choices=Mvars().marca
         )
         self.fields['categoria'] = forms.ChoiceField(
             label='Categoria',
             required=True,
-            choices=Fvars().categoria
+            choices=Mvars().categoria
         )
         self.fields['preco'] = forms.DecimalField(
             label='Preco',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -71,27 +151,27 @@ class AddModelForm(forms.Form):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Fvars().computador_ram
+            choices=Mvars().computador_ram
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Fvars().computador_processador
+            choices=Mvars().computador_processador
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Fvars().computador_capacidadedisco
+            choices=Mvars().computador_capacidadedisco
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Fvars().computador_grafica
+            choices=Mvars().computador_grafica
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -102,27 +182,27 @@ class AddModelForm(forms.Form):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Fvars().telemovel_ram
+            choices=Mvars().telemovel_ram
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Fvars().telemovel_processador
+            choices=Mvars().telemovel_processador
         )
         self.fields['capacidadememoria'] = forms.ChoiceField(
             label='Capacidade de Memória',
             required=True,
-            choices=Fvars().telemovel_capacidadememoria
+            choices=Mvars().telemovel_capacidadememoria
         )
         self.fields['camara'] = forms.ChoiceField(
             label='Câmara',
             required=True,
-            choices=Fvars().telemovel_camara
+            choices=Mvars().telemovel_camara
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -133,27 +213,27 @@ class AddModelForm(forms.Form):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Fvars().tablet_ram
+            choices=Mvars().tablet_ram
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Fvars().tablet_processador
+            choices=Mvars().tablet_processador
         )
         self.fields['capacidadememoria'] = forms.ChoiceField(
             label='Capacidade de Memória',
             required=True,
-            choices=Fvars().tablet_capacidadememoria
+            choices=Mvars().tablet_capacidadememoria
         )
         self.fields['camara'] = forms.ChoiceField(
             label='Câmara',
             required=True,
-            choices=Fvars().tablet_camara
+            choices=Mvars().tablet_camara
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -164,7 +244,7 @@ class AddModelForm(forms.Form):
         self.fields['resolucaovideo'] = forms.ChoiceField(
             label='Resolução de Vídeo',
             required=True,
-            choices=Fvars().camara_resolucaovideo
+            choices=Mvars().camara_resolucaovideo
         )
         self.fields['wireless'] = forms.BooleanField(
             label='Wireless',
@@ -173,19 +253,19 @@ class AddModelForm(forms.Form):
         self.fields['resolucaofoto'] = forms.ChoiceField(
             label='Resolução de Foto',
             required=True,
-            choices=Fvars().camara_resolucaofoto
+            choices=Mvars().camara_resolucaofoto
         )
 
     def drone(self):
         self.fields['autonomia'] = forms.ChoiceField(
             label='Autonomia',
             required=True,
-            choices=Fvars().drone_autonomia
+            choices=Mvars().drone_autonomia
         )
         self.fields['raio'] = forms.ChoiceField(
             label='Raio',
             required=True,
-            choices=Fvars().drone_raio
+            choices=Mvars().drone_raio
         )
         self.fields['camaraimb'] = forms.BooleanField(
             label='Camara Imb',
@@ -196,7 +276,7 @@ class AddModelForm(forms.Form):
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -205,41 +285,41 @@ class AddModelForm(forms.Form):
         self.fields['qualidadeimagem'] = forms.ChoiceField(
             label='Qualidade de Imagem',
             required=True,
-            choices=Fvars().tv_qualidadeimagem
+            choices=Mvars().tv_qualidadeimagem
         )
         self.fields['frequencia'] = forms.ChoiceField(
             label='Frequência',
             required=True,
-            choices=Fvars().tv_frequencia
+            choices=Mvars().tv_frequencia
         )
 
     def leitorblueray(self):
         self.fields['formatosreproducao'] = forms.MultipleChoiceField(
             label='Formatos de Reprodução',
             required=True,
-            choices=Fvars().leitorblueray_formatosreproducao
+            choices=Mvars().leitorblueray_formatosreproducao
         )
         self.fields['resolucao'] = forms.ChoiceField(
             label='Resolução',
             required=True,
-            choices=Fvars().leitorblueray_resolucao
+            choices=Mvars().leitorblueray_resolucao
         )
 
     def maquinacafe(self):
         self.fields['cor'] = forms.ChoiceField(
             label='Cor',
             required=True,
-            choices=Fvars().maquinacafe_cor
+            choices=Mvars().maquinacafe_cor
         )
         self.fields['agua'] = forms.ChoiceField(
             label='Água',
             required=True,
-            choices=Fvars().maquinacafe_agua
+            choices=Mvars().maquinacafe_agua
         )
         self.fields['potencia'] = forms.ChoiceField(
             label='Potência',
             required=True,
-            choices=Fvars().maquinacafe_potencia
+            choices=Mvars().maquinacafe_potencia
         )
 
     def microondas(self):
@@ -250,85 +330,85 @@ class AddModelForm(forms.Form):
         self.fields['volumemax'] = forms.ChoiceField(
             label='Volume Máximo',
             required=True,
-            choices=Fvars().microndas_volumemax
+            choices=Mvars().microndas_volumemax
         )
         self.fields['potenciamax'] = forms.ChoiceField(
             label='Potência Máxima',
             required=True,
-            choices=Fvars().microndas_potenciamax
+            choices=Mvars().microndas_potenciamax
         )
 
     def maquinalavarroupa(self):
         self.fields['eficiencia'] = forms.ChoiceField(
             label='Eficiencia',
             required=True,
-            choices=Fvars().maquinalavarroupa_eficiencia
+            choices=Mvars().maquinalavarroupa_eficiencia
         )
         self.fields['capacidade'] = forms.ChoiceField(
             label='Capacidade',
             required=True,
-            choices=Fvars().maquinalavarroupa_capacidade
+            choices=Mvars().maquinalavarroupa_capacidade
         )
         self.fields['velocidadecen'] = forms.ChoiceField(
             label='Velocidade Centrífuga',
             required=True,
-            choices=Fvars().maquinalavarroupa_velocidadecen
+            choices=Mvars().maquinalavarroupa_velocidadecen
         )
 
     def maquinasecarroupa(self):
         self.fields['eficiencia'] = forms.ChoiceField(
             label='Eficiencia',
             required=True,
-            choices=Fvars().maquinasecarroupa_eficiencia
+            choices=Mvars().maquinasecarroupa_eficiencia
         )
         self.fields['capacidade'] = forms.ChoiceField(
             label='Capacidade',
             required=True,
-            choices=Fvars().maquinasecarroupa_capacidade
+            choices=Mvars().maquinasecarroupa_capacidade
         )
         self.fields['consumo'] = forms.ChoiceField(
             label='Consumo',
             required=True,
-            choices=Fvars().maquinasecarroupa_consumo
+            choices=Mvars().maquinasecarroupa_consumo
         )
 
     def aspirador(self):
         self.fields['potenciamax'] = forms.ChoiceField(
             label='Potência Máxima',
             required=True,
-            choices=Fvars().aspirador_potenciamax
+            choices=Mvars().aspirador_potenciamax
         )
         self.fields['volumemaxdep'] = forms.ChoiceField(
             label='Volume Máximo do Depósito',
             required=True,
-            choices=Fvars().aspirador_volumemaxdep
+            choices=Mvars().aspirador_volumemaxdep
         )
 
     def gamingpc(self):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Fvars().gamingpc_ram
+            choices=Mvars().gamingpc_ram
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Fvars().gamingpc_processador
+            choices=Mvars().gamingpc_processador
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Fvars().gamingpc_capacidadedisco
+            choices=Mvars().gamingpc_capacidadedisco
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Fvars().gamingpc_grafica
+            choices=Mvars().gamingpc_grafica
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -339,27 +419,27 @@ class AddModelForm(forms.Form):
         self.fields['cor'] = forms.MultipleChoiceField(
             label='Cor',
             required=True,
-            choices=Fvars().consola_cor
+            choices=Mvars().consola_cor
         )
         self.fields['jogoincluido'] = forms.ChoiceField(
             label='Jogo Incluido',
             required=True,
-            choices=Fvars().consola_jogoincluido
+            choices=Mvars().consola_jogoincluido
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Fvars().gamingpc_capacidadedisco
+            choices=Mvars().gamingpc_capacidadedisco
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Fvars().gamingpc_grafica
+            choices=Mvars().gamingpc_grafica
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
             required=True,
-            initial='0',
+            initial='1.00',
             min_value=1,
             max_value=9999,
             max_digits=6,
@@ -367,7 +447,7 @@ class AddModelForm(forms.Form):
         )
 
 
-class Fvars:
+class Mvars:
     marca = [
         ('Asus', 'Asus'), ('HP', 'HP'), ('LeNovo', 'LeNovo'), ('Xiaomi', 'Xiaomi'), ('Apple', 'Apple'), ('Huawei', 'Huawei'),
         ('Canon', 'Canon'), ('Nikon', 'Nikon'), ('Parrot', 'Parrot'), ('Silver', 'Silver'), ('LG', 'LG'), ('Sony', 'Sony'),

@@ -4,7 +4,7 @@ from lxml import etree
 import pprint
 
 from .queries import GraphDB
-from .forms import AddModelForm
+from .forms import AddModeloForm, AddLojaForm
 
 
 def home(request):
@@ -22,12 +22,12 @@ def product(request):
 def list_modelo(request):
 
     modelos = {}
-    query = g.list_modelo_id_nome()
+    query = g.list_modelo_uri_nome()
 
     for e in query['results']['bindings']:
-        id = e['id']['value'].split('/')[-1]
+        uri = e['uri']['value'].split('/')[-1]
         nome = e['nome']['value']
-        modelos.update({id: nome})
+        modelos.update({uri: nome})
 
     return render(request, 'shop/list_modelo.html', {'modelos': modelos})
 
@@ -58,7 +58,7 @@ def get_modelo(request, id):
 
     return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas})
 
-def add_modelo_buttons(request):
+def add_buttons(request):
 
     modelos = []
     query = g.list_modelo_a()
@@ -66,6 +66,7 @@ def add_modelo_buttons(request):
     for e in query['results']['bindings']:
         type = e['type']['value'].split('/')[-2]
         modelos.append(type)
+    loja_type = 'loja'
 
     ## for tests
     ##
@@ -77,21 +78,27 @@ def add_modelo_buttons(request):
     #     marcas.append((marca,marca))
     # print(marcas)
 
-    return render(request, 'shop/add_modelo_buttons.html', {'modelos': modelos})
+    query = g.exists_loja_name('Media Markt Aveiro')
+    pprint.pprint(query)
+
+    return render(request, 'shop/add_buttons.html', {'modelos': modelos, 'loja_type': loja_type})
 
 def add_modelo(request, type):
 
     if request.method == 'POST':
-        form = AddModelForm(type, request.POST)
+        form = AddModeloForm(type, request.POST)
         if form.is_valid():
             clean = form.cleaned_data
             nome = clean.get('nome')
             marca = clean.get('marca')
             categoria = clean.get('categoria')
             preco = clean.get('preco')
+            pprint.pprint(clean)
+            print('\n')
+            pprint.pprint(form.data)
             return redirect('list_modelo')
     else:
-        form = AddModelForm(type)
+        form = AddModeloForm(type)
     return render(request, 'shop/add_modelo.html', {'form': form})
 
 
@@ -126,6 +133,27 @@ def get_loja(request, id):
 
     return render(request, 'shop/get_loja.html', {'loja': loja})
 
+def add_loja(request):
+
+    if request.method == 'POST':
+        form = AddLojaForm(type, request.POST)
+        if form.is_valid():
+
+            query = g.get_loja_uri_max()
+            for e in query['results']['bindings']:
+                id_max = e['uri_max']['value'].split('/')[-1]
+            pprint.pprint(id_max)
+
+            next_id = str(int(id_max)+1)
+            query = g.add_loja( next_id, form.cleaned_data )
+            pprint.pprint(query)
+
+
+            pprint.pprint( form.cleaned_data )
+            return redirect('list_modelo')
+    else:
+        form = AddLojaForm(type)
+    return render(request, 'shop/add_loja.html', {'form': form})
 
 #
 #           XSLT transformation to N3 triples

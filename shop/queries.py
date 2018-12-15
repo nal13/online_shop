@@ -13,16 +13,16 @@ class GraphDB:
         self.accessor = GraphDBApi(client)
 
 
-    def list_modelo_id_nome(self):
-        # id and nome of all modelo
+    def list_modelo_uri_nome(self):
+        # uri and nome of all modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
-            SELECT ?id ?nome
+            SELECT ?uri ?nome
             WHERE {
-                ?id modelo:nome ?nome .
+                ?uri modelo:nome ?nome .
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def list_modelo_a(self):
         # type of all modelo
@@ -33,7 +33,7 @@ class GraphDB:
                 FILTER ( regex(str(?s), "http://www.shop.pt/modelo/[0-9]+") )
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def get_modelo_regular(self, id):
         # regular pred and obj of a given modelo, except if pred=[a, loja]
@@ -46,7 +46,7 @@ class GraphDB:
                 MINUS { ?s modelo:loja ?obj }
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     #
     #not used atm
@@ -60,7 +60,7 @@ class GraphDB:
                 modelo:"""+id+""" a ?type .
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     #
     #not used atm
@@ -74,7 +74,7 @@ class GraphDB:
                 ?s modelo:categoria ?marca .
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def list_modelo_em_loja(self, id):
         # loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
@@ -92,21 +92,21 @@ class GraphDB:
                 MINUS { ?s modelo_em_loja:LojaID ?obj }
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     #
     #not used atm
     #
-    def list_loja_id_nome(self):
+    def list_loja_uri_nome(self):
         # id and nome of all loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
-            SELECT ?id ?nome
+            SELECT ?uri ?nome
             WHERE {
-                ?id loja:nome ?nome .
+                ?uri loja:nome ?nome .
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def get_loja_regular(self, id):
         # regular pred and obj of a given loja, except if pred=[a, morada, contacto]
@@ -121,7 +121,7 @@ class GraphDB:
                 MINUS { ?s loja:contacto ?obj }
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def get_loja_morada(self, id):
         # pred and obj of morada a given loja
@@ -136,7 +136,7 @@ class GraphDB:
                     MINUS { ?s a ?obj }
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
 
     def get_loja_contacto(self, id):
         # pred and obj of contacto a given loja
@@ -151,7 +151,79 @@ class GraphDB:
                     MINUS { ?s a ?obj }
             }
             """
-        return self.run_query( query )
+        return self.select_query( query )
+
+    #
+    #not used atm
+    #
+    def get_loja_uri_max(self):
+        # higher uri from all loja
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT (max(?uri) as ?uri_max)
+            WHERE {
+                ?uri loja:nome ?o .
+            }
+            """
+        return self.select_query( query )
+
+    #
+    #not used atm
+    #
+    def exists_loja_name(self, nome):
+        # boolean exists_nome if any loja has nome==arg
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT ?exists_nome
+            WHERE {
+                ?s loja:nome ?o .
+
+                BIND( (?o = '"""+nome+"""' ) AS ?exists_nome )
+            }
+            """
+        return self.select_query( query )
+
+    #
+    #not used atm
+    #
+    def add_loja(self, id, fields):
+
+        nome = fields['nome']
+        grupo = fields['grupo']
+        detalhes = fields['detalhes']
+        rua = fields['rua']
+        codigopostal = fields['codigopostal']
+        distrito = fields['distrito']
+        pais = fields['pais']
+        telefone = fields['telefone']
+        fax = fields['fax']
+        email = fields['email']
+        website = fields['website']
+
+        update = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX morada: <http://www.shop.pt/morada/>
+            PREFIX contacto: <http://www.shop.pt/contacto/>
+            INSERT DATA {
+                    loja:"""+id+"""     a                   loja: ;
+                                        loja:nome           '"""+nome+"""' ;
+                                        loja:grupo          '"""+grupo+"""' ;
+                                        loja:morada         morada:"""+id+""" ;
+                                        loja:contacto       contacto:"""+id+""" .
+                    morada:"""+id+"""   a                   morada: ;
+                                        morada:detalhes     '"""+detalhes+"""' ;
+                                        morada:rua          '"""+rua+"""' ;
+                                        morada:codigopostal '"""+codigopostal+"""' ;
+                                        morada:distrito     '"""+distrito+"""' ;
+                                        morada:pais         '"""+pais+"""' .
+                    contacto:"""+id+""" a                   contacto: ;
+                                        contacto:telefone   '"""+telefone+"""' ;
+                                        contacto:fax        '"""+fax+"""' ;
+                                        contacto:email      '"""+email+"""' ;
+                                        contacto:website    '"""+website+"""' .
+            }
+            """
+        return self.update_query( update )
 
     # def get_loja_morada_contacto(self, id):
     #     # all pred and obj of a given morada and contacto, except pred=a that is saved in ?m_type and c_type
@@ -180,10 +252,16 @@ class GraphDB:
     #             }
     #         }
     #         """
-    #     return self.run_query( query )
+    #     return self.select_query( query )
 
-    def run_query( self, query ):
+    def select_query( self, query ):
         payload_query = {"query": query}
         res = self.accessor.sparql_select(body=payload_query, repo_name=self.repo_name)
 
         return json.loads(res)
+
+    def update_query( self, update ):
+        payload_query = {"update": update}
+        res = self.accessor.sparql_update(body=payload_query, repo_name=self.repo_name)
+
+        # return json.loads(res)

@@ -6,6 +6,7 @@
   {% for type in modelos %}
   <li><a href="{% url 'add_modelo' type %}">{{ type }}</a></li>
   {% endfor %}
+  <li><a href="{% url 'add_loja' loja_type %}">{{ loja_type }}</a></li>
 </ul>
 
 {% endblock %}
