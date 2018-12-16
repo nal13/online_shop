@@ -89,9 +89,6 @@ def add_modelo(request, type):
             # insert modelo with the new highest id in DB
             g.add_modelo( form.type, form.cleaned_data )
 
-            # pprint(form.cleaned_data)
-            # print('\n')
-            # pprint(form.data)
             return redirect('list_modelo')
     else:
         form = AddModeloForm(type)
@@ -127,7 +124,10 @@ def get_loja(request, id):
         pairs.update({pred: obj})
     loja.update( {'contacto':pairs} )
 
-    return render(request, 'shop/get_loja.html', {'loja': loja})
+    # session variable stored on the server
+    request.session[ 'get_loja_data' ] = loja
+
+    return render(request, 'shop/get_loja.html', {'loja': loja, 'id': id})
 
 def add_loja(request):
 
@@ -138,10 +138,32 @@ def add_loja(request):
             # insert loja with the new highest id in DB
             g.add_loja( form.cleaned_data )
 
-            pprint( form.cleaned_data )
             return redirect('list_modelo')
     else:
         form = AddLojaForm()
+    return render(request, 'shop/add_loja.html', {'form': form})
+
+def remove_loja(request, id):
+    # called in get_loja.html, don't have a web page
+
+    g.remove_loja( id )
+
+    return redirect('list_modelo')
+
+def edit_loja(request, id):
+
+    if request.method == 'POST':
+        form = AddLojaForm(request.POST)
+        if form.is_valid():
+
+            # insert loja with the new highest id in DB
+            g.add_loja( form.cleaned_data )
+
+            return redirect('list_modelo')
+    else:
+        form = AddLojaForm()
+        form.set_initial( request.session.get('get_loja_data') )
+
     return render(request, 'shop/add_loja.html', {'form': form})
 
 #

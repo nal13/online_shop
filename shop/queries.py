@@ -120,8 +120,21 @@ class GraphDB:
             """
         return self.select_query( query )
 
+    def exists_modelo_name(self, nome):
+        # boolean exists_nome if any modelo has nome==arg
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT ?exists_nome
+            WHERE {
+                ?s  modelo:nome   ?o .
+
+                BIND( (?o = '"""+nome+"""' ) AS ?exists_nome )
+            }
+            """
+        return self.select_query( query )
+
     def add_modelo(self, type, fields):
-        # insert loja with the new highest id in DB
+        # insert modelo with the new highest id in DB
 
         nome = fields['nome']
         marca = fields['marca']
@@ -223,7 +236,7 @@ class GraphDB:
         elif type == 'jogo':
             type_characteristics = ''
 
-        # query for each modelo_em_loja
+        # produces triples for each modelo_em_loja
         query = self.list_loja_uri_nome()
 
         modelo_em_loja = []
@@ -269,7 +282,6 @@ class GraphDB:
                                         """+''.join(modelo_em_loja)+"""
             }
             """
-
         self.update_query( update )
 
 
@@ -332,19 +344,6 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def exists_modelo_name(self, nome):
-        # boolean exists_nome if any modelo has nome==arg
-        query = """
-            PREFIX modelo: <http://www.shop.pt/modelo/>
-            SELECT ?exists_nome
-            WHERE {
-                ?s  modelo:nome   ?o .
-
-                BIND( (?o = '"""+nome+"""' ) AS ?exists_nome )
-            }
-            """
-        return self.select_query( query )
-
     def exists_loja_name(self, nome):
         # boolean exists_nome if any loja has nome==arg
         query = """
@@ -398,6 +397,28 @@ class GraphDB:
                                         contacto:website    '"""+website+"""' .
             }
             """
+        self.update_query( update )
+
+    def remove_loja(self, id):
+        # delete loja with id from DB
+
+        update = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX morada: <http://www.shop.pt/morada/>
+            PREFIX contacto: <http://www.shop.pt/contacto/>
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            DELETE WHERE {     loja:"""+id+"""        ?p          ?o . } ;
+            DELETE WHERE {     morada:"""+id+"""      ?p          ?o . } ;
+            DELETE WHERE {     contacto:"""+id+"""    ?p          ?o . } ;
+
+            DELETE WHERE {
+                ?s      modelo_em_loja:LojaID   loja:"""+id+""" ;
+                        ?p                      ?o .
+                ?s2     modelo:loja             ?s .
+            } ;
+            """
+        pprint(update)
         self.update_query( update )
 
     # def get_loja_morada_contacto(self, id):

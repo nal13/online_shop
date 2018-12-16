@@ -78,10 +78,18 @@ class AddLojaForm(forms.Form):
             max_length=40
         )
 
+    def set_initial(self, initial_fields):
+        # find and store new initial field values received in initial_fields
+
+        for field in self.fields:
+            initial_values = ''.join( find(field, initial_fields) )
+            self.fields[field].initial = initial_values
+
 class Lvars:
     grupo = [('Media Markt','Media Markt'), ]
     distrito = [('Aveiro','Aveiro'), ('Braga','Braga'), ('Lisboa','Lisboa'), ('Porto','Porto'), ]
     pais = [('Portugal','Portugal'), ]
+
 
 class AddModeloForm(forms.Form):
 
@@ -152,10 +160,10 @@ class AddModeloForm(forms.Form):
         query = g.list_loja_uri_nome()
 
         for e in query['results']['bindings']:
-            uri = e['uri']['value'].split('/')[-1]
+            id = e['uri']['value'].split('/')[-1]
             nome = e['nome']['value']
             self.fields.update({
-                'unidades_%s' % uri: forms.IntegerField(
+                'unidades_%s' % id: forms.IntegerField(
                                                 label='Unidades em %s' % nome,
                                                 required=False,
                                                 initial=0,
@@ -534,3 +542,17 @@ class Mvars:
 
     consola_cor = [('Branco','Branco'), ('Preto','Preto'), ('Vermelho','Vermelho'), ('Verde','Verde'), ('Azul','Azul'), ('Castanho','Castanho'), ]
     consola_jogoincluido = [('None','None'), ('Red Dead Redemption II','Red Dead Redemption II'), ('FIFA 19','FIFA 19'), ('Pokemon Lets Go Eevee','Pokemon Lets Go Eevee'), ]
+
+# Find all occurences of a key in nested python dictionaries and lists
+# @source https://gist.github.com/douglasmiranda/5127251
+def find(key, dictionary):
+    for k, v in dictionary.items():
+        if k == key:
+            yield v
+        elif isinstance(v, dict):
+            for result in find(key, v):
+                yield result
+        elif isinstance(v, list):
+            for d in v:
+                for result in find(key, d):
+                    yield result

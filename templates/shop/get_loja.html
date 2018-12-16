@@ -4,8 +4,11 @@
 
 <ul>
   {% for pred, obj in loja.items %}
-  <li>{{ pred }} : {{ obj }}</a></li>
+  <li>{{ pred }} : {{ obj }}</li>
   {% endfor %}
 </ul>
+
+<a href="{% url 'edit_loja' id %}">edit</a>
+<a href="{% url 'remove_loja' id %}">delete</a>
 
 {% endblock %}
