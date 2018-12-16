@@ -1,8 +1,6 @@
-
 import json
 from s4api.graphdb_api import GraphDBApi
 from s4api.swagger import ApiClient
-
 from pprint import pprint
 
 class GraphDB:
@@ -128,21 +126,150 @@ class GraphDB:
         nome = fields['nome']
         marca = fields['marca']
         categoria = fields['categoria']
-        preco = str(fields['preco'])
+        preco = str( fields['preco'] )
 
-        id = '0'+self.get_next_id( 'modelo' )
+        id = self.get_next_id( 'modelo' )
+
+        if type == 'computador':
+            type_characteristics = """
+                modelo:ram                 '"""+fields['ram']+"""' ;
+            	modelo:processador         '"""+fields['processador']+"""' ;
+            	modelo:capacidadedisco     '"""+fields['capacidadedisco']+"""' ;
+            	modelo:grafica             '"""+fields['grafica']+"""' ;
+            	modelo:tamanhoecra         """+str( fields['tamanhoecra'] )+""" ;
+            """
+        elif type == 'telemovel':
+            type_characteristics = """
+            	modelo:ram                 '"""+fields['ram']+"""' ;
+            	modelo:processador         '"""+fields['processador']+"""' ;
+            	modelo:capacidadememoria   '"""+fields['capacidadememoria']+"""' ;
+            	modelo:camara              '"""+fields['camara']+"""' ;
+            	modelo:tamanhoecra         """+str( fields['tamanhoecra'] )+""" ;
+            """
+        elif type == 'tablet':
+            type_characteristics = """
+            	modelo:ram                 '"""+fields['ram']+"""' ;
+            	modelo:processador         '"""+fields['processador']+"""' ;
+            	modelo:capacidadememoria   '"""+fields['capacidadememoria']+"""' ;
+            	modelo:camara              '"""+fields['camara']+"""' ;
+            	modelo:tamanhoecra         """+str( fields['tamanhoecra'] )+""" ;
+            """
+        elif type == 'camara':
+            type_characteristics = """
+            	modelo:resolucaovideo      '"""+fields['resolucaovideo']+"""' ;
+            	modelo:wireless            '"""+fields['wireless']+"""' ;
+            	modelo:resolucaofoto       '"""+fields['resolucaofoto']+"""' ;
+            """
+        elif type == 'drone':
+            type_characteristics = """
+            	modelo:autonomia           '"""+fields['autonomia']+"""' ;
+            	modelo:raio                '"""+fields['raio']+"""' ;
+            	modelo:camaraimb           '"""+fields['camaraimb']+"""' ;
+            """
+        elif type == 'tv':
+            type_characteristics = """
+            	modelo:tamanhoecra         '"""+str( fields['tamanhoecra'] )+"""' ;
+            	modelo:qualidadeimagem     '"""+fields['qualidadeimagem']+"""' ;
+            	modelo:frequencia          '"""+fields['frequencia']+"""' ;
+            """
+        elif type == 'leitor_blueray':
+            type_characteristics = """
+            	modelo:formatosreproducao  '"""+fields['formatosreproducao']+"""' ;
+            	modelo:resolucao           '"""+fields['resolucao']+"""' ;
+            """
+        elif type == 'maquina_cafe':
+            type_characteristics = """
+            	modelo:cor                 '"""+fields['cor']+"""' ;
+            	modelo:agua                '"""+fields['agua']+"""' ;
+            	modelo:potencia            '"""+fields['potencia']+"""' ;
+            """
+        elif type == 'microondas':
+            type_characteristics = """
+            	modelo:grill               '"""+fields['grill']+"""' ;
+            	modelo:volumemax           '"""+fields['volumemax']+"""' ;
+            	modelo:potenciamax         '"""+fields['potenciamax']+"""' ;
+            """
+        elif type == 'maquina_lavar_roupa':
+            type_characteristics = """
+            	modelo:eficiencia          '"""+fields['eficiencia']+"""' ;
+            	modelo:capacidade          '"""+fields['capacidade']+"""' ;
+            	modelo:velocidadecen       '"""+fields['velocidadecen']+"""' ;
+            """
+        elif type == 'maquina_secar_roupa':
+            type_characteristics = """
+            	modelo:eficiencia          '"""+fields['eficiencia']+"""' ;
+            	modelo:capacidade          '"""+fields['capacidade']+"""' ;
+            	modelo:consumo             '"""+fields['consumo']+"""' ;
+            """
+        elif type == 'aspirador':
+            type_characteristics = """
+            	modelo:potenciamax         '"""+fields['potenciamax']+"""' ;
+            	modelo:volumemaxdep        '"""+fields['volumemaxdep']+"""' ;
+            """
+        elif type == 'gaming_pc':
+            type_characteristics = """
+            	modelo:ram                 '"""+fields['ram']+"""' ;
+            	modelo:processador         '"""+fields['processador']+"""' ;
+            	modelo:capacidadedisco     '"""+fields['capacidadedisco']+"""' ;
+            	modelo:grafica             '"""+fields['grafica']+"""' ;
+            	modelo:tamanhoecra         """+str( fields['tamanhoecra'] )+""" ;
+            """
+        elif type == 'consola':
+            type_characteristics = """
+            	modelo:capacidadedisco     '"""+fields['capacidadedisco']+"""' ;
+            	modelo:cor                 '"""+fields['cor']+"""' ;
+            	modelo:jogoincluido        '"""+fields['jogoincluido']+"""' ;
+            """
+        elif type == 'jogo':
+            type_characteristics = ''
+
+        # query for each modelo_em_loja
+        query = self.list_loja_uri_nome()
+
+        modelo_em_loja = []
+        for e in query['results']['bindings']:
+            loja_id = e['uri']['value'].split('/')[-1]
+            unidades = 'unidades_'+loja_id
+
+            em_loja_id = id + loja_id
+
+            if fields[unidades]>0 :
+                modelo_em_loja.append("""
+                    modelo:"""+id+"""                   modelo:loja                 modelo_em_loja:"""+em_loja_id+""" .
+                    modelo_em_loja:"""+em_loja_id+"""   modelo_em_loja:LojaID       loja:"""+loja_id+""" ;
+                                                        modelo_em_loja:unidades     '"""+str( fields[unidades] )+"""' .
+                """)
 
         update = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX computador: <http://www.shop.pt/computador/>
+            PREFIX telemovel: <http://www.shop.pt/telemovel/>
+            PREFIX tablet: <http://www.shop.pt/tablet/>
+            PREFIX camara: <http://www.shop.pt/camara/>
+            PREFIX drone: <http://www.shop.pt/drone/>
+            PREFIX tv: <http://www.shop.pt/tv/>
+            PREFIX leitor_blueray: <http://www.shop.pt/leitor_blueray/>
+            PREFIX maquina_cafe: <http://www.shop.pt/maquina_cafe/>
+            PREFIX microondas: <http://www.shop.pt/microondas/>
+            PREFIX maquina_lavar_roupa: <http://www.shop.pt/maquina_lavar_roupa/>
+            PREFIX maquina_secar_roupa: <http://www.shop.pt/maquina_secar_roupa/>
+            PREFIX aspirador: <http://www.shop.pt/aspirador/>
+            PREFIX gaming_pc: <http://www.shop.pt/gaming_pc/>
+            PREFIX consola: <http://www.shop.pt/consola/>
             PREFIX jogo: <http://www.shop.pt/jogo/>
             INSERT DATA {
                     modelo:"""+id+"""   a                   """+type+""": ;
                                         modelo:nome         '"""+nome+"""' ;
                                         modelo:marca        '"""+marca+"""' ;
                                         modelo:categoria    '"""+categoria+"""' ;
+                                        """+type_characteristics+"""
                                         modelo:preco        '"""+preco+"""' .
+                                        """+''.join(modelo_em_loja)+"""
             }
             """
+
         self.update_query( update )
 
 
@@ -306,11 +433,14 @@ class GraphDB:
         payload_query = {"query": query}
         res = self.accessor.sparql_select(body=payload_query, repo_name=self.repo_name)
 
+        if res.__contains__('Exception') or res.__contains__('MALFORMED'):
+            pprint(res)
+
         return json.loads(res)
 
     def update_query( self, update ):
         payload_query = {"update": update}
         res = str( self.accessor.sparql_update(body=payload_query, repo_name=self.repo_name) )
 
-        if res.__contains__('Exception'):
+        if res.__contains__('Exception') or res.__contains__('MALFORMED'):
             pprint(res)

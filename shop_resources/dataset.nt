@@ -21,20 +21,20 @@
 
 
 
-loja:11
+loja:1001
 	a loja: ; 
 	loja:nome "Media Markt Aveiro" ; 
 	loja:grupo "Media Markt" ; 
-	loja:morada morada:11 ; 
-	loja:contacto contacto:11 . 
-morada:11
+	loja:morada morada:1001 ; 
+	loja:contacto contacto:1001 . 
+morada:1001
 	a morada: ; 
 	morada:detalhes "Aveiro Shopping Center" ; 
 	morada:rua "Estrada da Taboeira" ; 
 	morada:codigopostal "3800-042" ; 
 	morada:distrito "Aveiro" ; 
 	morada:pais "Portugal" . 
-contacto:11
+contacto:1001
 	a contacto: ; 
 	contacto:telefone "+351 234 001 100" ; 
 	contacto:fax "+351 234 001 119" ; 
@@ -42,20 +42,20 @@ contacto:11
 	contacto:website "" . 
 
 
-loja:12
+loja:1002
 	a loja: ; 
 	loja:nome "Media Markt Braga" ; 
 	loja:grupo "Media Markt" ; 
-	loja:morada morada:12 ; 
-	loja:contacto contacto:12 . 
-morada:12
+	loja:morada morada:1002 ; 
+	loja:contacto contacto:1002 . 
+morada:1002
 	a morada: ; 
 	morada:detalhes "Lamaçães" ; 
 	morada:rua "Lugar da Senra de Baixo" ; 
 	morada:codigopostal "4715-276" ; 
 	morada:distrito "Braga" ; 
 	morada:pais "Portugal" . 
-contacto:12
+contacto:1002
 	a contacto: ; 
 	contacto:telefone "+351 253 003 100" ; 
 	contacto:fax "+351 253 003 119" ; 
@@ -63,20 +63,20 @@ contacto:12
 	contacto:website "" . 
 
 
-loja:13
+loja:1003
 	a loja: ; 
 	loja:nome "Media Markt Gaia" ; 
 	loja:grupo "Media Markt" ; 
-	loja:morada morada:13 ; 
-	loja:contacto contacto:13 . 
-morada:13
+	loja:morada morada:1003 ; 
+	loja:contacto contacto:1003 . 
+morada:1003
 	a morada: ; 
 	morada:detalhes "Santa Marinha" ; 
 	morada:rua "Rua D. Henrique de Cernache" ; 
 	morada:codigopostal "4400-625" ; 
 	morada:distrito "Vila Nova de Gaia" ; 
 	morada:pais "Portugal" . 
-contacto:13
+contacto:1003
 	a contacto: ; 
 	contacto:telefone "+351 220 034 500" ; 
 	contacto:fax "+351 220 034 519" ; 
@@ -84,7 +84,7 @@ contacto:13
 	contacto:website "" . 
 
 
-modelo:001
+modelo:2001
 	a computador: ; 
 	modelo:nome "Vivobook Flip TP410UA-57DHDCB2" ; 
 	modelo:marca "Asus" ; 
@@ -95,17 +95,17 @@ modelo:001
 	modelo:grafica "HD Graphics 620" ; 
 	modelo:tamanhoecra "14.0" ; 
 	modelo:preco "799.00" ; 
-	modelo:loja modelo_em_loja:00111 , 
-				modelo_em_loja:00113 . 
-modelo_em_loja:00111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20011001 , 
+				modelo_em_loja:20011003 . 
+modelo_em_loja:20011001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "4" . 
-modelo_em_loja:00113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20011003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:002
+modelo:2002
 	a computador: ; 
 	modelo:nome "Zenbook UX430UA-78DHDCB1" ; 
 	modelo:marca "Asus" ; 
@@ -116,17 +116,17 @@ modelo:002
 	modelo:grafica "HD Graphics 620" ; 
 	modelo:tamanhoecra "14.0" ; 
 	modelo:preco "1182.00" ; 
-	modelo:loja modelo_em_loja:00211 , 
-				modelo_em_loja:00212 . 
-modelo_em_loja:00211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20021001 , 
+				modelo_em_loja:20021002 . 
+modelo_em_loja:20021001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:00212
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20021002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:003
+modelo:2003
 	a computador: ; 
 	modelo:nome "15-DA0002NP" ; 
 	modelo:marca "HP" ; 
@@ -137,21 +137,21 @@ modelo:003
 	modelo:grafica "GeForce MX110 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "499.00" ; 
-	modelo:loja modelo_em_loja:00311 , 
-				modelo_em_loja:00312 , 
-				modelo_em_loja:00313 . 
-modelo_em_loja:00311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20031001 , 
+				modelo_em_loja:20031002 , 
+				modelo_em_loja:20031003 . 
+modelo_em_loja:20031001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:00312
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20031002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:00313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20031003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:004
+modelo:2004
 	a computador: ; 
 	modelo:nome "15-DAO117NP" ; 
 	modelo:marca "Asus" ; 
@@ -162,21 +162,21 @@ modelo:004
 	modelo:grafica "GeForce MX110 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "749.00" ; 
-	modelo:loja modelo_em_loja:00411 , 
-				modelo_em_loja:00412 , 
-				modelo_em_loja:00413 . 
-modelo_em_loja:00411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20041001 , 
+				modelo_em_loja:20041002 , 
+				modelo_em_loja:20041003 . 
+modelo_em_loja:20041001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:00412
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20041002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:00413
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20041003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:005
+modelo:2005
 	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-472" ; 
 	modelo:marca "LeNovo" ; 
@@ -187,13 +187,13 @@ modelo:005
 	modelo:grafica "Radeon R5 530 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "799.00" ; 
-	modelo:loja modelo_em_loja:00511 . 
-modelo_em_loja:00511
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20051001 . 
+modelo_em_loja:20051001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:006
+modelo:2006
 	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-534" ; 
 	modelo:marca "LeNovo" ; 
@@ -204,17 +204,17 @@ modelo:006
 	modelo:grafica "Radeon R5 530 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "575.00" ; 
-	modelo:loja modelo_em_loja:00611 , 
-				modelo_em_loja:00612 . 
-modelo_em_loja:00611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20061001 , 
+				modelo_em_loja:20061002 . 
+modelo_em_loja:20061001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "6" . 
-modelo_em_loja:00612
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20061002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:007
+modelo:2007
 	a telemovel: ; 
 	modelo:nome "REDMI 64 PRETO" ; 
 	modelo:marca "Xiaomi" ; 
@@ -225,17 +225,17 @@ modelo:007
 	modelo:camara "13 MP" ; 
 	modelo:tamanhoecra "5.45" ; 
 	modelo:preco "99.00" ; 
-	modelo:loja modelo_em_loja:00712 , 
-				modelo_em_loja:00713 . 
-modelo_em_loja:00712
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20071002 , 
+				modelo_em_loja:20071003 . 
+modelo_em_loja:20071002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:00713
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20071003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:008
+modelo:2008
 	a telemovel: ; 
 	modelo:nome "REDMI S2 CINZENTO" ; 
 	modelo:marca "Xiaomi" ; 
@@ -246,13 +246,13 @@ modelo:008
 	modelo:camara "Dual(12 MP + 5MP)" ; 
 	modelo:tamanhoecra "5.99" ; 
 	modelo:preco "229.00" ; 
-	modelo:loja modelo_em_loja:00813 . 
-modelo_em_loja:00813
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20081003 . 
+modelo_em_loja:20081003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:009
+modelo:2009
 	a telemovel: ; 
 	modelo:nome "IPHONE XR PRETO" ; 
 	modelo:marca "Apple" ; 
@@ -263,21 +263,21 @@ modelo:009
 	modelo:camara "12 MP" ; 
 	modelo:tamanhoecra "6.10" ; 
 	modelo:preco "799.00" ; 
-	modelo:loja modelo_em_loja:00911 , 
-				modelo_em_loja:00912 , 
-				modelo_em_loja:00913 . 
-modelo_em_loja:00911
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20091001 , 
+				modelo_em_loja:20091002 , 
+				modelo_em_loja:20091003 . 
+modelo_em_loja:20091001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:00912
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20091002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:00913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20091003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:010
+modelo:2010
 	a telemovel: ; 
 	modelo:nome "IPHONE 7 DOURADO" ; 
 	modelo:marca "Apple" ; 
@@ -288,21 +288,21 @@ modelo:010
 	modelo:camara "12 MP" ; 
 	modelo:tamanhoecra "7.70" ; 
 	modelo:preco "499.00" ; 
-	modelo:loja modelo_em_loja:01011 , 
-				modelo_em_loja:01012 , 
-				modelo_em_loja:01013 . 
-modelo_em_loja:01011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20101001 , 
+				modelo_em_loja:20101002 , 
+				modelo_em_loja:20101003 . 
+modelo_em_loja:20101001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:01012
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20101002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "3" . 
-modelo_em_loja:01013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20101003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "4" . 
 
 
-modelo:011
+modelo:2011
 	a telemovel: ; 
 	modelo:nome "MATE 10 LITE AZUL" ; 
 	modelo:marca "Huawei" ; 
@@ -313,17 +313,17 @@ modelo:011
 	modelo:camara "DUAL(16 MP + 2 MP)" ; 
 	modelo:tamanhoecra "5.90" ; 
 	modelo:preco "259.00" ; 
-	modelo:loja modelo_em_loja:01111 , 
-				modelo_em_loja:01113 . 
-modelo_em_loja:01111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20111001 , 
+				modelo_em_loja:20111003 . 
+modelo_em_loja:20111001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:01113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20111003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:012
+modelo:2012
 	a telemovel: ; 
 	modelo:nome "P20 LITE PRETO" ; 
 	modelo:marca "Huawei" ; 
@@ -334,17 +334,17 @@ modelo:012
 	modelo:camara "DUAL(16 MP + 2 MP)" ; 
 	modelo:tamanhoecra "5.84" ; 
 	modelo:preco "299.00" ; 
-	modelo:loja modelo_em_loja:01211 , 
-				modelo_em_loja:01213 . 
-modelo_em_loja:01211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20121001 , 
+				modelo_em_loja:20121003 . 
+modelo_em_loja:20121001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:01213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20121003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "7" . 
 
 
-modelo:013
+modelo:2013
 	a tablet: ; 
 	modelo:nome "TAB 4 TB-X304F" ; 
 	modelo:marca "LeNovo" ; 
@@ -355,17 +355,17 @@ modelo:013
 	modelo:camara "5 MP + 2 MP" ; 
 	modelo:tamanhoecra "10.0" ; 
 	modelo:preco "149.00" ; 
-	modelo:loja modelo_em_loja:01311 , 
-				modelo_em_loja:01312 . 
-modelo_em_loja:01311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20131001 , 
+				modelo_em_loja:20131002 . 
+modelo_em_loja:20131001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:01312
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20131002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:014
+modelo:2014
 	a tablet: ; 
 	modelo:nome "TAB 4 TB-8504F" ; 
 	modelo:marca "LeNovo" ; 
@@ -376,13 +376,13 @@ modelo:014
 	modelo:camara "5 MP + 2 MP" ; 
 	modelo:tamanhoecra "8.0" ; 
 	modelo:preco "151.00" ; 
-	modelo:loja modelo_em_loja:01413 . 
-modelo_em_loja:01413
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20141003 . 
+modelo_em_loja:20141003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:015
+modelo:2015
 	a tablet: ; 
 	modelo:nome "IPAD CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
@@ -393,21 +393,21 @@ modelo:015
 	modelo:camara "8 MP + 1.2 MP" ; 
 	modelo:tamanhoecra "9.70" ; 
 	modelo:preco "335.00" ; 
-	modelo:loja modelo_em_loja:01511 , 
-				modelo_em_loja:01512 , 
-				modelo_em_loja:01513 . 
-modelo_em_loja:01511
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20151001 , 
+				modelo_em_loja:20151002 , 
+				modelo_em_loja:20151003 . 
+modelo_em_loja:20151001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:01512
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20151002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:01513
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20151003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:016
+modelo:2016
 	a tablet: ; 
 	modelo:nome "IPAD PRO CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
@@ -418,21 +418,21 @@ modelo:016
 	modelo:camara "12 MP + 7 MP" ; 
 	modelo:tamanhoecra "12.9" ; 
 	modelo:preco "919.00" ; 
-	modelo:loja modelo_em_loja:01611 , 
-				modelo_em_loja:01612 , 
-				modelo_em_loja:01613 . 
-modelo_em_loja:01611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20161001 , 
+				modelo_em_loja:20161002 , 
+				modelo_em_loja:20161003 . 
+modelo_em_loja:20161001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:01612
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20161002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:01613
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20161003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:017
+modelo:2017
 	a tablet: ; 
 	modelo:nome "MEDIAPAD T3" ; 
 	modelo:marca "Huawei" ; 
@@ -443,21 +443,21 @@ modelo:017
 	modelo:camara "5 MP + 2 MP" ; 
 	modelo:tamanhoecra "9.6" ; 
 	modelo:preco "168.00" ; 
-	modelo:loja modelo_em_loja:01711 , 
-				modelo_em_loja:01712 , 
-				modelo_em_loja:01713 . 
-modelo_em_loja:01711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20171001 , 
+				modelo_em_loja:20171002 , 
+				modelo_em_loja:20171003 . 
+modelo_em_loja:20171001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:01712
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20171002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:01713
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20171003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "6" . 
 
 
-modelo:018
+modelo:2018
 	a tablet: ; 
 	modelo:nome "MEDIAPAD T3 - 7" ; 
 	modelo:marca "Huawei" ; 
@@ -468,13 +468,13 @@ modelo:018
 	modelo:camara "2 MP" ; 
 	modelo:tamanhoecra "7.0" ; 
 	modelo:preco "92.00" ; 
-	modelo:loja modelo_em_loja:01813 . 
-modelo_em_loja:01813
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20181003 . 
+modelo_em_loja:20181003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:019
+modelo:2019
 	a camara: ; 
 	modelo:nome "EOS M100 Branca + 15-45 IS STM" ; 
 	modelo:marca "Canon" ; 
@@ -483,17 +483,17 @@ modelo:019
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "24 MP" ; 
 	modelo:preco "529.00" ; 
-	modelo:loja modelo_em_loja:01912 , 
-				modelo_em_loja:01913 . 
-modelo_em_loja:01912
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20191002 , 
+				modelo_em_loja:20191003 . 
+modelo_em_loja:20191002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:01913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20191003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:020
+modelo:2020
 	a camara: ; 
 	modelo:nome "EOS 4000D Preta + 18-55 + Mochila + SD 16GB" ; 
 	modelo:marca "Canon" ; 
@@ -502,17 +502,17 @@ modelo:020
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "18 MP" ; 
 	modelo:preco "349.00" ; 
-	modelo:loja modelo_em_loja:02011 , 
-				modelo_em_loja:02013 . 
-modelo_em_loja:02011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20201001 , 
+				modelo_em_loja:20201003 . 
+modelo_em_loja:20201001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "3" . 
-modelo_em_loja:02013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20201003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:021
+modelo:2021
 	a camara: ; 
 	modelo:nome "D5300 + 18-55 VR + Estojo + EBook" ; 
 	modelo:marca "Nikon" ; 
@@ -521,13 +521,13 @@ modelo:021
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "24 MP" ; 
 	modelo:preco "499.00" ; 
-	modelo:loja modelo_em_loja:02112 . 
-modelo_em_loja:02112
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20211002 . 
+modelo_em_loja:20211002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:022
+modelo:2022
 	a camara: ; 
 	modelo:nome "D7500 + 18-105 VR" ; 
 	modelo:marca "Nikon" ; 
@@ -536,21 +536,21 @@ modelo:022
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "22 MP" ; 
 	modelo:preco "1789.00" ; 
-	modelo:loja modelo_em_loja:02211 , 
-				modelo_em_loja:02212 , 
-				modelo_em_loja:02213 . 
-modelo_em_loja:02211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20221001 , 
+				modelo_em_loja:20221002 , 
+				modelo_em_loja:20221003 . 
+modelo_em_loja:20221001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:02212
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20221002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:02213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20221003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:023
+modelo:2023
 	a drone: ; 
 	modelo:nome "Mambo Mission-Drone + Comando + Canhao + Garra" ; 
 	modelo:marca "Parrot" ; 
@@ -559,17 +559,17 @@ modelo:023
 	modelo:raio "200 m" ; 
 	modelo:camaraimb "Sim" ; 
 	modelo:preco "58.00" ; 
-	modelo:loja modelo_em_loja:02311 , 
-				modelo_em_loja:02313 . 
-modelo_em_loja:02311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20231001 , 
+				modelo_em_loja:20231003 . 
+modelo_em_loja:20231001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:02313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20231003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:024
+modelo:2024
 	a drone: ; 
 	modelo:nome "DRONE BEBOP 2 BRANCO" ; 
 	modelo:marca "Parrot" ; 
@@ -578,21 +578,21 @@ modelo:024
 	modelo:raio "300 m" ; 
 	modelo:camaraimb "Sim" ; 
 	modelo:preco "298.00" ; 
-	modelo:loja modelo_em_loja:02411 , 
-				modelo_em_loja:02412 , 
-				modelo_em_loja:02413 . 
-modelo_em_loja:02411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20241001 , 
+				modelo_em_loja:20241002 , 
+				modelo_em_loja:20241003 . 
+modelo_em_loja:20241001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:02412
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20241002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:02413
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20241003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "6" . 
 
 
-modelo:025
+modelo:2025
 	a tv: ; 
 	modelo:nome "LE24IP43973 TVs LED" ; 
 	modelo:marca "Silver" ; 
@@ -601,13 +601,13 @@ modelo:025
 	modelo:qualidadeimagem "HD 720p" ; 
 	modelo:frequencia "50 Hz" ; 
 	modelo:preco "129.00" ; 
-	modelo:loja modelo_em_loja:02513 . 
-modelo_em_loja:02513
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20251003 . 
+modelo_em_loja:20251003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:026
+modelo:2026
 	a tv: ; 
 	modelo:nome "IP-LE410005 SMART TVs LED" ; 
 	modelo:marca "Silver" ; 
@@ -616,17 +616,17 @@ modelo:026
 	modelo:qualidadeimagem "HD" ; 
 	modelo:frequencia "60 Hz" ; 
 	modelo:preco "269.00" ; 
-	modelo:loja modelo_em_loja:02611 , 
-				modelo_em_loja:02613 . 
-modelo_em_loja:02611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20261001 , 
+				modelo_em_loja:20261003 . 
+modelo_em_loja:20261001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:02613
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20261003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:027
+modelo:2027
 	a tv: ; 
 	modelo:nome "49SK8000 SMART TVs LED" ; 
 	modelo:marca "LG" ; 
@@ -635,21 +635,21 @@ modelo:027
 	modelo:qualidadeimagem "UHD 4K" ; 
 	modelo:frequencia "50 Hz" ; 
 	modelo:preco "549.00" ; 
-	modelo:loja modelo_em_loja:02711 , 
-				modelo_em_loja:02712 , 
-				modelo_em_loja:02713 . 
-modelo_em_loja:02711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20271001 , 
+				modelo_em_loja:20271002 , 
+				modelo_em_loja:20271003 . 
+modelo_em_loja:20271001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:02712
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20271002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:02713
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20271003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:028
+modelo:2028
 	a tv: ; 
 	modelo:nome "55SK8000 SMART TVs" ; 
 	modelo:marca "LG" ; 
@@ -658,21 +658,21 @@ modelo:028
 	modelo:qualidadeimagem "UHD 4K" ; 
 	modelo:frequencia "100 Hz" ; 
 	modelo:preco "1499.00" ; 
-	modelo:loja modelo_em_loja:02811 , 
-				modelo_em_loja:02812 , 
-				modelo_em_loja:02813 . 
-modelo_em_loja:02811
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20281001 , 
+				modelo_em_loja:20281002 , 
+				modelo_em_loja:20281003 . 
+modelo_em_loja:20281001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:02812
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20281002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:02813
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20281003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:029
+modelo:2029
 	a leitor_blueray: ; 
 	modelo:nome "2D BP250" ; 
 	modelo:marca "LG" ; 
@@ -680,13 +680,13 @@ modelo:029
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "Full-HD 1080p" ; 
 	modelo:preco "69.00" ; 
-	modelo:loja modelo_em_loja:02911 . 
-modelo_em_loja:02911
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20291001 . 
+modelo_em_loja:20291001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:030
+modelo:2030
 	a leitor_blueray: ; 
 	modelo:nome "UBK90" ; 
 	modelo:marca "LG" ; 
@@ -694,17 +694,17 @@ modelo:030
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "4K" ; 
 	modelo:preco "250.00" ; 
-	modelo:loja modelo_em_loja:03012 , 
-				modelo_em_loja:03013 . 
-modelo_em_loja:03012
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20301002 , 
+				modelo_em_loja:20301003 . 
+modelo_em_loja:20301002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:03013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20301003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:031
+modelo:2031
 	a leitor_blueray: ; 
 	modelo:nome "BDP-S1700" ; 
 	modelo:marca "Sony" ; 
@@ -712,17 +712,17 @@ modelo:031
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "Full HD 1080p" ; 
 	modelo:preco "85.00" ; 
-	modelo:loja modelo_em_loja:03111 , 
-				modelo_em_loja:03112 . 
-modelo_em_loja:03111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20311001 , 
+				modelo_em_loja:20311002 . 
+modelo_em_loja:20311001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:03112
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20311002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:032
+modelo:2032
 	a leitor_blueray: ; 
 	modelo:nome "UBP-X700" ; 
 	modelo:marca "Sony" ; 
@@ -730,21 +730,21 @@ modelo:032
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "4K" ; 
 	modelo:preco "199.00" ; 
-	modelo:loja modelo_em_loja:03211 , 
-				modelo_em_loja:03212 , 
-				modelo_em_loja:03213 . 
-modelo_em_loja:03211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20321001 , 
+				modelo_em_loja:20321002 , 
+				modelo_em_loja:20321003 . 
+modelo_em_loja:20321001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:03212
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20321002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "3" . 
-modelo_em_loja:03213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20321003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:033
+modelo:2033
 	a maquina_cafe: ; 
 	modelo:nome "KRUPS INISSIA XN1001" ; 
 	modelo:marca "Nespresso" ; 
@@ -753,21 +753,21 @@ modelo:033
 	modelo:agua "0.8 L" ; 
 	modelo:potencia "1260 W" ; 
 	modelo:preco "39.00" ; 
-	modelo:loja modelo_em_loja:03311 , 
-				modelo_em_loja:03312 , 
-				modelo_em_loja:03313 . 
-modelo_em_loja:03311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20331001 , 
+				modelo_em_loja:20331002 , 
+				modelo_em_loja:20331003 . 
+modelo_em_loja:20331001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "10" . 
-modelo_em_loja:03312
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20331002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:03313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20331003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:034
+modelo:2034
 	a maquina_cafe: ; 
 	modelo:nome "KRUPS EXPERT XN6008" ; 
 	modelo:marca "Nespresso" ; 
@@ -776,21 +776,21 @@ modelo:034
 	modelo:agua "1.2 L" ; 
 	modelo:potencia "1260 W" ; 
 	modelo:preco "169.00" ; 
-	modelo:loja modelo_em_loja:03411 , 
-				modelo_em_loja:03412 , 
-				modelo_em_loja:03413 . 
-modelo_em_loja:03411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20341001 , 
+				modelo_em_loja:20341002 , 
+				modelo_em_loja:20341003 . 
+modelo_em_loja:20341001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "24" . 
-modelo_em_loja:03412
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20341002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "8" . 
-modelo_em_loja:03413
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20341003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "20" . 
 
 
-modelo:035
+modelo:2035
 	a maquina_cafe: ; 
 	modelo:nome "QOOL EVOLUTION" ; 
 	modelo:marca "Delta" ; 
@@ -799,13 +799,13 @@ modelo:035
 	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
 	modelo:preco "80.00" ; 
-	modelo:loja modelo_em_loja:03512 . 
-modelo_em_loja:03512
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20351002 . 
+modelo_em_loja:20351002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "21" . 
 
 
-modelo:036
+modelo:2036
 	a maquina_cafe: ; 
 	modelo:nome "Q Capsulas Qool Evolution + 50 Capsulas" ; 
 	modelo:marca "Delta" ; 
@@ -814,13 +814,13 @@ modelo:036
 	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
 	modelo:preco "49.90" ; 
-	modelo:loja modelo_em_loja:03612 . 
-modelo_em_loja:03612
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20361002 . 
+modelo_em_loja:20361002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "32" . 
 
 
-modelo:037
+modelo:2037
 	a microondas: ; 
 	modelo:nome "MS23F301TAK" ; 
 	modelo:marca "Samsung" ; 
@@ -829,17 +829,17 @@ modelo:037
 	modelo:volumemax "23 L" ; 
 	modelo:potenciamax "800 W" ; 
 	modelo:preco "89.00" ; 
-	modelo:loja modelo_em_loja:03711 , 
-				modelo_em_loja:03713 . 
-modelo_em_loja:03711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20371001 , 
+				modelo_em_loja:20371003 . 
+modelo_em_loja:20371001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:03713
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20371003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:038
+modelo:2038
 	a microondas: ; 
 	modelo:nome "MG28J5215AB" ; 
 	modelo:marca "Samsung" ; 
@@ -848,21 +848,21 @@ modelo:038
 	modelo:volumemax "28 L" ; 
 	modelo:potenciamax "1500 W" ; 
 	modelo:preco "140.00" ; 
-	modelo:loja modelo_em_loja:03811 , 
-				modelo_em_loja:03812 , 
-				modelo_em_loja:03813 . 
-modelo_em_loja:03811
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20381001 , 
+				modelo_em_loja:20381002 , 
+				modelo_em_loja:20381003 . 
+modelo_em_loja:20381001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:03812
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20381002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:03813
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20381003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:039
+modelo:2039
 	a microondas: ; 
 	modelo:nome "1824FL" ; 
 	modelo:marca "Flama" ; 
@@ -871,17 +871,17 @@ modelo:039
 	modelo:volumemax "20 L" ; 
 	modelo:potenciamax "700 W" ; 
 	modelo:preco "60.00" ; 
-	modelo:loja modelo_em_loja:03911 , 
-				modelo_em_loja:03913 . 
-modelo_em_loja:03911
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20391001 , 
+				modelo_em_loja:20391003 . 
+modelo_em_loja:20391001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "6" . 
-modelo_em_loja:03913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20391003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:040
+modelo:2040
 	a microondas: ; 
 	modelo:nome "1834FL" ; 
 	modelo:marca "Flama" ; 
@@ -890,21 +890,21 @@ modelo:040
 	modelo:volumemax "20 L" ; 
 	modelo:potenciamax "700 W" ; 
 	modelo:preco "54.00" ; 
-	modelo:loja modelo_em_loja:04011 , 
-				modelo_em_loja:04012 , 
-				modelo_em_loja:04013 . 
-modelo_em_loja:04011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20401001 , 
+				modelo_em_loja:20401002 , 
+				modelo_em_loja:20401003 . 
+modelo_em_loja:20401001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:04012
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20401002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "3" . 
-modelo_em_loja:04013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20401003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:041
+modelo:2041
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG91284W" ; 
 	modelo:marca "Whirlpoll" ; 
@@ -913,21 +913,21 @@ modelo:041
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
 	modelo:preco "279.00" ; 
-	modelo:loja modelo_em_loja:04111 , 
-				modelo_em_loja:04112 , 
-				modelo_em_loja:04113 . 
-modelo_em_loja:04111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20411001 , 
+				modelo_em_loja:20411002 , 
+				modelo_em_loja:20411003 . 
+modelo_em_loja:20411001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04112
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20411002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "8" . 
-modelo_em_loja:04113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20411003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:042
+modelo:2042
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG71283W" ; 
 	modelo:marca "Whirlpoll" ; 
@@ -936,21 +936,21 @@ modelo:042
 	modelo:capacidade "7.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
 	modelo:preco "305.00" ; 
-	modelo:loja modelo_em_loja:04211 , 
-				modelo_em_loja:04212 , 
-				modelo_em_loja:04213 . 
-modelo_em_loja:04211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20421001 , 
+				modelo_em_loja:20421002 , 
+				modelo_em_loja:20421003 . 
+modelo_em_loja:20421001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04212
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20421002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "4" . 
-modelo_em_loja:04213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20421003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "4" . 
 
 
-modelo:043
+modelo:2043
 	a maquina_lavar_roupa: ; 
 	modelo:nome "F4J5TN3W" ; 
 	modelo:marca "LG" ; 
@@ -959,13 +959,13 @@ modelo:043
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:velocidadecen "1400 Rpm" ; 
 	modelo:preco "299.00" ; 
-	modelo:loja modelo_em_loja:04311 . 
-modelo_em_loja:04311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20431001 . 
+modelo_em_loja:20431001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:044
+modelo:2044
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FH495BDS2 TWINWASH" ; 
 	modelo:marca "LG" ; 
@@ -974,17 +974,17 @@ modelo:044
 	modelo:capacidade "12.0 Kg" ; 
 	modelo:velocidadecen "1400 Rpm" ; 
 	modelo:preco "799.00" ; 
-	modelo:loja modelo_em_loja:04411 , 
-				modelo_em_loja:04412 . 
-modelo_em_loja:04411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20441001 , 
+				modelo_em_loja:20441002 . 
+modelo_em_loja:20441001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04412
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20441002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:045
+modelo:2045
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FMG823B" ; 
 	modelo:marca "Hotpoint" ; 
@@ -993,17 +993,17 @@ modelo:045
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
 	modelo:preco "310.00" ; 
-	modelo:loja modelo_em_loja:04512 , 
-				modelo_em_loja:04513 . 
-modelo_em_loja:04512
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20451002 , 
+				modelo_em_loja:20451003 . 
+modelo_em_loja:20451002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04513
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20451003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:046
+modelo:2046
 	a maquina_lavar_roupa: ; 
 	modelo:nome "RSF 925 JA" ; 
 	modelo:marca "Hotpoint" ; 
@@ -1012,13 +1012,13 @@ modelo:046
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:velocidadecen "1200 Kg" ; 
 	modelo:preco "355.49" ; 
-	modelo:loja modelo_em_loja:04611 . 
-modelo_em_loja:04611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20461001 . 
+modelo_em_loja:20461001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:047
+modelo:2047
 	a maquina_secar_roupa: ; 
 	modelo:nome "EDPE-G 45-A1" ; 
 	modelo:marca "Indesit" ; 
@@ -1027,13 +1027,13 @@ modelo:047
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "306 kWh" ; 
 	modelo:preco "349.00" ; 
-	modelo:loja modelo_em_loja:04712 . 
-modelo_em_loja:04712
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20471002 . 
+modelo_em_loja:20471002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:048
+modelo:2048
 	a maquina_secar_roupa: ; 
 	modelo:nome "IDCL-G5.B.H" ; 
 	modelo:marca "Indesit" ; 
@@ -1042,13 +1042,13 @@ modelo:048
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "560 KWh" ; 
 	modelo:preco "375.00" ; 
-	modelo:loja modelo_em_loja:04812 . 
-modelo_em_loja:04812
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20481002 . 
+modelo_em_loja:20481002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:049
+modelo:2049
 	a maquina_secar_roupa: ; 
 	modelo:nome "AQC9 4F5 T/Z1 EU" ; 
 	modelo:marca "Hotpoint" ; 
@@ -1057,21 +1057,21 @@ modelo:049
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:consumo "338 KWh" ; 
 	modelo:preco "459.00" ; 
-	modelo:loja modelo_em_loja:04911 , 
-				modelo_em_loja:04912 , 
-				modelo_em_loja:04913 . 
-modelo_em_loja:04911
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20491001 , 
+				modelo_em_loja:20491002 , 
+				modelo_em_loja:20491003 . 
+modelo_em_loja:20491001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04912
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20491002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:04913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20491003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:050
+modelo:2050
 	a maquina_secar_roupa: ; 
 	modelo:nome "TCD-874-6H1" ; 
 	modelo:marca "Hotpoint" ; 
@@ -1080,21 +1080,21 @@ modelo:050
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "306 KWh" ; 
 	modelo:preco "529.00" ; 
-	modelo:loja modelo_em_loja:05011 , 
-				modelo_em_loja:05012 , 
-				modelo_em_loja:05013 . 
-modelo_em_loja:05011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20501001 , 
+				modelo_em_loja:20501002 , 
+				modelo_em_loja:20501003 . 
+modelo_em_loja:20501001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:05012
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20501002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:05013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20501003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:051
+modelo:2051
 	a maquina_secar_roupa: ; 
 	modelo:nome "WTG85231EE" ; 
 	modelo:marca "Bosh" ; 
@@ -1103,17 +1103,17 @@ modelo:051
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "236 KWh" ; 
 	modelo:preco "737.00" ; 
-	modelo:loja modelo_em_loja:05112 , 
-				modelo_em_loja:05113 . 
-modelo_em_loja:05112
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20511002 , 
+				modelo_em_loja:20511003 . 
+modelo_em_loja:20511002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:05113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20511003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:052
+modelo:2052
 	a maquina_secar_roupa: ; 
 	modelo:nome "WTW87640ES" ; 
 	modelo:marca "Bosh" ; 
@@ -1122,17 +1122,17 @@ modelo:052
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "177 KWh" ; 
 	modelo:preco "999.00" ; 
-	modelo:loja modelo_em_loja:05211 , 
-				modelo_em_loja:05213 . 
-modelo_em_loja:05211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20521001 , 
+				modelo_em_loja:20521003 . 
+modelo_em_loja:20521001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:05213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20521003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "4" . 
 
 
-modelo:053
+modelo:2053
 	a aspirador: ; 
 	modelo:nome "Roomba 616" ; 
 	modelo:marca "IronBot" ; 
@@ -1140,17 +1140,17 @@ modelo:053
 	modelo:potenciamax "33 W" ; 
 	modelo:volumemaxdep "" ; 
 	modelo:preco "279.00" ; 
-	modelo:loja modelo_em_loja:05312 , 
-				modelo_em_loja:05313 . 
-modelo_em_loja:05312
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20531002 , 
+				modelo_em_loja:20531003 . 
+modelo_em_loja:20531002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "8" . 
-modelo_em_loja:05313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20531003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:054
+modelo:2054
 	a aspirador: ; 
 	modelo:nome "Roomba 980" ; 
 	modelo:marca "IronBot" ; 
@@ -1158,21 +1158,21 @@ modelo:054
 	modelo:potenciamax "33 W" ; 
 	modelo:volumemaxdep "" ; 
 	modelo:preco "884.00" ; 
-	modelo:loja modelo_em_loja:05411 , 
-				modelo_em_loja:05412 , 
-				modelo_em_loja:05413 . 
-modelo_em_loja:05411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20541001 , 
+				modelo_em_loja:20541002 , 
+				modelo_em_loja:20541003 . 
+modelo_em_loja:20541001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:05412
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20541002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:05413
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20541003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:055
+modelo:2055
 	a aspirador: ; 
 	modelo:nome "TE70 TE75011 CLASSE A" ; 
 	modelo:marca "Hoover" ; 
@@ -1180,13 +1180,13 @@ modelo:055
 	modelo:potenciamax "700 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "135.00" ; 
-	modelo:loja modelo_em_loja:05512 . 
-modelo_em_loja:05512
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20551002 . 
+modelo_em_loja:20551002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "4" . 
 
 
-modelo:056
+modelo:2056
 	a aspirador: ; 
 	modelo:nome "HY70 HYDROPOWER COM FILTRO AGUA CLASSE A" ; 
 	modelo:marca "Hoover" ; 
@@ -1194,21 +1194,21 @@ modelo:056
 	modelo:potenciamax "700 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "179.00" ; 
-	modelo:loja modelo_em_loja:05611 , 
-				modelo_em_loja:05612 , 
-				modelo_em_loja:05613 . 
-modelo_em_loja:05611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20561001 , 
+				modelo_em_loja:20561002 , 
+				modelo_em_loja:20561003 . 
+modelo_em_loja:20561001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:05612
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20561002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:05613
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20561003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "5" . 
 
 
-modelo:057
+modelo:2057
 	a aspirador: ; 
 	modelo:nome "COMPACT P PARQUET R03953EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
@@ -1216,17 +1216,17 @@ modelo:057
 	modelo:potenciamax "750 W" ; 
 	modelo:volumemaxdep "3 L" ; 
 	modelo:preco "85.00" ; 
-	modelo:loja modelo_em_loja:05711 , 
-				modelo_em_loja:05712 . 
-modelo_em_loja:05711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20571001 , 
+				modelo_em_loja:20571002 . 
+modelo_em_loja:20571001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:05712
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20571002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:058
+modelo:2058
 	a aspirador: ; 
 	modelo:nome "SILENCE FORCE A4 ANIMAL CARE PRO R07681EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
@@ -1234,13 +1234,13 @@ modelo:058
 	modelo:potenciamax "750 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "268.00" ; 
-	modelo:loja modelo_em_loja:05813 . 
-modelo_em_loja:05813
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20581003 . 
+modelo_em_loja:20581003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "9" . 
 
 
-modelo:059
+modelo:2059
 	a gaming_pc: ; 
 	modelo:nome "Desktop 880-140NP" ; 
 	modelo:marca "HP" ; 
@@ -1251,17 +1251,17 @@ modelo:059
 	modelo:grafica "Geforce GTX 1050 Ti 4GB" ; 
 	modelo:tamanhoecra "" ; 
 	modelo:preco "1299.00" ; 
-	modelo:loja modelo_em_loja:05912 , 
-				modelo_em_loja:05913 . 
-modelo_em_loja:05912
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20591002 , 
+				modelo_em_loja:20591003 . 
+modelo_em_loja:20591002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:05913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20591003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:060
+modelo:2060
 	a gaming_pc: ; 
 	modelo:nome "Omen Laptop 17-AN100NP" ; 
 	modelo:marca "HP" ; 
@@ -1272,13 +1272,13 @@ modelo:060
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "17.30" ; 
 	modelo:preco "1389.00" ; 
-	modelo:loja modelo_em_loja:06011 . 
-modelo_em_loja:06011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20601001 . 
+modelo_em_loja:20601001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "29" . 
 
 
-modelo:061
+modelo:2061
 	a gaming_pc: ; 
 	modelo:nome "VIVOBOOK A560UD-58A05PB2" ; 
 	modelo:marca "Asus" ; 
@@ -1289,21 +1289,21 @@ modelo:061
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "15.60" ; 
 	modelo:preco "799.00" ; 
-	modelo:loja modelo_em_loja:06111 , 
-				modelo_em_loja:06112 , 
-				modelo_em_loja:06113 . 
-modelo_em_loja:06111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20611001 , 
+				modelo_em_loja:20611002 , 
+				modelo_em_loja:20611003 . 
+modelo_em_loja:20611001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "9" . 
-modelo_em_loja:06112
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20611002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "8" . 
-modelo_em_loja:06113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20611003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "1" . 
 
 
-modelo:062
+modelo:2062
 	a gaming_pc: ; 
 	modelo:nome "TUF FX504GD-78A05PB1" ; 
 	modelo:marca "Asus" ; 
@@ -1314,21 +1314,21 @@ modelo:062
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "15.60" ; 
 	modelo:preco "1066.00" ; 
-	modelo:loja modelo_em_loja:06211 , 
-				modelo_em_loja:06212 , 
-				modelo_em_loja:06213 . 
-modelo_em_loja:06211
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20621001 , 
+				modelo_em_loja:20621002 , 
+				modelo_em_loja:20621003 . 
+modelo_em_loja:20621001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:06212
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20621002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:06213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20621003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:063
+modelo:2063
 	a consola: ; 
 	modelo:nome "PS4 Slim 1TB Preta + Red Dead Redemption II" ; 
 	modelo:marca "Sony" ; 
@@ -1337,17 +1337,17 @@ modelo:063
 	modelo:cor "Preta" ; 
 	modelo:jogoincluido "Red Dead Redemption II" ; 
 	modelo:preco "348.00" ; 
-	modelo:loja modelo_em_loja:06311 , 
-				modelo_em_loja:06313 . 
-modelo_em_loja:06311
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20631001 , 
+				modelo_em_loja:20631003 . 
+modelo_em_loja:20631001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:06313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20631003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:064
+modelo:2064
 	a consola: ; 
 	modelo:nome "PS4 1TB Preta + FIFA 19" ; 
 	modelo:marca "Sony" ; 
@@ -1356,17 +1356,17 @@ modelo:064
 	modelo:cor "Preta" ; 
 	modelo:jogoincluido "FIFA 19" ; 
 	modelo:preco "348.00" ; 
-	modelo:loja modelo_em_loja:06411 , 
-				modelo_em_loja:06413 . 
-modelo_em_loja:06411
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20641001 , 
+				modelo_em_loja:20641003 . 
+modelo_em_loja:20641001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:06413
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20641003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "15" . 
 
 
-modelo:065
+modelo:2065
 	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + GAME PASS 3 MESES" ; 
 	modelo:marca "Microsoft" ; 
@@ -1375,13 +1375,13 @@ modelo:065
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "None" ; 
 	modelo:preco "248.00" ; 
-	modelo:loja modelo_em_loja:06513 . 
-modelo_em_loja:06513
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20651003 . 
+modelo_em_loja:20651003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "10" . 
 
 
-modelo:066
+modelo:2066
 	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + TOMB RAIDER" ; 
 	modelo:marca "Microsoft" ; 
@@ -1390,21 +1390,21 @@ modelo:066
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "TOMB RAIDER" ; 
 	modelo:preco "248.00" ; 
-	modelo:loja modelo_em_loja:06611 , 
-				modelo_em_loja:06612 , 
-				modelo_em_loja:06613 . 
-modelo_em_loja:06611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20661001 , 
+				modelo_em_loja:20661002 , 
+				modelo_em_loja:20661003 . 
+modelo_em_loja:20661001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:06612
-	modelo_em_loja:LojaID loja:12 ; 
+modelo_em_loja:20661002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:06613
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20661003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:067
+modelo:2067
 	a consola: ; 
 	modelo:nome "SWITCH AZUL/VERMELHO NEON" ; 
 	modelo:marca "Nintendo" ; 
@@ -1413,13 +1413,13 @@ modelo:067
 	modelo:cor "Azul/Vermelho" ; 
 	modelo:jogoincluido "None" ; 
 	modelo:preco "319.00" ; 
-	modelo:loja modelo_em_loja:06711 . 
-modelo_em_loja:06711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20671001 . 
+modelo_em_loja:20671001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:068
+modelo:2068
 	a consola: ; 
 	modelo:nome "SWITCH POKEMON EEVEE + POKEBALL" ; 
 	modelo:marca "Nintendo" ; 
@@ -1428,141 +1428,141 @@ modelo:068
 	modelo:cor "Varias" ; 
 	modelo:jogoincluido "Pokemon Lets Go Eevee" ; 
 	modelo:preco "389.00" ; 
-	modelo:loja modelo_em_loja:06811 . 
-modelo_em_loja:06811
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20681001 . 
+modelo_em_loja:20681001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:069
+modelo:2069
 	a jogo: ; 
 	modelo:nome "Marvel's Spider Man" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "68.00" ; 
-	modelo:loja modelo_em_loja:06911 , 
-				modelo_em_loja:06913 . 
-modelo_em_loja:06911
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20691001 , 
+				modelo_em_loja:20691003 . 
+modelo_em_loja:20691001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "5" . 
-modelo_em_loja:06913
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20691003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:070
+modelo:2070
 	a jogo: ; 
 	modelo:nome "Assassin's Creed Odyssey" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "39.00" ; 
-	modelo:loja modelo_em_loja:07011 , 
-				modelo_em_loja:07013 . 
-modelo_em_loja:07011
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20701001 , 
+				modelo_em_loja:20701003 . 
+modelo_em_loja:20701001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "4" . 
-modelo_em_loja:07013
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20701003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "7" . 
 
 
-modelo:071
+modelo:2071
 	a jogo: ; 
 	modelo:nome "Fifa 19" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "68.00" ; 
-	modelo:loja modelo_em_loja:07111 , 
-				modelo_em_loja:07113 . 
-modelo_em_loja:07111
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20711001 , 
+				modelo_em_loja:20711003 . 
+modelo_em_loja:20711001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "6" . 
-modelo_em_loja:07113
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20711003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:072
+modelo:2072
 	a jogo: ; 
 	modelo:nome "One WWE 2k19" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "68.00" ; 
-	modelo:loja modelo_em_loja:07212 , 
-				modelo_em_loja:07213 . 
-modelo_em_loja:07212
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20721002 , 
+				modelo_em_loja:20721003 . 
+modelo_em_loja:20721002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "7" . 
-modelo_em_loja:07213
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20721003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:073
+modelo:2073
 	a jogo: ; 
 	modelo:nome "One Fifa 19" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco " 68.00" ; 
-	modelo:loja modelo_em_loja:07312 , 
-				modelo_em_loja:07313 . 
-modelo_em_loja:07312
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20731002 , 
+				modelo_em_loja:20731003 . 
+modelo_em_loja:20731002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "2" . 
-modelo_em_loja:07313
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20731003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "4" . 
 
 
-modelo:074
+modelo:2074
 	a jogo: ; 
 	modelo:nome "One Fallout 4 GOTY" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "49.90" ; 
-	modelo:loja modelo_em_loja:07413 . 
-modelo_em_loja:07413
-	modelo_em_loja:LojaID loja:13 ; 
+	modelo:loja modelo_em_loja:20741003 . 
+modelo_em_loja:20741003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:075
+modelo:2075
 	a jogo: ; 
 	modelo:nome "Pokemon Let's Go Pikachu" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "55.00" ; 
-	modelo:loja modelo_em_loja:07512 , 
-				modelo_em_loja:07513 . 
-modelo_em_loja:07512
-	modelo_em_loja:LojaID loja:12 ; 
+	modelo:loja modelo_em_loja:20751002 , 
+				modelo_em_loja:20751003 . 
+modelo_em_loja:20751002
+	modelo_em_loja:LojaID loja:1002 ; 
 	modelo_em_loja:unidades "1" . 
-modelo_em_loja:07513
-	modelo_em_loja:LojaID loja:13 ; 
+modelo_em_loja:20751003
+	modelo_em_loja:LojaID loja:1003 ; 
 	modelo_em_loja:unidades "3" . 
 
 
-modelo:076
+modelo:2076
 	a jogo: ; 
 	modelo:nome "Snipperclips Cut It Out" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "29.90" ; 
-	modelo:loja modelo_em_loja:07611 . 
-modelo_em_loja:07611
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20761001 . 
+modelo_em_loja:20761001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "2" . 
 
 
-modelo:077
+modelo:2077
 	a jogo: ; 
 	modelo:nome "Legend od Zelda: Breath Of The Wild" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "Videojogos" ; 
 	modelo:preco "69.00" ; 
-	modelo:loja modelo_em_loja:07711 . 
-modelo_em_loja:07711
-	modelo_em_loja:LojaID loja:11 ; 
+	modelo:loja modelo_em_loja:20771001 . 
+modelo_em_loja:20771001
+	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "6" . 
 
 

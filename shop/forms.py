@@ -1,4 +1,7 @@
 from django import forms
+from pprint import pprint
+
+from .constants import *
 
 class AddLojaForm(forms.Form):
 
@@ -116,37 +119,48 @@ class AddModeloForm(forms.Form):
 
         if type=='computador':
             self.computador()
-        if type=='telemovel':
+        elif type=='telemovel':
             self.telemovel()
-        if type=='tablet':
+        elif type=='tablet':
             self.tablet()
-        if type=='camara':
+        elif type=='camara':
             self.camara()
-        if type=='drone':
+        elif type=='drone':
             self.drone()
-        if type=='tv':
+        elif type=='tv':
             self.tv()
-        if type=='leitor_blueray':
+        elif type=='leitor_blueray':
             self.leitorblueray()
-        if type=='maquina_cafe':
+        elif type=='maquina_cafe':
             self.maquinacafe()
-        if type=='microondas':
+        elif type=='microondas':
             self.microondas()
-        if type=='maquina_lavar_roupa':
+        elif type=='maquina_lavar_roupa':
             self.maquinalavarroupa()
-        if type=='maquina_secar_roupa':
+        elif type=='maquina_secar_roupa':
             self.maquinasecarroupa()
-        if type=='aspirador':
+        elif type=='aspirador':
             self.aspirador()
-        if type=='gaming_pc':
+        elif type=='gaming_pc':
             self.gamingpc()
-        if type=='consola':
+        elif type=='consola':
             self.consola()
-        if type=='jogo':
+        elif type=='jogo':
             pass
 
-    def get_type():
-        return self.type
+        # create forms for each loja in DB
+        query = g.list_loja_uri_nome()
+
+        for e in query['results']['bindings']:
+            uri = e['uri']['value'].split('/')[-1]
+            nome = e['nome']['value']
+            self.fields.update({
+                'unidades_%s' % uri: forms.IntegerField(
+                                                label='Unidades em %s' % nome,
+                                                required=False,
+                                                initial=0,
+                                                min_value=0),
+            })
 
 
     def computador(self):
@@ -177,7 +191,7 @@ class AddModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=1
+            decimal_places=2
         )
 
     def telemovel(self):
@@ -248,9 +262,10 @@ class AddModeloForm(forms.Form):
             required=True,
             choices=Mvars().camara_resolucaovideo
         )
-        self.fields['wireless'] = forms.BooleanField(
+        self.fields['wireless'] = forms.ChoiceField(
             label='Wireless',
-            required=False,
+            required=True,
+            choices=Mvars.boolean,
         )
         self.fields['resolucaofoto'] = forms.ChoiceField(
             label='Resolução de Foto',
@@ -269,9 +284,10 @@ class AddModeloForm(forms.Form):
             required=True,
             choices=Mvars().drone_raio
         )
-        self.fields['camaraimb'] = forms.BooleanField(
+        self.fields['camaraimb'] = forms.ChoiceField(
             label='Camara Imb',
-            required=False,
+            required=True,
+            choices=Mvars.boolean,
         )
 
     def tv(self):
@@ -282,7 +298,7 @@ class AddModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=1
+            decimal_places=2
         )
         self.fields['qualidadeimagem'] = forms.ChoiceField(
             label='Qualidade de Imagem',
@@ -325,9 +341,10 @@ class AddModeloForm(forms.Form):
         )
 
     def microondas(self):
-        self.fields['grill'] = forms.BooleanField(
+        self.fields['grill'] = forms.ChoiceField(
             label='Grill',
-            required=False,
+            required=True,
+            choices=Mvars.boolean,
         )
         self.fields['volumemax'] = forms.ChoiceField(
             label='Volume Máximo',
@@ -450,6 +467,9 @@ class AddModeloForm(forms.Form):
 
 
 class Mvars:
+    boolean = [
+        ('Sim', 'Sim'), ('Não', 'Não'),
+    ]
     marca = [
         ('Asus', 'Asus'), ('HP', 'HP'), ('LeNovo', 'LeNovo'), ('Xiaomi', 'Xiaomi'), ('Apple', 'Apple'), ('Huawei', 'Huawei'),
         ('Canon', 'Canon'), ('Nikon', 'Nikon'), ('Parrot', 'Parrot'), ('Silver', 'Silver'), ('LG', 'LG'), ('Sony', 'Sony'),
