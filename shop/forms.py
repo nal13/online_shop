@@ -44,7 +44,8 @@ class AddLojaForm(forms.Form):
         self.fields['distrito'] = forms.ChoiceField(
             label='Distrito',
             required=True,
-            choices=Lvars().distrito
+            choices=Lvars().distrito,
+            initial={'Braga'}
         )
         self.fields['pais'] = forms.ChoiceField(
             label='País',
@@ -64,7 +65,7 @@ class AddLojaForm(forms.Form):
             min_length=9,
             max_length=16
         )
-        self.fields['email'] = forms.CharField(
+        self.fields['email'] = forms.EmailField(
             label='Email',
             required=True,
             initial='shop@mail.com',
@@ -78,16 +79,29 @@ class AddLojaForm(forms.Form):
             max_length=40
         )
 
-    def set_initial(self, initial_fields):
+    def set_initial_values(self, initial_fields):
         # find and store new initial field values received in initial_fields
 
         for field in self.fields:
-            initial_values = ''.join( find(field, initial_fields) )
-            self.fields[field].initial = initial_values
+            initial_value = ''.join( find(field, initial_fields) )
+            field_type = self.fields[field].__class__.__name__
+
+            # the regular way to set 'initial' doesn't seem to work to ChoiceField,
+            # so here a way a around it
+            if field_type is 'ChoiceField':
+                initial_choice = (initial_value, initial_value)
+                self.fields[field].choices.remove( initial_choice )
+                self.fields[field].choices = [initial_choice] + self.fields[field].choices
+
+            elif field_type is 'CharField' or field_type is 'EmailField':
+                self.fields[field].initial = initial_value
+
+            else:
+                pprint('\n\n\n#TODO: SET INITIAL FIELDS DATA\n\n\n')
 
 class Lvars:
     grupo = [('Media Markt','Media Markt'), ]
-    distrito = [('Aveiro','Aveiro'), ('Braga','Braga'), ('Lisboa','Lisboa'), ('Porto','Porto'), ]
+    distrito = [('Aveiro','Aveiro'), ('Braga','Braga'), ('Lisboa','Lisboa'), ('Porto','Porto'), ('Vila Nova de Gaia','Vila Nova de Gaia'), ]
     pais = [('Portugal','Portugal'), ]
 
 

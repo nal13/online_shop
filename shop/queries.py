@@ -357,7 +357,7 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def add_loja(self, fields):
+    def add_loja(self, id, fields):
         # insert loja with the new highest id in DB
 
         nome = fields['nome']
@@ -371,8 +371,6 @@ class GraphDB:
         fax = fields['fax']
         email = fields['email']
         website = fields['website']
-
-        id = self.get_next_id( 'loja' )
 
         update = """
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -406,19 +404,25 @@ class GraphDB:
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX morada: <http://www.shop.pt/morada/>
             PREFIX contacto: <http://www.shop.pt/contacto/>
-            PREFIX modelo: <http://www.shop.pt/modelo/>
-            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
             DELETE WHERE {     loja:"""+id+"""        ?p          ?o . } ;
             DELETE WHERE {     morada:"""+id+"""      ?p          ?o . } ;
             DELETE WHERE {     contacto:"""+id+"""    ?p          ?o . } ;
+            """
+        self.update_query( update )
 
+    def remove_loja_links(self, id):
+        # delete all modelo_em_loja that linked to loja with id
+
+        update = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
             DELETE WHERE {
                 ?s      modelo_em_loja:LojaID   loja:"""+id+""" ;
                         ?p                      ?o .
                 ?s2     modelo:loja             ?s .
             } ;
             """
-        pprint(update)
         self.update_query( update )
 
     # def get_loja_morada_contacto(self, id):

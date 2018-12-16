@@ -135,8 +135,10 @@ def add_loja(request):
         form = AddLojaForm(request.POST)
         if form.is_valid() and validate_loja(form):
 
+            id = q.get_next_id( 'loja' )
+
             # insert loja with the new highest id in DB
-            g.add_loja( form.cleaned_data )
+            g.add_loja( id, form.cleaned_data )
 
             return redirect('list_modelo')
     else:
@@ -147,6 +149,7 @@ def remove_loja(request, id):
     # called in get_loja.html, don't have a web page
 
     g.remove_loja( id )
+    g.remove_loja_links( id )
 
     return redirect('list_modelo')
 
@@ -156,13 +159,15 @@ def edit_loja(request, id):
         form = AddLojaForm(request.POST)
         if form.is_valid():
 
-            # insert loja with the new highest id in DB
-            g.add_loja( form.cleaned_data )
+            # modify loja with id in DB
+            g.remove_loja( id )     #TODO use known fields to improve query
+            g.add_loja( id, form.cleaned_data )
+
 
             return redirect('list_modelo')
     else:
         form = AddLojaForm()
-        form.set_initial( request.session.get('get_loja_data') )
+        form.set_initial_values( request.session.get('get_loja_data') )
 
     return render(request, 'shop/add_loja.html', {'form': form})
 
