@@ -26,10 +26,12 @@ urlpatterns = [
     path('product/', views.product, name='product'),
     path('store/', views.store, name='store'),
 
+    path('add_buttons/', views.add_buttons, name='add_buttons'),
     path('list_modelo/', views.list_modelo, name='list_modelo'),
     re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),
-    path('add_buttons/', views.add_buttons, name='add_buttons'),
     re_path('add_modelo/(?P<type>\w+)/', views.add_modelo, name='add_modelo'),
+    re_path('remove_modelo/(?P<id>\d+)/', views.remove_modelo, name='remove_modelo'),
+    re_path('edit_modelo/(?P<id>\d+)/', views.edit_modelo, name='edit_modelo'),
 
     re_path('get_loja/(?P<id>\d+)/', views.get_loja, name='get_loja'),
     path('add_loja/', views.add_loja, name='add_loja'),

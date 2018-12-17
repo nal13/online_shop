@@ -74,14 +74,11 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    #
-    #not used atm
-    #
     def get_modelo_a(self, id):
         # type of a given modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
-            SELECT DISTINCT ?type
+            SELECT ?type
             WHERE {
                 modelo:"""+id+"""   a   ?type .
             }
@@ -120,6 +117,21 @@ class GraphDB:
             """
         return self.select_query( query )
 
+    def list_modelo_em_loja_unidades(self, id):
+        # loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            SELECT ?loja_uri ?unidades
+            WHERE {
+                modelo:"""+id+"""       modelo:loja                 ?modelo_em_loja_uri .
+                ?modelo_em_loja_uri     modelo_em_loja:LojaID       ?loja_uri ;
+                                        modelo_em_loja:unidades     ?unidades .
+            }
+            """
+        return self.select_query( query )
+
     def exists_modelo_name(self, nome):
         # boolean exists_nome if any modelo has nome==arg
         query = """
@@ -133,15 +145,13 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def add_modelo(self, type, fields):
+    def add_modelo(self, id, fields, type):
         # insert modelo with the new highest id in DB
 
         nome = fields['nome']
         marca = fields['marca']
         categoria = fields['categoria']
         preco = str( fields['preco'] )
-
-        id = self.get_next_id( 'modelo' )
 
         if type == 'computador':
             type_characteristics = """
@@ -281,6 +291,20 @@ class GraphDB:
                                         modelo:preco        '"""+preco+"""' .
                                         """+''.join(modelo_em_loja)+"""
             }
+            """
+        self.update_query( update )
+
+    def remove_modelo(self, id):
+        # delete modelo with id from DB
+
+        update = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            DELETE WHERE {
+                            modelo:"""+id+"""       modelo:loja     ?modelo_em_loja_uri .
+                            ?modelo_em_loja_uri     ?p              ?o .
+            } ;
+            DELETE WHERE {  modelo:"""+id+"""       ?p              ?o . }
             """
         self.update_query( update )
 

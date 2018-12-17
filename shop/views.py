@@ -4,7 +4,7 @@ from lxml import etree
 from pprint import pprint
 
 from .constants import *
-from .forms import AddModeloForm, AddLojaForm
+from .forms import ModeloForm, LojaForm
 from .forms_validation import *
 
 
@@ -57,7 +57,11 @@ def get_modelo(request, id):
         em_lojas.update({loja_uri: pairs})
         pairs = {}
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas})
+    # session variable stored on the server --- used in edit_modelo
+    # append both dictionaries
+    request.session[ 'get_modelo_data' ] = modelo #{**modelo, **em_lojas}
+
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas, 'id': id})
 
 def add_buttons(request):
 
@@ -83,16 +87,49 @@ def add_buttons(request):
 def add_modelo(request, type):
 
     if request.method == 'POST':
-        form = AddModeloForm(type, request.POST)
+        form = ModeloForm(type, request.POST)
         if form.is_valid() and validate_modelo(form):
 
+            new_id = g.get_next_id( 'modelo' )
+
             # insert modelo with the new highest id in DB
-            g.add_modelo( form.type, form.cleaned_data )
+            g.add_modelo( id=new_id, fields=form.cleaned_data, type=form.type )
 
             return redirect('list_modelo')
     else:
-        form = AddModeloForm(type)
+        form = ModeloForm(type)
     return render(request, 'shop/add_modelo.html', {'form': form})
+
+def remove_modelo(request, id):
+    # called in get_modelo.html, don't have a web page
+
+    g.remove_modelo( id )
+
+    return redirect('list_modelo')
+
+def edit_modelo(request, id):
+
+    # get type of modelo with id
+    query = g.get_modelo_a(id)
+    for e in query['results']['bindings']:
+        type = e['type']['value'].split('/')[-2]
+
+    if request.method == 'POST':
+        form = ModeloForm(type, request.POST)
+        if form.is_valid():
+
+            # modify modelo with id in DB
+            g.remove_modelo( id )     #TODO use known fields to improve query
+            g.add_modelo( id=id, fields=form.cleaned_data, type=form.type )
+
+            return redirect('list_modelo')
+    else:
+        form = ModeloForm(type)
+
+        initial_fields = request.session.get('get_modelo_data')
+        form.set_initial_values( initial_fields, id )
+
+    return render(request, 'shop/add_loja.html', {'form': form})
 
 
 def get_loja(request, id):
@@ -124,7 +161,7 @@ def get_loja(request, id):
         pairs.update({pred: obj})
     loja.update( {'contacto':pairs} )
 
-    # session variable stored on the server
+    # session variable stored on the server --- used in edit_loja
     request.session[ 'get_loja_data' ] = loja
 
     return render(request, 'shop/get_loja.html', {'loja': loja, 'id': id})
@@ -132,17 +169,17 @@ def get_loja(request, id):
 def add_loja(request):
 
     if request.method == 'POST':
-        form = AddLojaForm(request.POST)
+        form = LojaForm(request.POST)
         if form.is_valid() and validate_loja(form):
 
-            id = q.get_next_id( 'loja' )
+            new_id = g.get_next_id( 'loja' )
 
             # insert loja with the new highest id in DB
-            g.add_loja( id, form.cleaned_data )
+            g.add_loja( id=new_id, fields=form.cleaned_data )
 
             return redirect('list_modelo')
     else:
-        form = AddLojaForm()
+        form = LojaForm()
     return render(request, 'shop/add_loja.html', {'form': form})
 
 def remove_loja(request, id):
@@ -156,18 +193,19 @@ def remove_loja(request, id):
 def edit_loja(request, id):
 
     if request.method == 'POST':
-        form = AddLojaForm(request.POST)
+        form = LojaForm(request.POST)
         if form.is_valid():
 
             # modify loja with id in DB
             g.remove_loja( id )     #TODO use known fields to improve query
-            g.add_loja( id, form.cleaned_data )
-
+            g.add_loja( id=id, fields=form.cleaned_data )
 
             return redirect('list_modelo')
     else:
-        form = AddLojaForm()
-        form.set_initial_values( request.session.get('get_loja_data') )
+        form = LojaForm()
+
+        initial_fields = request.session.get('get_loja_data')
+        form.set_initial_values( initial_fields )
 
     return render(request, 'shop/add_loja.html', {'form': form})
 
@@ -189,7 +227,7 @@ rdf = transform(xml_root)
 rdf_asString = str(rdf).replace('<?xml version=\"1.0\"?>\n', '')
 
 # save rdf as a .n3 file
-with open(path + 'dataset.n3', 'w', encoding='utf-8') as file:
+with open(path + 'dataset.nt', 'w', encoding='utf-8') as file:
     file.write(rdf_asString)
 
 #

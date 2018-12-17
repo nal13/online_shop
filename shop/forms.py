@@ -1,12 +1,13 @@
 from django import forms
 from pprint import pprint
+import re
 
 from .constants import *
 
-class AddLojaForm(forms.Form):
+class LojaForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
-        super(AddLojaForm, self).__init__(*args, **kwargs)
+        super(LojaForm, self).__init__(*args, **kwargs)
 
         self.fields['nome'] = forms.CharField(
             label='Nome',
@@ -79,11 +80,13 @@ class AddLojaForm(forms.Form):
             max_length=40
         )
 
+
     def set_initial_values(self, initial_fields):
         # find and store new initial field values received in initial_fields
 
         for field in self.fields:
             initial_value = ''.join( find(field, initial_fields) )
+
             field_type = self.fields[field].__class__.__name__
 
             # the regular way to set 'initial' doesn't seem to work to ChoiceField,
@@ -92,6 +95,12 @@ class AddLojaForm(forms.Form):
                 initial_choice = (initial_value, initial_value)
                 self.fields[field].choices.remove( initial_choice )
                 self.fields[field].choices = [initial_choice] + self.fields[field].choices
+
+            elif field_type is 'DecimalField':
+                self.fields[field].initial = float(initial_value)
+
+            elif field_type is 'IntegerField':
+                self.fields[field].initial = int(initial_value)
 
             elif field_type is 'CharField' or field_type is 'EmailField':
                 self.fields[field].initial = initial_value
@@ -105,10 +114,10 @@ class Lvars:
     pais = [('Portugal','Portugal'), ]
 
 
-class AddModeloForm(forms.Form):
+class ModeloForm(forms.Form):
 
     def __init__(self, type, *args, **kwargs):
-        super(AddModeloForm, self).__init__(*args, **kwargs)
+        super(ModeloForm, self).__init__(*args, **kwargs)
 
         self.type = type
 
@@ -184,6 +193,48 @@ class AddModeloForm(forms.Form):
                                                 min_value=0),
             })
 
+
+    def set_initial_values(self, initial_fields,  id):
+        # find and store new initial field values received in initial_fields or queries
+
+        for field in self.fields:
+
+            # dynamic forms
+            if re.compile('_[0-9]+').search(field):
+
+                query = g.list_modelo_em_loja_unidades(id)
+                initial_value = 0
+
+                for e in query['results']['bindings']:
+                    loja_id = e['loja_uri']['value'].split('/')[-1]
+                    unidades = e['unidades']['value']
+                    if loja_id in field:
+                        initial_value = unidades
+            # static forms
+            else:
+                initial_value = find(field, initial_fields)
+
+            field_type = self.fields[field].__class__.__name__
+
+            # the regular way to set 'initial' doesn't seem to work to ChoiceField,
+            # so here a way a around it
+            if field_type is 'ChoiceField':
+                initial_choice = (initial_value, initial_value)
+                self.fields[field].choices.remove( initial_choice )
+                self.fields[field].choices = [initial_choice] + self.fields[field].choices
+
+            elif field_type is 'DecimalField':
+                self.fields[field].initial = float(initial_value)
+
+            elif field_type is 'IntegerField':
+                self.fields[field].initial = int(initial_value)
+
+            elif field_type is 'CharField' or field_type is 'EmailField':
+                self.fields[field].initial = initial_value
+
+            else:
+                pprint( field_type )
+                pprint('\n\n\n#TODO: SET INITIAL FIELDS DATA\n\n\n')
 
     def computador(self):
         self.fields['ram'] = forms.ChoiceField(
@@ -490,7 +541,7 @@ class AddModeloForm(forms.Form):
 
 class Mvars:
     boolean = [
-        ('Sim', 'Sim'), ('Não', 'Não'),
+        ('Sim', 'Sim'), ('Nao', 'Nao'),
     ]
     marca = [
         ('Asus', 'Asus'), ('HP', 'HP'), ('LeNovo', 'LeNovo'), ('Xiaomi', 'Xiaomi'), ('Apple', 'Apple'), ('Huawei', 'Huawei'),
@@ -504,17 +555,17 @@ class Mvars:
         ('Cozinha', 'Cozinha'), ('Limpeza', 'Limpeza'), ('Videojogos', 'Videojogos')
     ]
 
-    computador_ram = [('1 GB','1 GB'), ('2 GB','2 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
+    computador_ram = [('1 GB','1 GB'), ('2 GB','2 GB'), ('3 GB','3 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
     computador_processador = [('i5-7200U 2.5GHz','i5-7200U 2.5GHz'), ('i7-8550U 1.8GHz','i7-8550U 1.8GHz'), ('i3-7020U 2.3GHz','i3-7020U 2.3GHz'), ('i5-825OU 1.6 GHz','i5-825OU 1.6 GHz'), ('i7-855OU 1.8 GHz','i7-855OU 1.8 GHz'), ('i5-825OU 1.6 GHz','i5-825OU 1.6 GHz'), ]
     computador_capacidadedisco = [('128 GB','128 GB'), ('256 GB','256 GB'), ('512 GB','512 GB'), ('1024 GB','1024 GB'), ('2048 GB','2048 GB'), ]
     computador_grafica = [('Radeon R5 530 2GB','Radeon R5 530 2GB'), ('HD Graphics 620','HD Graphics 620'), ('HD Graphics 620','HD Graphics 620'), ('GeForce MX110 2GB','GeForce MX110 2GB'), ('Radeon R5 530 2GB','Radeon R5 530 2GB'), ]
 
-    telemovel_ram =  [('1 GB','1 GB'), ('2 GB','2 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
+    telemovel_ram =  [('1 GB','1 GB'), ('2 GB','2 GB'), ('3 GB','3 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
     telemovel_processador = [('Quad-Core 2.0 GHz Cortex-A53','Quad-Core 2.0 GHz Cortex-A53'), ('Hexa-core A12 Bionic','Hexa-core A12 Bionic'), ('Quad-core 2.23 GHz A10 Fusion','Quad-core 2.23 GHz A10 Fusion'), ('Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)','Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)'), ]
     telemovel_capacidadememoria = [('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ('64 GB','64 GB'), ('128 GB','128 GB'), ]
     telemovel_camara = [('12 MP','12 MP'), ('13 MP','13 MP'), ('Dual(12 MP + 5MP)','Dual(12 MP + 5MP)'), ('DUAL(16 MP + 2 MP)','DUAL(16 MP + 2 MP)'), ]
 
-    tablet_ram = [('1 GB','1 GB'), ('2 GB','2 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
+    tablet_ram = [('1 GB','1 GB'), ('2 GB','2 GB'), ('3 GB','3 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]
     tablet_processador = [('Quad-Core 1.3 GHz','Quad-Core 1.3 GHz'), ('Quad-Core 1.4 GHz','Quad-Core 1.4 GHz'), ('Dual-Core A10 Fusion','Dual-Core A10 Fusion'), ('Dual-Core A10X Fusion','Dual-Core A10X Fusion'), ('Quad-Core 1.4 GHz Snapdragon 425','Quad-Core 1.4 GHz Snapdragon 425'), ]
     tablet_capacidadememoria = [('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ('64 GB','64 GB'), ('128 GB','128 GB'), ]
     tablet_camara = [('5 MP + 2 MP','Quad-Core 1.4 GHz'), ('8 MP + 1.2 MP','8 MP + 1.2 MP'), ('12 MP + 7 MP','12 MP + 7 MP'), ]
@@ -536,7 +587,7 @@ class Mvars:
     maquinacafe_potencia = [('1200 W','1200 W'), ('1260 W','1260 W'), ]
 
     microndas_volumemax = [('20 L','20 L'), ('23 L','23 L'), ('28 L','28 L'), ]
-    microndas_potenciamax = [('700 L','700 L'), ('800 L','800 L'), ('1500 L','1500 L'), ]
+    microndas_potenciamax = [('700 W','700 W'), ('800 W','800 W'), ('1500 W','1500 W'), ]
 
     maquinalavarroupa_eficiencia = [('B','B'), ('A+','A+'), ('A+++','A+++'), ]
     maquinalavarroupa_capacidade = [('7.0 Kg','7.0 Kg'), ('8.0 Kg','8.0 Kg'), ('9.0 Kg','9.0 Kg'), ('10.0 Kg','10.0 Kg'), ('11.0 Kg','11.0 Kg'), ('12.0 Kg','12.0 Kg'), ]
@@ -562,11 +613,11 @@ class Mvars:
 def find(key, dictionary):
     for k, v in dictionary.items():
         if k == key:
-            yield v
+            return v
         elif isinstance(v, dict):
             for result in find(key, v):
-                yield result
+                return result
         elif isinstance(v, list):
             for d in v:
                 for result in find(key, d):
-                    yield result
+                    return result
