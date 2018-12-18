@@ -88,7 +88,7 @@ modelo:2001
 	a computador: ; 
 	modelo:nome "Vivobook Flip TP410UA-57DHDCB2" ; 
 	modelo:marca "Asus" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i5-7200U 2.5GHz" ; 
 	modelo:capacidadedisco "256 GB" ; 
@@ -109,7 +109,7 @@ modelo:2002
 	a computador: ; 
 	modelo:nome "Zenbook UX430UA-78DHDCB1" ; 
 	modelo:marca "Asus" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "16 GB" ; 
 	modelo:processador "i7-8550U 1.8GHz" ; 
 	modelo:capacidadedisco "512 GB" ; 
@@ -130,7 +130,7 @@ modelo:2003
 	a computador: ; 
 	modelo:nome "15-DA0002NP" ; 
 	modelo:marca "HP" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "i3-7020U 2.3GHz" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -155,7 +155,7 @@ modelo:2004
 	a computador: ; 
 	modelo:nome "15-DAO117NP" ; 
 	modelo:marca "Asus" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "12 GB" ; 
 	modelo:processador "i5-825OU 1.6 GHz" ; 
 	modelo:capacidadedisco "256 GB" ; 
@@ -180,7 +180,7 @@ modelo:2005
 	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-472" ; 
 	modelo:marca "LeNovo" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "i7-855OU 1.8 GHz" ; 
 	modelo:capacidadedisco "256 GB" ; 
@@ -197,7 +197,7 @@ modelo:2006
 	a computador: ; 
 	modelo:nome "IDEAPAD 330-15IKB-534" ; 
 	modelo:marca "LeNovo" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i5-825OU 1.6 GHz" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -218,7 +218,7 @@ modelo:2007
 	a telemovel: ; 
 	modelo:nome "REDMI 64 PRETO" ; 
 	modelo:marca "Xiaomi" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Quad-Core 2.0 GHz Cortex-A53" ; 
 	modelo:capacidadememoria "16 GB" ; 
@@ -239,7 +239,7 @@ modelo:2008
 	a telemovel: ; 
 	modelo:nome "REDMI S2 CINZENTO" ; 
 	modelo:marca "Xiaomi" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "Octa-core 2.0 GHz Cortex-A53" ; 
 	modelo:capacidadememoria "64 GB" ; 
@@ -256,7 +256,7 @@ modelo:2009
 	a telemovel: ; 
 	modelo:nome "IPHONE XR PRETO" ; 
 	modelo:marca "Apple" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "3 GB" ; 
 	modelo:processador "Hexa-core A12 Bionic" ; 
 	modelo:capacidadememoria "64 GB" ; 
@@ -281,7 +281,7 @@ modelo:2010
 	a telemovel: ; 
 	modelo:nome "IPHONE 7 DOURADO" ; 
 	modelo:marca "Apple" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Quad-core 2.23 GHz A10 Fusion" ; 
 	modelo:capacidadememoria "32 GB" ; 
@@ -306,7 +306,7 @@ modelo:2011
 	a telemovel: ; 
 	modelo:nome "MATE 10 LITE AZUL" ; 
 	modelo:marca "Huawei" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)" ; 
 	modelo:capacidadememoria "64 GB" ; 
@@ -327,7 +327,7 @@ modelo:2012
 	a telemovel: ; 
 	modelo:nome "P20 LITE PRETO" ; 
 	modelo:marca "Huawei" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7GHz)" ; 
 	modelo:capacidadememoria "32 GB" ; 
@@ -348,7 +348,7 @@ modelo:2013
 	a tablet: ; 
 	modelo:nome "TAB 4 TB-X304F" ; 
 	modelo:marca "LeNovo" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Quad-Core 1.4 GHz" ; 
 	modelo:capacidadememoria "16 GB" ; 
@@ -369,7 +369,7 @@ modelo:2014
 	a tablet: ; 
 	modelo:nome "TAB 4 TB-8504F" ; 
 	modelo:marca "LeNovo" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Quad-Core 1.4 GHz" ; 
 	modelo:capacidadememoria "16 GB" ; 
@@ -386,7 +386,7 @@ modelo:2015
 	a tablet: ; 
 	modelo:nome "IPAD CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Dual-Core A10 Fusion" ; 
 	modelo:capacidadememoria "32 GB" ; 
@@ -411,7 +411,7 @@ modelo:2016
 	a tablet: ; 
 	modelo:nome "IPAD PRO CINZENTO SIDERAL" ; 
 	modelo:marca "Apple" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "Dual-core A10X Fusion" ; 
 	modelo:capacidadememoria "64 GB" ; 
@@ -436,7 +436,7 @@ modelo:2017
 	a tablet: ; 
 	modelo:nome "MEDIAPAD T3" ; 
 	modelo:marca "Huawei" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "2 GB" ; 
 	modelo:processador "Quad-Core 1.4 GHz Snapdragon 425" ; 
 	modelo:capacidadememoria "16 GB" ; 
@@ -461,7 +461,7 @@ modelo:2018
 	a tablet: ; 
 	modelo:nome "MEDIAPAD T3 - 7" ; 
 	modelo:marca "Huawei" ; 
-	modelo:categoria "Comunicação Móvel" ; 
+	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "1 GB" ; 
 	modelo:processador "Quad-core 1.3 GHz" ; 
 	modelo:capacidadememoria "8 GB" ; 
@@ -478,7 +478,7 @@ modelo:2019
 	a camara: ; 
 	modelo:nome "EOS M100 Branca + 15-45 IS STM" ; 
 	modelo:marca "Canon" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:resolucaovideo "Full HD 1080p" ; 
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "24 MP" ; 
@@ -497,7 +497,7 @@ modelo:2020
 	a camara: ; 
 	modelo:nome "EOS 4000D Preta + 18-55 + Mochila + SD 16GB" ; 
 	modelo:marca "Canon" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:resolucaovideo "Full HD 1080p" ; 
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "18 MP" ; 
@@ -516,7 +516,7 @@ modelo:2021
 	a camara: ; 
 	modelo:nome "D5300 + 18-55 VR + Estojo + EBook" ; 
 	modelo:marca "Nikon" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:resolucaovideo "Full HD 1080p" ; 
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "24 MP" ; 
@@ -531,7 +531,7 @@ modelo:2022
 	a camara: ; 
 	modelo:nome "D7500 + 18-105 VR" ; 
 	modelo:marca "Nikon" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:resolucaovideo "UHD 4K" ; 
 	modelo:wireless "Sim" ; 
 	modelo:resolucaofoto "22 MP" ; 
@@ -554,7 +554,7 @@ modelo:2023
 	a drone: ; 
 	modelo:nome "Mambo Mission-Drone + Comando + Canhao + Garra" ; 
 	modelo:marca "Parrot" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:autonomia "Ate 9 min" ; 
 	modelo:raio "200 m" ; 
 	modelo:camaraimb "Sim" ; 
@@ -573,7 +573,7 @@ modelo:2024
 	a drone: ; 
 	modelo:nome "DRONE BEBOP 2 BRANCO" ; 
 	modelo:marca "Parrot" ; 
-	modelo:categoria "Fotografia" ; 
+	modelo:categoria "fotografia" ; 
 	modelo:autonomia "Ate 25 min" ; 
 	modelo:raio "300 m" ; 
 	modelo:camaraimb "Sim" ; 
@@ -596,7 +596,7 @@ modelo:2025
 	a tv: ; 
 	modelo:nome "LE24IP43973 TVs LED" ; 
 	modelo:marca "Silver" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:tamanhoecra "24.0" ; 
 	modelo:qualidadeimagem "HD 720p" ; 
 	modelo:frequencia "50 Hz" ; 
@@ -611,7 +611,7 @@ modelo:2026
 	a tv: ; 
 	modelo:nome "IP-LE410005 SMART TVs LED" ; 
 	modelo:marca "Silver" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:tamanhoecra "40.0" ; 
 	modelo:qualidadeimagem "HD" ; 
 	modelo:frequencia "60 Hz" ; 
@@ -630,7 +630,7 @@ modelo:2027
 	a tv: ; 
 	modelo:nome "49SK8000 SMART TVs LED" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:tamanhoecra "49.0" ; 
 	modelo:qualidadeimagem "UHD 4K" ; 
 	modelo:frequencia "50 Hz" ; 
@@ -653,7 +653,7 @@ modelo:2028
 	a tv: ; 
 	modelo:nome "55SK8000 SMART TVs" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:tamanhoecra "55.0" ; 
 	modelo:qualidadeimagem "UHD 4K" ; 
 	modelo:frequencia "100 Hz" ; 
@@ -676,7 +676,7 @@ modelo:2029
 	a leitor_blueray: ; 
 	modelo:nome "2D BP250" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "Full-HD 1080p" ; 
 	modelo:preco "69.00" ; 
@@ -690,7 +690,7 @@ modelo:2030
 	a leitor_blueray: ; 
 	modelo:nome "UBK90" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "4K" ; 
 	modelo:preco "250.00" ; 
@@ -708,7 +708,7 @@ modelo:2031
 	a leitor_blueray: ; 
 	modelo:nome "BDP-S1700" ; 
 	modelo:marca "Sony" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "Full HD 1080p" ; 
 	modelo:preco "85.00" ; 
@@ -726,7 +726,7 @@ modelo:2032
 	a leitor_blueray: ; 
 	modelo:nome "UBP-X700" ; 
 	modelo:marca "Sony" ; 
-	modelo:categoria "Tecnologia de Casa" ; 
+	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:formatosreproducao "BD,CD,DVD" ; 
 	modelo:resolucao "4K" ; 
 	modelo:preco "199.00" ; 
@@ -748,7 +748,7 @@ modelo:2033
 	a maquina_cafe: ; 
 	modelo:nome "KRUPS INISSIA XN1001" ; 
 	modelo:marca "Nespresso" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:cor "Branco" ; 
 	modelo:agua "0.8 L" ; 
 	modelo:potencia "1260 W" ; 
@@ -771,7 +771,7 @@ modelo:2034
 	a maquina_cafe: ; 
 	modelo:nome "KRUPS EXPERT XN6008" ; 
 	modelo:marca "Nespresso" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:cor "Preto" ; 
 	modelo:agua "1.2 L" ; 
 	modelo:potencia "1260 W" ; 
@@ -794,7 +794,7 @@ modelo:2035
 	a maquina_cafe: ; 
 	modelo:nome "QOOL EVOLUTION" ; 
 	modelo:marca "Delta" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:cor "Vermelho" ; 
 	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
@@ -809,7 +809,7 @@ modelo:2036
 	a maquina_cafe: ; 
 	modelo:nome "Q Capsulas Qool Evolution + 50 Capsulas" ; 
 	modelo:marca "Delta" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:cor "Preto" ; 
 	modelo:agua "1 L" ; 
 	modelo:potencia "1200 W" ; 
@@ -824,7 +824,7 @@ modelo:2037
 	a microondas: ; 
 	modelo:nome "MS23F301TAK" ; 
 	modelo:marca "Samsung" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:grill "Nao" ; 
 	modelo:volumemax "23 L" ; 
 	modelo:potenciamax "800 W" ; 
@@ -843,7 +843,7 @@ modelo:2038
 	a microondas: ; 
 	modelo:nome "MG28J5215AB" ; 
 	modelo:marca "Samsung" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:grill "Sim" ; 
 	modelo:volumemax "28 L" ; 
 	modelo:potenciamax "1500 W" ; 
@@ -866,7 +866,7 @@ modelo:2039
 	a microondas: ; 
 	modelo:nome "1824FL" ; 
 	modelo:marca "Flama" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:grill "Nao" ; 
 	modelo:volumemax "20 L" ; 
 	modelo:potenciamax "700 W" ; 
@@ -885,7 +885,7 @@ modelo:2040
 	a microondas: ; 
 	modelo:nome "1834FL" ; 
 	modelo:marca "Flama" ; 
-	modelo:categoria "Cozinha" ; 
+	modelo:categoria "cozinha" ; 
 	modelo:grill "Nao" ; 
 	modelo:volumemax "20 L" ; 
 	modelo:potenciamax "700 W" ; 
@@ -908,7 +908,7 @@ modelo:2041
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG91284W" ; 
 	modelo:marca "Whirlpoll" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
@@ -931,7 +931,7 @@ modelo:2042
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FWG71283W" ; 
 	modelo:marca "Whirlpoll" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "7.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
@@ -954,7 +954,7 @@ modelo:2043
 	a maquina_lavar_roupa: ; 
 	modelo:nome "F4J5TN3W" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:velocidadecen "1400 Rpm" ; 
@@ -969,7 +969,7 @@ modelo:2044
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FH495BDS2 TWINWASH" ; 
 	modelo:marca "LG" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "12.0 Kg" ; 
 	modelo:velocidadecen "1400 Rpm" ; 
@@ -988,7 +988,7 @@ modelo:2045
 	a maquina_lavar_roupa: ; 
 	modelo:nome "FMG823B" ; 
 	modelo:marca "Hotpoint" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:velocidadecen "1200 Rpm" ; 
@@ -1007,7 +1007,7 @@ modelo:2046
 	a maquina_lavar_roupa: ; 
 	modelo:nome "RSF 925 JA" ; 
 	modelo:marca "Hotpoint" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:velocidadecen "1200 Kg" ; 
@@ -1022,7 +1022,7 @@ modelo:2047
 	a maquina_secar_roupa: ; 
 	modelo:nome "EDPE-G 45-A1" ; 
 	modelo:marca "Indesit" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "306 kWh" ; 
@@ -1037,7 +1037,7 @@ modelo:2048
 	a maquina_secar_roupa: ; 
 	modelo:nome "IDCL-G5.B.H" ; 
 	modelo:marca "Indesit" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "B" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "560 KWh" ; 
@@ -1052,7 +1052,7 @@ modelo:2049
 	a maquina_secar_roupa: ; 
 	modelo:nome "AQC9 4F5 T/Z1 EU" ; 
 	modelo:marca "Hotpoint" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+" ; 
 	modelo:capacidade "9.0 Kg" ; 
 	modelo:consumo "338 KWh" ; 
@@ -1075,7 +1075,7 @@ modelo:2050
 	a maquina_secar_roupa: ; 
 	modelo:nome "TCD-874-6H1" ; 
 	modelo:marca "Hotpoint" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "306 KWh" ; 
@@ -1098,7 +1098,7 @@ modelo:2051
 	a maquina_secar_roupa: ; 
 	modelo:nome "WTG85231EE" ; 
 	modelo:marca "Bosh" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A++" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "236 KWh" ; 
@@ -1117,7 +1117,7 @@ modelo:2052
 	a maquina_secar_roupa: ; 
 	modelo:nome "WTW87640ES" ; 
 	modelo:marca "Bosh" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "8.0 Kg" ; 
 	modelo:consumo "177 KWh" ; 
@@ -1136,7 +1136,7 @@ modelo:2053
 	a aspirador: ; 
 	modelo:nome "Roomba 616" ; 
 	modelo:marca "IronBot" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "33 W" ; 
 	modelo:volumemaxdep "" ; 
 	modelo:preco "279.00" ; 
@@ -1154,7 +1154,7 @@ modelo:2054
 	a aspirador: ; 
 	modelo:nome "Roomba 980" ; 
 	modelo:marca "IronBot" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "33 W" ; 
 	modelo:volumemaxdep "" ; 
 	modelo:preco "884.00" ; 
@@ -1176,7 +1176,7 @@ modelo:2055
 	a aspirador: ; 
 	modelo:nome "TE70 TE75011 CLASSE A" ; 
 	modelo:marca "Hoover" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "700 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "135.00" ; 
@@ -1190,7 +1190,7 @@ modelo:2056
 	a aspirador: ; 
 	modelo:nome "HY70 HYDROPOWER COM FILTRO AGUA CLASSE A" ; 
 	modelo:marca "Hoover" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "700 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "179.00" ; 
@@ -1212,7 +1212,7 @@ modelo:2057
 	a aspirador: ; 
 	modelo:nome "COMPACT P PARQUET R03953EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "750 W" ; 
 	modelo:volumemaxdep "3 L" ; 
 	modelo:preco "85.00" ; 
@@ -1230,7 +1230,7 @@ modelo:2058
 	a aspirador: ; 
 	modelo:nome "SILENCE FORCE A4 ANIMAL CARE PRO R07681EA CLASSE A" ; 
 	modelo:marca "Rowenta" ; 
-	modelo:categoria "Limpeza" ; 
+	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "750 W" ; 
 	modelo:volumemaxdep "3.5 L" ; 
 	modelo:preco "268.00" ; 
@@ -1244,7 +1244,7 @@ modelo:2059
 	a gaming_pc: ; 
 	modelo:nome "Desktop 880-140NP" ; 
 	modelo:marca "HP" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:ram "16 GB" ; 
 	modelo:processador "i7-8700 Hex-core" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -1265,7 +1265,7 @@ modelo:2060
 	a gaming_pc: ; 
 	modelo:nome "Omen Laptop 17-AN100NP" ; 
 	modelo:marca "HP" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:ram "16 GB" ; 
 	modelo:processador "i7-8750H 2.2 GHz" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -1282,7 +1282,7 @@ modelo:2061
 	a gaming_pc: ; 
 	modelo:nome "VIVOBOOK A560UD-58A05PB2" ; 
 	modelo:marca "Asus" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i5-825OU 1.60GHz" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -1307,7 +1307,7 @@ modelo:2062
 	a gaming_pc: ; 
 	modelo:nome "TUF FX504GD-78A05PB1" ; 
 	modelo:marca "Asus" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i7-8750H 2.2 GHz" ; 
 	modelo:capacidadedisco "1000 GB" ; 
@@ -1332,7 +1332,7 @@ modelo:2063
 	a consola: ; 
 	modelo:nome "PS4 Slim 1TB Preta + Red Dead Redemption II" ; 
 	modelo:marca "Sony" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "1000 GB" ; 
 	modelo:cor "Preta" ; 
 	modelo:jogoincluido "Red Dead Redemption II" ; 
@@ -1351,7 +1351,7 @@ modelo:2064
 	a consola: ; 
 	modelo:nome "PS4 1TB Preta + FIFA 19" ; 
 	modelo:marca "Sony" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "1000 GB" ; 
 	modelo:cor "Preta" ; 
 	modelo:jogoincluido "FIFA 19" ; 
@@ -1370,7 +1370,7 @@ modelo:2065
 	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + GAME PASS 3 MESES" ; 
 	modelo:marca "Microsoft" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "1000 GB" ; 
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "None" ; 
@@ -1385,7 +1385,7 @@ modelo:2066
 	a consola: ; 
 	modelo:nome "XBOX ONE S 1TB + TOMB RAIDER" ; 
 	modelo:marca "Microsoft" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "1000 GB" ; 
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "TOMB RAIDER" ; 
@@ -1408,7 +1408,7 @@ modelo:2067
 	a consola: ; 
 	modelo:nome "SWITCH AZUL/VERMELHO NEON" ; 
 	modelo:marca "Nintendo" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "32 GB" ; 
 	modelo:cor "Azul/Vermelho" ; 
 	modelo:jogoincluido "None" ; 
@@ -1423,7 +1423,7 @@ modelo:2068
 	a consola: ; 
 	modelo:nome "SWITCH POKEMON EEVEE + POKEBALL" ; 
 	modelo:marca "Nintendo" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:capacidadedisco "32 GB" ; 
 	modelo:cor "Varias" ; 
 	modelo:jogoincluido "Pokemon Lets Go Eevee" ; 
@@ -1438,7 +1438,7 @@ modelo:2069
 	a jogo: ; 
 	modelo:nome "Marvel's Spider Man" ; 
 	modelo:marca "PS4" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "68.00" ; 
 	modelo:loja modelo_em_loja:20691001 , 
 				modelo_em_loja:20691003 . 
@@ -1454,7 +1454,7 @@ modelo:2070
 	a jogo: ; 
 	modelo:nome "Assassin's Creed Odyssey" ; 
 	modelo:marca "PS4" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "39.00" ; 
 	modelo:loja modelo_em_loja:20701001 , 
 				modelo_em_loja:20701003 . 
@@ -1470,7 +1470,7 @@ modelo:2071
 	a jogo: ; 
 	modelo:nome "Fifa 19" ; 
 	modelo:marca "PS4" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "68.00" ; 
 	modelo:loja modelo_em_loja:20711001 , 
 				modelo_em_loja:20711003 . 
@@ -1486,7 +1486,7 @@ modelo:2072
 	a jogo: ; 
 	modelo:nome "One WWE 2k19" ; 
 	modelo:marca "XBOX" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "68.00" ; 
 	modelo:loja modelo_em_loja:20721002 , 
 				modelo_em_loja:20721003 . 
@@ -1502,7 +1502,7 @@ modelo:2073
 	a jogo: ; 
 	modelo:nome "One Fifa 19" ; 
 	modelo:marca "XBOX" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco " 68.00" ; 
 	modelo:loja modelo_em_loja:20731002 , 
 				modelo_em_loja:20731003 . 
@@ -1518,7 +1518,7 @@ modelo:2074
 	a jogo: ; 
 	modelo:nome "One Fallout 4 GOTY" ; 
 	modelo:marca "XBOX" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "49.90" ; 
 	modelo:loja modelo_em_loja:20741003 . 
 modelo_em_loja:20741003
@@ -1530,7 +1530,7 @@ modelo:2075
 	a jogo: ; 
 	modelo:nome "Pokemon Let's Go Pikachu" ; 
 	modelo:marca "SWITCH" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "55.00" ; 
 	modelo:loja modelo_em_loja:20751002 , 
 				modelo_em_loja:20751003 . 
@@ -1546,7 +1546,7 @@ modelo:2076
 	a jogo: ; 
 	modelo:nome "Snipperclips Cut It Out" ; 
 	modelo:marca "SWITCH" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "29.90" ; 
 	modelo:loja modelo_em_loja:20761001 . 
 modelo_em_loja:20761001
@@ -1558,7 +1558,7 @@ modelo:2077
 	a jogo: ; 
 	modelo:nome "Legend od Zelda: Breath Of The Wild" ; 
 	modelo:marca "SWITCH" ; 
-	modelo:categoria "Videojogos" ; 
+	modelo:categoria "videojogos" ; 
 	modelo:preco "69.00" ; 
 	modelo:loja modelo_em_loja:20771001 . 
 modelo_em_loja:20771001

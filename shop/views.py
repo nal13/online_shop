@@ -10,10 +10,22 @@ from .wikidata import get_wikidata
 
 
 def home(request):
+    return render(request, 'shop/home.html')
 
-    get_wikidata()
+def filter_categoria(request, categoria):
 
-    return render(request, 'shop/index.html')
+    query = g.list_modelo_with_categoria( categoria )['results']['bindings']
+
+    modelos = []
+    for e in query:
+        uri = e['uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        preco = e['preco']['value']
+        modelos.append( (uri, nome, preco) )
+
+    pprint( modelos )
+
+    return render(request, 'shop/filter_categoria.html', {'modelos': modelos, 'categoria': categoria})
 
 
 def store(request):
@@ -47,13 +59,13 @@ def add_buttons(request):
 
 def list_modelo(request):
 
-    modelos = {}
-    query = g.list_modelo_uri_nome()
+    modelos = []
+    query = g.list_modelo_uri_nome()['results']['bindings']
 
-    for e in query['results']['bindings']:
+    for e in query:
         uri = e['uri']['value'].split('/')[-1]
         nome = e['nome']['value']
-        modelos.update({uri: nome})
+        modelos.append( (uri, nome) )
 
     return render(request, 'shop/list_modelo.html', {'modelos': modelos})
 
@@ -234,7 +246,7 @@ rdf = transform(xml_root)
 rdf_asString = str(rdf).replace('<?xml version=\"1.0\"?>\n', '')
 
 # save rdf as a .n3 file
-with open(path + 'dataset.n3', 'w', encoding='utf-8') as file:
+with open(path + 'dataset.nt', 'w', encoding='utf-8') as file:
     file.write(rdf_asString)
 
 #

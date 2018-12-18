@@ -26,6 +26,8 @@ urlpatterns = [
     path('product/', views.product, name='product'),
     path('store/', views.store, name='store'),
 
+    re_path('filter_categoria/(?P<categoria>\w+)/', views.filter_categoria, name='filter_categoria'),
+
     path('add_buttons/', views.add_buttons, name='add_buttons'),
     path('list_modelo/', views.list_modelo, name='list_modelo'),
     re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),

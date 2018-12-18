@@ -3,8 +3,8 @@
 {% block content %}
 
 <ul>
-  {% for id, nome in modelos.items %}
-  <li><a href="{% url 'get_modelo' id %}">{{ nome }}</a></li>
+  {% for e in modelos %}
+  <li><a href="{% url 'get_modelo' e.0 %}">{{ e.1 }}</a></li>
   {% endfor %}
 </ul>
 

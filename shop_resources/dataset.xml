@@ -68,7 +68,7 @@
                 <ID>2001</ID>
                 <Nome>Vivobook Flip TP410UA-57DHDCB2</Nome>
                 <Marca>Asus</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i5-7200U 2.5GHz</Processador>
                 <CapacidadeDisco>256 GB</CapacidadeDisco>
@@ -89,7 +89,7 @@
                 <ID>2002</ID>
                 <Nome>Zenbook UX430UA-78DHDCB1</Nome>
                 <Marca>Asus</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>16 GB</Ram>
                 <Processador>i7-8550U 1.8GHz</Processador>
                 <CapacidadeDisco>512 GB</CapacidadeDisco>
@@ -110,7 +110,7 @@
                 <ID>2003</ID>
                 <Nome>15-DA0002NP</Nome>
                 <Marca>HP</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>i3-7020U 2.3GHz</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -135,7 +135,7 @@
                 <ID>2004</ID>
                 <Nome>15-DAO117NP</Nome>
                 <Marca>Asus</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>12 GB</Ram>
                 <Processador>i5-825OU 1.6 GHz</Processador>
                 <CapacidadeDisco>256 GB</CapacidadeDisco>
@@ -160,7 +160,7 @@
                 <ID>2005</ID>
                 <Nome>IDEAPAD 330-15IKB-472</Nome>
                 <Marca>LeNovo</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>i7-855OU 1.8 GHz</Processador>
                 <CapacidadeDisco>256 GB</CapacidadeDisco>
@@ -177,7 +177,7 @@
                 <ID>2006</ID>
                 <Nome>IDEAPAD 330-15IKB-534</Nome>
                 <Marca>LeNovo</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i5-825OU 1.6 GHz</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -199,7 +199,7 @@
                 <ID>2007</ID>
                 <Nome>REDMI 64 PRETO</Nome>
                 <Marca>Xiaomi</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Quad-Core 2.0 GHz Cortex-A53</Processador>
                 <CapacidadeMemoria>16 GB</CapacidadeMemoria>
@@ -220,7 +220,7 @@
                 <ID>2008</ID>
                 <Nome>REDMI S2 CINZENTO</Nome>
                 <Marca>Xiaomi</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>Octa-core 2.0 GHz Cortex-A53</Processador>
                 <CapacidadeMemoria>64 GB</CapacidadeMemoria>
@@ -237,7 +237,7 @@
                 <ID>2009</ID>
                 <Nome>IPHONE XR PRETO</Nome>
                 <Marca>Apple</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>3 GB</Ram>
                 <Processador>Hexa-core A12 Bionic</Processador>
                 <CapacidadeMemoria>64 GB</CapacidadeMemoria>
@@ -262,7 +262,7 @@
                 <ID>2010</ID>
                 <Nome>IPHONE 7 DOURADO</Nome>
                 <Marca>Apple</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Quad-core 2.23 GHz A10 Fusion</Processador>
                 <CapacidadeMemoria>32 GB</CapacidadeMemoria>
@@ -287,7 +287,7 @@
                 <ID>2011</ID>
                 <Nome>MATE 10 LITE AZUL</Nome>
                 <Marca>Huawei</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)</Processador>
                 <CapacidadeMemoria>64 GB</CapacidadeMemoria>
@@ -308,7 +308,7 @@
                 <ID>2012</ID>
                 <Nome>P20 LITE PRETO</Nome>
                 <Marca>Huawei</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>Octa-core(4x 2.36 GHz + 4x 1.7GHz)</Processador>
                 <CapacidadeMemoria>32 GB</CapacidadeMemoria>
@@ -330,7 +330,7 @@
                 <ID>2013</ID>
                 <Nome>TAB 4 TB-X304F</Nome>
                 <Marca>LeNovo</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Quad-Core 1.4 GHz</Processador>
                 <CapacidadeMemoria>16 GB</CapacidadeMemoria>
@@ -351,7 +351,7 @@
                 <ID>2014</ID>
                 <Nome>TAB 4 TB-8504F</Nome>
                 <Marca>LeNovo</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Quad-Core 1.4 GHz</Processador>
                 <CapacidadeMemoria>16 GB</CapacidadeMemoria>
@@ -368,7 +368,7 @@
                 <ID>2015</ID>
                 <Nome>IPAD CINZENTO SIDERAL</Nome>
                 <Marca>Apple</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Dual-Core A10 Fusion</Processador>
                 <CapacidadeMemoria>32 GB</CapacidadeMemoria>
@@ -393,7 +393,7 @@
                 <ID>2016</ID>
                 <Nome>IPAD PRO CINZENTO SIDERAL</Nome>
                 <Marca>Apple</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>Dual-core A10X Fusion</Processador>
                 <CapacidadeMemoria>64 GB</CapacidadeMemoria>
@@ -418,7 +418,7 @@
                 <ID>2017</ID>
                 <Nome>MEDIAPAD T3</Nome>
                 <Marca>Huawei</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>2 GB</Ram>
                 <Processador>Quad-Core 1.4 GHz Snapdragon 425</Processador>
                 <CapacidadeMemoria>16 GB</CapacidadeMemoria>
@@ -443,7 +443,7 @@
                 <ID>2018</ID>
                 <Nome>MEDIAPAD T3 - 7</Nome>
                 <Marca>Huawei</Marca>
-                <Categoria>Comunicação Móvel</Categoria>
+                <Categoria>tecnologia_movel</Categoria>
                 <Ram>1 GB</Ram>
                 <Processador>Quad-core 1.3 GHz</Processador>
                 <CapacidadeMemoria>8 GB</CapacidadeMemoria>
@@ -461,7 +461,7 @@
                 <ID>2019</ID>
                 <Nome>EOS M100 Branca + 15-45 IS STM</Nome>
                 <Marca>Canon</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
                 <Wireless>Sim</Wireless>
                 <ResolucaoFoto>24 MP</ResolucaoFoto>
@@ -480,7 +480,7 @@
                 <ID>2020</ID>
                 <Nome>EOS 4000D Preta + 18-55 + Mochila + SD 16GB</Nome>
                 <Marca>Canon</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
                 <Wireless>Sim</Wireless>
                 <ResolucaoFoto>18 MP</ResolucaoFoto>
@@ -499,7 +499,7 @@
                 <ID>2021</ID>
                 <Nome>D5300 + 18-55 VR + Estojo + EBook</Nome>
                 <Marca>Nikon</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <ResolucaoVideo>Full HD 1080p</ResolucaoVideo>
                 <Wireless>Sim</Wireless>
                 <ResolucaoFoto>24 MP</ResolucaoFoto>
@@ -514,7 +514,7 @@
                 <ID>2022</ID>
                 <Nome>D7500 + 18-105 VR</Nome>
                 <Marca>Nikon</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <ResolucaoVideo>UHD 4K</ResolucaoVideo>
                 <Wireless>Sim</Wireless>
                 <ResolucaoFoto>22 MP</ResolucaoFoto>
@@ -538,7 +538,7 @@
                 <ID>2023</ID>
                 <Nome>Mambo Mission-Drone + Comando + Canhao + Garra</Nome>
                 <Marca>Parrot</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <Autonomia>Ate 9 min</Autonomia>
                 <Raio>200 m</Raio>
                 <CamaraImb>Sim</CamaraImb>
@@ -557,7 +557,7 @@
                 <ID>2024</ID>
                 <Nome>DRONE BEBOP 2 BRANCO</Nome>
                 <Marca>Parrot</Marca>
-                <Categoria>Fotografia</Categoria>
+                <Categoria>fotografia</Categoria>
                 <Autonomia>Ate 25 min</Autonomia>
                 <Raio>300 m</Raio>
                 <CamaraImb>Sim</CamaraImb>
@@ -581,7 +581,7 @@
                 <ID>2025</ID>
                 <Nome>LE24IP43973 TVs LED</Nome>
                 <Marca>Silver</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <TamanhoEcra>24.0</TamanhoEcra>
                 <QualidadeImagem>HD 720p</QualidadeImagem>
                 <Frequencia>50 Hz</Frequencia>
@@ -596,7 +596,7 @@
                 <ID>2026</ID>
                 <Nome>IP-LE410005 SMART TVs LED</Nome>
                 <Marca>Silver</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <TamanhoEcra>40.0</TamanhoEcra>
                 <QualidadeImagem>HD</QualidadeImagem>
                 <Frequencia>60 Hz</Frequencia>
@@ -615,7 +615,7 @@
                 <ID>2027</ID>
                 <Nome>49SK8000 SMART TVs LED</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <TamanhoEcra>49.0</TamanhoEcra>
                 <QualidadeImagem>UHD 4K</QualidadeImagem>
                 <Frequencia>50 Hz</Frequencia>
@@ -638,7 +638,7 @@
                 <ID>2028</ID>
                 <Nome>55SK8000 SMART TVs</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <TamanhoEcra>55.0</TamanhoEcra>
                 <QualidadeImagem>UHD 4K</QualidadeImagem>
                 <Frequencia>100 Hz</Frequencia>
@@ -662,7 +662,7 @@
                 <ID>2029</ID>
                 <Nome>2D BP250</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
                 <Resolucao>Full-HD 1080p</Resolucao>
                 <Preco>69.00</Preco>
@@ -676,7 +676,7 @@
                 <ID>2030</ID>
                 <Nome>UBK90</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
                 <Resolucao>4K</Resolucao>
                 <Preco>250.00</Preco>
@@ -694,7 +694,7 @@
                 <ID>2031</ID>
                 <Nome>BDP-S1700</Nome>
                 <Marca>Sony</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
                 <Resolucao>Full HD 1080p</Resolucao>
                 <Preco>85.00</Preco>
@@ -712,7 +712,7 @@
                 <ID>2032</ID>
                 <Nome>UBP-X700</Nome>
                 <Marca>Sony</Marca>
-                <Categoria>Tecnologia de Casa</Categoria>
+                <Categoria>tecnologia_de_casa</Categoria>
                 <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
                 <Resolucao>4K</Resolucao>
                 <Preco>199.00</Preco>
@@ -735,7 +735,7 @@
                 <ID>2033</ID>
                 <Nome>KRUPS INISSIA XN1001</Nome>
                 <Marca>Nespresso</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Cor>Branco</Cor>
                 <Agua>0.8 L</Agua>
                 <Potencia>1260 W</Potencia>
@@ -758,7 +758,7 @@
                 <ID>2034</ID>
                 <Nome>KRUPS EXPERT XN6008</Nome>
                 <Marca>Nespresso</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Cor>Preto</Cor>
                 <Agua>1.2 L</Agua>
                 <Potencia>1260 W</Potencia>
@@ -781,7 +781,7 @@
                 <ID>2035</ID>
                 <Nome>QOOL EVOLUTION</Nome>
                 <Marca>Delta</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Cor>Vermelho</Cor>
                 <Agua>1 L</Agua>
                 <Potencia>1200 W</Potencia>
@@ -796,7 +796,7 @@
                 <ID>2036</ID>
                 <Nome>Q Capsulas Qool Evolution + 50 Capsulas</Nome>
                 <Marca>Delta</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Cor>Preto</Cor>
                 <Agua>1 L</Agua>
                 <Potencia>1200 W</Potencia>
@@ -812,7 +812,7 @@
                 <ID>2037</ID>
                 <Nome>MS23F301TAK</Nome>
                 <Marca>Samsung</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Grill>Nao</Grill>
                 <VolumeMax>23 L</VolumeMax>
                 <PotenciaMax>800 W</PotenciaMax>
@@ -831,7 +831,7 @@
                 <ID>2038</ID>
                 <Nome>MG28J5215AB</Nome>
                 <Marca>Samsung</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Grill>Sim</Grill>
                 <VolumeMax>28 L</VolumeMax>
                 <PotenciaMax>1500 W</PotenciaMax>
@@ -854,7 +854,7 @@
                 <ID>2039</ID>
                 <Nome>1824FL</Nome>
                 <Marca>Flama</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Grill>Nao</Grill>
                 <VolumeMax>20 L</VolumeMax>
                 <PotenciaMax>700 W</PotenciaMax>
@@ -873,7 +873,7 @@
                 <ID>2040</ID>
                 <Nome>1834FL</Nome>
                 <Marca>Flama</Marca>
-                <Categoria>Cozinha</Categoria>
+                <Categoria>cozinha</Categoria>
                 <Grill>Nao</Grill>
                 <VolumeMax>20 L</VolumeMax>
                 <PotenciaMax>700 W</PotenciaMax>
@@ -897,7 +897,7 @@
                 <ID>2041</ID>
                 <Nome>FWG91284W</Nome>
                 <Marca>Whirlpoll</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>9.0 Kg</Capacidade>
                 <VelocidadeCen>1200 Rpm</VelocidadeCen>
@@ -920,7 +920,7 @@
                 <ID>2042</ID>
                 <Nome>FWG71283W</Nome>
                 <Marca>Whirlpoll</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>7.0 Kg</Capacidade>
                 <VelocidadeCen>1200 Rpm</VelocidadeCen>
@@ -943,7 +943,7 @@
                 <ID>2043</ID>
                 <Nome>F4J5TN3W</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <VelocidadeCen>1400 Rpm</VelocidadeCen>
@@ -958,7 +958,7 @@
                 <ID>2044</ID>
                 <Nome>FH495BDS2 TWINWASH</Nome>
                 <Marca>LG</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>12.0 Kg</Capacidade>
                 <VelocidadeCen>1400 Rpm</VelocidadeCen>
@@ -977,7 +977,7 @@
                 <ID>2045</ID>
                 <Nome>FMG823B</Nome>
                 <Marca>Hotpoint</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <VelocidadeCen>1200 Rpm</VelocidadeCen>
@@ -995,7 +995,7 @@
             <Modelo>
                 <ID>2046</ID>
                 <Nome>RSF 925 JA</Nome>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Marca>Hotpoint</Marca>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>9.0 Kg</Capacidade>
@@ -1012,7 +1012,7 @@
                 <ID>2047</ID>
                 <Nome>EDPE-G 45-A1</Nome>
                 <Marca>Indesit</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <Consumo>306 kWh</Consumo>
@@ -1027,7 +1027,7 @@
                 <ID>2048</ID>
                 <Nome>IDCL-G5.B.H</Nome>
                 <Marca>Indesit</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>B</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <Consumo>560 KWh</Consumo>
@@ -1042,7 +1042,7 @@
                 <ID>2049</ID>
                 <Nome>AQC9 4F5 T/Z1 EU</Nome>
                 <Marca>Hotpoint</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+</Eficiencia>
                 <Capacidade>9.0 Kg</Capacidade>
                 <Consumo>338 KWh</Consumo>
@@ -1065,7 +1065,7 @@
                 <ID>2050</ID>
                 <Nome>TCD-874-6H1</Nome>
                 <Marca>Hotpoint</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <Consumo>306 KWh</Consumo>
@@ -1088,7 +1088,7 @@
                 <ID>2051</ID>
                 <Nome>WTG85231EE</Nome>
                 <Marca>Bosh</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A++</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <Consumo>236 KWh</Consumo>
@@ -1107,7 +1107,7 @@
                 <ID>2052</ID>
                 <Nome>WTW87640ES</Nome>
                 <Marca>Bosh</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
                 <Consumo>177 KWh</Consumo>
@@ -1127,7 +1127,7 @@
                 <ID>2053</ID>
                 <Nome>Roomba 616</Nome>
                 <Marca>IronBot</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <TempoCarga>3 h</TempoCarga>
                 <TempoBateria>60 min</TempoBateria>
                 <PotenciaMax>33 W</PotenciaMax>
@@ -1146,7 +1146,7 @@
                 <ID>2054</ID>
                 <Nome>Roomba 980</Nome>
                 <Marca>IronBot</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <TempoCarga>4 h</TempoCarga>
                 <TempoBateria>120 min</TempoBateria>
                 <PotenciaMax>33 W</PotenciaMax>
@@ -1169,7 +1169,7 @@
                 <ID>2055</ID>
                 <Nome>TE70 TE75011 CLASSE A</Nome>
                 <Marca>Hoover</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <PotenciaMax>700 W</PotenciaMax>
                 <VolumeMaxDep>3.5 L</VolumeMaxDep>
                 <Preco>135.00</Preco>
@@ -1183,7 +1183,7 @@
                 <ID>2056</ID>
                 <Nome>HY70 HYDROPOWER COM FILTRO AGUA CLASSE A</Nome>
                 <Marca>Hoover</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <PotenciaMax>700 W</PotenciaMax>
                 <VolumeMaxDep>3.5 L</VolumeMaxDep>
                 <Preco>179.00</Preco>
@@ -1205,7 +1205,7 @@
                 <ID>2057</ID>
                 <Nome>COMPACT P PARQUET R03953EA CLASSE A</Nome>
                 <Marca>Rowenta</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <PotenciaMax>750 W</PotenciaMax>
                 <VolumeMaxDep>3 L</VolumeMaxDep>
                 <Preco>85.00</Preco>
@@ -1223,7 +1223,7 @@
                 <ID>2058</ID>
                 <Nome>SILENCE FORCE A4 ANIMAL CARE PRO R07681EA CLASSE A</Nome>
                 <Marca>Rowenta</Marca>
-                <Categoria>Limpeza</Categoria>
+                <Categoria>limpeza</Categoria>
                 <PotenciaMax>750 W</PotenciaMax>
                 <VolumeMaxDep>3.5 L</VolumeMaxDep>
                 <Preco>268.00</Preco>
@@ -1238,7 +1238,7 @@
                 <ID>2059</ID>
                 <Nome>Desktop 880-140NP</Nome>
                 <Marca>HP</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Ram>16 GB</Ram>
                 <Processador>i7-8700 Hex-core</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -1259,7 +1259,7 @@
                 <ID>2060</ID>
                 <Nome>Omen Laptop 17-AN100NP</Nome>
                 <Marca>HP</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Ram>16 GB</Ram>
                 <Processador>i7-8750H 2.2 GHz</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -1276,7 +1276,7 @@
                 <ID>2061</ID>
                 <Nome>VIVOBOOK A560UD-58A05PB2</Nome>
                 <Marca>Asus</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i5-825OU 1.60GHz</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -1301,7 +1301,7 @@
                 <ID>2062</ID>
                 <Nome>TUF FX504GD-78A05PB1</Nome>
                 <Marca>Asus</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i7-8750H 2.2 GHz</Processador>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
@@ -1327,7 +1327,7 @@
                 <ID>2063</ID>
                 <Nome>PS4 Slim 1TB Preta + Red Dead Redemption II</Nome>
                 <Marca>Sony</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
                 <Cor>Preta</Cor>
                 <JogoIncluido>Red Dead Redemption II</JogoIncluido>
@@ -1346,7 +1346,7 @@
                 <ID>2064</ID>
                 <Nome>PS4 1TB Preta + FIFA 19</Nome>
                 <Marca>Sony</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
                 <Cor>Preta</Cor>
                 <JogoIncluido>FIFA 19</JogoIncluido>
@@ -1365,7 +1365,7 @@
                 <ID>2065</ID>
                 <Nome>XBOX ONE S 1TB + GAME PASS 3 MESES</Nome>
                 <Marca>Microsoft</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
                 <Cor>Branco</Cor>
                 <JogoIncluido>None</JogoIncluido>
@@ -1380,7 +1380,7 @@
                 <ID>2066</ID>
                 <Nome>XBOX ONE S 1TB + TOMB RAIDER</Nome>
                 <Marca>Microsoft</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>1000 GB</CapacidadeDisco>
                 <Cor>Branco</Cor>
                 <JogoIncluido>TOMB RAIDER</JogoIncluido>
@@ -1403,7 +1403,7 @@
                 <ID>2067</ID>
                 <Nome>SWITCH AZUL/VERMELHO NEON</Nome>
                 <Marca>Nintendo</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>32 GB</CapacidadeDisco>
                 <Cor>Azul/Vermelho</Cor>
                 <JogoIncluido>None</JogoIncluido>
@@ -1418,7 +1418,7 @@
                 <ID>2068</ID>
                 <Nome>SWITCH POKEMON EEVEE + POKEBALL</Nome>
                 <Marca>Nintendo</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <CapacidadeDisco>32 GB</CapacidadeDisco>
                 <Cor>Varias</Cor>
                 <JogoIncluido>Pokemon Lets Go Eevee</JogoIncluido>
@@ -1434,7 +1434,7 @@
                 <ID>2069</ID>
                 <Nome>Marvel's Spider Man</Nome>
                 <Marca>PS4</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>68.00</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1450,7 +1450,7 @@
                 <ID>2070</ID>
                 <Nome>Assassin's Creed Odyssey</Nome>
                 <Marca>PS4</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>39.00</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1466,7 +1466,7 @@
                 <ID>2071</ID>
                 <Nome>Fifa 19</Nome>
                 <Marca>PS4</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>68.00</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1482,7 +1482,7 @@
                 <ID>2072</ID>
                 <Nome>One WWE 2k19</Nome>
                 <Marca>XBOX</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>68.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1498,7 +1498,7 @@
                 <ID>2073</ID>
                 <Nome>One Fifa 19</Nome>
                 <Marca>XBOX</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco> 68.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1514,7 +1514,7 @@
                 <ID>2074</ID>
                 <Nome>One Fallout 4 GOTY</Nome>
                 <Marca>XBOX</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>49.90</Preco>
                 <Loja>
                     <ID>1003</ID>
@@ -1526,7 +1526,7 @@
                 <ID>2075</ID>
                 <Nome>Pokemon Let's Go Pikachu</Nome>
                 <Marca>SWITCH</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>55.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1542,7 +1542,7 @@
                 <ID>2076</ID>
                 <Nome>Snipperclips Cut It Out</Nome>
                 <Marca>SWITCH</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>29.90</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1554,7 +1554,7 @@
                 <ID>2077</ID>
                 <Nome>Legend od Zelda: Breath Of The Wild</Nome>
                 <Marca>SWITCH</Marca>
-                <Categoria>Videojogos</Categoria>
+                <Categoria>videojogos</Categoria>
                 <Preco>69.00</Preco>
                 <Loja>
                     <ID>1001</ID>
