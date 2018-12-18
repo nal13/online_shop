@@ -3,8 +3,8 @@
 {% block content %}
 
 <ul>
-  {% for pred, obj in loja.items %}
-  <li>{{ pred }} : {{ obj }}</li>
+  {% for e in loja %}
+    <li>{{ e.0 }} : {{ e.1 }}</li>
   {% endfor %}
 </ul>
 

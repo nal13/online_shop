@@ -74,7 +74,7 @@ morada:1003
 	morada:detalhes "Santa Marinha" ; 
 	morada:rua "Rua D. Henrique de Cernache" ; 
 	morada:codigopostal "4400-625" ; 
-	morada:distrito "Vila Nova de Gaia" ; 
+	morada:distrito "Porto" ; 
 	morada:pais "Portugal" . 
 contacto:1003
 	a contacto: ; 

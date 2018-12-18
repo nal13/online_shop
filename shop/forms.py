@@ -3,11 +3,19 @@ from pprint import pprint
 import re
 
 from .constants import *
+from .wikidata import available_countries, wikidata_capitals
 
 class LojaForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
+
+        # if bool(kwargs):
+            # kwargs not empty
+        country = kwargs.pop('load')
+
         super(LojaForm, self).__init__(*args, **kwargs)
+
+        self.populate_choices( country )
 
         self.fields['nome'] = forms.CharField(
             label='Nome',
@@ -42,16 +50,15 @@ class LojaForm(forms.Form):
             min_length=8,
             max_length=8
         )
-        self.fields['distrito'] = forms.ChoiceField(
-            label='Distrito',
-            required=True,
-            choices=Lvars().distrito,
-            initial={'Braga'}
-        )
         self.fields['pais'] = forms.ChoiceField(
             label='País',
             required=True,
             choices=Lvars().pais
+        )
+        self.fields['distrito'] = forms.ChoiceField(
+            label='Distrito',
+            required=True,
+            choices=Lvars().distrito,
         )
         self.fields['telefone'] = forms.CharField(
             label='Telefone',
@@ -81,17 +88,50 @@ class LojaForm(forms.Form):
         )
 
 
-    def set_initial_values(self, initial_fields):
+    def populate_choices(self, country):
+
+        # populate distrito
+        if country is None:
+            country = 'Portugal'
+        capitals = wikidata_capitals( country )
+
+        Lvars.distrito.clear()
+        for e in capitals:
+            Lvars().distrito.append( (e,e) )
+
+        # populate pais
+        Lvars.pais.clear()
+        for e in available_countries:
+            e_country = e[0]
+            tuple = (e_country, e_country)
+
+            if e_country == country:
+                Lvars().pais.insert( 0, tuple )
+            else:
+                Lvars().pais.append( tuple )
+
+
+    def set_initial_values(self, fields_list):
         # find and store new initial field values received in initial_fields
 
         for field in self.fields:
-            initial_value = ''.join( find(field, initial_fields) )
+
+            initial_value = find( field, fields_list )
 
             field_type = self.fields[field].__class__.__name__
 
             # the regular way to set 'initial' doesn't seem to work to ChoiceField,
             # so here a way a around it
             if field_type is 'ChoiceField':
+
+                if field == 'distrito':
+                    capitals_list = wikidata_capitals( self.fields['pais'].choices[0][0] )
+                    capitals = []
+                    for e in capitals_list:
+                        capitals.append( (e, e) )
+
+                    self.fields[field].choices =  capitals
+
                 initial_choice = (initial_value, initial_value)
                 self.fields[field].choices.remove( initial_choice )
                 self.fields[field].choices = [initial_choice] + self.fields[field].choices
@@ -110,8 +150,8 @@ class LojaForm(forms.Form):
 
 class Lvars:
     grupo = [('Media Markt','Media Markt'), ]
-    distrito = [('Aveiro','Aveiro'), ('Braga','Braga'), ('Lisboa','Lisboa'), ('Porto','Porto'), ('Vila Nova de Gaia','Vila Nova de Gaia'), ]
-    pais = [('Portugal','Portugal'), ]
+    pais = []
+    distrito = []
 
 
 class ModeloForm(forms.Form):
@@ -608,16 +648,7 @@ class Mvars:
     consola_cor = [('Branco','Branco'), ('Preto','Preto'), ('Vermelho','Vermelho'), ('Verde','Verde'), ('Azul','Azul'), ('Castanho','Castanho'), ]
     consola_jogoincluido = [('None','None'), ('Red Dead Redemption II','Red Dead Redemption II'), ('FIFA 19','FIFA 19'), ('Pokemon Lets Go Eevee','Pokemon Lets Go Eevee'), ]
 
-# Find all occurences of a key in nested python dictionaries and lists
-# @source https://gist.github.com/douglasmiranda/5127251
-def find(key, dictionary):
-    for k, v in dictionary.items():
-        if k == key:
-            return v
-        elif isinstance(v, dict):
-            for result in find(key, v):
-                return result
-        elif isinstance(v, list):
-            for d in v:
-                for result in find(key, d):
-                    return result
+def find( value, list ):
+    for e in list:
+        if value == e[0]:
+            return e[1]

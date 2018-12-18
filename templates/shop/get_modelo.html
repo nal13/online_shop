@@ -3,23 +3,25 @@
 {% block content %}
 
 <ul>
-  {% for pred, obj in modelo.items %}
-  <li>{{ pred }} : {{ obj }}</a></li>
+  {% for e in modelo %}
+  <li>{{ e.0 }} : {{ e.1 }}</a></li>
   {% endfor %}
 </ul>
 
 <ul>
-  {% for id, pairs in em_lojas.items %}
+  {% for loja in em_lojas %}
 
-    {% for pred, obj in pairs.items %}
+    {% for e in loja %}
+
       <li>
-        {{ pred }} :
-        {% if pred == 'nome' %}
-          <a href="{% url 'get_loja' id %}">{{ obj }}</a>
+        {{ e.0 }} :
+        {% if e.0 == 'nome' %}
+          <a href="{% url 'get_loja' id %}">{{ e.1 }}</a>
         {% else %}
-          {{ obj }}
+          {{ e.1 }}
         {% endif %}
       </li>
+      
     {% endfor %}
 
   {% endfor %}
