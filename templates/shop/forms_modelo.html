@@ -1,157 +1,63 @@
-{% extends 'shop/base.html' %}
-{% load static %}
+{% extends 'shop/forms.html' %}
 
-{% block breadcrumb %}
+{% block form_group_1 %}
+	<form method="post">
+
+		<div class="section-title">
+			<h3 class="title">Detalhes do produto</h3>
+		</div>
+
+		{% csrf_token %}
+
+		{% for field in form %}
+			<div class="form-group">
+				{% if 'Unidades em ' not in field.label_tag %}
+					{{ field.label_tag }}
+					<div>
+						{{ field }}
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+
+		<button type="submit" class="primary-btn order-submit">Place order</button>
+
+	</form>
 {% endblock %}
 
-{% block content %}
-	<!-- SECTION -->
-	<div class="section">
-		<!-- container -->
-		<div class="container">
-			<!-- row -->
-			<div class="row">
 
-				<div class="col-md-7">
-					<!-- Billing Details -->
-					<div class="billing-details">
-						<form method="post">
 
-							<div class="section-title">
-								<h3 class="title">Detalhes do produto</h3>
-							</div>
-
-							{% csrf_token %}
-
-							{% for field in form %}
-								<div class="form-group">
-									{% if 'Unidades em ' not in field.label_tag %}
-										{{ field.label_tag }}
-										<div>
-											{{ field }}
-										</div>
-									{% endif %}
-								</div>
-							{% endfor %}
-
-							<button type="submit" class="primary-btn order-submit">Place order</button>
-
-						</form>
-					</div>
-					<!-- /Billing Details -->
-
-					<!-- Shiping Details -->
-					<div class="shiping-details">
-						<div class="section-title">
-							<h3 class="title">Lojas com o produto</h3>
-						</div>
-						<div class="input-checkbox">
-							<input type="checkbox" id="shiping-address">
-							<label for="shiping-address">
-								<span></span>
-								Definir unidades em loja?
-							</label>
-							<div class="caption">
-
-								{% csrf_token %}
-
-								{% for field in form %}
-									<div class="form-group">
-										{% if 'Unidades em ' in field.label_tag %}
-											{{ field.label_tag }}
-									    <div>
-									      {{ field }}
-									    </div>
-										{% endif %}
-									</div>
-								{% endfor %}
-
-								<div class="order-notes">
-									<textarea class="input" placeholder="Deixe algumas observações. Formulário oco."></textarea>
-								</div>
-
-							</div>
-						</div>
-					</div>
-					<!-- /Shiping Details -->
-
-				</div>
-
-				<!-- Order Details -->
-				<div class="col-md-5 order-details">
-					<div class="section-title text-center">
-						<h3 class="title">Outros modelos</br>deste tipo</h3>
-					</div>
-					<div class="order-summary">
-						<div class="order-col">
-							<div><strong>PRODUCT</strong></div>
-							<div><strong>TOTAL</strong></div>
-						</div>
-						<div class="order-products">
-							<div class="order-col">
-								<div>1x Product Name Goes Here</div>
-								<div>$980.00</div>
-							</div>
-							<div class="order-col">
-								<div>2x Product Name Goes Here</div>
-								<div>$980.00</div>
-							</div>
-						</div>
-						<div class="order-col">
-							<div>Shiping</div>
-							<div><strong>FREE</strong></div>
-						</div>
-						<div class="order-col">
-							<div><strong>TOTAL</strong></div>
-							<div><strong class="order-total">$2940.00</strong></div>
-						</div>
-					</div>
-					<div class="payment-method">
-						<div class="input-radio">
-							<input type="radio" name="payment" id="payment-1">
-							<label for="payment-1">
-								<span></span>
-								Direct Bank Transfer
-							</label>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-						</div>
-						<div class="input-radio">
-							<input type="radio" name="payment" id="payment-2">
-							<label for="payment-2">
-								<span></span>
-								Cheque Payment
-							</label>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-						</div>
-						<div class="input-radio">
-							<input type="radio" name="payment" id="payment-3">
-							<label for="payment-3">
-								<span></span>
-								Paypal System
-							</label>
-							<div class="caption">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-						</div>
-					</div>
-					<div class="input-checkbox">
-						<input type="checkbox" id="terms">
-						<label for="terms">
-							<span></span>
-							I've read and accept the <a href="#">terms & conditions</a>
-						</label>
-					</div>
-					<a href="#" class="primary-btn order-submit">Place order</a>
-				</div>
-				<!-- /Order Details -->
-			</div>
-			<!-- /row -->
+{% block form_group_2 %}
+	<div class="shiping-details">
+		<div class="section-title">
+			<h3 class="title">Lojas com o produto</h3>
 		</div>
-		<!-- /container -->
+		<div class="input-checkbox">
+			<input type="checkbox" id="shiping-address">
+			<label for="shiping-address">
+				<span></span>
+				Definir unidades em loja?
+			</label>
+			<div class="caption">
+
+				{% csrf_token %}
+
+				{% for field in form %}
+					<div class="form-group">
+						{% if 'Unidades em ' in field.label_tag %}
+							{{ field.label_tag }}
+							<div>
+								{{ field }}
+							</div>
+						{% endif %}
+					</div>
+				{% endfor %}
+
+				<div class="order-notes">
+					<textarea class="input" placeholder="Deixe algumas observações. Formulário oco."></textarea>
+				</div>
+
+			</div>
+		</div>
 	</div>
-	<!-- /SECTION -->
 {% endblock %}

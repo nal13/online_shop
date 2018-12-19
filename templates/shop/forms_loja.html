@@ -1,14 +1,27 @@
-{% extends 'shop/base_index.html' %}
+{% extends 'shop/forms.html' %}
 
-{% block content %}
+{% block form_group_1 %}
+  <form method="post">
 
-<form method="post">
+  	<div class="section-title">
+  		<h3 class="title">Detalhes da loja</h3>
+  	</div>
 
-  {% include 'shop/includes/form.html' %}
+  	{% csrf_token %}
 
-  <button type="submit">Submit</button>
+  	{% for field in form %}
+  		<div class="form-group">
+				{{ field.label_tag }}
+				<div>
+					{{ field }}
+				</div>
+  		</div>
+  	{% endfor %}
 
-</form>
+  	<button type="submit" class="primary-btn order-submit">Place order</button>
 
+  </form>
+{% endblock %}
 
+{% block form_group_2 %}
 {% endblock %}

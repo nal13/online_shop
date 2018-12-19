@@ -201,6 +201,12 @@ def remove_modelo(request, id):
 
 def edit_modelo(request, id):
 
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
     # get type of modelo from DB with id
     type = g.get_modelo_a(id)['results']['bindings'][0]['type']['value'].split('/')[-2]
 
@@ -219,7 +225,7 @@ def edit_modelo(request, id):
         # load values from get_modelo view to set them as initial values in edit_modelo view
         form.set_initial_values( request.session.get('get_modelo_data'), id )
 
-    return render(request, 'shop/forms_modelo.html', {'form': form})
+    return render(request, 'shop/forms_modelo.html', {'form': form, 'search': search, })
 
 #
 #
@@ -247,6 +253,13 @@ def get_loja(request, id):
 
 def add_loja(request):
 
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+
     if request.method == 'POST':
         # get picked country in previous submit
         chose_country = request.POST.get('pais')
@@ -268,7 +281,7 @@ def add_loja(request):
         # ELSE use default country
         form = LojaForm( load=request.session.get('chose_country') )
 
-    return render(request, 'shop/forms_loja.html', {'form': form})
+    return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
 
 def remove_loja(request, id):
     # called in get_loja.html, don't have a web page
@@ -279,6 +292,13 @@ def remove_loja(request, id):
     return redirect('list_modelo')
 
 def edit_loja(request, id):
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
 
     if request.method == 'POST':
         # get picked country in previous submit
@@ -303,7 +323,7 @@ def edit_loja(request, id):
         # load values from get_loja view to set them as initial values in edit_loja view
         form.set_initial_values( request.session.get('get_loja_data') )
 
-    return render(request, 'shop/forms_loja.html', {'form': form})
+    return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
 
 #
 #

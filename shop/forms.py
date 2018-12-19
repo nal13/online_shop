@@ -50,70 +50,80 @@ class LojaForm(forms.Form):
             required=True,
             initial='Nova Loja',
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['grupo'] = forms.ChoiceField(
             label='Grupo',
             required=True,
-            choices=Lvars().grupo
+            choices=Lvars().grupo,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['detalhes'] = forms.CharField(
             label='Detalhes',
             required=True,
             initial='Novos Detalhes',
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['rua'] = forms.CharField(
             label='Rua',
             required=True,
             initial='Nova Rua',
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['codigopostal'] = forms.CharField(
             label='Codigo Postal',
             required=True,
             initial='9999-999',
             min_length=8,
-            max_length=8
+            max_length=8,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['pais'] = forms.ChoiceField(
             label='País',
             required=True,
             choices=Lvars().pais,
-            widget=forms.Select(attrs={'onchange':'this.form.submit()'})
+            widget=forms.Select(attrs={'class':'input', 'onchange':'this.form.submit()'})
         )
         self.fields['distrito'] = forms.ChoiceField(
             label='Distrito',
             required=True,
             choices=Lvars().distrito,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['telefone'] = forms.CharField(
             label='Telefone',
             required=True,
             initial='+351 000 000 000',
             min_length=9,
-            max_length=16
+            max_length=16,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['fax'] = forms.CharField(
             label='Fax',
             required=False,
             min_length=9,
-            max_length=16
+            max_length=16,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['email'] = forms.EmailField(
             label='Email',
             required=True,
             initial='shop@mail.com',
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.EmailInput(attrs={'class':'input'})
         )
         self.fields['website'] = forms.CharField(
             label='Website',
             required=False,
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
 
 
