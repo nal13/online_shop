@@ -1,33 +1,339 @@
-{% extends 'shop/base_index.html' %}
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+{% endblock %}
 
 {% block content %}
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- Product main img -->
+				<div class="col-md-5 col-md-push-2">
+					<div id="product-main-img">
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product01.png' %}" alt="">
+						</div>
 
-<ul>
-  {% for e in modelo %}
-  <li>{{ e.0 }} : {{ e.1 }}</a></li>
-  {% endfor %}
-</ul>
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product03.png' %}" alt="">
+						</div>
 
-<ul>
-  {% for loja_id, loja in em_lojas.items %}
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product06.png' %}" alt="">
+						</div>
 
-    {% for e in loja %}
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product08.png' %}" alt="">
+						</div>
+					</div>
+				</div>
+				<!-- /Product main img -->
 
-      <li>
-        {{ e.0 }} :
-        {% if e.0 == 'nome' %}
-          <a href="{% url 'get_loja' loja_id %}">{{ e.1 }}</a>
-        {% else %}
-          {{ e.1 }}
-        {% endif %}
-      </li>
+				<!-- Product thumb imgs -->
+				<div class="col-md-2  col-md-pull-5">
+					<div id="product-imgs">
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product01.png' %}" alt="">
+						</div>
 
-    {% endfor %}
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product03.png' %}" alt="">
+						</div>
 
-  {% endfor %}
-</ul>
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product06.png' %}" alt="">
+						</div>
 
-<a href="{% url 'edit_modelo' id %}">edit</a>
-<a href="{% url 'remove_modelo' id %}">delete</a>
+						<div class="product-preview">
+							<img src="{% static 'shop/img/product08.png' %}" alt="">
+						</div>
+					</div>
+				</div>
+				<!-- /Product thumb imgs -->
 
+				<!-- Product details -->
+				<div class="col-md-5">
+					<div class="product-details">
+						{% for e in modelo %}
+
+							{% if e.0 == 'nome' %}
+								<h2 class="product-name">{{ e.1 }}</h2>
+							{% endif %}
+
+							{% if e.0 == 'preco' %}
+								<div>
+									<h3 class="product-price">$980.00 <del class="product-old-price">{{ e.1 }}</del></h3>
+									<span class="product-available">In Stock</span>
+								</div>
+							{% endif %}
+
+						{% endfor %}
+
+						<div class="product-options">
+							<label>
+								Loja
+								<select class="input-select">
+
+									{% for loja_id, loja in em_lojas.items %}
+										{% for e in loja %}
+											{% if e.0 == 'nome' %}
+												<option value="0">{{ e.1 }}</option>
+											{% endif %}
+										{% endfor %}
+									{% endfor %}
+
+								</select>
+							</label>
+						</div>
+
+						{% for loja_id, loja in em_lojas.items %}
+							{% for e in loja %}
+								{% if e.0 == 'unidades' %}
+									<p>Unidades: {{ e.1 }}</p>
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+
+						<br/>
+						<br/>
+
+						<div class="add-to-cart">
+							<a href="{% url 'edit_modelo' id %}"><button class="add-to-cart-btn"><i class="fa fa-edit"></i> edit</button></a>
+							<a href="{% url 'remove_modelo' id %}"><button class="add-to-cart-btn"><i class="fa fa-remove"></i> delete</button></a>
+						</div>
+
+						<ul class="product-links">
+							<li>Categoria:</li>
+							{% for e in modelo %}
+								{% ifequal e.0 'categoria' %}
+									<li><a href="{% url 'list_categoria' e.1 %}">{{ e.1 }}</a></li>
+								{% endifequal %}
+							{% endfor %}
+						</ul>
+
+						<ul class="product-links">
+							<li>Share:</li>
+							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+
+					</div>
+				</div>
+				<!-- /Product details -->
+
+				<!-- Product tab -->
+				<div class="col-md-12">
+					<div id="product-tab">
+						<!-- product tab nav -->
+						<ul class="tab-nav">
+							<li class="active"><a data-toggle="tab" href="#tab1">Descrição</a></li>
+							<li><a data-toggle="tab" href="#tab2">Detalhes</a></li>
+						</ul>
+						<!-- /product tab nav -->
+
+						<!-- product tab content -->
+						<div class="tab-content">
+							<!-- tab1  -->
+							<div id="tab1" class="tab-pane fade in active">
+								<div class="row">
+									{% for k,v in wiki_modelo.items %}
+										<div class="col-md-6" align="center">
+											{% ifequal k "image" %}
+												<img src="{{ v }}" alt="" height="40%" width="40%">
+											{% endifequal %}
+										</div>
+										<div class="col-md-13" align="center" text-align="center">
+											<ul>
+												<li>
+													{% ifequal k "label_pt" %}
+														<h3><strong>Nome</strong></h3>
+														<p>{{ v }}</p>
+													{% endifequal %}
+												</li>
+
+												<br/>
+
+												<li>
+													{% ifequal k "modeloDescription" %}
+														<h3><strong>Descrição</strong></h3>
+														<p>{{ v }}</p>
+													{% endifequal %}
+												</li>
+											</ul>
+										</div>
+									{% endfor %}
+								</div>
+							</div>
+							<!-- /tab1  -->
+
+							<!-- tab2  -->
+							<div id="tab2" class="tab-pane fade in">
+								<div class="row">
+									<div class="col-md-12" align="center">
+										{% for e in modelo %}
+											<p>
+												<ul>
+												  	<li><strong>{{ e.0 }}:</strong>		{{ e.1 }}</a></li>
+												</ul>
+											</p>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!-- /tab2  -->
+
+						</div>
+						<!-- /product tab content  -->
+					</div>
+				</div>
+				<!-- /product tab -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+	<!-- Section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h3 class="title">Related Products</h3>
+					</div>
+				</div>
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="{% static 'shop/img/product01.png' %}" alt="">
+							<div class="product-label">
+								<span class="sale">-30%</span>
+							</div>
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name"><a href="#">product name goes here</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="{% static 'shop/img/product02.png' %}" alt="">
+							<div class="product-label">
+								<span class="new">NEW</span>
+							</div>
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name"><a href="#">product name goes here</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="{% static 'shop/img/product03.png' %}" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name"><a href="#">product name goes here</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o"></i>
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+				<!-- product -->
+				<div class="col-md-3 col-xs-6">
+					<div class="product">
+						<div class="product-img">
+							<img src="{% static 'shop/img/product04.png' %}" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name"><a href="#">product name goes here</a></h3>
+							<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+							<div class="product-rating">
+							</div>
+							<div class="product-btns">
+								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+								<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+								<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+							</div>
+						</div>
+						<div class="add-to-cart">
+							<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+						</div>
+					</div>
+				</div>
+				<!-- /product -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Section -->
 {% endblock %}

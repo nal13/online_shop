@@ -17,7 +17,7 @@ class SearchForm(forms.Form):
         required=False,
         min_length=4,
         max_length=40,
-        widget=forms.TextInput(attrs={'class':'input', 'placeholder': 'Pesquise por um produto ou establecimento'})
+        widget=forms.TextInput(attrs={'class':'input', 'placeholder': 'Pesquise por um modelo ou loja'})
     )
 
 class OrderForm(forms.Form):

@@ -6,9 +6,14 @@ from pprint import pprint
 from .constants import *
 from .forms import ModeloForm, LojaForm, OrderForm, SearchForm
 from .forms_validation import *
-from .wikidata import get_wikidata
+from .wikidata import test_wikidata, wikidata_modelo_info
 
 
+#
+#
+#           GENERAL VIEWS
+#
+#
 def home(request):
 
     # search box
@@ -16,6 +21,8 @@ def home(request):
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
+
+    test_wikidata()
 
     return render(request, 'shop/home.html', {'search': search, })
 
@@ -31,7 +38,7 @@ def search_box(request):
             search_type = form.cleaned_data['search_type']
 
             if search_box:
-                query = g.get_modelo_uri( search_box, search_type )['results']['bindings']
+                query = g.get_modelo_loja_uri( search_box, search_type )['results']['bindings']
 
                 # return id if any
                 if query != []:
@@ -41,7 +48,42 @@ def search_box(request):
 
     return form
 
-def filter_categoria(request, categoria):
+
+def store(request):
+    return render(request, 'shop/checkout.html')
+
+
+def product(request):
+    return render(request, 'shop/product.html')
+
+
+def add_buttons(request):
+
+    modelos_types = []
+    query = g.list_modelo_a()
+
+    for e in query['results']['bindings']:
+        type = e['type']['value'].split('/')[-2]
+        modelos_types.append(type)
+
+    ## for tests
+    ##
+    # query = g.list_modelo_marca()
+    # marcas = []
+    # # print(query)
+    # for e in query['results']['bindings']:
+    #     marca = e['marca']['value']
+    #     marcas.append((marca,marca))
+    # print(marcas)
+
+    return render(request, 'shop/add_buttons.html', {'modelos_types': modelos_types, 'loja_type': 'loja'})
+
+#
+#
+#           MODELO VIEWS
+#
+#
+def list_categoria(request, categoria):
 
     # search box
     search = search_box(request)
@@ -70,37 +112,7 @@ def filter_categoria(request, categoria):
 
     pprint( modelos )
 
-    return render(request, 'shop/filter_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria, 'search': search, })
-
-
-def store(request):
-    return render(request, 'shop/store.html')
-
-
-def product(request):
-    return render(request, 'shop/product.html')
-
-
-def add_buttons(request):
-
-    modelos_types = []
-    query = g.list_modelo_a()
-
-    for e in query['results']['bindings']:
-        type = e['type']['value'].split('/')[-2]
-        modelos_types.append(type)
-
-    ## for tests
-    ##
-    # query = g.list_modelo_marca()
-    # marcas = []
-    # # print(query)
-    # for e in query['results']['bindings']:
-    #     marca = e['marca']['value']
-    #     marcas.append((marca,marca))
-    # print(marcas)
-
-    return render(request, 'shop/add_buttons.html', {'modelos_types': modelos_types, 'loja_type': 'loja'})
+    return render(request, 'shop/list_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria, 'search': search, })
 
 def list_modelo(request):
 
@@ -116,6 +128,17 @@ def list_modelo(request):
 
 def get_modelo(request, id):
 
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+    # get wikidata for modelo
+    type = g.get_modelo_a( id )['results']['bindings'][0]['type']['value'].split('/')[-2]
+    wiki_modelo = wikidata_modelo_info( type )
+
+    # get all modelo data from DB
     query_regular = g.get_modelo_regular(id)['results']['bindings']
     query_em_loja = g.list_modelo_em_loja(id)['results']['bindings']
 
@@ -140,10 +163,12 @@ def get_modelo(request, id):
         em_lojas.update( { loja_id: esta_loja} )
         esta_loja = []
 
-    # session variable stored on the server --- used in edit_modelo
-    request.session[ 'get_modelo_data' ] = modelo #{**modelo, **em_lojas}
+    pprint( modelo )
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas, 'id': id})
+    # session variable stored on the server --- used in edit_modelo
+    request.session[ 'get_modelo_data' ] = modelo
+
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
 
 def add_modelo(request, type):
 
@@ -190,7 +215,11 @@ def edit_modelo(request, id):
 
     return render(request, 'shop/forms_modelo.html', {'form': form})
 
-
+#
+#
+#           LOJA VIEWS
+#
+#
 def get_loja(request, id):
 
     # get from DB
@@ -271,8 +300,12 @@ def edit_loja(request, id):
     return render(request, 'shop/forms_loja.html', {'form': form})
 
 #
-#           XSLT transformation to N3 triples
 #
+#           INITIAL SETUP
+#
+#
+
+# XSLT transformation to N3 triples
 path = os.getcwd() + "/shop_resources/"
 
 xml_path = path + "dataset.xml"
@@ -291,7 +324,5 @@ rdf_asString = str(rdf).replace('<?xml version=\"1.0\"?>\n', '')
 with open(path + 'dataset.nt', 'w', encoding='utf-8') as file:
     file.write(rdf_asString)
 
-#
-#           start GraphDBapi
-#
+# start GraphDBapi
 # initialized in: from .constants import *

@@ -104,7 +104,7 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def get_modelo_uri(self, nome, type):
+    def get_modelo_loja_uri(self, nome, type):
         # uri of a given modelo by name
 
         query = """
@@ -115,7 +115,18 @@ class GraphDB:
                 ?uri    """+type+""":nome     '"""+nome+"""' .
             }
             """
-        pprint( query )
+        return self.select_query( query )
+
+    def get_modelo_categoria(self, id):
+        # categoria of a given modelo by id
+
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT ?categoria
+            WHERE {
+                modelo:"""+id+"""   modelo:categoria   ?categoria .
+            }
+            """
         return self.select_query( query )
 
     #
