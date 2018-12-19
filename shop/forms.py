@@ -5,16 +5,31 @@ import re
 from .constants import *
 from .wikidata import available_countries, wikidata_capitals
 
-class CategoriaForm(forms.Form):
-    select_input = forms.ChoiceField(
-        label='Grupo',
+class SearchForm(forms.Form):
+    search_type = forms.ChoiceField(
         required=True,
         choices=[
+        ('modelo','Modelo'),
+        ('loja','Loja'), ],
+        widget=forms.Select(attrs={'class':'input-select'})
+    )
+    search_box = forms.CharField(
+        required=False,
+        min_length=4,
+        max_length=40,
+        widget=forms.TextInput(attrs={'class':'input', 'placeholder': 'Pesquise por um produto ou establecimento'})
+    )
+
+class OrderForm(forms.Form):
+    order = forms.ChoiceField(
+        label='Ordenar por',
+        required=True,
+        choices=[
+        ('valiosos','Valiosos'),
+        ('baratos','Baratos'), ],
         # ('Recomendados','Recomendados'),
         # ('Novos Produtos','Novos Produtos'),
         # ('Ultimas Unidades','Ultimas Unidades'),
-        ('ORDER BY xsd:decimal(?preco)','Baratos'),
-        ('ORDER BY DESC(xsd:decimal(?preco))','Valiosos'), ],
         widget=forms.Select(attrs={'class':'input-select', 'onchange':'this.form.submit()'})
     )
 
@@ -605,8 +620,8 @@ class Mvars:
         ('Rowenta', 'Rowenta'), ('Microsoft', 'Microsoft'), ('Nintendo', 'Nintendo'), ('PS4', 'PS4'), ('XBOX', 'XBOX'), ('SWITCH', 'SWITCH')
     ]
     categoria = [
-        ('Comunicação Móvel', 'Comunicação Móvel'), ('Fotografia', 'Fotografia'), ('Tecnologia de Casa', 'Tecnologia de Casa'),
-        ('Cozinha', 'Cozinha'), ('Limpeza', 'Limpeza'), ('Videojogos', 'Videojogos')
+        ('tecnologia_movel', 'tecnologia_movel'), ('fotografia', 'fotografia'), ('tecnologia_de_casa', 'tecnologia_de_casa'),
+        ('cozinha', 'cozinha'), ('limpeza', 'limpeza'), ('videojogos', 'videojogos')
     ]
 
     computador_ram = [('1 GB','1 GB'), ('2 GB','2 GB'), ('3 GB','3 GB'), ('4 GB','4 GB'), ('8 GB','8 GB'), ('16 GB','16 GB'), ('32 GB','32 GB'), ]

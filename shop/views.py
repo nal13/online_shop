@@ -4,23 +4,59 @@ from lxml import etree
 from pprint import pprint
 
 from .constants import *
-from .forms import ModeloForm, LojaForm, CategoriaForm
+from .forms import ModeloForm, LojaForm, OrderForm, SearchForm
 from .forms_validation import *
 from .wikidata import get_wikidata
 
 
 def home(request):
-    return render(request, 'shop/home.html')
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+    return render(request, 'shop/home.html', {'search': search, })
+
+def search_box(request):
+    # this is not a view
+    # operates search box accross the app
+
+    if request.method == 'POST' and 'search' in request.POST:
+        form = SearchForm(request.POST)
+
+        if form.is_valid():
+            search_box = form.cleaned_data['search_box']
+            search_type = form.cleaned_data['search_type']
+
+            if search_box:
+                query = g.get_modelo_uri( search_box, search_type )['results']['bindings']
+
+                # return id if any
+                if query != []:
+                    return ( 'get_'+search_type, query[0]['uri']['value'].split('/')[-1] )
+    else:
+        form = SearchForm()
+
+    return form
 
 def filter_categoria(request, categoria):
 
-    order = ''
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST)
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+    # order select
+    order = 'valiosos'
+    if request.method == 'POST' and 'order' in request.POST:
+        form = OrderForm(request.POST)
         if form.is_valid():
-            order = form.cleaned_data.get('select_input')
+            order = form.cleaned_data.get('order')
     else:
-        form = CategoriaForm()
+        form = OrderForm()
 
 
     query = g.list_modelo_with_categoria( categoria, order )['results']['bindings']
@@ -34,7 +70,7 @@ def filter_categoria(request, categoria):
 
     pprint( modelos )
 
-    return render(request, 'shop/filter_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria})
+    return render(request, 'shop/filter_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria, 'search': search, })
 
 
 def store(request):

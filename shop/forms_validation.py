@@ -14,6 +14,7 @@ def validate_modelo(form):
                 hasUnidades = True
 
     if not hasUnidades:
+        pprint('FALSE --- NO UNIDADES')
         return False
 
     # False if nome exists
@@ -21,7 +22,7 @@ def validate_modelo(form):
 
     for e in query['results']['bindings']:
         if e['exists_nome']['value'] == 'true':
-            pprint('FALSE')
+            pprint('FALSE --- NOME EXISTS')
             return False
 
     pprint('TRUE')
@@ -35,7 +36,7 @@ def validate_loja(form):
 
     for e in query['results']['bindings']:
         if e['exists_nome']['value'] == 'true':
-            pprint('FALSE')
+            pprint('FALSE --- NOME EXISTS')
             return False
 
     pprint('TRUE')

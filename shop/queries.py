@@ -51,6 +51,11 @@ class GraphDB:
     def list_modelo_with_categoria(self, categoria, order):
         # all modelo ordered with categoria
 
+        if order == 'valiosos':
+            order = 'ORDER BY DESC(xsd:decimal(?preco))'
+        elif order == 'baratos':
+            order = 'ORDER BY xsd:decimal(?preco)'
+
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?uri ?nome ?preco
@@ -97,6 +102,20 @@ class GraphDB:
                 modelo:"""+id+"""   a   ?type .
             }
             """
+        return self.select_query( query )
+
+    def get_modelo_uri(self, nome, type):
+        # uri of a given modelo by name
+
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT ?uri
+            WHERE {
+                ?uri    """+type+""":nome     '"""+nome+"""' .
+            }
+            """
+        pprint( query )
         return self.select_query( query )
 
     #
