@@ -172,6 +172,12 @@ def get_modelo(request, id):
 
 def add_modelo(request, type):
 
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
     if request.method == 'POST':
         form = ModeloForm(type, request.POST)
         if form.is_valid() and validate_modelo(form):
@@ -184,7 +190,7 @@ def add_modelo(request, type):
             return redirect('list_modelo')
     else:
         form = ModeloForm(type)
-    return render(request, 'shop/forms_modelo.html', {'form': form})
+    return render(request, 'shop/forms_modelo.html', {'form': form, 'search': search, })
 
 def remove_modelo(request, id):
     # called in get_modelo.html, don't have a web page

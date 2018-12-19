@@ -195,17 +195,20 @@ class ModeloForm(forms.Form):
             required=True,
             initial='Novo Produto',
             min_length=4,
-            max_length=40
+            max_length=40,
+            widget=forms.TextInput(attrs={'class':'input'})
         )
         self.fields['marca'] = forms.ChoiceField(
             label='Marca',
             required=True,
-            choices=Mvars().marca
+            choices=Mvars().marca,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['categoria'] = forms.ChoiceField(
             label='Categoria',
             required=True,
-            choices=Mvars().categoria
+            choices=Mvars().categoria,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['preco'] = forms.DecimalField(
             label='Preco',
@@ -214,7 +217,8 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
         if type=='computador':
@@ -259,7 +263,9 @@ class ModeloForm(forms.Form):
                                                 label='Unidades em %s' % nome,
                                                 required=False,
                                                 initial=0,
-                                                min_value=0),
+                                                min_value=0,
+                                                widget=forms.NumberInput(attrs={'class':'input', })
+                                                ),
             })
 
 
@@ -309,22 +315,26 @@ class ModeloForm(forms.Form):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Mvars().computador_ram
+            choices=Mvars().computador_ram,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Mvars().computador_processador
+            choices=Mvars().computador_processador,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Mvars().computador_capacidadedisco
+            choices=Mvars().computador_capacidadedisco,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Mvars().computador_grafica
+            choices=Mvars().computador_grafica,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
@@ -333,29 +343,34 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
     def telemovel(self):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Mvars().telemovel_ram
+            choices=Mvars().telemovel_ram,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Mvars().telemovel_processador
+            choices=Mvars().telemovel_processador,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidadememoria'] = forms.ChoiceField(
             label='Capacidade de Memória',
             required=True,
-            choices=Mvars().telemovel_capacidadememoria
+            choices=Mvars().telemovel_capacidadememoria,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['camara'] = forms.ChoiceField(
             label='Câmara',
             required=True,
-            choices=Mvars().telemovel_camara
+            choices=Mvars().telemovel_camara,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
@@ -364,29 +379,34 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
     def tablet(self):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Mvars().tablet_ram
+            choices=Mvars().tablet_ram,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Mvars().tablet_processador
+            choices=Mvars().tablet_processador,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidadememoria'] = forms.ChoiceField(
             label='Capacidade de Memória',
             required=True,
-            choices=Mvars().tablet_capacidadememoria
+            choices=Mvars().tablet_capacidadememoria,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['camara'] = forms.ChoiceField(
             label='Câmara',
             required=True,
-            choices=Mvars().tablet_camara
+            choices=Mvars().tablet_camara,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
@@ -395,41 +415,48 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
     def camara(self):
         self.fields['resolucaovideo'] = forms.ChoiceField(
             label='Resolução de Vídeo',
             required=True,
-            choices=Mvars().camara_resolucaovideo
+            choices=Mvars().camara_resolucaovideo,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['wireless'] = forms.ChoiceField(
             label='Wireless',
             required=True,
             choices=Mvars.boolean,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['resolucaofoto'] = forms.ChoiceField(
             label='Resolução de Foto',
             required=True,
-            choices=Mvars().camara_resolucaofoto
+            choices=Mvars().camara_resolucaofoto,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def drone(self):
         self.fields['autonomia'] = forms.ChoiceField(
             label='Autonomia',
             required=True,
-            choices=Mvars().drone_autonomia
+            choices=Mvars().drone_autonomia,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['raio'] = forms.ChoiceField(
             label='Raio',
             required=True,
-            choices=Mvars().drone_raio
+            choices=Mvars().drone_raio,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['camaraimb'] = forms.ChoiceField(
             label='Camara Imb',
             required=True,
             choices=Mvars.boolean,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def tv(self):
@@ -440,46 +467,54 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
         self.fields['qualidadeimagem'] = forms.ChoiceField(
             label='Qualidade de Imagem',
             required=True,
-            choices=Mvars().tv_qualidadeimagem
+            choices=Mvars().tv_qualidadeimagem,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['frequencia'] = forms.ChoiceField(
             label='Frequência',
             required=True,
-            choices=Mvars().tv_frequencia
+            choices=Mvars().tv_frequencia,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def leitorblueray(self):
-        self.fields['formatosreproducao'] = forms.MultipleChoiceField(
+        self.fields['formatosreproducao'] = forms.ChoiceField(
             label='Formatos de Reprodução',
             required=True,
-            choices=Mvars().leitorblueray_formatosreproducao
+            choices=Mvars().leitorblueray_formatosreproducao,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['resolucao'] = forms.ChoiceField(
             label='Resolução',
             required=True,
-            choices=Mvars().leitorblueray_resolucao
+            choices=Mvars().leitorblueray_resolucao,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def maquinacafe(self):
         self.fields['cor'] = forms.ChoiceField(
             label='Cor',
             required=True,
-            choices=Mvars().maquinacafe_cor
+            choices=Mvars().maquinacafe_cor,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['agua'] = forms.ChoiceField(
             label='Água',
             required=True,
-            choices=Mvars().maquinacafe_agua
+            choices=Mvars().maquinacafe_agua,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['potencia'] = forms.ChoiceField(
             label='Potência',
             required=True,
-            choices=Mvars().maquinacafe_potencia
+            choices=Mvars().maquinacafe_potencia,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def microondas(self):
@@ -487,84 +522,99 @@ class ModeloForm(forms.Form):
             label='Grill',
             required=True,
             choices=Mvars.boolean,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['volumemax'] = forms.ChoiceField(
             label='Volume Máximo',
             required=True,
-            choices=Mvars().microndas_volumemax
+            choices=Mvars().microndas_volumemax,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['potenciamax'] = forms.ChoiceField(
             label='Potência Máxima',
             required=True,
-            choices=Mvars().microndas_potenciamax
+            choices=Mvars().microndas_potenciamax,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def maquinalavarroupa(self):
         self.fields['eficiencia'] = forms.ChoiceField(
             label='Eficiencia',
             required=True,
-            choices=Mvars().maquinalavarroupa_eficiencia
+            choices=Mvars().maquinalavarroupa_eficiencia,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidade'] = forms.ChoiceField(
             label='Capacidade',
             required=True,
-            choices=Mvars().maquinalavarroupa_capacidade
+            choices=Mvars().maquinalavarroupa_capacidade,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['velocidadecen'] = forms.ChoiceField(
             label='Velocidade Centrífuga',
             required=True,
-            choices=Mvars().maquinalavarroupa_velocidadecen
+            choices=Mvars().maquinalavarroupa_velocidadecen,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def maquinasecarroupa(self):
         self.fields['eficiencia'] = forms.ChoiceField(
             label='Eficiencia',
             required=True,
-            choices=Mvars().maquinasecarroupa_eficiencia
+            choices=Mvars().maquinasecarroupa_eficiencia,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidade'] = forms.ChoiceField(
             label='Capacidade',
             required=True,
-            choices=Mvars().maquinasecarroupa_capacidade
+            choices=Mvars().maquinasecarroupa_capacidade,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['consumo'] = forms.ChoiceField(
             label='Consumo',
             required=True,
-            choices=Mvars().maquinasecarroupa_consumo
+            choices=Mvars().maquinasecarroupa_consumo,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def aspirador(self):
         self.fields['potenciamax'] = forms.ChoiceField(
             label='Potência Máxima',
             required=True,
-            choices=Mvars().aspirador_potenciamax
+            choices=Mvars().aspirador_potenciamax,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['volumemaxdep'] = forms.ChoiceField(
             label='Volume Máximo do Depósito',
             required=True,
-            choices=Mvars().aspirador_volumemaxdep
+            choices=Mvars().aspirador_volumemaxdep,
+            widget=forms.Select(attrs={'class':'input'})
         )
 
     def gamingpc(self):
         self.fields['ram'] = forms.ChoiceField(
             label='Ram',
             required=True,
-            choices=Mvars().gamingpc_ram
+            choices=Mvars().gamingpc_ram,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['processador'] = forms.ChoiceField(
             label='Processador',
             required=True,
-            choices=Mvars().gamingpc_processador
+            choices=Mvars().gamingpc_processador,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Mvars().gamingpc_capacidadedisco
+            choices=Mvars().gamingpc_capacidadedisco,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Mvars().gamingpc_grafica
+            choices=Mvars().gamingpc_grafica,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
@@ -573,29 +623,34 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
     def consola(self):
-        self.fields['cor'] = forms.MultipleChoiceField(
+        self.fields['cor'] = forms.ChoiceField(
             label='Cor',
             required=True,
-            choices=Mvars().consola_cor
+            choices=Mvars().consola_cor,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['jogoincluido'] = forms.ChoiceField(
             label='Jogo Incluido',
             required=True,
-            choices=Mvars().consola_jogoincluido
+            choices=Mvars().consola_jogoincluido,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['capacidadedisco'] = forms.ChoiceField(
             label='Capacidade do Disco',
             required=True,
-            choices=Mvars().gamingpc_capacidadedisco
+            choices=Mvars().gamingpc_capacidadedisco,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['grafica'] = forms.ChoiceField(
             label='Gráfica',
             required=True,
-            choices=Mvars().gamingpc_grafica
+            choices=Mvars().gamingpc_grafica,
+            widget=forms.Select(attrs={'class':'input'})
         )
         self.fields['tamanhoecra'] = forms.DecimalField(
             label='Tamanho do Ecrã',
@@ -604,7 +659,8 @@ class ModeloForm(forms.Form):
             min_value=1,
             max_value=9999,
             max_digits=6,
-            decimal_places=2
+            decimal_places=2,
+            widget=forms.NumberInput(attrs={'class':'input', 'step': 0.25})
         )
 
 
