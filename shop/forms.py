@@ -5,6 +5,19 @@ import re
 from .constants import *
 from .wikidata import available_countries, wikidata_capitals
 
+class CategoriaForm(forms.Form):
+    select_input = forms.ChoiceField(
+        label='Grupo',
+        required=True,
+        choices=[
+        # ('Recomendados','Recomendados'),
+        # ('Novos Produtos','Novos Produtos'),
+        # ('Ultimas Unidades','Ultimas Unidades'),
+        ('ORDER BY xsd:decimal(?preco)','Baratos'),
+        ('ORDER BY DESC(xsd:decimal(?preco))','Valiosos'), ],
+        widget=forms.Select(attrs={'class':'input-select', 'onchange':'this.form.submit()'})
+    )
+
 class LojaForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
@@ -53,7 +66,8 @@ class LojaForm(forms.Form):
         self.fields['pais'] = forms.ChoiceField(
             label='País',
             required=True,
-            choices=Lvars().pais
+            choices=Lvars().pais,
+            widget=forms.Select(attrs={'onchange':'this.form.submit()'})
         )
         self.fields['distrito'] = forms.ChoiceField(
             label='Distrito',

@@ -49,8 +49,6 @@ def wikidata_query():
 def wikidata_capitals( country ):
     # capitals ordered by the most population
 
-    pprint( country )
-
     for e in available_countries:
         if country == e[0]:
             districts_of = e[1]

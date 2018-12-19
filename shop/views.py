@@ -4,7 +4,7 @@ from lxml import etree
 from pprint import pprint
 
 from .constants import *
-from .forms import ModeloForm, LojaForm
+from .forms import ModeloForm, LojaForm, CategoriaForm
 from .forms_validation import *
 from .wikidata import get_wikidata
 
@@ -14,7 +14,16 @@ def home(request):
 
 def filter_categoria(request, categoria):
 
-    query = g.list_modelo_with_categoria( categoria )['results']['bindings']
+    order = ''
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            order = form.cleaned_data.get('select_input')
+    else:
+        form = CategoriaForm()
+
+
+    query = g.list_modelo_with_categoria( categoria, order )['results']['bindings']
 
     modelos = []
     for e in query:
@@ -25,7 +34,7 @@ def filter_categoria(request, categoria):
 
     pprint( modelos )
 
-    return render(request, 'shop/filter_categoria.html', {'modelos': modelos, 'categoria': categoria})
+    return render(request, 'shop/filter_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria})
 
 
 def store(request):
@@ -76,13 +85,15 @@ def get_modelo(request, id):
 
     modelo = []
     esta_loja = []
-    em_lojas = []   # list of lists
+    em_lojas = {}   # dict of lists
     for e in query_regular:
         pred = e['pred']['value'].split('/')[-1]
         obj = e['obj']['value']
         modelo.append( (pred, obj) )
 
     for e in query_em_loja:
+        loja_id = e['loja_uri']['value'].split('/')[-1]
+
         nome = e['nome']['value']
         esta_loja.append( ('nome', nome) )
 
@@ -90,13 +101,8 @@ def get_modelo(request, id):
         obj = e['obj']['value']
         esta_loja.append( (pred, obj) )
 
-        em_lojas.append( esta_loja )
+        em_lojas.update( { loja_id: esta_loja} )
         esta_loja = []
-
-        # atempt to save loja_id --- commented cuz I think it's not necessary anywhere (yet)
-        # loja_uri = e['loja_uri']['value'].split('/')[-1]
-        # em_lojas.append( [loja_uri, esta_loja] )
-        # esta_loja = []
 
     # session variable stored on the server --- used in edit_modelo
     request.session[ 'get_modelo_data' ] = modelo #{**modelo, **em_lojas}

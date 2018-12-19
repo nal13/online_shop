@@ -9,19 +9,19 @@
 </ul>
 
 <ul>
-  {% for loja in em_lojas %}
+  {% for loja_id, loja in em_lojas.items %}
 
     {% for e in loja %}
 
       <li>
         {{ e.0 }} :
         {% if e.0 == 'nome' %}
-          <a href="{% url 'get_loja' id %}">{{ e.1 }}</a>
+          <a href="{% url 'get_loja' loja_id %}">{{ e.1 }}</a>
         {% else %}
           {{ e.1 }}
         {% endif %}
       </li>
-      
+
     {% endfor %}
 
   {% endfor %}
