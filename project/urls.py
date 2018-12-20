@@ -23,11 +23,8 @@ from accounts import views as accounts_views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('product/', views.product, name='product'),
-    path('store/', views.store, name='store'),
 
     re_path('list_categoria/(?P<categoria>\w+)/', views.list_categoria, name='list_categoria'),
-    path('add_buttons/', views.add_buttons, name='add_buttons'),
     path('list_modelo/', views.list_modelo, name='list_modelo'),
     re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),
     re_path('add_modelo/(?P<type>\w+)/', views.add_modelo, name='add_modelo'),

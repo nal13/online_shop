@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>Electro - HTML Ecommerce Template</title>
@@ -33,21 +34,6 @@
 	<body>
 		<!-- HEADER -->
 		<header>
-			<!-- TOP HEADER -->
-			<div id="top-header">
-				<div class="container">
-					<ul class="header-links pull-left">
-						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
-					</ul>
-					<ul class="header-links pull-right">
-						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
 			<div id="header">
@@ -115,12 +101,24 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="{% url 'home' %}">Home</a></li>
+						<li><a>Adicione:</a></li>
+						</br>
+						<li><a href="{% url 'add_loja' %}">Loja</a></li>
 						<li><a href="{% url 'add_modelo' 'computador' %}">Computador</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<li><a href="{% url 'add_modelo' 'telemovel' %}">Telemovel</a></li>
+						<li><a href="{% url 'add_modelo' 'tablet' %}">Tablet</a></li>
+						<li><a href="{% url 'add_modelo' 'camara' %}">Camara</a></li>
+						<li><a href="{% url 'add_modelo' 'drone' %}">Drone</a></li>
+						<li><a href="{% url 'add_modelo' 'tv' %}">Tv</a></li>
+						<li><a href="{% url 'add_modelo' 'leitor_blueray' %}">Leitor Blueray</a></li>
+						<li><a href="{% url 'add_modelo' 'maquina_cafe' %}">Máquina de Café</a></li>
+						<li><a href="{% url 'add_modelo' 'microondas' %}">Microondas</a></li>
+						<li><a href="{% url 'add_modelo' 'maquina_lavar_roupa' %}">Máquina de Lavar Roupa</a></li>
+						<li><a href="{% url 'add_modelo' 'maquina_secar_roupa' %}">Máquina de Secar Roupa</a></li>
+						<li><a href="{% url 'add_modelo' 'aspirador' %}">Aspirador</a></li>
+						<li><a href="{% url 'add_modelo' 'gaming_pc' %}">Pc de Gaming</a></li>
+						<li><a href="{% url 'add_modelo' 'consola' %}">Consola</a></li>
+						<li><a href="{% url 'add_modelo' 'jogo' %}">Videojogo</a></li>
 					</ul>
 					<!-- /NAV -->
 				</div>

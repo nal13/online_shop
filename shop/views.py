@@ -58,36 +58,6 @@ def search_box(request):
 
     return form
 
-
-def store(request):
-    return render(request, 'shop/checkout.html')
-
-
-def product(request):
-    return render(request, 'shop/product.html')
-
-
-def add_buttons(request):
-
-    modelos_types = []
-    query = g.list_modelo_a()
-
-    for e in query['results']['bindings']:
-        type = e['type']['value'].split('/')[-2]
-        modelos_types.append(type)
-
-    ## for tests
-    ##
-    # query = g.list_modelo_marca()
-    # marcas = []
-    # # print(query)
-    # for e in query['results']['bindings']:
-    #     marca = e['marca']['value']
-    #     marcas.append((marca,marca))
-    # print(marcas)
-
-    return render(request, 'shop/add_buttons.html', {'modelos_types': modelos_types, 'loja_type': 'loja'})
-
 #
 #
 #           MODELO VIEWS
@@ -110,7 +80,6 @@ def list_categoria(request, categoria):
     else:
         form = OrderForm()
 
-
     query = g.list_modelo_with_categoria( categoria, order )['results']['bindings']
 
     modelos = []
@@ -118,11 +87,11 @@ def list_categoria(request, categoria):
         uri = e['uri']['value'].split('/')[-1]
         nome = e['nome']['value']
         preco = e['preco']['value']
-        modelos.append( (uri, nome, preco) )
+        modelos.append( (uri, nome, categoria, preco) )
 
     pprint( modelos )
 
-    return render(request, 'shop/list_categoria.html', {'form': form, 'modelos': modelos, 'categoria': categoria, 'search': search, })
+    return render(request, 'shop/list_categoria.html', {'form': form, 'modelos': modelos, 'search': search, })
 
 def list_modelo(request):
 
@@ -183,13 +152,12 @@ def get_modelo(request, id):
         em_lojas.update( { loja_id: esta_loja} )
         esta_loja = []
 
-    pprint( modelo )
-
     # session variable stored on the server --- used in edit_modelo
     request.session[ 'get_modelo_data' ] = modelo
 
     return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
 
+# import shutil
 def add_modelo(request, type):
 
     # search box
@@ -207,7 +175,10 @@ def add_modelo(request, type):
             # insert modelo with the new highest id in DB
             g.add_modelo( id=new_id, fields=form.cleaned_data, type=form.type )
 
-            return redirect('list_modelo')
+            # # copy default image and name it with this modelo name
+            # shutil.copy("/static/shop/img/modelos/{{ e.1 }}.jpg","/static/shop/img/modelos/{{ e.1 }}.jpg")
+
+            return redirect( 'get_modelo', new_id )
     else:
         form = ModeloForm(type)
     return render(request, 'shop/forms_modelo.html', {'form': form, 'search': search, })
@@ -217,7 +188,7 @@ def remove_modelo(request, id):
 
     g.remove_modelo( id )
 
-    return redirect('list_modelo')
+    return redirect('home')
 
 def edit_modelo(request, id):
 
@@ -228,7 +199,11 @@ def edit_modelo(request, id):
         return redirect( search[0], id=search[1] )
 
     # get type of modelo from DB with id
+    type = g.get_modelo_a(id)['results']['bindings']
+    pprint( type )
+
     type = g.get_modelo_a(id)['results']['bindings'][0]['type']['value'].split('/')[-2]
+
 
     if request.method == 'POST':
         form = ModeloForm(type, request.POST)
@@ -238,7 +213,7 @@ def edit_modelo(request, id):
             g.remove_modelo( id )     #TODO use known fields to improve query
             g.add_modelo( id=id, fields=form.cleaned_data, type=form.type )
 
-            return redirect('list_modelo')
+            return redirect( 'get_modelo', id )
     else:
         form = ModeloForm(type)
 
@@ -295,7 +270,6 @@ def add_loja(request):
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-
     if request.method == 'POST':
         # get picked country in previous submit
         chose_country = request.POST.get('pais')
@@ -311,7 +285,7 @@ def add_loja(request):
             # insert loja with the new highest id in DB
             g.add_loja( id=new_id, fields=form.cleaned_data )
 
-            return redirect('list_modelo')
+            return redirect( 'get_loja', new_id )
     else:
         # IF submited already: get picked country in previous
         # ELSE use default country
@@ -325,7 +299,7 @@ def remove_loja(request, id):
     g.remove_loja( id )
     g.remove_loja_links( id )
 
-    return redirect('list_modelo')
+    return redirect('home')
 
 def edit_loja(request, id):
 
@@ -350,7 +324,7 @@ def edit_loja(request, id):
             g.remove_loja( id )     #TODO use known fields to improve query
             g.add_loja( id=id, fields=form.cleaned_data )
 
-            return redirect('list_modelo')
+            return redirect( 'get_loja', id )
     else:
         # IF submited already: get picked country in previous
         # ELSE use default country

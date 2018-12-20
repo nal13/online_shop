@@ -68,29 +68,25 @@
 						{% endfor %}
 
 						<div class="product-options">
-							<label>
-								Loja
-								<select class="input-select">
-
-									{% for loja_id, loja in em_lojas.items %}
+							<h2 class="product001">Unidades em:</h2>
+								<ul>
+								{% for loja_id, loja in em_lojas.items %}
+									<li>
+										<h2 class="product-name">
+										<a href="{% url 'get_loja' loja_id %}">
 										{% for e in loja %}
 											{% if e.0 == 'nome' %}
-												<option value="0">{{ e.1 }}</option>
+												{{ e.1 }}</a>:
+											{% endif %}
+											{% if e.0 == 'unidades' %}
+												{{ e.1 }}
 											{% endif %}
 										{% endfor %}
-									{% endfor %}
-
-								</select>
-							</label>
+									</h2>
+								</li>
+								{% endfor %}
+							</ul>
 						</div>
-
-						{% for loja_id, loja in em_lojas.items %}
-							{% for e in loja %}
-								{% if e.0 == 'unidades' %}
-									<p>Unidades: {{ e.1 }}</p>
-								{% endif %}
-							{% endfor %}
-						{% endfor %}
 
 						<br/>
 						<br/>
@@ -202,35 +198,17 @@
 
 				<div class="col-md-12">
 					<div class="section-title text-center">
-						<h3 class="title">Related Products</h3>
+						<h3 class="title">Modelos Relacionados</h3>
 					</div>
 				</div>
 
 				<!-- product -->
 				{% for e in type_modelos %}
-				<div class="col-md-3 col-xs-6">
-					<div class="product">
-						<div class="product-img">
-							<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
-							<div class="product-label">
-								<span class="sale">-30%</span>
-							</div>
-						</div>
-						<div class="product-body">
-							<p class="product-category">{{ e.2 }}</p>
-							<h3 class="product-name"><a href="{% url 'get_modelo' e.0 %}">{{ e.1 }}</a></h3>
-							<h4 class="product-price">$980.00 <del class="product-old-price">${{ e.3 }}</del></h4>
-							<div class="product-rating">
-							</div>
-							<div class="product-btns">
-								<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-							</div>
-						</div>
-						<div class="add-to-cart">
-							<a href="{% url 'get_modelo' e.0 %}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> ver mais</button></a>
-						</div>
+					<div class="col-md-3 col-xs-6">
+
+						{% include 'shop/includes/produto_item.html' %}
+
 					</div>
-				</div>
 				{% endfor %}
 				<!-- /product -->
 
