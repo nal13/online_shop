@@ -73,6 +73,10 @@ class GraphDB:
             order = 'ORDER BY DESC(xsd:decimal(?preco))'
         elif order == 'baratos':
             order = 'ORDER BY xsd:decimal(?preco)'
+        elif order == 'a-z':
+            order = 'ORDER BY (?nome)'
+        elif order == 'z-a':
+            order = 'ORDER BY DESC(?nome)'
 
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
@@ -145,6 +149,17 @@ class GraphDB:
             """
         return self.select_query( query )
 
+    def get_modelo_categoria(self, id):
+        # get categoria of a given modelo
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT ?categoria
+            WHERE {
+                modelo:"""+id+"""   modelo:categoria   ?categoria .
+            }
+            """
+        return self.select_query( query )
+
     def list_modelo_em_loja(self, id):
         # list loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
         query = """
@@ -164,7 +179,7 @@ class GraphDB:
         return self.select_query( query )
 
     def list_modelo_em_loja_unidades(self, id):
-        # list loja_uri and units of a given loja
+        # list loja_uri and units of a given modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -174,6 +189,21 @@ class GraphDB:
                 modelo:"""+id+"""       modelo:loja                 ?modelo_em_loja_uri .
                 ?modelo_em_loja_uri     modelo_em_loja:LojaID       ?loja_uri ;
                                         modelo_em_loja:unidades     ?unidades .
+            }
+            """
+        return self.select_query( query )
+
+    def get_modelo_em_loja_unidades_count(self, id):
+        # get sum of units of a given modelo in all loja
+        query = """
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            SELECT (SUM(xsd:integer(?unidades)) AS ?sum)
+            WHERE {
+                modelo:"""+id+"""       modelo:loja                 ?modelo_em_loja_uri .
+                ?modelo_em_loja_uri     modelo_em_loja:unidades     ?unidades .
             }
             """
         return self.select_query( query )

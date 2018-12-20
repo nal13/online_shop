@@ -27,11 +27,14 @@ class OrderForm(forms.Form):
         label='Ordenar por',
         required=True,
         choices=[
+        ('a-z','A-Z'),
+        ('z-a','Z-A'),
         ('valiosos','Valiosos'),
-        ('baratos','Baratos'), ],
+        ('baratos','Baratos'),
         # ('Recomendados','Recomendados'),
         # ('Novos Produtos','Novos Produtos'),
         # ('Ultimas Unidades','Ultimas Unidades'),
+        ],
         widget=forms.Select(attrs={'class':'input-select', 'onchange':'this.form.submit()'})
     )
 

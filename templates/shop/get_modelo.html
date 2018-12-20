@@ -60,10 +60,18 @@
 
 							{% if e.0 == 'preco' %}
 								<div>
-									<h3 class="product-price">$980.00 <del class="product-old-price">${{ e.1 }}</del></h3>
-									<span class="product-available">In Stock</span>
+									{% if modelo_discount.1 == 0 %}
+										<h3 class="product-price">${{ e.1 }}</h3>
+									{% else %}
+										<h3 class="product-price">${{ modelo_discount.0 }} <del class="product-old-price">${{ e.1 }}</del></h3>
+									{% endif %}
+
+									{% if modelo_discount.0 >= 50 %}
+										<span class="product-available">Best Offer</span>
+									{% endif %}
 								</div>
 							{% endif %}
+
 
 						{% endfor %}
 

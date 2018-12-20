@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 import os
+import sys
 from lxml import etree
 from pprint import pprint
 
@@ -24,7 +25,9 @@ def home(request):
         nome = e['nome']['value']
         categoria = e['categoria']['value']
         preco = e['preco']['value']
-        random_modelos.append( (modelo_id, nome, categoria, preco) )
+        # get discount based on availiable units across all loja
+        (preco_discount, discount) = get_discount( modelo_id, preco )
+        random_modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
 
     # search box
     search = search_box(request)
@@ -56,6 +59,23 @@ def search_box(request):
 
     return form
 
+def get_discount(id, price):
+    sum = int( g.get_modelo_em_loja_unidades_count( id )['results']['bindings'][0]['sum']['value'] )
+
+    discount = 0
+    if sum < 11:
+        if sum in range(8,10):
+            discount = 20
+        elif sum in range(5,7):
+            discount = 45
+        elif sum in range(2,4):
+            discount = 60
+        else:
+            discount = 75
+    discount_price = round( float(price) * (1 - discount/100), 2 )
+
+    return (discount_price, discount)
+
 #
 #
 #           MODELO VIEWS
@@ -64,7 +84,7 @@ def search_box(request):
 def list_categoria(request, categoria):
 
     # order select
-    order = 'valiosos'
+    order = 'a-z'
     if request.method == 'POST' and 'order' in request.POST:
         form = OrderForm(request.POST)
         if form.is_valid():
@@ -72,7 +92,7 @@ def list_categoria(request, categoria):
     else:
         form = OrderForm()
 
-    #
+    # list modelos with the given categoria
     query = g.list_modelo_by_categoria( categoria, order )['results']['bindings']
 
     # if no modelos, go home
@@ -81,10 +101,12 @@ def list_categoria(request, categoria):
 
     modelos = []
     for e in query:
-        uri = e['uri']['value'].split('/')[-1]
+        modelo_id = e['uri']['value'].split('/')[-1]
         nome = e['nome']['value']
         preco = e['preco']['value']
-        modelos.append( (uri, nome, categoria, preco) )
+        # get discount based on availiable units across all loja
+        (preco_discount, discount) = get_discount( modelo_id, preco )
+        modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
 
     # search box
     search = search_box(request)
@@ -141,7 +163,13 @@ def get_modelo(request, id):
         nome = e['nome']['value']
         categoria = e['categoria']['value']
         preco = e['preco']['value']
-        type_modelos.append( (modelo_id, nome, categoria, preco) )
+        # get discount based on availiable units across all loja
+        (preco_discount, discount) = get_discount( modelo_id, preco )
+        type_modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+
+    # save discount without risking damaging other structured variables
+    (preco_discount, discount) = get_discount( id, preco )
+    modelo_discount = (preco_discount, discount)
 
     # search box
     search = search_box(request)
@@ -149,7 +177,7 @@ def get_modelo(request, id):
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'modelo_discount':modelo_discount, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
 
 def add_modelo(request, type):
 
@@ -248,7 +276,9 @@ def get_loja(request, id):
         nome = e['nome']['value']
         categoria = e['categoria']['value']
         preco = e['preco']['value']
-        modelos.append( (modelo_id, nome, categoria, preco) )
+        # get discount based on availiable units across all loja
+        (preco_discount, discount) = get_discount( modelo_id, preco )
+        modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
 
     # search box
     search = search_box(request)
