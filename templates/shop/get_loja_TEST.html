@@ -1,0 +1,14 @@
+{% extends 'shop/base_index.html' %}
+
+{% block content %}
+
+<ul>
+  {% for e in loja %}
+    <li>{{ e.0 }} : {{ e.1 }}</li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'edit_loja' id %}">edit</a>
+<a href="{% url 'remove_loja' id %}">delete</a>
+
+{% endblock %}

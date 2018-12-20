@@ -36,6 +36,20 @@ class GraphDB:
 
         return next_id
 
+    def list_modelo_random(self, limit):
+        # list up to limit random modelos
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT ?modelo_uri ?nome ?categoria ?preco
+            WHERE {
+                ?modelo_uri     modelo:nome         ?nome ;
+                                modelo:categoria    ?categoria ;
+                                modelo:preco        ?preco .
+            }
+            ORDER BY RAND() LIMIT """+limit+"""
+            """
+        pprint( query )
+        return self.select_query( query )
 
     def list_modelo_uri_nome(self):
         # uri and nome of all modelo
@@ -173,6 +187,40 @@ class GraphDB:
                 ?modelo_em_loja_uri     modelo_em_loja:LojaID       ?loja_uri ;
                                         modelo_em_loja:unidades     ?unidades .
             }
+            """
+        return self.select_query( query )
+
+    def list_modelo_in_loja(self, id):
+        # list up to 4 modelo in this loja id
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
+            PREFIX loja: <http://www.shop.pt/loja/>
+            SELECT ?modelo_uri ?nome ?categoria ?preco
+            WHERE {
+                ?modelo_em_loja_uri     modelo_em_loja:LojaID       loja:"""+id+""" .
+                ?modelo_uri             modelo:loja                 ?modelo_em_loja_uri ;
+                                        modelo:nome                 ?nome ;
+                                        modelo:categoria            ?categoria ;
+                                        modelo:preco                ?preco .
+            }
+            ORDER BY RAND() LIMIT 4
+            """
+        return self.select_query( query )
+
+    def list_modelo_by_a(self, id):
+        # list up to 4 modelo with the same type as the given modelo
+        query = """
+            PREFIX modelo: <http://www.shop.pt/modelo/>
+            SELECT ?modelo_uri ?nome ?categoria ?preco
+            WHERE {
+                modelo:"""+id+"""       a                   ?type .
+                ?modelo_uri             a                   ?type ;
+                                        modelo:nome         ?nome ;
+                                        modelo:categoria    ?categoria ;
+                                        modelo:preco        ?preco .
+            }
+            ORDER BY RAND() LIMIT 4
             """
         return self.select_query( query )
 

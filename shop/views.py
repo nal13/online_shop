@@ -22,9 +22,19 @@ def home(request):
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-    test_wikidata()
+    # test_wikidata()
 
-    return render(request, 'shop/home.html', {'search': search, })
+    # list up to 10 random modelos
+    query = g.list_modelo_random('10')['results']['bindings']
+    random_modelos = []
+    for e in query:
+        modelo_id = e['modelo_uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        categoria = e['categoria']['value']
+        preco = e['preco']['value']
+        random_modelos.append( (modelo_id, nome, categoria, preco) )
+
+    return render(request, 'shop/home.html', {'random_modelos': random_modelos, 'search': search, })
 
 def search_box(request):
     # this is not a view
@@ -134,6 +144,16 @@ def get_modelo(request, id):
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
+    # get up to 4 modelos with the same type
+    query = g.list_modelo_by_a(id)['results']['bindings']
+    type_modelos = []
+    for e in query:
+        modelo_id = e['modelo_uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        categoria = e['categoria']['value']
+        preco = e['preco']['value']
+        type_modelos.append( (modelo_id, nome, categoria, preco) )
+
     # get wikidata for modelo
     type = g.get_modelo_a( id )['results']['bindings'][0]['type']['value'].split('/')[-2]
     wiki_modelo = wikidata_modelo_info( type )
@@ -168,7 +188,7 @@ def get_modelo(request, id):
     # session variable stored on the server --- used in edit_modelo
     request.session[ 'get_modelo_data' ] = modelo
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
 
 def add_modelo(request, type):
 
@@ -234,7 +254,23 @@ def edit_modelo(request, id):
 #
 def get_loja(request, id):
 
-    # get from DB
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+    # get up to 4 modelos in this loja
+    query = g.list_modelo_in_loja( id )['results']['bindings']
+    modelos = []
+    for e in query:
+        modelo_id = e['modelo_uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        categoria = e['categoria']['value']
+        preco = e['preco']['value']
+        modelos.append( (modelo_id, nome, categoria, preco) )
+
+    # get loja from DB
     query = g.get_loja_regular(id)['results']['bindings']
     query += g.get_loja_morada(id)['results']['bindings']
     query += g.get_loja_contacto(id)['results']['bindings']
@@ -249,7 +285,7 @@ def get_loja(request, id):
     # session save to be used in edit_loja view
     request.session[ 'get_loja_data' ] = loja
 
-    return render(request, 'shop/get_loja.html', {'loja': loja, 'id': id})
+    return render(request, 'shop/get_loja.html', {'loja': loja, 'modelos': modelos, 'id': id, 'search': search, })
 
 def add_loja(request):
 

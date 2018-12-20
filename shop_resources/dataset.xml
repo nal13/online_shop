@@ -1432,7 +1432,7 @@
         <Jogos>
             <Modelo>
                 <ID>2069</ID>
-                <Nome>Marvel's Spider Man</Nome>
+                <Nome>Marvels Spider Man</Nome>
                 <Marca>PS4</Marca>
                 <Categoria>videojogos</Categoria>
                 <Preco>68.00</Preco>
@@ -1448,7 +1448,7 @@
 
             <Modelo>
                 <ID>2070</ID>
-                <Nome>Assassin's Creed Odyssey</Nome>
+                <Nome>Assassins Creed Odyssey</Nome>
                 <Marca>PS4</Marca>
                 <Categoria>videojogos</Categoria>
                 <Preco>39.00</Preco>
@@ -1524,7 +1524,7 @@
 
             <Modelo>
                 <ID>2075</ID>
-                <Nome>Pokemon Let's Go Pikachu</Nome>
+                <Nome>Pokemon Lets Go Pikachu</Nome>
                 <Marca>SWITCH</Marca>
                 <Categoria>videojogos</Categoria>
                 <Preco>55.00</Preco>
@@ -1552,7 +1552,7 @@
 
             <Modelo>
                 <ID>2077</ID>
-                <Nome>Legend od Zelda: Breath Of The Wild</Nome>
+                <Nome>Legend od Zelda Breath Of The Wild</Nome>
                 <Marca>SWITCH</Marca>
                 <Categoria>videojogos</Categoria>
                 <Preco>69.00</Preco>

@@ -1,14 +1,142 @@
-{% extends 'shop/base_index.html' %}
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+{% endblock %}
 
 {% block content %}
+	<!-- SECTION -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- Product main img -->
+				<div class="col-md-5 col-md-push-0">
+					<div id="product-main-img">
+						<img src="{% static 'shop/img/product01.png' %}" alt="">
+					</div>
+				</div>
+				<!-- /Product main img -->
 
-<ul>
-  {% for e in loja %}
-    <li>{{ e.0 }} : {{ e.1 }}</li>
-  {% endfor %}
-</ul>
+				<!-- Product thumb imgs -->
+				<div class="col-md-2  col-md-pull-5">
+				</div>
+				<!-- /Product thumb imgs -->
 
-<a href="{% url 'edit_loja' id %}">edit</a>
-<a href="{% url 'remove_loja' id %}">delete</a>
+				<!-- Product details -->
+				<div class="col-md-5">
+					<div class="product-details">
 
+						{% for e in loja %}
+							{% if e.0 == 'nome' %}
+								<h2 class="product03">{{ e.1 }}</h2>
+							{% endif %}
+							{% if e.0 == 'grupo' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'detalhes' %}
+								<br/>
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'rua' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'codigopostal' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'distrito' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'pais' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'telefone' %}
+								<br/>
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'fax' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'email' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+							{% if e.0 == 'website' %}
+								<h3 class="product-name">{{ e.1 }}</h3>
+							{% endif %}
+						{% endfor %}
+
+						<br/>
+						<br/>
+
+						<div class="add-to-cart">
+							<a href="{% url 'edit_modelo' id %}"><button class="add-to-cart-btn"><i class="fa fa-edit"></i> edit</button></a>
+							<a href="{% url 'remove_modelo' id %}"><button class="add-to-cart-btn"><i class="fa fa-remove"></i> delete</button></a>
+						</div>
+
+						<ul class="product-links">
+							<li>Share:</li>
+							<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+
+					</div>
+				</div>
+				<!-- /Product details -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /SECTION -->
+
+	<!-- Section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+
+				<div class="col-md-12">
+					<div class="section-title text-center">
+						<h3 class="title">Produtos vendidos aqui</h3>
+					</div>
+				</div>
+
+				{% for e in modelos %}
+					<!-- product -->
+					<div class="col-md-3 col-xs-6">
+						<div class="product">
+							<div class="product-img">
+								<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
+								<div class="product-label">
+									<span class="sale">-30%</span>
+								</div>
+							</div>
+							<div class="product-body">
+								<p class="product-category">{{ e.2 }}</p>
+								<h3 class="product-name"><a href="{% url 'get_modelo' e.0 %}">{{ e.1 }}</a></h3>
+								<h4 class="product-price">$980.00 <del class="product-old-price">{{ e.3 }}</del></h4>
+								<div class="product-rating">
+								</div>
+								<div class="product-btns">
+									<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+								</div>
+							</div>
+							<div class="add-to-cart">
+								<a href="{% url 'get_modelo' e.0 %}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> ver mais</button></a>
+							</div>
+						</div>
+					</div>
+					<!-- /product -->
+				{% endfor %}
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Section -->
 {% endblock %}

@@ -1436,7 +1436,7 @@ modelo_em_loja:20681001
 
 modelo:2069
 	a jogo: ; 
-	modelo:nome "Marvel's Spider Man" ; 
+	modelo:nome "Marvels Spider Man" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "videojogos" ; 
 	modelo:preco "68.00" ; 
@@ -1452,7 +1452,7 @@ modelo_em_loja:20691003
 
 modelo:2070
 	a jogo: ; 
-	modelo:nome "Assassin's Creed Odyssey" ; 
+	modelo:nome "Assassins Creed Odyssey" ; 
 	modelo:marca "PS4" ; 
 	modelo:categoria "videojogos" ; 
 	modelo:preco "39.00" ; 
@@ -1528,7 +1528,7 @@ modelo_em_loja:20741003
 
 modelo:2075
 	a jogo: ; 
-	modelo:nome "Pokemon Let's Go Pikachu" ; 
+	modelo:nome "Pokemon Lets Go Pikachu" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "videojogos" ; 
 	modelo:preco "55.00" ; 
@@ -1556,7 +1556,7 @@ modelo_em_loja:20761001
 
 modelo:2077
 	a jogo: ; 
-	modelo:nome "Legend od Zelda: Breath Of The Wild" ; 
+	modelo:nome "Legend od Zelda Breath Of The Wild" ; 
 	modelo:marca "SWITCH" ; 
 	modelo:categoria "videojogos" ; 
 	modelo:preco "69.00" ; 
