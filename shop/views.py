@@ -3,10 +3,10 @@ import os
 from lxml import etree
 from pprint import pprint
 
-from .constants import *
+from .constants import g
 from .forms import ModeloForm, LojaForm, OrderForm, SearchForm
 from .forms_validation import *
-from .wikidata import test_wikidata, wikidata_modelo_info
+from .wikidata import wikidata_modelo_info
 
 
 #
@@ -15,14 +15,6 @@ from .wikidata import test_wikidata, wikidata_modelo_info
 #
 #
 def home(request):
-
-    # search box
-    search = search_box(request)
-
-    if isinstance(search, tuple):
-        return redirect( search[0], id=search[1] )
-
-    # test_wikidata()
 
     # list up to 10 random modelos
     query = g.list_modelo_random('10')['results']['bindings']
@@ -33,6 +25,12 @@ def home(request):
         categoria = e['categoria']['value']
         preco = e['preco']['value']
         random_modelos.append( (modelo_id, nome, categoria, preco) )
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
 
     return render(request, 'shop/home.html', {'random_modelos': random_modelos, 'search': search, })
 
@@ -65,12 +63,6 @@ def search_box(request):
 #
 def list_categoria(request, categoria):
 
-    # search box
-    search = search_box(request)
-
-    if isinstance(search, tuple):
-        return redirect( search[0], id=search[1] )
-
     # order select
     order = 'valiosos'
     if request.method == 'POST' and 'order' in request.POST:
@@ -80,7 +72,12 @@ def list_categoria(request, categoria):
     else:
         form = OrderForm()
 
-    query = g.list_modelo_with_categoria( categoria, order )['results']['bindings']
+    #
+    query = g.list_modelo_by_categoria( categoria, order )['results']['bindings']
+
+    # if no modelos, go home
+    if ( not(query) ):
+        return redirect( 'home' )
 
     modelos = []
     for e in query:
@@ -89,46 +86,23 @@ def list_categoria(request, categoria):
         preco = e['preco']['value']
         modelos.append( (uri, nome, categoria, preco) )
 
-    pprint( modelos )
-
-    return render(request, 'shop/list_categoria.html', {'form': form, 'modelos': modelos, 'search': search, })
-
-def list_modelo(request):
-
-    modelos = []
-    query = g.list_modelo_uri_nome()['results']['bindings']
-
-    for e in query:
-        uri = e['uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        modelos.append( (uri, nome) )
-
-    return render(request, 'shop/list_modelo.html', {'modelos': modelos})
-
-def get_modelo(request, id):
-
     # search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-    # get up to 4 modelos with the same type
-    query = g.list_modelo_by_a(id)['results']['bindings']
-    type_modelos = []
-    for e in query:
-        modelo_id = e['modelo_uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        categoria = e['categoria']['value']
-        preco = e['preco']['value']
-        type_modelos.append( (modelo_id, nome, categoria, preco) )
+    return render(request, 'shop/list_categoria.html', {'form': form, 'modelos': modelos, 'search': search, })
 
-    # get wikidata for modelo
-    type = g.get_modelo_a( id )['results']['bindings'][0]['type']['value'].split('/')[-2]
-    wiki_modelo = wikidata_modelo_info( type )
+def get_modelo(request, id):
 
     # get all modelo data from DB
     query_regular = g.get_modelo_regular(id)['results']['bindings']
+
+    # if modelo doesn't exist, go home
+    if ( not(query_regular) ):
+        return redirect( 'home' )
+
     query_em_loja = g.list_modelo_em_loja(id)['results']['bindings']
 
     modelo = []
@@ -155,16 +129,29 @@ def get_modelo(request, id):
     # session variable stored on the server --- used in edit_modelo
     request.session[ 'get_modelo_data' ] = modelo
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
+    # get wikidata for modelo
+    type = g.get_modelo_a( id )['results']['bindings'][0]['type']['value'].split('/')[-2]
+    wiki_modelo = wikidata_modelo_info( type )
 
-# import shutil
-def add_modelo(request, type):
+    # get up to 4 modelos with the same type
+    query = g.list_modelo_by_a(id)['results']['bindings']
+    type_modelos = []
+    for e in query:
+        modelo_id = e['modelo_uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        categoria = e['categoria']['value']
+        preco = e['preco']['value']
+        type_modelos.append( (modelo_id, nome, categoria, preco) )
 
     # search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
+
+    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
+
+def add_modelo(request, type):
 
     if request.method == 'POST':
         form = ModeloForm(type, request.POST)
@@ -175,12 +162,16 @@ def add_modelo(request, type):
             # insert modelo with the new highest id in DB
             g.add_modelo( id=new_id, fields=form.cleaned_data, type=form.type )
 
-            # # copy default image and name it with this modelo name
-            # shutil.copy("/static/shop/img/modelos/{{ e.1 }}.jpg","/static/shop/img/modelos/{{ e.1 }}.jpg")
-
             return redirect( 'get_modelo', new_id )
     else:
         form = ModeloForm(type)
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
     return render(request, 'shop/forms_modelo.html', {'form': form, 'search': search, })
 
 def remove_modelo(request, id):
@@ -192,25 +183,19 @@ def remove_modelo(request, id):
 
 def edit_modelo(request, id):
 
-    # search box
-    search = search_box(request)
-
-    if isinstance(search, tuple):
-        return redirect( search[0], id=search[1] )
-
-    # get type of modelo from DB with id
-    type = g.get_modelo_a(id)['results']['bindings']
-    pprint( type )
-
+    # get type of modelo to call the right type of form
     type = g.get_modelo_a(id)['results']['bindings'][0]['type']['value'].split('/')[-2]
 
+    # if modelo doesn't exist, go home
+    if ( not(type) ):
+        return redirect( 'home' )
 
     if request.method == 'POST':
         form = ModeloForm(type, request.POST)
         if form.is_valid():
 
             # modify modelo with id in DB
-            g.remove_modelo( id )     #TODO use known fields to improve query
+            g.remove_modelo( id )
             g.add_modelo( id=id, fields=form.cleaned_data, type=form.type )
 
             return redirect( 'get_modelo', id )
@@ -219,6 +204,12 @@ def edit_modelo(request, id):
 
         # load values from get_modelo view to set them as initial values in edit_modelo view
         form.set_initial_values( request.session.get('get_modelo_data'), id )
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
 
     return render(request, 'shop/forms_modelo.html', {'form': form, 'search': search, })
 
@@ -229,24 +220,13 @@ def edit_modelo(request, id):
 #
 def get_loja(request, id):
 
-    # search box
-    search = search_box(request)
-
-    if isinstance(search, tuple):
-        return redirect( search[0], id=search[1] )
-
-    # get up to 4 modelos in this loja
-    query = g.list_modelo_in_loja( id )['results']['bindings']
-    modelos = []
-    for e in query:
-        modelo_id = e['modelo_uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        categoria = e['categoria']['value']
-        preco = e['preco']['value']
-        modelos.append( (modelo_id, nome, categoria, preco) )
-
     # get loja from DB
     query = g.get_loja_regular(id)['results']['bindings']
+
+    # if loja doesn't exist, go home
+    if ( not(query) ):
+        return redirect( 'home' )
+
     query += g.get_loja_morada(id)['results']['bindings']
     query += g.get_loja_contacto(id)['results']['bindings']
 
@@ -260,15 +240,25 @@ def get_loja(request, id):
     # session save to be used in edit_loja view
     request.session[ 'get_loja_data' ] = loja
 
-    return render(request, 'shop/get_loja.html', {'loja': loja, 'modelos': modelos, 'id': id, 'search': search, })
-
-def add_loja(request):
+    # get up to 4 modelos in this loja
+    query = g.list_modelo_in_loja( id )['results']['bindings']
+    modelos = []
+    for e in query:
+        modelo_id = e['modelo_uri']['value'].split('/')[-1]
+        nome = e['nome']['value']
+        categoria = e['categoria']['value']
+        preco = e['preco']['value']
+        modelos.append( (modelo_id, nome, categoria, preco) )
 
     # search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
+
+    return render(request, 'shop/get_loja.html', {'loja': loja, 'modelos': modelos, 'id': id, 'search': search, })
+
+def add_loja(request):
 
     if request.method == 'POST':
         # get picked country in previous submit
@@ -291,24 +281,24 @@ def add_loja(request):
         # ELSE use default country
         form = LojaForm( load=request.session.get('chose_country') )
 
-    return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
-
-def remove_loja(request, id):
-    # called in get_loja.html, don't have a web page
-
-    g.remove_loja( id )
-    g.remove_loja_links( id )
-
-    return redirect('home')
-
-def edit_loja(request, id):
-
     # search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
+    return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
+
+def remove_loja(request, id):
+    # called in get_loja.html, don't have a web page
+
+    g.remove_loja( id )
+    # remove all tiples that have this loja as object
+    g.remove_loja_links( id )
+
+    return redirect('home')
+
+def edit_loja(request, id):
 
     if request.method == 'POST':
         # get picked country in previous submit
@@ -321,7 +311,7 @@ def edit_loja(request, id):
             del request.session['chose_country']
 
             # modify loja with id in DB
-            g.remove_loja( id )     #TODO use known fields to improve query
+            g.remove_loja( id )
             g.add_loja( id=id, fields=form.cleaned_data )
 
             return redirect( 'get_loja', id )
@@ -332,6 +322,12 @@ def edit_loja(request, id):
 
         # load values from get_loja view to set them as initial values in edit_loja view
         form.set_initial_values( request.session.get('get_loja_data') )
+
+    # search box
+    search = search_box(request)
+
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
 
     return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
 
@@ -357,8 +353,8 @@ rdf = transform(xml_root)
 rdf_asString = str(rdf).replace('<?xml version=\"1.0\"?>\n', '')
 
 # save rdf as a .n3 file
-with open(path + 'dataset.nt', 'w', encoding='utf-8') as file:
+with open(path + 'dataset.n3', 'w', encoding='utf-8') as file:
     file.write(rdf_asString)
 
 # start GraphDBapi
-# initialized in: from .constants import *
+# initialized in: from .constants import g

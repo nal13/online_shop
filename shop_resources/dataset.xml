@@ -113,7 +113,7 @@
                 <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
                 <Processador>i3-7020U 2.3GHz</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>GeForce MX110 2GB</Grafica>
                 <TamanhoEcra>15.6</TamanhoEcra>
                 <Preco>499.00</Preco>
@@ -180,7 +180,7 @@
                 <Categoria>tecnologia_movel</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i5-825OU 1.6 GHz</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>Radeon R5 530 2GB</Grafica>
                 <TamanhoEcra>15.6</TamanhoEcra>
                 <Preco>575.00</Preco>
@@ -289,7 +289,7 @@
                 <Marca>Huawei</Marca>
                 <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
-                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)</Processador>
+                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7 GHz)</Processador>
                 <CapacidadeMemoria>64 GB</CapacidadeMemoria>
                 <Camara>DUAL(16 MP + 2 MP)</Camara>
                 <TamanhoEcra>5.90</TamanhoEcra>
@@ -310,7 +310,7 @@
                 <Marca>Huawei</Marca>
                 <Categoria>tecnologia_movel</Categoria>
                 <Ram>4 GB</Ram>
-                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7GHz)</Processador>
+                <Processador>Octa-core(4x 2.36 GHz + 4x 1.7 GHz)</Processador>
                 <CapacidadeMemoria>32 GB</CapacidadeMemoria>
                 <Camara>DUAL(16 MP + 2 MP)</Camara>
                 <TamanhoEcra>5.84</TamanhoEcra>
@@ -664,7 +664,7 @@
                 <Marca>LG</Marca>
                 <Categoria>tecnologia_de_casa</Categoria>
                 <FormatosReproducao>BD,CD,DVD</FormatosReproducao>
-                <Resolucao>Full-HD 1080p</Resolucao>
+                <Resolucao>Full HD 1080p</Resolucao>
                 <Preco>69.00</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -999,7 +999,7 @@
                 <Marca>Hotpoint</Marca>
                 <Eficiencia>A+++</Eficiencia>
                 <Capacidade>9.0 Kg</Capacidade>
-                <VelocidadeCen>1200 Kg</VelocidadeCen>
+                <VelocidadeCen>1200 Rpm</VelocidadeCen>
                 <Preco>355.49</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1015,7 +1015,7 @@
                 <Categoria>limpeza</Categoria>
                 <Eficiencia>A+</Eficiencia>
                 <Capacidade>8.0 Kg</Capacidade>
-                <Consumo>306 kWh</Consumo>
+                <Consumo>306 KWh</Consumo>
                 <Preco>349.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1131,6 +1131,7 @@
                 <TempoCarga>3 h</TempoCarga>
                 <TempoBateria>60 min</TempoBateria>
                 <PotenciaMax>33 W</PotenciaMax>
+                <VolumeMaxDep>3 L</VolumeMaxDep>
                 <Preco>279.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1150,6 +1151,7 @@
                 <TempoCarga>4 h</TempoCarga>
                 <TempoBateria>120 min</TempoBateria>
                 <PotenciaMax>33 W</PotenciaMax>
+                <VolumeMaxDep>3 L</VolumeMaxDep>
                 <Preco>884.00</Preco>
                 <Loja>
                     <ID>1001</ID>
@@ -1241,9 +1243,9 @@
                 <Categoria>videojogos</Categoria>
                 <Ram>16 GB</Ram>
                 <Processador>i7-8700 Hex-core</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>Geforce GTX 1050 Ti 4GB</Grafica>
-                <TamanhoEcra> </TamanhoEcra>
+                <TamanhoEcra>18.00</TamanhoEcra>
                 <Preco>1299.00</Preco>
                 <Loja>
                     <ID>1002</ID>
@@ -1262,7 +1264,7 @@
                 <Categoria>videojogos</Categoria>
                 <Ram>16 GB</Ram>
                 <Processador>i7-8750H 2.2 GHz</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>Geforce GTX 1050 4GB</Grafica>
                 <TamanhoEcra>17.30</TamanhoEcra>
                 <Preco>1389.00</Preco>
@@ -1279,7 +1281,7 @@
                 <Categoria>videojogos</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i5-825OU 1.60GHz</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>Geforce GTX 1050 4GB</Grafica>
                 <TamanhoEcra>15.60</TamanhoEcra>
                 <Preco>799.00</Preco>
@@ -1304,7 +1306,7 @@
                 <Categoria>videojogos</Categoria>
                 <Ram>8 GB</Ram>
                 <Processador>i7-8750H 2.2 GHz</Processador>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Grafica>Geforce GTX 1050 4GB</Grafica>
                 <TamanhoEcra>15.60</TamanhoEcra>
                 <Preco>1066.00</Preco>
@@ -1328,8 +1330,8 @@
                 <Nome>PS4 Slim 1TB Preta + Red Dead Redemption II</Nome>
                 <Marca>Sony</Marca>
                 <Categoria>videojogos</Categoria>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
-                <Cor>Preta</Cor>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
+                <Cor>Preto</Cor>
                 <JogoIncluido>Red Dead Redemption II</JogoIncluido>
                 <Preco>348.00</Preco>
                 <Loja>
@@ -1347,8 +1349,8 @@
                 <Nome>PS4 1TB Preta + FIFA 19</Nome>
                 <Marca>Sony</Marca>
                 <Categoria>videojogos</Categoria>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
-                <Cor>Preta</Cor>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
+                <Cor>Preto</Cor>
                 <JogoIncluido>FIFA 19</JogoIncluido>
                 <Preco>348.00</Preco>
                 <Loja>
@@ -1366,7 +1368,7 @@
                 <Nome>XBOX ONE S 1TB + GAME PASS 3 MESES</Nome>
                 <Marca>Microsoft</Marca>
                 <Categoria>videojogos</Categoria>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Cor>Branco</Cor>
                 <JogoIncluido>None</JogoIncluido>
                 <Preco>248.00</Preco>
@@ -1381,7 +1383,7 @@
                 <Nome>XBOX ONE S 1TB + TOMB RAIDER</Nome>
                 <Marca>Microsoft</Marca>
                 <Categoria>videojogos</Categoria>
-                <CapacidadeDisco>1000 GB</CapacidadeDisco>
+                <CapacidadeDisco>1024 GB</CapacidadeDisco>
                 <Cor>Branco</Cor>
                 <JogoIncluido>TOMB RAIDER</JogoIncluido>
                 <Preco>248.00</Preco>

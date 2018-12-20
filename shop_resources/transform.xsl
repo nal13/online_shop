@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!DOCTYPE rdf:RDF[
-  <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
-  <!ENTITY ns "http://www.iro.umontreal.ca/lapalme/ns#">
-]>
-
 <xsl:stylesheet version="2.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
   xmlns:html="http://www.w3.org/1999/xhtml"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:xs="http://www.w3.org/TR/2008/REC-xml-20081126#"
-  xmlns:foaf="http://xmlns.com/foaf/0.1/"
   >
 
   <xsl:strip-space elements="*"/>

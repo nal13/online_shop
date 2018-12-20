@@ -13,9 +13,13 @@
 			<div class="row">
 				<!-- Product main img -->
 				<div class="col-md-5 col-md-push-0">
-					<div id="product-main-img">
-						<img src="{% static 'shop/img/product01.png' %}" alt="">
-					</div>
+					{% for e in loja %}
+						{% if e.0 == 'nome' %}
+							<div id="product-main-img">
+								<img src="/static/shop/img/lojas/{{ e.1 }}.jpg" alt="">
+							</div>
+						{% endif %}
+					{% endfor %}
 				</div>
 				<!-- /Product main img -->
 

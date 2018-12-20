@@ -19,13 +19,11 @@ from django.contrib.auth import views as auth_views
 from django.views.generic import RedirectView
 
 from shop import views
-from accounts import views as accounts_views
 
 urlpatterns = [
     path('', views.home, name='home'),
 
     re_path('list_categoria/(?P<categoria>\w+)/', views.list_categoria, name='list_categoria'),
-    path('list_modelo/', views.list_modelo, name='list_modelo'),
     re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),
     re_path('add_modelo/(?P<type>\w+)/', views.add_modelo, name='add_modelo'),
     re_path('remove_modelo/(?P<id>\d+)/', views.remove_modelo, name='remove_modelo'),
@@ -36,12 +34,6 @@ urlpatterns = [
     re_path('remove_loja/(?P<id>\d+)/', views.remove_loja, name='remove_loja'),
     re_path('edit_loja/(?P<id>\d+)/', views.edit_loja, name='edit_loja'),
 
-    path('signup/', accounts_views.signup, name='signup'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('login/', accounts_views.login, name='login'),
-
-    #https://stackoverflow.com/questions/9371378/warning-not-found-favicon-ico
-    #in accounts, its already implemented
-    path('favicon.ico', RedirectView.as_view(url='/static/shop/css/ajax-loader.gif')),
     path('admin/', admin.site.urls),
+    path('favicon.ico', RedirectView.as_view(url='/static/shop/css/ajax-loader.gif')),
 ]

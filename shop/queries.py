@@ -5,7 +5,7 @@ from pprint import pprint
 
 class GraphDB:
 
-    # upload rdf file to repository
+    # start GraphDB
     def __init__(self):
         endpoint = "http://localhost:7200"
         self.repo_name = "shop"
@@ -13,10 +13,14 @@ class GraphDB:
         self.accessor = GraphDBApi(client)
 
 
+#
+#
+#           GENERAL QUERIES
+#
+#
     def get_next_id(self, type):
-        # higher uri from all type
+        # get the highest uri of the type
         # allowed type: loja, modelo
-
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo: <http://www.shop.pt/modelo/>
@@ -25,17 +29,18 @@ class GraphDB:
                 ?uri    """+type+""":nome   ?o .
             }
             """
-
         query_result = self.select_query( query )
 
-        # get higher id from query_result
         for e in query_result['results']['bindings']:
             id_max = e['uri_max']['value'].split('/')[-1]
 
-        next_id = str( int(id_max)+1 )
+        return str( int(id_max)+1 )
 
-        return next_id
-
+#
+#
+#           MODELO QUERIES
+#
+#
     def list_modelo_random(self, limit):
         # list up to limit random modelos
         query = """
@@ -48,11 +53,10 @@ class GraphDB:
             }
             ORDER BY RAND() LIMIT """+limit+"""
             """
-        pprint( query )
         return self.select_query( query )
 
     def list_modelo_uri_nome(self):
-        # uri and nome of all modelo
+        # list uri and nome of all modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?uri ?nome
@@ -62,8 +66,8 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    def list_modelo_with_categoria(self, categoria, order):
-        # all modelo ordered with categoria
+    def list_modelo_by_categoria(self, categoria, order):
+        # list all modelo of a given categoria by a given order
 
         if order == 'valiosos':
             order = 'ORDER BY DESC(xsd:decimal(?preco))'
@@ -82,7 +86,7 @@ class GraphDB:
         return self.select_query( query )
 
     def list_modelo_a(self):
-        # type of all modelo
+        # list type of all modelo
         query = """
             SELECT DISTINCT ?type
             WHERE {
@@ -94,7 +98,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_modelo_regular(self, id):
-        # regular pred and obj of a given modelo, except if pred=[a, loja]
+        # get not nested pred and obj of a given modelo, except if pred=[a, loja]
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?pred ?obj
@@ -108,7 +112,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_modelo_a(self, id):
-        # type of a given modelo
+        # get type of a given modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?type
@@ -119,8 +123,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_modelo_loja_uri(self, nome, type):
-        # uri of a given modelo by name
-
+        # get uri of a given modelo by its name
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -132,8 +135,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_modelo_categoria(self, id):
-        # categoria of a given modelo by id
-
+        # get categoria of a given modelo
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?categoria
@@ -143,22 +145,8 @@ class GraphDB:
             """
         return self.select_query( query )
 
-    #
-    #not used atm
-    #
-    def list_modelo_marca(self):
-        # marca of all modelo
-        query = """
-            PREFIX modelo: <http://www.shop.pt/modelo/>
-            SELECT DISTINCT ?marca
-            WHERE {
-                ?s  modelo:categoria    ?marca .
-            }
-            """
-        return self.select_query( query )
-
     def list_modelo_em_loja(self, id):
-        # loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
+        # list loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -176,7 +164,7 @@ class GraphDB:
         return self.select_query( query )
 
     def list_modelo_em_loja_unidades(self, id):
-        # loja_uri, pred, obj and nome of all modelo_em_loja of a given modelo, LojaID is saved in loja_uri, not in obj
+        # list loja_uri and units of a given loja
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
@@ -191,7 +179,7 @@ class GraphDB:
         return self.select_query( query )
 
     def list_modelo_in_loja(self, id):
-        # list up to 4 modelo in this loja id
+        # list up to 4 modelo from a given loja
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
@@ -225,7 +213,7 @@ class GraphDB:
         return self.select_query( query )
 
     def exists_modelo_name(self, nome):
-        # boolean exists_nome if any modelo has nome==arg
+        # get boolean that indicates if given modelo name exists in DB
         query = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             SELECT ?exists_nome
@@ -239,7 +227,6 @@ class GraphDB:
 
     def add_modelo(self, id, fields, type):
         # insert modelo with the new highest id in DB
-
         nome = fields['nome']
         marca = fields['marca']
         categoria = fields['categoria']
@@ -388,7 +375,6 @@ class GraphDB:
 
     def remove_modelo(self, id):
         # delete modelo with id from DB
-
         update = """
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
@@ -401,11 +387,13 @@ class GraphDB:
         self.update_query( update )
 
 
-    #
-    #not used atm
-    #
+#
+#
+#           MODELO QUERIES
+#
+#
     def list_loja_uri_nome(self):
-        # id and nome of all loja
+        # list id and nome of all loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT ?uri ?nome
@@ -416,7 +404,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_loja_regular(self, id):
-        # regular pred and obj of a given loja, except if pred=[a, morada, contacto]
+        # get not nested pred and obj of a given loja, except if pred=[a, morada, contacto]
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT ?obj ?pred
@@ -431,7 +419,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_loja_morada(self, id):
-        # pred and obj of morada a given loja
+        # get pred and obj of morada a given loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX morada: <http://www.shop.pt/morada/>
@@ -446,7 +434,7 @@ class GraphDB:
         return self.select_query( query )
 
     def get_loja_contacto(self, id):
-        # pred and obj of contacto a given loja
+        # get pred and obj of contacto a given loja
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX contacto: <http://www.shop.pt/contacto/>
@@ -461,7 +449,7 @@ class GraphDB:
         return self.select_query( query )
 
     def exists_loja_name(self, nome):
-        # boolean exists_nome if any loja has nome==arg
+        # get boolean that indicates if given loja name exists in DB
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             SELECT ?exists_nome
@@ -475,7 +463,6 @@ class GraphDB:
 
     def add_loja(self, id, fields):
         # insert loja with the new highest id in DB
-
         nome = fields['nome']
         grupo = fields['grupo']
         detalhes = fields['detalhes']
@@ -515,7 +502,6 @@ class GraphDB:
 
     def remove_loja(self, id):
         # delete loja with id from DB
-
         update = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX morada: <http://www.shop.pt/morada/>
@@ -527,8 +513,7 @@ class GraphDB:
         self.update_query( update )
 
     def remove_loja_links(self, id):
-        # delete all modelo_em_loja that linked to loja with id
-
+        # delete all modelo_em_loja that linked to a given loja
         update = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo: <http://www.shop.pt/modelo/>
@@ -541,35 +526,8 @@ class GraphDB:
             """
         self.update_query( update )
 
-    # def get_loja_morada_contacto(self, id):
-    #     # all pred and obj of a given morada and contacto, except pred=a that is saved in ?m_type and c_type
-    #     query = """
-    #         PREFIX loja: <http://www.shop.pt/loja/>
-    #         PREFIX morada: <http://www.shop.pt/morada/>
-    #         PREFIX contacto: <http://www.shop.pt/contacto/>
-    #         SELECT ?obj ?pred ?m_pred ?m_obj ?m_type ?c_pred ?c_obj ?c_type
-    #         WHERE {
-    #             {
-    #                 loja:"""+id+""" loja:morada ?morada_id .
-    #                 ?morada_id ?m_pred ?m_obj .
-    #                 MINUS {
-    #                     ?s a ?m_obj
-    #                 }
-    #                 ?morada_id a ?m_type .
-    #             }
-    #             UNION
-    #             {
-    #                 loja:"""+id+""" loja:contacto ?contacto_id .
-    #                 ?contacto_id ?c_pred ?c_obj .
-    #                 MINUS {
-    #                     ?s a ?c_obj
-    #                 }
-    #                 ?contacto_id a ?c_type .
-    #             }
-    #         }
-    #         """
-    #     return self.select_query( query )
 
+    # query processing
     def select_query( self, query ):
         payload_query = {"query": query}
         res = self.accessor.sparql_select(body=payload_query, repo_name=self.repo_name)

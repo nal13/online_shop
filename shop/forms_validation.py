@@ -1,7 +1,7 @@
 
 from pprint import pprint
 
-from .constants import *
+from .constants import g
 
 def validate_modelo(form):
 

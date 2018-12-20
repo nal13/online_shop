@@ -133,7 +133,7 @@ modelo:2003
 	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
 	modelo:processador "i3-7020U 2.3GHz" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "GeForce MX110 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "499.00" ; 
@@ -200,7 +200,7 @@ modelo:2006
 	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i5-825OU 1.6 GHz" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "Radeon R5 530 2GB" ; 
 	modelo:tamanhoecra "15.6" ; 
 	modelo:preco "575.00" ; 
@@ -308,7 +308,7 @@ modelo:2011
 	modelo:marca "Huawei" ; 
 	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
-	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7 Ghz)" ; 
+	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7 GHz)" ; 
 	modelo:capacidadememoria "64 GB" ; 
 	modelo:camara "DUAL(16 MP + 2 MP)" ; 
 	modelo:tamanhoecra "5.90" ; 
@@ -329,7 +329,7 @@ modelo:2012
 	modelo:marca "Huawei" ; 
 	modelo:categoria "tecnologia_movel" ; 
 	modelo:ram "4 GB" ; 
-	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7GHz)" ; 
+	modelo:processador "Octa-core(4x 2.36 GHz + 4x 1.7 GHz)" ; 
 	modelo:capacidadememoria "32 GB" ; 
 	modelo:camara "DUAL(16 MP + 2 MP)" ; 
 	modelo:tamanhoecra "5.84" ; 
@@ -678,7 +678,7 @@ modelo:2029
 	modelo:marca "LG" ; 
 	modelo:categoria "tecnologia_de_casa" ; 
 	modelo:formatosreproducao "BD,CD,DVD" ; 
-	modelo:resolucao "Full-HD 1080p" ; 
+	modelo:resolucao "Full HD 1080p" ; 
 	modelo:preco "69.00" ; 
 	modelo:loja modelo_em_loja:20291001 . 
 modelo_em_loja:20291001
@@ -1010,7 +1010,7 @@ modelo:2046
 	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+++" ; 
 	modelo:capacidade "9.0 Kg" ; 
-	modelo:velocidadecen "1200 Kg" ; 
+	modelo:velocidadecen "1200 Rpm" ; 
 	modelo:preco "355.49" ; 
 	modelo:loja modelo_em_loja:20461001 . 
 modelo_em_loja:20461001
@@ -1025,7 +1025,7 @@ modelo:2047
 	modelo:categoria "limpeza" ; 
 	modelo:eficiencia "A+" ; 
 	modelo:capacidade "8.0 Kg" ; 
-	modelo:consumo "306 kWh" ; 
+	modelo:consumo "306 KWh" ; 
 	modelo:preco "349.00" ; 
 	modelo:loja modelo_em_loja:20471002 . 
 modelo_em_loja:20471002
@@ -1138,7 +1138,7 @@ modelo:2053
 	modelo:marca "IronBot" ; 
 	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "33 W" ; 
-	modelo:volumemaxdep "" ; 
+	modelo:volumemaxdep "3 L" ; 
 	modelo:preco "279.00" ; 
 	modelo:loja modelo_em_loja:20531002 , 
 				modelo_em_loja:20531003 . 
@@ -1156,7 +1156,7 @@ modelo:2054
 	modelo:marca "IronBot" ; 
 	modelo:categoria "limpeza" ; 
 	modelo:potenciamax "33 W" ; 
-	modelo:volumemaxdep "" ; 
+	modelo:volumemaxdep "3 L" ; 
 	modelo:preco "884.00" ; 
 	modelo:loja modelo_em_loja:20541001 , 
 				modelo_em_loja:20541002 , 
@@ -1247,9 +1247,9 @@ modelo:2059
 	modelo:categoria "videojogos" ; 
 	modelo:ram "16 GB" ; 
 	modelo:processador "i7-8700 Hex-core" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "Geforce GTX 1050 Ti 4GB" ; 
-	modelo:tamanhoecra "" ; 
+	modelo:tamanhoecra "18.00" ; 
 	modelo:preco "1299.00" ; 
 	modelo:loja modelo_em_loja:20591002 , 
 				modelo_em_loja:20591003 . 
@@ -1268,7 +1268,7 @@ modelo:2060
 	modelo:categoria "videojogos" ; 
 	modelo:ram "16 GB" ; 
 	modelo:processador "i7-8750H 2.2 GHz" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "17.30" ; 
 	modelo:preco "1389.00" ; 
@@ -1285,7 +1285,7 @@ modelo:2061
 	modelo:categoria "videojogos" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i5-825OU 1.60GHz" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "15.60" ; 
 	modelo:preco "799.00" ; 
@@ -1310,7 +1310,7 @@ modelo:2062
 	modelo:categoria "videojogos" ; 
 	modelo:ram "8 GB" ; 
 	modelo:processador "i7-8750H 2.2 GHz" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:grafica "Geforce GTX 1050 4GB" ; 
 	modelo:tamanhoecra "15.60" ; 
 	modelo:preco "1066.00" ; 
@@ -1333,8 +1333,8 @@ modelo:2063
 	modelo:nome "PS4 Slim 1TB Preta + Red Dead Redemption II" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "videojogos" ; 
-	modelo:capacidadedisco "1000 GB" ; 
-	modelo:cor "Preta" ; 
+	modelo:capacidadedisco "1024 GB" ; 
+	modelo:cor "Preto" ; 
 	modelo:jogoincluido "Red Dead Redemption II" ; 
 	modelo:preco "348.00" ; 
 	modelo:loja modelo_em_loja:20631001 , 
@@ -1352,8 +1352,8 @@ modelo:2064
 	modelo:nome "PS4 1TB Preta + FIFA 19" ; 
 	modelo:marca "Sony" ; 
 	modelo:categoria "videojogos" ; 
-	modelo:capacidadedisco "1000 GB" ; 
-	modelo:cor "Preta" ; 
+	modelo:capacidadedisco "1024 GB" ; 
+	modelo:cor "Preto" ; 
 	modelo:jogoincluido "FIFA 19" ; 
 	modelo:preco "348.00" ; 
 	modelo:loja modelo_em_loja:20641001 , 
@@ -1371,7 +1371,7 @@ modelo:2065
 	modelo:nome "XBOX ONE S 1TB + GAME PASS 3 MESES" ; 
 	modelo:marca "Microsoft" ; 
 	modelo:categoria "videojogos" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "None" ; 
 	modelo:preco "248.00" ; 
@@ -1386,7 +1386,7 @@ modelo:2066
 	modelo:nome "XBOX ONE S 1TB + TOMB RAIDER" ; 
 	modelo:marca "Microsoft" ; 
 	modelo:categoria "videojogos" ; 
-	modelo:capacidadedisco "1000 GB" ; 
+	modelo:capacidadedisco "1024 GB" ; 
 	modelo:cor "Branco" ; 
 	modelo:jogoincluido "TOMB RAIDER" ; 
 	modelo:preco "248.00" ; 

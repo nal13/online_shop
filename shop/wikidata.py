@@ -15,41 +15,13 @@ available_modelos = (
     ('maquina_cafe', 'wd:Q211841'),
     ('microondas', 'wd:Q127956'),
     ('maquina_lavar_roupa','wd:Q124441') ,
+    ('maquina_secar_roupa','wd:Q496334') ,
     ('aspirador','wd:Q101674'),
     ('gaming_pc','wd:Q3962'),
     ('consola','wd:Q8076'),
-    ('videojogos','wd:Q7889'),
+    ('jogo','wd:Q7889'),
 )
 
-p_logo_image = 'P154'
-p_official_name = 'P1705'
-p_country = 'P17'
-p_population = 'P1082'
-p_coordinate_location = 'P625'
-
-def test_wikidata(  ):
-    pprint( wikidata_capitals( 'Portugal' ) )
-    pprint( wikidata_modelo_info( 'computador' ) )
-
-
-def wikidata_query():
-    #
-    query = """
-        SELECT ?modelLabel (SUM(?revenue) AS ?revenue)
-        WHERE {
-          ?model wdt:P31 wd:Q4830453 ,
-                         wd:Q6881511 ;
-                 wdt:P452 ?industry ;
-                 wdt:P2139 ?revenue .
-          FILTER(?industry IN (wd:Q56598901, wd:Q25245117, wd:Q5358497))
-          SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
-        }
-        GROUP BY ?modelLabel
-        ORDER BY DESC(?revenue)
-        LIMIT 10
-
-    """
-    return select_query( query )
 
 def wikidata_capitals( country ):
     # names of country region's capitals
@@ -74,16 +46,17 @@ def wikidata_capitals( country ):
     """
     query_result = select_query( query )
 
-    # new list with only values from query result, names are not needed in this case
+    # new list with only the values from query result, names are not needed in this case
     result = []
     for e in query_result:
         result.append( e[1] )
 
     return result
 
+
 def wikidata_modelo_info( modelo ):
     # modelos that have an image and if exists, their use label and image
-    # returns dict --- to avoid repeated properties
+    # returns dict to avoid repeated properties
 
     # modelos allowed
     for e in available_modelos:
@@ -118,9 +91,10 @@ def wikidata_modelo_info( modelo ):
 
 
 def select_query( query ):
-    query_result = requests.get("https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=" + query).text
+    # processes the query and returns a list of lists with the result of the query
 
-    print( str( query_result ) + '\n\n\n')
+    query_result = requests.get("https://query.wikidata.org/bigdata/namespace/wdq/sparql?query=" + query).text
+    # print( str( query_result ) + '\n\n\n')
 
     root = etree.fromstring(query_result.encode('utf-8'))
 

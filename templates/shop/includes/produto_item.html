@@ -3,23 +3,12 @@
     <img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
     <div class="product-label">
       <span class="sale">-30%</span>
-      <span class="new">NEW</span>
     </div>
   </div>
   <div class="product-body">
     <p class="product-category">{{ e.2 }}</p>
     <h3 class="product-name"><a href="{% url 'get_modelo' e.0 %}">{{ e.1 }}</a></h3>
-    <h4 class="product-price">$980.00 <del class="product-old-price">${{ e.3 }}</del></h4>
-    <div class="product-rating">
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-    </div>
-    <div class="product-btns">
-      <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-    </div>
+    <h4 class="product-price">${{ e.3 }}</h4>
   </div>
   <div class="add-to-cart">
     <a href="{% url 'get_modelo' e.0 %}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> ver mais</button></a>
