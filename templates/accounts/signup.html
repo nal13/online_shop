@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block right_content %}
+
+  <!-- Label -->
+  <span class="login100-form-title p-b-34">
+    Account SignUp
+  </span>
+
+  <!-- Forms -->
+  {% for field in form %}
+
+    <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+      {{ field }}
+      <span class="focus-input100"></span>
+    </div>
+
+  {% endfor %}
+
+  <!-- Button -->
+  <div class="container-login100-form-btn">
+    <button type="submit" class="login100-form-btn">
+      Sign up
+    </button>
+  </div>
+
+  <!-- Label Link -->
+  <div class="w-full text-center p-t-27 p-b-239">
+  </div>
+
+  <!-- Footer Link -->
+  <div class="w-full text-center">
+    <a href="{% url 'login' %}" class="txt3">
+      Login
+    </a>
+  </div>
+
+{% endblock %}

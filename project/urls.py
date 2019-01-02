@@ -18,22 +18,29 @@ from django.urls import path, re_path
 from django.contrib.auth import views as auth_views
 from django.views.generic import RedirectView
 
-from shop import views
+from accounts import views as a_views
+from shop import views as s_views
 
 urlpatterns = [
-    path('', views.home, name='home'),
 
-    re_path('list_categoria/(?P<categoria>\w+)/', views.list_categoria, name='list_categoria'),
-    re_path('get_modelo/(?P<id>\d+)/', views.get_modelo, name='get_modelo'),
-    re_path('add_modelo/(?P<type>\w+)/', views.add_modelo, name='add_modelo'),
-    re_path('remove_modelo/(?P<id>\d+)/', views.remove_modelo, name='remove_modelo'),
-    re_path('edit_modelo/(?P<id>\d+)/', views.edit_modelo, name='edit_modelo'),
+    # authentication app
+    path('signup/', a_views.signup, name='signup'),
+    path('login/', a_views.login, name='login'),
 
-    re_path('get_loja/(?P<id>\d+)/', views.get_loja, name='get_loja'),
-    path('add_loja/', views.add_loja, name='add_loja'),
-    re_path('remove_loja/(?P<id>\d+)/', views.remove_loja, name='remove_loja'),
-    re_path('edit_loja/(?P<id>\d+)/', views.edit_loja, name='edit_loja'),
+    # shop app
+    path('', s_views.home, name='home'),
+
+    re_path('list_categoria/(?P<categoria>\w+)/', s_views.list_categoria, name='list_categoria'),
+    re_path('get_modelo/(?P<id>\d+)/', s_views.get_modelo, name='get_modelo'),
+    re_path('add_modelo/(?P<type>\w+)/', s_views.add_modelo, name='add_modelo'),
+    re_path('remove_modelo/(?P<id>\d+)/', s_views.remove_modelo, name='remove_modelo'),
+    re_path('edit_modelo/(?P<id>\d+)/', s_views.edit_modelo, name='edit_modelo'),
+
+    re_path('get_loja/(?P<id>\d+)/', s_views.get_loja, name='get_loja'),
+    path('add_loja/', s_views.add_loja, name='add_loja'),
+    re_path('remove_loja/(?P<id>\d+)/', s_views.remove_loja, name='remove_loja'),
+    re_path('edit_loja/(?P<id>\d+)/', s_views.edit_loja, name='edit_loja'),
 
     path('admin/', admin.site.urls),
-    path('favicon.ico', RedirectView.as_view(url='/static/shop/css/ajax-loader.gif')),
+    # path('favicon.ico', RedirectView.as_view(url='/static/shop/css/ajax-loader.gif')),
 ]

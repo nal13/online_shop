@@ -419,7 +419,7 @@ class GraphDB:
 
 #
 #
-#           MODELO QUERIES
+#           LOJA QUERIES
 #
 #
     def list_loja_uri_nome(self):

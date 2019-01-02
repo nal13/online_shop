@@ -7,27 +7,27 @@
 
 @font-face {
   font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {
   font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  src: url('../fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
   font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  src: url('../fonts/poppins/Poppins-Bold.ttf');
 }
 
 @font-face {
   font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf');
 }
 
 @font-face {
   font-family: Montserrat-Bold;
-  src: url('../fonts/montserrat/Montserrat-Bold.ttf'); 
+  src: url('../fonts/montserrat/Montserrat-Bold.ttf');
 }
 
 
@@ -35,8 +35,8 @@
 [ RESTYLE TAG ]*/
 
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0px;
+	padding: 0px;
 	box-sizing: border-box;
 }
 
@@ -64,7 +64,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #333333;
+  color: #7d0015;
 }
 
 /*---------------------------------------------*/
@@ -142,14 +142,14 @@ iframe {
   font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.4;
-  color: #00ad5f;
+  color: #D10024;
 }
 
 .txt3 {
   font-family: Poppins-Regular;
   font-size: 15px;
   line-height: 1.4;
-  color: #00ad5f;
+  color: #D10024;
   text-transform: uppercase;
 }
 
@@ -174,7 +174,7 @@ iframe {
 }
 
 .container-login100 {
-  width: 100%;  
+  width: 100%;
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -185,7 +185,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  background: #1C1B22;
 }
 
 .wrap-login100 {
@@ -200,6 +200,10 @@ iframe {
   flex-wrap: wrap;
   align-items: stretch;
   flex-direction: row-reverse;
+  border-bottom: 2px solid #D10024;
+  border-top: 2px solid #D10024;
+  border-left: 2px solid #D10024;
+  border-right: 2px solid #D10024;
 
 }
 
@@ -356,7 +360,7 @@ input.input100 {
   width: 100%;
   height: 50px;
   border-radius: 3px;
-  background: #00ad5f;
+  background: #D10024;
 
   font-family: Montserrat-Bold;
   font-size: 12px;
@@ -372,7 +376,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background: #333333;
+  background: #7d0015;
 }
 
 
@@ -486,6 +490,3 @@ input.input100 {
     opacity: 1;
   }
 }
-
-
-
