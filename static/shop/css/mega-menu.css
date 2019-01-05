@@ -1,0 +1,160 @@
+.nav_mega-menu {
+  background: none repeat scroll 0 0 #1C1B22;
+  left: 0;
+  margin-top: 3px;
+  position: absolute;
+  width: 550px;
+  padding: 15px;
+  display: none;
+  transition-duration: 0.9s;
+  z-index: 15;
+  color: #fff;
+}
+
+.acc_mega-menu {
+  background: none repeat scroll 0 0 #1C1B22;
+  right: 0;
+  margin-top: 3px;
+  position: absolute;
+  width: 550px;
+  padding: 15px;
+  display: none;
+  transition-duration: 0.9s;
+  z-index: 15;
+  color: #fff;
+}
+
+#menutoggle i {
+  color: #fff;
+  font-size: 33px;
+  margin: 0;
+  padding: 0;
+}
+
+/*--column--*/
+.mm-6column:after, .mm-6column:before, .mm-3column:after, .mm-3column:before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.mm-6column, .mm-3column {
+  float: left;
+  position: relative;
+}
+
+.mm-6column {
+  width: 65%;
+}
+
+.mm-3column {
+  width: 35%;
+}
+
+.responsive-img {
+  display: block;
+  max-width: 100%;
+}
+
+.left-images {
+  margin-right: 25px;
+}
+
+.left-images, .left-categories-list {
+  float: left;
+}
+
+.categories-list li {
+  display: block;
+  line-height: normal;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.categories-list li :hover {
+  background: inherit !important;
+}
+
+.left-images>p {
+  background: none repeat scroll 0 0 #D10024;
+  display: block;
+  font-size: 18px;
+  line-height: normal;
+  margin: 0;
+  padding: 5px 14px;
+  border: none;
+  border-radius: 0px 40px 40px 0px;
+}
+
+.categories-list span {
+  font-size: 18px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 1000;
+}
+
+.mm-view-more {
+  background: none repeat scroll 0 0 #D10024;
+  color: #fff;
+  display: inline !important;
+  line-height: normal;
+  padding: 5px 8px !important;
+  margin-top: 10px;
+  font-weight: 700;
+  border: none;
+  border-radius: 0px 40px 40px 0px;
+}
+
+.display-on {
+  display: block;
+  transition-duration: 0.9s;
+}
+
+/*MediaQuerys*/
+@media (max-width: 600px) {
+  .menu {
+    display: none;
+  }
+
+  .xs-menu li a {
+    padding: 0px;
+  }
+
+  .xs-menu-cont {
+    display: block;
+  }
+}
+
+/*Animation--*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}

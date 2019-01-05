@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'formtools',     # wizard forms
+    'phonenumber_field',    # normalised phone model and form
 
     'shop',         # main app
     'accounts',     # authentication app

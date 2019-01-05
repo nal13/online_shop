@@ -30,10 +30,63 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{% static 'shop/css/style.css' %}"/>
 
+		<!-- My Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'shop/css/mega-menu.css' %}"/>
+
 		</head>
 	<body>
 		<!-- HEADER -->
 		<header>
+
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+
+					{% if not user.is_authenticated %}
+						<!-- LOGGED OUT -->
+						<ul class="header-links pull-right">
+							<li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log in</a></li>
+							<li><a href="{% url 'signup' %}"><i class="fa fa-user-plus"></i> Sign up</a></li>
+						</ul>
+						<!-- /LOGGED OUT -->
+
+					{% else %}
+						<!-- LOGGED IN -->
+						<ul class="header-links pull-left">
+							<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+							<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+							<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+						</ul>
+						<ul class="header-links pull-right">
+							<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+							<li class="acc_drop-down"><a href="#" onclick="return false;"><i class="fa fa-user-o"></i> {{ user.shown_name }}</a>
+
+								<div class="acc_mega-menu fadeIn animated">
+									<div class="mm-6column">
+										<span class="left-images">
+											<img  src="https://4.bp.blogspot.com/-faF-AemPFUM/U4ryP7pQRsI/AAAAAAAAEvA/fZ-hskCSln4/s1600/Magento%2Bthemes.jpg">
+										</span>
+									</div>
+									<div class="mm-3column">
+										<span class="categories-list">
+											<ul>
+												<span>{{ user.shown_name }}</span>
+												<li>Settings</li>
+												<li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log out</a></li>
+												<li><a class="mm-view-more" href="#">View more →</a></li>
+											</ul>
+										</span>
+									</div>
+								</div>
+
+							</li>
+						</ul>
+						<!-- /LOGGED IN -->
+					{% endif %}
+
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
 
 			<!-- MAIN HEADER -->
 			<div id="header">
@@ -102,9 +155,8 @@
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="{% url 'home' %}">Home</a></li>
 						<li><a>Adicione:</a></li>
-						</br>
 						<li><a href="{% url 'add_loja' %}">Loja</a></li>
-						<li><a href="{% url 'add_modelo' 'computador' %}">Computador</a></li>
+						<!-- <li><a href="{% url 'add_modelo' 'computador' %}">Computador</a></li>
 						<li><a href="{% url 'add_modelo' 'telemovel' %}">Telemovel</a></li>
 						<li><a href="{% url 'add_modelo' 'tablet' %}">Tablet</a></li>
 						<li><a href="{% url 'add_modelo' 'camara' %}">Camara</a></li>
@@ -117,8 +169,33 @@
 						<li><a href="{% url 'add_modelo' 'maquina_secar_roupa' %}">Máquina de Secar Roupa</a></li>
 						<li><a href="{% url 'add_modelo' 'aspirador' %}">Aspirador</a></li>
 						<li><a href="{% url 'add_modelo' 'gaming_pc' %}">Pc de Gaming</a></li>
-						<li><a href="{% url 'add_modelo' 'consola' %}">Consola</a></li>
-						<li><a href="{% url 'add_modelo' 'jogo' %}">Videojogo</a></li>
+						<li><a href="{% url 'add_modelo' 'consola' %}">Consola</a></li> -->
+						<li class="nav_drop-down"><a href="{% url 'add_modelo' 'jogo' %}">Videojogo</a>
+
+							<div class="nav_mega-menu fadeIn animated">
+								<div class="mm-6column">
+									<span class="left-images">
+										<img  src="https://4.bp.blogspot.com/-faF-AemPFUM/U4ryP7pQRsI/AAAAAAAAEvA/fZ-hskCSln4/s1600/Magento%2Bthemes.jpg">
+									</span>
+								</div>
+								<div class="mm-3column">
+									<span class="categories-list">
+										<ul>
+											<span>Car Electronics</span>
+											<li>GPS & Navigation</li>
+											<li>In-Dash Stereos</li>
+											<li>Speakers</li>
+											<li>Subwoofers</li>
+											<li>Amplifiers</li>
+											<li>MP3 Players</li>
+											<li>iPods</li>
+											<li><a class="mm-view-more" href="#">View more →</a></li>
+										</ul>
+									</span>
+								</div>
+							</div>
+
+						</li>
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -264,6 +341,9 @@
 		<script src="{% static 'shop/js/nouislider.min.js' %}"></script>
 		<script src="{% static 'shop/js/jquery.zoom.min.js' %}"></script>
 		<script src="{% static 'shop/js/main.js' %}"></script>
+
+		<!-- My Custom jQuery Plugins -->
+		<script src="{% static 'shop/js/mega-menu.js' %}"></script>
 
 	</body>
 </html>

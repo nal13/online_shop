@@ -24,8 +24,9 @@ from shop import views as s_views
 urlpatterns = [
 
     # authentication app
-    path('signup/', a_views.signup, name='signup'),
+    path('signup/', a_views.signup.as_view(), name='signup'),
     path('login/', a_views.login, name='login'),
+    path('logout/', a_views.logout, name='logout'),
 
     # shop app
     path('', s_views.home, name='home'),

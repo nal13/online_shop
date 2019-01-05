@@ -10,13 +10,12 @@
   </span>
 
   <!-- Forms -->
-  {% for field in form %}
-
+  {{ wizard.management_form }}
+  {% for field in wizard.form %}
     <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
       {{ field }}
       <span class="focus-input100"></span>
     </div>
-
   {% endfor %}
 
   <!-- Button -->

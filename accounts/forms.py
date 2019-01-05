@@ -6,21 +6,24 @@
 #
 
 from django import forms
+from django.contrib.auth.forms import AuthenticationForm
+from phonenumber_field.formfields import PhoneNumberField
+from pprint import pprint
 
 from .models import MyUser
 
-class UserCreationForm(forms.ModelForm):
-    """A form for creating new users. Includes all the required
-    fields, plus a repeated password."""
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Password'}))
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Repeat Password'}))
+
+# form wizard
+class UserCreationForm_1(forms.ModelForm):
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Password'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Repeat Password'}))
 
     class Meta:
         model = MyUser
-        fields = ('email', 'date_of_birth')
+        fields = ('shown_name', 'email')
         widgets = {
             'email': forms.EmailInput(attrs={'class':'input100', 'placeholder': 'Email'}),
-            'date_of_birth': forms.DateInput(attrs={'class':'input100', 'placeholder': 'Date of Birth'}),
+            'shown_name': forms.TextInput(attrs={'class':'input100', 'placeholder': 'User name'}),
         }
 
     def clean_password2(self):
@@ -32,9 +35,29 @@ class UserCreationForm(forms.ModelForm):
         return password2
 
     def save(self, commit=True):
+        pprint( 'saving to DB' )
         # Save the provided password in hashed format
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
         return user
+
+class UserCreationForm_2(forms.Form):
+    name = forms.CharField(  max_length=40, widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Name'}) )
+    date_of_birth = forms.DateField( widget=forms.DateInput(attrs={'class':'input100', 'placeholder': 'Date of Birth'}) )
+    phone = PhoneNumberField( widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Phone'}) )
+
+    def save(self, commit=True):
+        pprint( 'saving to somewhere else' )
+
+        name = self.cleaned_data['name']
+        date_of_birth = self.cleaned_data['date_of_birth']
+        phone = self.cleaned_data['phone']
+        return None
+
+# extend AuthenticationForm
+class AuthenticationForm(AuthenticationForm):
+    # the unique Authentication field is email, the form 'username' is the form that corresponds to email
+    username = forms.EmailField(widget=forms.EmailInput(attrs={'class':'input100', 'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input100', 'placeholder': 'Password'}))
