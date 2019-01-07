@@ -31,6 +31,7 @@
     <xsl:text disable-output-escaping="yes">@prefix gaming_pc: &lt;http://www.shop.pt/gaming_pc/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix consola: &lt;http://www.shop.pt/consola/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix jogo: &lt;http://www.shop.pt/jogo/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix cliente: &lt;http://www.shop.pt/cliente/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">&#xa;&#xa;&#xa;</xsl:text>
 
     <xsl:apply-templates/>
@@ -1383,6 +1384,85 @@
           </xsl:for-each>
           <xsl:text>&#xa;&#xa;</xsl:text>
       </xsl:for-each>
+  </xsl:template>
+
+  <xsl:template match="root/Clientes">
+
+      <xsl:for-each select="Cliente">
+          <!-- Cliente -->
+          <!-- ID -->
+          <xsl:text>cliente:</xsl:text>
+    			<xsl:value-of select="ID"/>
+    			<xsl:text>&#xa;</xsl:text>
+
+          <!-- tipo -->
+          <xsl:text>&#9;a cliente:</xsl:text>
+    			<xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Nome -->
+          <xsl:text>&#9;cliente:nome "</xsl:text>
+    			<xsl:value-of select="Nome"/>
+    			<xsl:text>" ; &#xa;</xsl:text>
+
+          <!-- Data de Nascimento -->
+          <xsl:text>&#9;cliente:datanascimento "</xsl:text>
+    			<xsl:value-of select="DataNascimento"/>
+    			<xsl:text>" ; &#xa;</xsl:text>
+
+          <!-- Morada -->
+          <xsl:text>&#9;cliente:morada </xsl:text>
+    			<xsl:text>morada:</xsl:text>
+          <xsl:value-of select="ID"/>
+          <xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Contacto -->
+          <xsl:text>&#9;cliente:contacto </xsl:text>
+    			<xsl:text>contacto:</xsl:text>
+          <xsl:value-of select="ID"/>
+          <xsl:text> . &#xa;</xsl:text>
+
+          <!-- Morada -->
+          <!-- ID -->
+          <xsl:text>morada:</xsl:text>
+    			<xsl:value-of select="ID"/>
+    			<xsl:text>&#xa;</xsl:text>
+
+          <!-- tipo -->
+          <xsl:text>&#9;a morada:</xsl:text>
+    			<xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Rua -->
+          <xsl:text>&#9;morada:rua "</xsl:text>
+    			<xsl:value-of select="Morada/Rua"/>
+    			<xsl:text>" ; &#xa;</xsl:text>
+
+          <!-- CodigoPostal -->
+          <xsl:text>&#9;morada:codigopostal "</xsl:text>
+    			<xsl:value-of select="Morada/CodigoPostal"/>
+          <xsl:text>" . &#xa;</xsl:text>
+
+          <!-- Contacto -->
+          <!-- ID -->
+          <xsl:text>contacto:</xsl:text>
+    			<xsl:value-of select="ID"/>
+    			<xsl:text>&#xa;</xsl:text>
+
+          <!-- tipo -->
+          <xsl:text>&#9;a contacto:</xsl:text>
+    			<xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Telefone -->
+          <xsl:text>&#9;contacto:telefone "</xsl:text>
+    			<xsl:value-of select="Contacto/Telefone"/>
+    			<xsl:text>" ; &#xa;</xsl:text>
+
+          <!-- Email -->
+          <xsl:text>&#9;contacto:email "</xsl:text>
+    			<xsl:value-of select="Contacto/Email"/>
+          <xsl:text>" . &#xa;</xsl:text>
+          <xsl:text>&#xa;&#xa;</xsl:text>
+      </xsl:for-each>
+
   </xsl:template>
 
 

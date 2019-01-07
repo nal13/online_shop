@@ -3,6 +3,7 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth import forms
 from formtools.wizard.views import SessionWizardView
 from pprint import pprint
+from formtools.wizard.forms import ManagementForm
 
 from .forms import UserCreationForm_1, UserCreationForm_2, AuthenticationForm
 
@@ -19,7 +20,7 @@ class signup(SessionWizardView):
         user = form_step[0].save()
         auth_login( self.request, user )
         # step 2: Form
-        user = form_step[1].save()
+        form_step[1].save( user )
 
         return redirect( 'home' )
 

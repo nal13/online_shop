@@ -18,6 +18,7 @@
 @prefix gaming_pc: <http://www.shop.pt/gaming_pc/> . 
 @prefix consola: <http://www.shop.pt/consola/> . 
 @prefix jogo: <http://www.shop.pt/jogo/> . 
+@prefix cliente: <http://www.shop.pt/cliente/> . 
 
 
 
@@ -80,7 +81,7 @@ contacto:1003
 	a contacto: ; 
 	contacto:telefone "+351 220 034 500" ; 
 	contacto:fax "+351 220 034 519" ; 
-	contacto:email " mm.gaia1.info@mediamarkt.pt" ; 
+	contacto:email "mm.gaia1.info@mediamarkt.pt" ; 
 	contacto:website "" . 
 
 
@@ -1503,7 +1504,7 @@ modelo:2073
 	modelo:nome "One Fifa 19" ; 
 	modelo:marca "XBOX" ; 
 	modelo:categoria "videojogos" ; 
-	modelo:preco " 68.00" ; 
+	modelo:preco "68.00" ; 
 	modelo:loja modelo_em_loja:20731002 , 
 				modelo_em_loja:20731003 . 
 modelo_em_loja:20731002
@@ -1564,6 +1565,38 @@ modelo:2077
 modelo_em_loja:20771001
 	modelo_em_loja:LojaID loja:1001 ; 
 	modelo_em_loja:unidades "6" . 
+
+
+cliente:3001
+	a cliente: ; 
+	cliente:nome "Rui Santos" ; 
+	cliente:datanascimento "04/05/1967" ; 
+	cliente:morada morada:3001 ; 
+	cliente:contacto contacto:3001 . 
+morada:3001
+	a morada: ; 
+	morada:rua "Avenida dos Aliados,89" ; 
+	morada:codigopostal "4000-066" . 
+contacto:3001
+	a contacto: ; 
+	contacto:telefone "+351918914370" ; 
+	contacto:email "rui@gmail.com" . 
+
+
+cliente:3002
+	a cliente: ; 
+	cliente:nome "Maria Almeida" ; 
+	cliente:datanascimento "30/11/1989" ; 
+	cliente:morada morada:3002 ; 
+	cliente:contacto contacto:3002 . 
+morada:3002
+	a morada: ; 
+	morada:rua "Avenida da Liberdade,59" ; 
+	morada:codigopostal "1250-140" . 
+contacto:3002
+	a contacto: ; 
+	contacto:telefone "+351920914370" ; 
+	contacto:email "maria@gmail.com" . 
 
 
 

@@ -348,6 +348,17 @@ input.input100 {
   justify-content: center;
 }
 
+.split-left {
+  width: 49.5%;
+  display: block;
+  margin-right: auto;
+}
+.split-right {
+  width: 49.5%;
+  display: block;
+  margin-left: auto;
+}
+
 .login100-form-btn {
   display: -webkit-box;
   display: -webkit-flex;

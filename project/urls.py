@@ -42,6 +42,8 @@ urlpatterns = [
     re_path('remove_loja/(?P<id>\d+)/', s_views.remove_loja, name='remove_loja'),
     re_path('edit_loja/(?P<id>\d+)/', s_views.edit_loja, name='edit_loja'),
 
+    re_path('get_cliente/(?P<id>\d+)/', s_views.get_cliente, name='get_cliente'),
+
     path('admin/', admin.site.urls),
     # path('favicon.ico', RedirectView.as_view(url='/static/shop/css/ajax-loader.gif')),
 ]

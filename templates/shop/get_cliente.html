@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block content %}
+
+  {% for e in cliente %}
+    {% if e.0 == 'nome' %}
+      <h2 class="product03">{{ e.1 }}</h2>
+    {% else %}
+      <h3 class="product-name">{{ e.1 }}</h3>
+    {% endif %}
+  {% endfor %}
+
+{% endblock %}

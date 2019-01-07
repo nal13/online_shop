@@ -12,18 +12,27 @@
   <!-- Forms -->
   {{ wizard.management_form }}
   {% for field in wizard.form %}
-    <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20">
+    <div class="wrap-input100 rs1-wrap-input100 m-b-20">
       {{ field }}
       <span class="focus-input100"></span>
     </div>
   {% endfor %}
 
-  <!-- Button -->
-  <div class="container-login100-form-btn">
-    <button type="submit" class="login100-form-btn">
-      Sign up
-    </button>
-  </div>
+  <!-- Buttons -->
+  {% if wizard.steps.next %}
+    <div class="container-login100-form-btn">
+      <button type="submit" value="{{ wizard.steps.next }}" class="login100-form-btn">Next step</button>
+    </div>
+  {% else %}
+    <div class="container-login100-form-btn">
+      <div class="split-left">
+        <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}" class="login100-form-btn" formnovalidate>Prev step</button>
+      </div>
+      <div class="split-right">
+          <button type="submit" class="login100-form-btn">Sign up</button>
+      </div>
+    </div>
+  {% endif %}
 
   <!-- Label Link -->
   <div class="w-full text-center p-t-27 p-b-239">

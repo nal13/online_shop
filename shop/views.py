@@ -363,10 +363,64 @@ def edit_loja(request, id):
 
 #
 #
+#           CLIENTE VIEWS
+#
+#
+def get_cliente(request, id):
+
+    pprint( id )
+
+    # get cliente from DB
+    query = g.get_cliente_regular(id)['results']['bindings']
+
+    # if cliente doesn't exist, go home
+    if ( not(query) ):
+        return redirect( 'home' )
+
+    query += g.get_morada('cliente', id)['results']['bindings']
+    query += g.get_contacto('cliente', id)['results']['bindings']
+
+    # get query result as tuples: ( pred, obj )
+    cliente = []
+    for e in query:
+        pred = e['pred']['value'].split('/')[-1]
+        obj = e['obj']['value']
+        cliente.append( (pred, obj) )
+
+    # # get up to 4 modelos in this loja
+    # query = g.list_modelo_in_loja( id )['results']['bindings']
+    # modelos = []
+    # for e in query:
+    #     modelo_id = e['modelo_uri']['value'].split('/')[-1]
+    #     nome = e['nome']['value']
+    #     categoria = e['categoria']['value']
+    #     preco = e['preco']['value']
+    #     # get discount based on availiable units across all loja
+    #     (preco_discount, discount) = get_discount( modelo_id, preco )
+    #     modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+    #
+    # # search box
+    # search = search_box(request)
+    #
+    # if isinstance(search, tuple):
+    #     return redirect( search[0], id=search[1] )
+
+    return render(request, 'shop/get_cliente.html', {'cliente': cliente, 'id': id, })
+
+def add_cliente( signup_forms ):
+    # this is not a view
+
+    new_id = g.get_next_id( 'cliente' )
+
+    # insert cliente with the new highest id in DB
+    g.add_cliente( id=new_id, fields=signup_forms )
+    return new_id
+
+#
+#
 #           INITIAL SETUP
 #
 #
-
 # XSLT transformation to N3 triples
 path = os.getcwd() + "/shop_resources/"
 
@@ -383,7 +437,7 @@ rdf = transform(xml_root)
 rdf_asString = str(rdf).replace('<?xml version=\"1.0\"?>\n', '')
 
 # save rdf as a .n3 file
-with open(path + 'dataset.n3', 'w', encoding='utf-8') as file:
+with open(path + 'dataset.nt', 'w', encoding='utf-8') as file:
     file.write(rdf_asString)
 
 # start GraphDBapi

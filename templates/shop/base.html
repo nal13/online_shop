@@ -53,8 +53,8 @@
 					{% else %}
 						<!-- LOGGED IN -->
 						<ul class="header-links pull-left">
-							<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-							<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i> {{ user.phone }}</a></li>
+							<li><a href="#"><i class="fa fa-envelope-o"></i> {{ user.email }}</a></li>
 							<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 						</ul>
 						<ul class="header-links pull-right">
@@ -71,6 +71,7 @@
 										<span class="categories-list">
 											<ul>
 												<span>{{ user.shown_name }}</span>
+												<li><a href="{% url 'get_cliente' user.client_id %}"><i class="far fa-address-card"></i> Profile</a></li>
 												<li>Settings</li>
 												<li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log out</a></li>
 												<li><a class="mm-view-more" href="#">View more →</a></li>

@@ -20,10 +20,11 @@ class GraphDB:
 #
     def get_next_id(self, type):
         # get the highest uri of the type
-        # allowed type: loja, modelo
+        # allowed type: loja, modelo, cliente
         query = """
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo: <http://www.shop.pt/modelo/>
+            PREFIX cliente: <http://www.shop.pt/cliente/>
             SELECT (max(?uri) as ?uri_max)
             WHERE {
                 ?uri    """+type+""":nome   ?o .
@@ -35,6 +36,38 @@ class GraphDB:
             id_max = e['uri_max']['value'].split('/')[-1]
 
         return str( int(id_max)+1 )
+
+    def get_morada(self, type, id):
+        # get pred and obj of morada a given loja or cliente
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX cliente: <http://www.shop.pt/cliente/>
+            PREFIX morada: <http://www.shop.pt/morada/>
+            SELECT ?obj ?pred
+            WHERE {
+                    """+type+""":"""+id+"""     """+type+""":morada     ?morada_uri .
+                    ?morada_uri                 ?pred                   ?obj .
+
+                    MINUS { ?s a ?obj }
+            }
+            """
+        return self.select_query( query )
+
+    def get_contacto(self, type, id):
+        # get pred and obj of contacto a given loja or cliente
+        query = """
+            PREFIX loja: <http://www.shop.pt/loja/>
+            PREFIX cliente: <http://www.shop.pt/cliente/>
+            PREFIX contacto: <http://www.shop.pt/contacto/>
+            SELECT ?obj ?pred
+            WHERE {
+                    """+type+""":"""+id+"""     """+type+""":contacto   ?contacto_uri .
+                    ?contacto_uri               ?pred                   ?obj .
+
+                    MINUS { ?s a ?obj }
+            }
+            """
+        return self.select_query( query )
 
 #
 #
@@ -553,6 +586,56 @@ class GraphDB:
                         ?p                      ?o .
                 ?s2     modelo:loja             ?s .
             } ;
+            """
+        self.update_query( update )
+
+
+#
+#
+#           CLIENTE QUERIES
+#
+#
+    def get_cliente_regular(self, id):
+        # get not nested pred and obj of a given cliente, except if pred=[a, morada, contacto]
+        query = """
+            PREFIX cliente: <http://www.shop.pt/cliente/>
+            SELECT ?obj ?pred
+            WHERE {
+                cliente:"""+id+"""  ?pred   ?obj .
+
+                MINUS { ?s a ?obj }
+                MINUS { ?s cliente:morada ?obj }
+                MINUS { ?s cliente:contacto ?obj }
+            }
+            """
+        return self.select_query( query )
+
+    def add_cliente(self, id, fields):
+        # insert cliente with the new highest id in DB
+        nome = fields['name']
+        datanascimento = fields['date_of_birth']
+        telefone = fields['phone']
+        rua = fields['address']
+        codigopostal = fields['codigopostal']
+        email = fields['email']
+
+        update = """
+            PREFIX cliente: <http://www.shop.pt/cliente/>
+            PREFIX morada: <http://www.shop.pt/morada/>
+            PREFIX contacto: <http://www.shop.pt/contacto/>
+            INSERT DATA {
+                    cliente:"""+id+"""  a                       cliente: ;
+                                        cliente:nome            '"""+nome+"""' ;
+                                        cliente:datanascimento  '"""+datanascimento+"""' ;
+                                        cliente:morada          morada:"""+id+""" ;
+                                        cliente:contacto        contacto:"""+id+""" .
+                    morada:"""+id+"""   a                       morada: ;
+                                        morada:rua              '"""+rua+"""' ;
+                                        morada:codigopostal     '"""+codigopostal+"""' .
+                    contacto:"""+id+""" a                       contacto: ;
+                                        contacto:telefone       '"""+telefone+"""' ;
+                                        contacto:email          '"""+email+"""' .
+            }
             """
         self.update_query( update )
 

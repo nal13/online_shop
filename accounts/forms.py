@@ -11,6 +11,7 @@ from phonenumber_field.formfields import PhoneNumberField
 from pprint import pprint
 
 from .models import MyUser
+from shop.views import add_cliente      # app shop gets forms values from signup
 
 
 # form wizard
@@ -44,17 +45,26 @@ class UserCreationForm_1(forms.ModelForm):
         return user
 
 class UserCreationForm_2(forms.Form):
-    name = forms.CharField(  max_length=40, widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Name'}) )
-    date_of_birth = forms.DateField( widget=forms.DateInput(attrs={'class':'input100', 'placeholder': 'Date of Birth'}) )
+    name = forms.CharField( max_length=40, widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Name'}) )
+    date_of_birth = forms.DateField( input_formats=('%d/%m/%Y', ), widget=forms.DateInput(format='%d/%m/%Y', attrs={'class':'input100', 'placeholder': 'Date of Birth'}) )
     phone = PhoneNumberField( widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Phone'}) )
+    address = forms.CharField( widget=forms.TextInput(attrs={'class':'input100', 'placeholder': 'Address'}) )
 
-    def save(self, commit=True):
+    def save(self, user):
         pprint( 'saving to somewhere else' )
 
-        name = self.cleaned_data['name']
-        date_of_birth = self.cleaned_data['date_of_birth']
-        phone = self.cleaned_data['phone']
-        return None
+        forms=self.cleaned_data
+        # format fields
+        forms['date_of_birth'] = forms['date_of_birth'].strftime('%d/%m/%Y')
+        forms['phone'] = str(forms['phone'].national_number)
+        # add email field from userModel
+        forms.update( {'email':user.email} )
+        forms.update( {'codigopostal':'0000-000'} )
+
+        client_id = add_cliente( signup_forms=forms )
+        user.set_client_id( client_id )
+
+        return
 
 # extend AuthenticationForm
 class AuthenticationForm(AuthenticationForm):
