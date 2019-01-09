@@ -16,22 +16,25 @@
     <xsl:text disable-output-escaping="yes">@prefix contacto: &lt;http://www.shop.pt/contacto/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix modelo: &lt;http://www.shop.pt/modelo/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix modelo_em_loja: &lt;http://www.shop.pt/modelo/loja/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix computador: &lt;http://www.shop.pt/computador/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix telemovel: &lt;http://www.shop.pt/telemovel/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix tablet: &lt;http://www.shop.pt/tablet/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix camara: &lt;http://www.shop.pt/camara/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix drone: &lt;http://www.shop.pt/drone/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix tv: &lt;http://www.shop.pt/tv/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix leitor_blueray: &lt;http://www.shop.pt/leitor_blueray/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix maquina_cafe: &lt;http://www.shop.pt/maquina_cafe/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix microondas: &lt;http://www.shop.pt/microondas/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix maquina_lavar_roupa: &lt;http://www.shop.pt/maquina_lavar_roupa/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix maquina_secar_roupa: &lt;http://www.shop.pt/maquina_secar_roupa/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix aspirador: &lt;http://www.shop.pt/aspirador/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix gaming_pc: &lt;http://www.shop.pt/gaming_pc/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix consola: &lt;http://www.shop.pt/consola/&gt; . &#xa;</xsl:text>
-    <xsl:text disable-output-escaping="yes">@prefix jogo: &lt;http://www.shop.pt/jogo/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix computador: &lt;http://www.shop.pt/modelo/computador/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix telemovel: &lt;http://www.shop.pt/modelo/telemovel/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix tablet: &lt;http://www.shop.pt/modelo/tablet/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix camara: &lt;http://www.shop.pt/modelo/camara/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix drone: &lt;http://www.shop.pt/modelo/drone/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix tv: &lt;http://www.shop.pt/modelo/tv/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix leitor_blueray: &lt;http://www.shop.pt/modelo/leitor_blueray/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_cafe: &lt;http://www.shop.pt/modelo/maquina_cafe/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix microondas: &lt;http://www.shop.pt/modelo/microondas/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_lavar_roupa: &lt;http://www.shop.pt/modelo/maquina_lavar_roupa/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix maquina_secar_roupa: &lt;http://www.shop.pt/modelo/maquina_secar_roupa/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix aspirador: &lt;http://www.shop.pt/modelo/aspirador/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix gaming_pc: &lt;http://www.shop.pt/modelo/gaming_pc/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix consola: &lt;http://www.shop.pt/modelo/consola/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix jogo: &lt;http://www.shop.pt/modelo/jogo/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">@prefix cliente: &lt;http://www.shop.pt/cliente/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix wishlist: &lt;http://www.shop.pt/cliente/wishlist/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix cart: &lt;http://www.shop.pt/cliente/cart/&gt; . &#xa;</xsl:text>
+    <xsl:text disable-output-escaping="yes">@prefix visited: &lt;http://www.shop.pt/cliente/visited/&gt; . &#xa;</xsl:text>
     <xsl:text disable-output-escaping="yes">&#xa;&#xa;&#xa;</xsl:text>
 
     <xsl:apply-templates/>
@@ -1390,76 +1393,170 @@
 
       <xsl:for-each select="Cliente">
           <!-- Cliente -->
-          <!-- ID -->
+          <!-- @id -->
           <xsl:text>cliente:</xsl:text>
-    			<xsl:value-of select="ID"/>
+    			<xsl:value-of select="@id"/>
     			<xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
           <xsl:text>&#9;a cliente:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
-          <!-- Nome -->
+          <!-- @nome -->
           <xsl:text>&#9;cliente:nome "</xsl:text>
-    			<xsl:value-of select="Nome"/>
+    			<xsl:value-of select="@nome"/>
     			<xsl:text>" ; &#xa;</xsl:text>
 
-          <!-- Data de Nascimento -->
+          <!-- @datanascimento -->
           <xsl:text>&#9;cliente:datanascimento "</xsl:text>
-    			<xsl:value-of select="DataNascimento"/>
+    			<xsl:value-of select="@datanascimento"/>
     			<xsl:text>" ; &#xa;</xsl:text>
 
           <!-- Morada -->
           <xsl:text>&#9;cliente:morada </xsl:text>
     			<xsl:text>morada:</xsl:text>
-          <xsl:value-of select="ID"/>
+          <xsl:value-of select="@id"/>
           <xsl:text> ; &#xa;</xsl:text>
 
           <!-- Contacto -->
           <xsl:text>&#9;cliente:contacto </xsl:text>
     			<xsl:text>contacto:</xsl:text>
-          <xsl:value-of select="ID"/>
+          <xsl:value-of select="@id"/>
+          <xsl:text> ; &#xa;</xsl:text>
+
+          <!-- WishList -->
+          <xsl:text>&#9;cliente:wishlist </xsl:text>
+          <xsl:for-each select="WishLists/WishList">
+              <xsl:text>wishlist:</xsl:text>
+              <xsl:value-of select="ancestor::Cliente/@id"/>
+              <xsl:value-of select="@id"/>
+              <xsl:choose>
+                  <xsl:when test="position() != last()"> , &#xa;&#9;&#9;&#9;&#9;</xsl:when>
+              </xsl:choose>
+          </xsl:for-each>
+          <xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Cart -->
+          <xsl:text>&#9;cliente:cart </xsl:text>
+          <xsl:for-each select="Cart/Modelo">
+                <xsl:text>modelo:</xsl:text>
+                <xsl:value-of select="@id"/>
+                <xsl:choose>
+                    <xsl:when test="position() != last()"> , &#xa;&#9;&#9;&#9;&#9;</xsl:when>
+                </xsl:choose>
+          </xsl:for-each>
+          <xsl:text> ; &#xa;</xsl:text>
+
+          <!-- Visited -->
+          <xsl:text>&#9;cliente:visited </xsl:text>
+          <xsl:for-each select="Visited/Modelo">
+              <xsl:text>visited:</xsl:text>
+              <xsl:value-of select="ancestor::Cliente/@id"/>
+              <xsl:value-of select="@id"/>
+              <xsl:choose>
+                  <xsl:when test="position() != last()"> , &#xa;&#9;&#9;&#9;&#9;</xsl:when>
+              </xsl:choose>
+          </xsl:for-each>
           <xsl:text> . &#xa;</xsl:text>
 
           <!-- Morada -->
-          <!-- ID -->
+          <!-- @id -->
           <xsl:text>morada:</xsl:text>
-    			<xsl:value-of select="ID"/>
+    			<xsl:value-of select="@id"/>
     			<xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
           <xsl:text>&#9;a morada:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
-          <!-- Rua -->
+          <!-- @rua -->
           <xsl:text>&#9;morada:rua "</xsl:text>
-    			<xsl:value-of select="Morada/Rua"/>
+    			<xsl:value-of select="Morada/@rua"/>
     			<xsl:text>" ; &#xa;</xsl:text>
 
-          <!-- CodigoPostal -->
+          <!-- @codigopostal -->
           <xsl:text>&#9;morada:codigopostal "</xsl:text>
-    			<xsl:value-of select="Morada/CodigoPostal"/>
+    			<xsl:value-of select="Morada/@codigopostal"/>
           <xsl:text>" . &#xa;</xsl:text>
 
           <!-- Contacto -->
-          <!-- ID -->
+          <!-- @id -->
           <xsl:text>contacto:</xsl:text>
-    			<xsl:value-of select="ID"/>
+    			<xsl:value-of select="@id"/>
     			<xsl:text>&#xa;</xsl:text>
 
           <!-- tipo -->
           <xsl:text>&#9;a contacto:</xsl:text>
     			<xsl:text> ; &#xa;</xsl:text>
 
-          <!-- Telefone -->
+          <!-- @telefone -->
           <xsl:text>&#9;contacto:telefone "</xsl:text>
-    			<xsl:value-of select="Contacto/Telefone"/>
+    			<xsl:value-of select="Contacto/@telefone"/>
     			<xsl:text>" ; &#xa;</xsl:text>
 
-          <!-- Email -->
+          <!-- @email -->
           <xsl:text>&#9;contacto:email "</xsl:text>
-    			<xsl:value-of select="Contacto/Email"/>
+    			<xsl:value-of select="Contacto/@email"/>
           <xsl:text>" . &#xa;</xsl:text>
+
+          <xsl:for-each select="WishLists/WishList">
+            <!-- WishList -->
+            <!-- @id -->
+            <xsl:text>wishlist:</xsl:text>
+            <xsl:value-of select="ancestor::Cliente/@id"/>
+            <xsl:value-of select="@id"/>
+      			<xsl:text>&#xa;</xsl:text>
+
+            <!-- tipo -->
+            <xsl:text>&#9;a wishlist:</xsl:text>
+      			<xsl:text> ; &#xa;</xsl:text>
+
+            <!-- @nome -->
+            <xsl:text>&#9;wishlist:nome "</xsl:text>
+      			<xsl:value-of select="@nome"/>
+            <xsl:text>" ; &#xa;</xsl:text>
+
+            <!-- @modelo -->
+            <xsl:text>&#9;wishlist:modelo </xsl:text>
+            <xsl:for-each select="Modelo">
+                <xsl:text>modelo:</xsl:text>
+                <xsl:value-of select="@id"/>
+                <xsl:choose>
+                    <xsl:when test="position() != last()"> , &#xa;&#9;&#9;&#9;&#9;</xsl:when>
+                </xsl:choose>
+            </xsl:for-each>
+            <xsl:text> . &#xa;</xsl:text>
+          </xsl:for-each>
+
+          <xsl:for-each select="Visited/Modelo">
+            <!-- Visited -->
+            <!-- @id -->
+            <xsl:text>visited:</xsl:text>
+            <xsl:value-of select="ancestor::Cliente/@id"/>
+            <xsl:value-of select="@id"/>
+      			<xsl:text>&#xa;</xsl:text>
+
+            <!-- tipo -->
+            <xsl:text>&#9;a visited:</xsl:text>
+      			<xsl:text> ; &#xa;</xsl:text>
+
+            <!-- @modelo -->
+            <xsl:text>&#9;visited:modelo </xsl:text>
+            <xsl:text>&#9;modelo:</xsl:text>
+      			<xsl:value-of select="@id"/>
+            <xsl:text> ; &#xa;</xsl:text>
+
+            <!-- @times -->
+            <xsl:text>&#9;visited:times "</xsl:text>
+      			<xsl:value-of select="@times"/>
+            <xsl:text>" ; &#xa;</xsl:text>
+
+            <!-- @last_visit -->
+            <xsl:text>&#9;visited:last_visit "</xsl:text>
+      			<xsl:value-of select="@last_visit"/>
+            <xsl:text>" . &#xa;</xsl:text>
+          </xsl:for-each>
+
           <xsl:text>&#xa;&#xa;</xsl:text>
       </xsl:for-each>
 

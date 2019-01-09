@@ -63,7 +63,6 @@ class UserCreationForm_2(forms.Form):
 
         client_id = add_cliente( signup_forms=forms )
         user.set_client_id( client_id )
-
         return
 
 # extend AuthenticationForm

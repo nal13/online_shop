@@ -3,22 +3,25 @@
 @prefix contacto: <http://www.shop.pt/contacto/> . 
 @prefix modelo: <http://www.shop.pt/modelo/> . 
 @prefix modelo_em_loja: <http://www.shop.pt/modelo/loja/> . 
-@prefix computador: <http://www.shop.pt/computador/> . 
-@prefix telemovel: <http://www.shop.pt/telemovel/> . 
-@prefix tablet: <http://www.shop.pt/tablet/> . 
-@prefix camara: <http://www.shop.pt/camara/> . 
-@prefix drone: <http://www.shop.pt/drone/> . 
-@prefix tv: <http://www.shop.pt/tv/> . 
-@prefix leitor_blueray: <http://www.shop.pt/leitor_blueray/> . 
-@prefix maquina_cafe: <http://www.shop.pt/maquina_cafe/> . 
-@prefix microondas: <http://www.shop.pt/microondas/> . 
-@prefix maquina_lavar_roupa: <http://www.shop.pt/maquina_lavar_roupa/> . 
-@prefix maquina_secar_roupa: <http://www.shop.pt/maquina_secar_roupa/> . 
-@prefix aspirador: <http://www.shop.pt/aspirador/> . 
-@prefix gaming_pc: <http://www.shop.pt/gaming_pc/> . 
-@prefix consola: <http://www.shop.pt/consola/> . 
-@prefix jogo: <http://www.shop.pt/jogo/> . 
+@prefix computador: <http://www.shop.pt/modelo/computador/> . 
+@prefix telemovel: <http://www.shop.pt/modelo/telemovel/> . 
+@prefix tablet: <http://www.shop.pt/modelo/tablet/> . 
+@prefix camara: <http://www.shop.pt/modelo/camara/> . 
+@prefix drone: <http://www.shop.pt/modelo/drone/> . 
+@prefix tv: <http://www.shop.pt/modelo/tv/> . 
+@prefix leitor_blueray: <http://www.shop.pt/modelo/leitor_blueray/> . 
+@prefix maquina_cafe: <http://www.shop.pt/modelo/maquina_cafe/> . 
+@prefix microondas: <http://www.shop.pt/modelo/microondas/> . 
+@prefix maquina_lavar_roupa: <http://www.shop.pt/modelo/maquina_lavar_roupa/> . 
+@prefix maquina_secar_roupa: <http://www.shop.pt/modelo/maquina_secar_roupa/> . 
+@prefix aspirador: <http://www.shop.pt/modelo/aspirador/> . 
+@prefix gaming_pc: <http://www.shop.pt/modelo/gaming_pc/> . 
+@prefix consola: <http://www.shop.pt/modelo/consola/> . 
+@prefix jogo: <http://www.shop.pt/modelo/jogo/> . 
 @prefix cliente: <http://www.shop.pt/cliente/> . 
+@prefix wishlist: <http://www.shop.pt/cliente/wishlist/> . 
+@prefix cart: <http://www.shop.pt/cliente/cart/> . 
+@prefix visited: <http://www.shop.pt/cliente/visited/> . 
 
 
 
@@ -1572,7 +1575,19 @@ cliente:3001
 	cliente:nome "Rui Santos" ; 
 	cliente:datanascimento "04/05/1967" ; 
 	cliente:morada morada:3001 ; 
-	cliente:contacto contacto:3001 . 
+	cliente:contacto contacto:3001 ; 
+	cliente:wishlist wishlist:300101 , 
+				wishlist:300102 , 
+				wishlist:300103 ; 
+	cliente:cart modelo:2011 , 
+				modelo:2052 , 
+				modelo:2053 , 
+				modelo:2034 , 
+				modelo:2023 ; 
+	cliente:visited visited:30012070 , 
+				visited:30012071 , 
+				visited:30012067 , 
+				visited:30012020 . 
 morada:3001
 	a morada: ; 
 	morada:rua "Avenida dos Aliados,89" ; 
@@ -1581,6 +1596,41 @@ contacto:3001
 	a contacto: ; 
 	contacto:telefone "+351918914370" ; 
 	contacto:email "rui@gmail.com" . 
+wishlist:300101
+	a wishlist: ; 
+	wishlist:nome "prendas" ; 
+	wishlist:modelo modelo:2004 , 
+				modelo:2005 . 
+wishlist:300102
+	a wishlist: ; 
+	wishlist:nome "talvez" ; 
+	wishlist:modelo modelo:2030 . 
+wishlist:300103
+	a wishlist: ; 
+	wishlist:nome "da Rita" ; 
+	wishlist:modelo modelo:2003 , 
+				modelo:2004 , 
+				modelo:2008 . 
+visited:30012070
+	a visited: ; 
+	visited:modelo 	modelo:2070 ; 
+	visited:times "2" ; 
+	visited:last_visit "TODO" . 
+visited:30012071
+	a visited: ; 
+	visited:modelo 	modelo:2071 ; 
+	visited:times "1" ; 
+	visited:last_visit "TODO" . 
+visited:30012067
+	a visited: ; 
+	visited:modelo 	modelo:2067 ; 
+	visited:times "3" ; 
+	visited:last_visit "TODO" . 
+visited:30012020
+	a visited: ; 
+	visited:modelo 	modelo:2020 ; 
+	visited:times "1" ; 
+	visited:last_visit "TODO" . 
 
 
 cliente:3002
@@ -1588,7 +1638,14 @@ cliente:3002
 	cliente:nome "Maria Almeida" ; 
 	cliente:datanascimento "30/11/1989" ; 
 	cliente:morada morada:3002 ; 
-	cliente:contacto contacto:3002 . 
+	cliente:contacto contacto:3002 ; 
+	cliente:wishlist wishlist:300201 , 
+				wishlist:300202 ; 
+	cliente:cart modelo:2002 ; 
+	cliente:visited visited:30022070 , 
+				visited:30022071 , 
+				visited:30022067 , 
+				visited:30022020 . 
 morada:3002
 	a morada: ; 
 	morada:rua "Avenida da Liberdade,59" ; 
@@ -1597,6 +1654,35 @@ contacto:3002
 	a contacto: ; 
 	contacto:telefone "+351920914370" ; 
 	contacto:email "maria@gmail.com" . 
+wishlist:300201
+	a wishlist: ; 
+	wishlist:nome "tecno filha" ; 
+	wishlist:modelo modelo:2003 , 
+				modelo:2005 . 
+wishlist:300202
+	a wishlist: ; 
+	wishlist:nome "outras coisas" ; 
+	wishlist:modelo modelo:2059 . 
+visited:30022070
+	a visited: ; 
+	visited:modelo 	modelo:2070 ; 
+	visited:times "2" ; 
+	visited:last_visit "TODO" . 
+visited:30022071
+	a visited: ; 
+	visited:modelo 	modelo:2071 ; 
+	visited:times "1" ; 
+	visited:last_visit "TODO" . 
+visited:30022067
+	a visited: ; 
+	visited:modelo 	modelo:2067 ; 
+	visited:times "3" ; 
+	visited:last_visit "TODO" . 
+visited:30022020
+	a visited: ; 
+	visited:modelo 	modelo:2020 ; 
+	visited:times "1" ; 
+	visited:last_visit "TODO" . 
 
 
 

@@ -1567,32 +1567,59 @@
   </Produtos>
 
   <Clientes>
-    <Cliente>
-      <ID>3001</ID>
-      <Nome>Rui Santos</Nome>
-      <DataNascimento>04/05/1967</DataNascimento>
-      <Morada>
-        <Rua>Avenida dos Aliados,89</Rua>
-        <CodigoPostal>4000-066</CodigoPostal>
-      </Morada>
-      <Contacto>
-        <Telefone>+351918914370</Telefone>
-        <Email>rui@gmail.com</Email>
-      </Contacto>
+    <Cliente id="3001" nome="Rui Santos" datanascimento="04/05/1967">
+      <Morada rua="Avenida dos Aliados,89" codigopostal="4000-066" />
+      <Contacto telefone="+351918914370" email="rui@gmail.com" />
+      <WishLists>
+        <WishList id="01" nome="prendas">
+          <Modelo id="2004" />
+          <Modelo id="2005" />
+        </WishList>
+        <WishList id="02" nome="talvez">
+          <Modelo id="2030" />
+        </WishList>
+        <WishList id="03" nome="da Rita">
+          <Modelo id="2003" />
+          <Modelo id="2004" />
+          <Modelo id="2008" />
+        </WishList>
+      </WishLists>
+      <Cart>
+        <Modelo id="2011" />
+        <Modelo id="2052" />
+        <Modelo id="2053" />
+        <Modelo id="2034" />
+        <Modelo id="2023" />
+      </Cart>
+      <Visited>
+        <Modelo id="2070" times="2" last_visit="TODO" />
+        <Modelo id="2071" times="1" last_visit="TODO" />
+        <Modelo id="2067" times="3" last_visit="TODO" />
+        <Modelo id="2020" times="1" last_visit="TODO" />
+      </Visited>
     </Cliente>
 
-    <Cliente>
-      <ID>3002</ID>
-      <Nome>Maria Almeida</Nome>
-      <DataNascimento>30/11/1989</DataNascimento>
-      <Morada>
-        <Rua>Avenida da Liberdade,59</Rua>
-        <CodigoPostal>1250-140</CodigoPostal>
-      </Morada>
-      <Contacto>
-        <Telefone>+351920914370</Telefone>
-        <Email>maria@gmail.com</Email>
-      </Contacto>
+    <Cliente id="3002" nome="Maria Almeida" datanascimento="30/11/1989" >
+      <Morada rua="Avenida da Liberdade,59" codigopostal="1250-140" />
+      <Contacto telefone="+351920914370" email="maria@gmail.com" />
+      <WishLists>
+        <WishList id="01" nome="tecno filha">
+          <Modelo id="2003" />
+          <Modelo id="2005" />
+        </WishList>
+        <WishList id="02" nome="outras coisas">
+          <Modelo id="2059" />
+        </WishList>
+      </WishLists>
+      <Cart>
+        <Modelo id="2002" />
+      </Cart>
+      <Visited>
+        <Modelo id="2070" times="2" last_visit="TODO" />
+        <Modelo id="2071" times="1" last_visit="TODO" />
+        <Modelo id="2067" times="3" last_visit="TODO" />
+        <Modelo id="2020" times="1" last_visit="TODO" />
+      </Visited>
     </Cliente>
   </Clientes>
 
