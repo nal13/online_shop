@@ -56,7 +56,6 @@ def wikidata_capitals( country ):
 
 def wikidata_modelo_info( modelo ):
     # modelos that have an image and if exists, their use label and image
-    # returns dict to avoid repeated properties
 
     # modelos allowed
     for e in available_modelos:
@@ -81,13 +80,7 @@ def wikidata_modelo_info( modelo ):
           SERVICE wikibase:label { bd:serviceParam wikibase:language "pt". }
         }
     """
-    query_result = select_query( query )
-
-    result = {}
-    for e in query_result:
-        result.update( {e[0]: e[1]} )
-
-    return result
+    return select_query( query )
 
 
 def select_query( query ):

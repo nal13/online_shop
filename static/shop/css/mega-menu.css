@@ -1,23 +1,21 @@
-.nav_mega-menu {
+.acc_mega-menu {
   background: none repeat scroll 0 0 #1C1B22;
-  left: 0;
   margin-top: 3px;
   position: absolute;
-  width: 550px;
-  padding: 15px;
+  padding: 20px;
   display: none;
   transition-duration: 0.9s;
   z-index: 15;
   color: #fff;
 }
 
-.acc_mega-menu {
+.nav_mega-menu {
   background: none repeat scroll 0 0 #1C1B22;
-  right: 0;
+  left: 0;
   margin-top: 3px;
   position: absolute;
   width: 550px;
-  padding: 15px;
+  padding: 20px;
   display: none;
   transition-duration: 0.9s;
   z-index: 15;

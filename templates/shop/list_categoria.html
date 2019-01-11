@@ -13,32 +13,27 @@
 			<div class="row">
 				<!-- STORE -->
 				<div id="store" class="col-md-12">
-					<!-- store top filter -->
+
+					<!-- Sort dropdown -->
 					<div class="store-filter clearfix">
 						<div class="store-sort">
-
 							<form method="post">
 							  {% include 'shop/includes/form.html' %}
 							</form>
-
 						</div>
 					</div>
-					<!-- /store top filter -->
+					<!-- /Sort dropdown -->
 
 
-					<!-- store products -->
+					<!-- Set of items -->
 					<div class="row">
-						
-						<!-- product -->
 						{% for e in modelos %}
 							<div class="col-md-4 col-xs-6">
-								{% include 'shop/includes/produto_item.html' %}
+								{% include 'shop/includes/produto_items.html' %}
 							</div>
 						{% endfor %}
-						<!-- /product -->
-
 					</div>
-					<!-- /store products -->
+					<!-- /Set of items -->
 
 				</div>
 				<!-- /STORE -->

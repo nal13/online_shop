@@ -156,13 +156,12 @@ class LojaForm(forms.Form):
                 Lvars().pais.append( tuple )
 
 
-    def set_initial_values(self, fields_list):
-        # find and store new initial field values received in initial_fields
+    def set_initial_values(self, initial_fields):
+        # populate forms with initial_fields
 
         for field in self.fields:
 
-            initial_value = find( field, fields_list )
-
+            initial_value = initial_fields.get( field )
             field_type = self.fields[field].__class__.__name__
 
             # the regular way to set 'initial' doesn't seem to work to ChoiceField,
@@ -273,9 +272,9 @@ class ModeloForm(forms.Form):
         # create forms for each loja in DB
         query = g.list_loja_uri_nome()
 
-        for e in query['results']['bindings']:
-            id = e['uri']['value'].split('/')[-1]
-            nome = e['nome']['value']
+        for e in query:
+            id = g.get_value( e, 'uri' )
+            nome = g.get_value( e, 'nome' )
             self.fields.update({
                 'unidades_%s' % id: forms.IntegerField(
                                                 label='Unidades em %s' % nome,
@@ -288,7 +287,7 @@ class ModeloForm(forms.Form):
 
 
     def set_initial_values(self, initial_fields,  id):
-        # find and store new initial field values received in initial_fields or queries
+        # populate forms with initial_fields
 
         for field in self.fields:
 
@@ -298,14 +297,14 @@ class ModeloForm(forms.Form):
                 query = g.list_modelo_em_loja_unidades(id)
                 initial_value = 0
 
-                for e in query['results']['bindings']:
-                    loja_id = e['loja_uri']['value'].split('/')[-1]
-                    unidades = e['unidades']['value']
+                loja_id = g.get_value( e, 'loja_uri' )
+                for e in query:
+                    unidades = g.get_value( e, 'unidades' )
                     if loja_id in field:
                         initial_value = unidades
             # static forms
             else:
-                initial_value = find(field, initial_fields)
+                initial_value = initial_fields.get( field )
 
             field_type = self.fields[field].__class__.__name__
 
@@ -728,8 +727,3 @@ class Mvars:
 
     consola_cor = [('Branco','Branco'), ('Preto','Preto'), ('Vermelho','Vermelho'), ('Verde','Verde'), ('Azul','Azul'), ('Castanho','Castanho'), ('Azul/Vermelho','Azul/Vermelho'), ('Varias','Varias'), ]
     consola_jogoincluido = [('None','None'), ('Red Dead Redemption II','Red Dead Redemption II'), ('FIFA 19','FIFA 19'), ('Pokemon Lets Go Eevee','Pokemon Lets Go Eevee'), ('TOMB RAIDER','TOMB RAIDER'), ]
-
-def find( value, list ):
-    for e in list:
-        if value == e[0]:
-            return e[1]

@@ -6,12 +6,21 @@
 
 {% block content %}
 
-  {% for e in cliente %}
-    {% if e.0 == 'nome' %}
-      <h2 class="product03">{{ e.1 }}</h2>
-    {% else %}
-      <h3 class="product-name">{{ e.1 }}</h3>
-    {% endif %}
-  {% endfor %}
+  <h2 class="product03">{{ cliente.nome }}</h2>
+  <h3 class="product-name">{{ cliente.datanascimento }}</h3>
+  <br/>
+  <h3 class="product-name">{{ cliente.rua }}</h3>
+  <h3 class="product-name">{{ cliente.codigopostal }}</h3>
+  <br/>
+  <h3 class="product-name">{{ cliente.telefone }}</h3>
+  <h3 class="product-name">{{ cliente.email }}</h3>
+
+  <br/>
+  <br/>
+
+  <div class="add-to-cart">
+    <a href="#"><button class="add-to-cart-btn"><i class="fa fa-edit"></i> edit</button></a>
+    <a href="#"><button class="add-to-cart-btn"><i class="fa fa-remove"></i> delete</button></a>
+  </div>
 
 {% endblock %}

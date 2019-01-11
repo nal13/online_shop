@@ -6,6 +6,7 @@
     <Loja>
       <ID>1001</ID>
       <Nome>Media Markt Aveiro</Nome>
+      <Imagem>/static/shop/img/lojas/Media Markt Aveiro.jpg</Imagem>
       <Grupo>Media Markt</Grupo>
       <Morada>
         <Detalhes>Aveiro Shopping Center</Detalhes>
@@ -25,6 +26,7 @@
     <Loja>
       <ID>1002</ID>
       <Nome>Media Markt Braga</Nome>
+      <Imagem>/static/shop/img/lojas/Media Markt Braga.jpg</Imagem>
       <Grupo>Media Markt</Grupo>
       <Morada>
         <Detalhes>Lamaçães</Detalhes>
@@ -44,6 +46,7 @@
     <Loja>
       <ID>1003</ID>
       <Nome>Media Markt Gaia</Nome>
+      <Imagem>/static/shop/img/lojas/Media Markt Gaia.jpg</Imagem>
       <Grupo>Media Markt</Grupo>
       <Morada>
         <Detalhes>Santa Marinha</Detalhes>

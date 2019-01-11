@@ -1,0 +1,25 @@
+<div class="product">
+  <div class="product-img">
+    <img src="/static/shop/img/modelos/{{ e.nome }}.jpg" alt="">
+    {% if e.discount_percentage != 0 %}
+      <div class="product-label">
+        {% if e.discount_percentage >= 50 %}
+          <span class="new">Best Offer</span>
+        {% endif %}
+        <span class="sale">-{{ e.discount_percentage }}%</span>
+      </div>
+    {% endif %}
+  </div>
+  <div class="product-body">
+    <p class="product-category">{{ e.categoria }}</p>
+    <h3 class="product-name"><a href="{% url 'get_modelo' e.modelo_id %}">{{ e.nome }}</a></h3>
+    {% if e.discount_percentage == 0 %}
+      <h4 class="product-name">${{ e.preco }}</h4>
+    {% else %}
+      <h4 class="product-price">${{ e.discount_price }} <del class="product-old-price">${{ e.preco }}</del></h4>
+    {% endif %}
+  </div>
+  <div class="add-to-cart">
+    <a href="{% url 'get_modelo' e.modelo_id %}"><button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> ver mais</button></a>
+  </div>
+</div>

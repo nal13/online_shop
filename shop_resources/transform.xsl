@@ -58,6 +58,11 @@
     			<xsl:value-of select="Nome"/>
     			<xsl:text>" ; &#xa;</xsl:text>
 
+          <!-- Image -->
+          <xsl:text>&#9;loja:imagem "</xsl:text>
+    			<xsl:value-of select="Imagem"/>
+    			<xsl:text>" ; &#xa;</xsl:text>
+
           <!-- Grupo -->
           <xsl:text>&#9;loja:grupo "</xsl:text>
     			<xsl:value-of select="Grupo"/>

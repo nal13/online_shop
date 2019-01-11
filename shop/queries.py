@@ -32,8 +32,8 @@ class GraphDB:
             """
         query_result = self.select_query( query )
 
-        for e in query_result['results']['bindings']:
-            id_max = e['uri_max']['value'].split('/')[-1]
+        for e in query_result:
+            id_max = self.get_value( e, 'uri_max' )
 
         return str( int(id_max)+1 )
 
@@ -199,14 +199,12 @@ class GraphDB:
             PREFIX modelo: <http://www.shop.pt/modelo/>
             PREFIX loja: <http://www.shop.pt/loja/>
             PREFIX modelo_em_loja: <http://www.shop.pt/modelo/loja/>
-            SELECT ?loja_uri ?pred ?obj ?nome
+            SELECT ?loja_uri ?unidades ?nome
             WHERE {
                 modelo:"""+id+"""       modelo:loja                 ?modelo_em_loja_uri .
                 ?modelo_em_loja_uri     modelo_em_loja:LojaID       ?loja_uri ;
-                                        ?pred                       ?obj .
+                                        modelo_em_loja:unidades     ?unidades .
                 ?loja_uri               loja:nome                   ?nome .
-
-                MINUS { ?s modelo_em_loja:LojaID ?obj }
             }
             """
         return self.select_query( query )
@@ -527,6 +525,7 @@ class GraphDB:
     def add_loja(self, id, fields):
         # insert loja with the new highest id in DB
         nome = fields['nome']
+        imagem = fields['imagem']
         grupo = fields['grupo']
         detalhes = fields['detalhes']
         rua = fields['rua']
@@ -545,6 +544,7 @@ class GraphDB:
             INSERT DATA {
                     loja:"""+id+"""     a                   loja: ;
                                         loja:nome           '"""+nome+"""' ;
+                                        loja:imagem         '"""+imagem+"""' ;
                                         loja:grupo          '"""+grupo+"""' ;
                                         loja:morada         morada:"""+id+""" ;
                                         loja:contacto       contacto:"""+id+""" .
@@ -606,6 +606,9 @@ class GraphDB:
                 MINUS { ?s a ?obj }
                 MINUS { ?s cliente:morada ?obj }
                 MINUS { ?s cliente:contacto ?obj }
+                MINUS { ?s cliente:wishlist ?obj }
+                MINUS { ?s cliente:cart ?obj }
+                MINUS { ?s cliente:visited ?obj }
             }
             """
         return self.select_query( query )
@@ -640,7 +643,11 @@ class GraphDB:
         self.update_query( update )
 
 
-    # query processing
+#
+#
+#           Query Processing
+#
+#
     def select_query( self, query ):
         payload_query = {"query": query}
         res = self.accessor.sparql_select(body=payload_query, repo_name=self.repo_name)
@@ -648,7 +655,7 @@ class GraphDB:
         if res.__contains__('Exception') or res.__contains__('MALFORMED'):
             pprint(res)
 
-        return json.loads(res)
+        return json.loads(res)['results']['bindings']
 
     def update_query( self, update ):
         payload_query = {"update": update}
@@ -656,3 +663,12 @@ class GraphDB:
 
         if res.__contains__('Exception') or res.__contains__('MALFORMED'):
             pprint(res)
+
+    def get_value( self, e, value_name ):
+        # given a query element and a value name, returns the value (cleaned)
+        if 'uri' in value_name or value_name=='pred':
+            return e[value_name]['value'].split('/')[-1]
+        elif 'type' == value_name:
+            return e['type']['value'].split('/')[-2]
+        else:
+            return e[value_name]['value']

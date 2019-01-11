@@ -11,64 +11,36 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-				<!-- Product main img -->
+				<!-- Main img -->
 				<div class="col-md-5 col-md-push-0">
-					{% for e in loja %}
-						{% if e.0 == 'nome' %}
-							<div id="product-main-img">
-								<img src="/static/shop/img/lojas/{{ e.1 }}.jpg" alt="">
-							</div>
-						{% endif %}
-					{% endfor %}
+					<div id="product-main-img">
+						<img src="{{ loja.imagem }}" alt="">
+					</div>
 				</div>
-				<!-- /Product main img -->
+				<!-- /Main img -->
 
-				<!-- Product thumb imgs -->
+				<!-- Thumb imgs -->
 				<div class="col-md-2  col-md-pull-5">
 				</div>
-				<!-- /Product thumb imgs -->
+				<!-- /Thumb imgs -->
 
-				<!-- Product details -->
+				<!-- Details -->
 				<div class="col-md-5">
 					<div class="product-details">
 
-						{% for e in loja %}
-							{% if e.0 == 'nome' %}
-								<h2 class="product03">{{ e.1 }}</h2>
-							{% endif %}
-							{% if e.0 == 'grupo' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'detalhes' %}
-								<br/>
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'rua' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'codigopostal' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'distrito' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'pais' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'telefone' %}
-								<br/>
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'fax' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'email' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-							{% if e.0 == 'website' %}
-								<h3 class="product-name">{{ e.1 }}</h3>
-							{% endif %}
-						{% endfor %}
+						<h2 class="product03">{{ loja.nome }}</h2>
+						<h3 class="product-name">{{ loja.grupo }}</h3>
+						<br/>
+						<h3 class="product-name">{{ loja.detalhes }}</h3>
+						<h3 class="product-name">{{ loja.rua }}</h3>
+						<h3 class="product-name">{{ loja.codigopostal }}</h3>
+						<h3 class="product-name">{{ loja.distrito }}</h3>
+						<h3 class="product-name">{{ loja.pais }}</h3>
+						<br/>
+						<h3 class="product-name">{{ loja.telefone }}</h3>
+						<h3 class="product-name">{{ loja.fax }}</h3>
+						<h3 class="product-name">{{ loja.email }}</h3>
+						<h3 class="product-name">{{ loja.website }}</h3>
 
 						<br/>
 						<br/>
@@ -87,7 +59,7 @@
 
 					</div>
 				</div>
-				<!-- /Product details -->
+				<!-- /Details -->
 
 			</div>
 			<!-- /row -->
@@ -103,6 +75,7 @@
 			<!-- row -->
 			<div class="row">
 
+				<!-- Set of items -->
 				<div class="col-md-12">
 					<div class="section-title text-center">
 						<h3 class="title">Produtos vendidos aqui</h3>
@@ -110,14 +83,11 @@
 				</div>
 
 				{% for e in modelos %}
-					<!-- product -->
 					<div class="col-md-3 col-xs-6">
-
-						{% include 'shop/includes/produto_item.html' %}
-
+						{% include 'shop/includes/produto_items.html' %}
 					</div>
-					<!-- /product -->
 				{% endfor %}
+				<!-- /Set of items -->
 
 			</div>
 			<!-- /row -->

@@ -11,89 +11,52 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-				<!-- Product main img -->
-				<div class="col-md-5 col-md-push-2">
+				<!-- Main img -->
+				<div class="col-md-5 col-md-push-0">
 					<div id="product-main-img">
-
-					{% for e in modelo %}
-						{% if e.0 == 'nome' %}
-							<div class="product-preview">
-								<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
-							</div>
-						{% endif %}
-					{% endfor %}
-
+						<img src="{{ modelo.imagem }}" alt="">
 					</div>
 				</div>
-				<!-- /Product main img -->
+				<!-- /Main img -->
 
-				<!-- Product thumb imgs -->
+				<!-- Thumb imgs -->
 				<div class="col-md-2  col-md-pull-5">
 					<div id="product-imgs">
-
-						{% for e in modelo %}
-							{% if e.0 == 'nome' %}
-								<div class="product-preview">
-									<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
-								</div>
-								<div class="product-preview">
-									<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
-								</div>
-								<div class="product-preview">
-									<img src="/static/shop/img/modelos/{{ e.1 }}.jpg" alt="">
-								</div>
-							{% endif %}
-						{% endfor %}
-
+						<div class="product-preview">
+							<img src="{{ modelo.imagem }}" alt="">
+						</div>
+						<div class="product-preview">
+							<img src="{{ modelo.imagem }}" alt="">
+						</div>
+						<div class="product-preview">
+							<img src="{{ modelo.imagem }}" alt="">
+						</div>
 					</div>
 				</div>
-				<!-- /Product thumb imgs -->
+				<!-- /Thumb imgs -->
 
-				<!-- Product details -->
+				<!-- Details -->
 				<div class="col-md-5">
 					<div class="product-details">
-						{% for e in modelo %}
 
-							{% if e.0 == 'nome' %}
-								<h2 class="product-name">{{ e.1 }}</h2>
+						<h2 class="product-name">{{ modelo.nome }}</h2>
+						<div>
+							{% if discount.percentage == 0 %}
+								<h3 class="product-price">${{ modelo.preco }}</h3>
+							{% else %}
+								<h3 class="product-price">${{ discount.price }} <del class="product-old-price">${{ modelo.preco }}</del></h3>
 							{% endif %}
 
-							{% if e.0 == 'preco' %}
-								<div>
-									{% if modelo_discount.1 == 0 %}
-										<h3 class="product-price">${{ e.1 }}</h3>
-									{% else %}
-										<h3 class="product-price">${{ modelo_discount.0 }} <del class="product-old-price">${{ e.1 }}</del></h3>
-									{% endif %}
-
-									{% if modelo_discount.0 >= 50 %}
-										<span class="product-available">Best Offer</span>
-									{% endif %}
-								</div>
+							{% if modelo.discount >= 50 %}
+								<span class="product-available">Best Offer</span>
 							{% endif %}
-
-
-						{% endfor %}
+						</div>
 
 						<div class="product-options">
 							<h2 class="product001">Unidades em:</h2>
-								<ul>
-								{% for loja_id, loja in em_lojas.items %}
-									<li>
-										<h2 class="product-name">
-										<a href="{% url 'get_loja' loja_id %}">
-										{% for e in loja %}
-											{% if e.0 == 'nome' %}
-												{{ e.1 }}</a>:
-											{% endif %}
-											{% if e.0 == 'unidades' %}
-												{{ e.1 }}
-											{% endif %}
-										{% endfor %}
-									</h2>
-								</li>
-								{% endfor %}
-							</ul>
+							{% for e in em_loja %}
+								<h2 class="product-name"><a href="{% url 'get_loja' e.loja_id %}">{{ e.nome }}</a>:{{ e.unidades }}</h2>
+							{% endfor %}
 						</div>
 
 						<br/>
@@ -106,11 +69,7 @@
 
 						<ul class="product-links">
 							<li>Categoria:</li>
-							{% for e in modelo %}
-								{% ifequal e.0 'categoria' %}
-									<li><a href="{% url 'list_categoria' e.1 %}">{{ e.1 }}</a></li>
-								{% endifequal %}
-							{% endfor %}
+							<li><a href="{% url 'list_categoria' modelo.categoria %}">{{ modelo.categoria }}</a></li>
 						</ul>
 
 						<ul class="product-links">
@@ -122,49 +81,33 @@
 
 					</div>
 				</div>
-				<!-- /Product details -->
+				<!-- /Details -->
 
-				<!-- Product tab -->
+				<!-- Details tab -->
 				<div class="col-md-12">
 					<div id="product-tab">
-						<!-- product tab nav -->
+						<!-- tab nav -->
 						<ul class="tab-nav">
 							<li class="active"><a data-toggle="tab" href="#tab1">Descrição</a></li>
 							<li><a data-toggle="tab" href="#tab2">Detalhes</a></li>
 						</ul>
-						<!-- /product tab nav -->
+						<!-- /tab nav -->
 
-						<!-- product tab content -->
+						<!-- tab content -->
 						<div class="tab-content">
 							<!-- tab1  -->
 							<div id="tab1" class="tab-pane fade in active">
 								<div class="row">
-									{% for k,v in wiki_modelo.items %}
-										<div class="col-md-6" align="center">
-											{% ifequal k "image" %}
-												<img src="{{ v }}" alt="" height="40%" width="40%">
-											{% endifequal %}
-										</div>
-										<div class="col-md-13" align="center" text-align="center">
-											<ul>
-												<li>
-													{% ifequal k "label_pt" %}
-														<h3><strong>Nome</strong></h3>
-														<p>{{ v }}</p>
-													{% endifequal %}
-												</li>
-
-												<br/>
-
-												<li>
-													{% ifequal k "modeloDescription" %}
-														<h3><strong>Descrição</strong></h3>
-														<p>{{ v }}</p>
-													{% endifequal %}
-												</li>
-											</ul>
-										</div>
-									{% endfor %}
+									<div class="col-md-6" align="center">
+										<img src="{{ wiki_modelo.image }}" alt="" height="40%" width="40%" />
+									</div>
+									<div class="col-md-13" align="center" text-align="center">
+										<h3><strong>Nome</strong></h3>
+										<p>{{ wiki_modelo.label_pt }}</p>
+										<br/>
+										<h3><strong>Descrição</strong></h3>
+										<p>{{ wiki_modelo.modeloDescription }}</p>
+									</div>
 								</div>
 							</div>
 							<!-- /tab1  -->
@@ -173,23 +116,19 @@
 							<div id="tab2" class="tab-pane fade in">
 								<div class="row">
 									<div class="col-md-12" align="center">
-										{% for e in modelo %}
-											<p>
-												<ul>
-												  	<li><strong>{{ e.0 }}:</strong>		{{ e.1 }}</a></li>
-												</ul>
-											</p>
+										{% for k,v in modelo.items %}
+											<p><strong>{{ k }}:</strong> {{ v }}</a></p>
 										{% endfor %}
 									</div>
 								</div>
 							</div>
 							<!-- /tab2  -->
-
 						</div>
-						<!-- /product tab content  -->
+						<!-- /tab content  -->
+
 					</div>
 				</div>
-				<!-- /product tab -->
+				<!-- /Details tab -->
 			</div>
 			<!-- /row -->
 		</div>
@@ -204,21 +143,19 @@
 			<!-- row -->
 			<div class="row">
 
+				<!-- Set of items -->
 				<div class="col-md-12">
 					<div class="section-title text-center">
 						<h3 class="title">Modelos Relacionados</h3>
 					</div>
 				</div>
 
-				<!-- product -->
 				{% for e in type_modelos %}
 					<div class="col-md-3 col-xs-6">
-
-						{% include 'shop/includes/produto_item.html' %}
-
+						{% include 'shop/includes/produto_items.html' %}
 					</div>
 				{% endfor %}
-				<!-- /product -->
+				<!-- /Set of items -->
 
 			</div>
 			<!-- /row -->

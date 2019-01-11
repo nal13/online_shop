@@ -17,19 +17,19 @@ from .wikidata import wikidata_modelo_info
 #
 def home(request):
 
-    # list up to 10 random modelos
-    query = g.list_modelo_random('10')['results']['bindings']
+    # --- list up to 10 random modelos from DB as LIST of DICT
+    query = g.list_modelo_random('10')
     random_modelos = []
     for e in query:
-        modelo_id = e['modelo_uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        categoria = e['categoria']['value']
-        preco = e['preco']['value']
+        modelo_id = g.get_value( e, 'modelo_uri' )
+        nome = g.get_value( e, 'nome' )
+        categoria = g.get_value( e, 'categoria' )
+        preco = g.get_value( e, 'preco' )
         # get discount based on availiable units across all loja
-        (preco_discount, discount) = get_discount( modelo_id, preco )
-        random_modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+        (discount_price, discount_percentage) = get_discount( modelo_id, preco )
+        random_modelos.append( {'modelo_id':modelo_id, 'nome':nome, 'categoria':categoria, 'preco':preco, 'discount_price':discount_price, 'discount_percentage':discount_percentage} )
 
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -41,6 +41,7 @@ def search_box(request):
     # this is not a view
     # operates search box accross the app
 
+    # --- handles forms
     if request.method == 'POST' and 'search' in request.POST:
         form = SearchForm(request.POST)
 
@@ -49,18 +50,19 @@ def search_box(request):
             search_type = form.cleaned_data['search_type']
 
             if search_box:
-                query = g.get_modelo_loja_uri( search_box, search_type )['results']['bindings']
+                query = g.get_modelo_loja_uri( search_box, search_type )
 
                 # return id if any
                 if query != []:
-                    return ( 'get_'+search_type, query[0]['uri']['value'].split('/')[-1] )
+                    return ( 'get_'+search_type, g.get_value( query[0], 'uri' ) )
     else:
         form = SearchForm()
 
     return form
 
 def get_discount(id, price):
-    sum = int( g.get_modelo_em_loja_unidades_count( id )['results']['bindings'][0]['sum']['value'] )
+    query = g.get_modelo_em_loja_unidades_count( id )
+    sum = int( g.get_value(query[0], 'sum') )
 
     discount = 0
     if sum < 11:
@@ -83,7 +85,7 @@ def get_discount(id, price):
 #
 def list_categoria(request, categoria):
 
-    # order select
+    # --- order select
     order = 'a-z'
     if request.method == 'POST' and 'order' in request.POST:
         form = OrderForm(request.POST)
@@ -92,8 +94,8 @@ def list_categoria(request, categoria):
     else:
         form = OrderForm()
 
-    # list modelos with the given categoria
-    query = g.list_modelo_by_categoria( categoria, order )['results']['bindings']
+    # --- get modelo with the given categoria from DB as LIST of DICT
+    query = g.list_modelo_by_categoria( categoria, order )
 
     # if no modelos, go home
     if ( not(query) ):
@@ -101,14 +103,14 @@ def list_categoria(request, categoria):
 
     modelos = []
     for e in query:
-        modelo_id = e['uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        preco = e['preco']['value']
+        modelo_id = g.get_value(e, 'uri')
+        nome = g.get_value(e, 'nome')
+        preco = g.get_value(e, 'preco')
         # get discount based on availiable units across all loja
-        (preco_discount, discount) = get_discount( modelo_id, preco )
-        modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+        (discount_price, discount_percentage) = get_discount( modelo_id, preco )
+        modelos.append( {'modelo_id':modelo_id, 'nome':nome, 'categoria':categoria, 'preco':preco, 'discount_price':discount_price, 'discount_percentage':discount_percentage} )
 
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -118,69 +120,64 @@ def list_categoria(request, categoria):
 
 def get_modelo(request, id):
 
-    # get all modelo data from DB
-    query_regular = g.get_modelo_regular(id)['results']['bindings']
+    # --- get modelo from DB as DICT and as LIST of DICT
+    query_regular = g.get_modelo_regular(id)
 
     # if modelo doesn't exist, go home
     if ( not(query_regular) ):
         return redirect( 'home' )
 
-    query_em_loja = g.list_modelo_em_loja(id)['results']['bindings']
+    query_em_loja = g.list_modelo_em_loja(id)
 
-    modelo = []
-    esta_loja = []
-    em_lojas = {}   # dict of lists
+    modelo = {}
     for e in query_regular:
-        pred = e['pred']['value'].split('/')[-1]
-        obj = e['obj']['value']
-        modelo.append( (pred, obj) )
+        pred = g.get_value(e, 'pred')
+        obj = g.get_value(e, 'obj')
+        modelo.update( {pred:obj} )
 
+    em_loja = []
     for e in query_em_loja:
-        loja_id = e['loja_uri']['value'].split('/')[-1]
+        loja_id = g.get_value(e, 'loja_uri')
+        nome = g.get_value(e, 'nome')
+        unidades = g.get_value(e, 'unidades')
+        em_loja.append( {'loja_id': loja_id, 'nome': nome, 'unidades': unidades} )
 
-        nome = e['nome']['value']
-        esta_loja.append( ('nome', nome) )
+    # --- compute discount for this modelo to DICT
+    (discount_price, discount_percentage) = get_discount( id, modelo.get('preco') )
+    discount = {'price':discount_price, 'percentage':discount_percentage}
 
-        pred = e['pred']['value'].split('/')[-1]
-        obj = e['obj']['value']
-        esta_loja.append( (pred, obj) )
+    # --- get modelo from wikidata as DICT
+    query = g.get_modelo_a( id )
+    type = g.get_value(query[0], 'type')
+    query_wiki = wikidata_modelo_info( type )
+    pprint( query_wiki )
+    wiki_modelo = {}
+    for e in query_wiki:
+        wiki_modelo.update( {e[0]:e[1]} )
 
-        em_lojas.update( { loja_id: esta_loja} )
-        esta_loja = []
-
-    # session variable stored on the server --- used in edit_modelo
-    request.session[ 'get_modelo_data' ] = modelo
-
-    # get wikidata for modelo
-    type = g.get_modelo_a( id )['results']['bindings'][0]['type']['value'].split('/')[-2]
-    wiki_modelo = wikidata_modelo_info( type )
-
-    # get up to 4 modelos with the same type
-    query = g.list_modelo_by_a(id)['results']['bindings']
+    # --- get up to 4 modelos with the same type from DB as LIST of DICT
+    query = g.list_modelo_by_a(id)
     type_modelos = []
     for e in query:
-        modelo_id = e['modelo_uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        categoria = e['categoria']['value']
-        preco = e['preco']['value']
+        modelo_id = g.get_value(e, 'modelo_uri')
+        nome = g.get_value(e, 'nome')
+        categoria = g.get_value(e, 'categoria')
+        preco = g.get_value(e, 'preco')
         # get discount based on availiable units across all loja
-        (preco_discount, discount) = get_discount( modelo_id, preco )
-        type_modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+        (discount_price, discount_percentage) = get_discount( modelo_id, preco )
+        type_modelos.append( {'modelo_id':modelo_id, 'nome':nome, 'categoria':categoria, 'preco':preco, 'discount_price':discount_price, 'discount_percentage':discount_percentage} )
 
-    # save discount without risking damaging other structured variables
-    (preco_discount, discount) = get_discount( id, preco )
-    modelo_discount = (preco_discount, discount)
-
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-    return render(request, 'shop/get_modelo.html', {'modelo': modelo, 'modelo_discount':modelo_discount, 'type_modelos': type_modelos, 'em_lojas': em_lojas, 'id': id, 'search': search, 'wiki_modelo': wiki_modelo})
+    return render(request, 'shop/get_modelo.html', {'id': id, 'modelo': modelo, 'discount':discount, 'wiki_modelo': wiki_modelo, 'em_loja': em_loja, 'type_modelos': type_modelos, 'search': search})
 
 def add_modelo(request, type):
 
+    # --- handle forms
     if request.method == 'POST':
         form = ModeloForm(type, request.POST)
         if form.is_valid() and validate_modelo(form):
@@ -194,7 +191,7 @@ def add_modelo(request, type):
     else:
         form = ModeloForm(type)
 
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -211,8 +208,10 @@ def remove_modelo(request, id):
 
 def edit_modelo(request, id):
 
+    # --- handle forms
     # get type of modelo to call the right type of form
-    type = g.get_modelo_a(id)['results']['bindings'][0]['type']['value'].split('/')[-2]
+    query = g.get_modelo_a(id)
+    type = g.get_value(query[0], 'type')
 
     # if modelo doesn't exist, go home
     if ( not(type) ):
@@ -230,10 +229,18 @@ def edit_modelo(request, id):
     else:
         form = ModeloForm(type)
 
-        # load values from get_modelo view to set them as initial values in edit_modelo view
-        form.set_initial_values( request.session.get('get_modelo_data'), id )
+        # --- get modelo from DB as DICT to set forms' initial values
+        query_regular = g.get_modelo_regular(id)
 
-    # search box
+        modelo = {}
+        for e in query_regular:
+            pred = g.get_value(e, 'pred')
+            obj = g.get_value(e, 'obj')
+            modelo.update( {pred:obj} )
+
+        form.set_initial_values( modelo, id )
+
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -248,48 +255,45 @@ def edit_modelo(request, id):
 #
 def get_loja(request, id):
 
-    # get loja from DB
-    query = g.get_loja_regular(id)['results']['bindings']
+    # --- get loja from DB as DICT
+    query = g.get_loja_regular(id)
 
     # if loja doesn't exist, go home
     if ( not(query) ):
         return redirect( 'home' )
 
-    query += g.get_loja_morada(id)['results']['bindings']
-    query += g.get_loja_contacto(id)['results']['bindings']
+    query += g.get_loja_morada(id)
+    query += g.get_loja_contacto(id)
 
-    # get query result as tuples: ( pred, obj )
-    loja = []
+    loja = {}
     for e in query:
-        pred = e['pred']['value'].split('/')[-1]
-        obj = e['obj']['value']
-        loja.append( (pred, obj) )
+        pred = g.get_value( e, 'pred' )
+        obj = g.get_value( e, 'obj' )
+        loja.update( {pred:obj} )
 
-    # session save to be used in edit_loja view
-    request.session[ 'get_loja_data' ] = loja
-
-    # get up to 4 modelos in this loja
-    query = g.list_modelo_in_loja( id )['results']['bindings']
+    # --- get up to 4 modelos in this loja from DB as LIST of DICT
+    query = g.list_modelo_in_loja( id )
     modelos = []
     for e in query:
-        modelo_id = e['modelo_uri']['value'].split('/')[-1]
-        nome = e['nome']['value']
-        categoria = e['categoria']['value']
-        preco = e['preco']['value']
+        modelo_id = g.get_value( e, 'modelo_uri' )
+        nome = g.get_value( e, 'nome' )
+        categoria = g.get_value( e, 'categoria' )
+        preco = g.get_value( e, 'preco' )
         # get discount based on availiable units across all loja
-        (preco_discount, discount) = get_discount( modelo_id, preco )
-        modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
+        (discount_price, discount_percentage) = get_discount( modelo_id, preco )
+        modelos.append( {'modelo_id':modelo_id, 'nome':nome, 'categoria':categoria, 'preco':preco, 'discount_price':discount_price, 'discount_percentage':discount_percentage} )
 
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
         return redirect( search[0], id=search[1] )
 
-    return render(request, 'shop/get_loja.html', {'loja': loja, 'modelos': modelos, 'id': id, 'search': search, })
+    return render(request, 'shop/get_loja.html', {'id': id, 'loja': loja, 'modelos': modelos, 'search': search, })
 
 def add_loja(request):
 
+    # --- handle forms
     if request.method == 'POST':
         # get picked country in previous submit
         chose_country = request.POST.get('pais')
@@ -311,7 +315,7 @@ def add_loja(request):
         # ELSE use default country
         form = LojaForm( load=request.session.get('chose_country') )
 
-    # search box
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -320,16 +324,17 @@ def add_loja(request):
     return render(request, 'shop/forms_loja.html', {'form': form, 'search': search, })
 
 def remove_loja(request, id):
-    # called in get_loja.html, don't have a web page
+    # doesn't have a HTML page
 
+    # --- remove this loja and all triples that have this loja as object
     g.remove_loja( id )
-    # remove all tiples that have this loja as object
     g.remove_loja_links( id )
 
     return redirect('home')
 
 def edit_loja(request, id):
 
+    # --- handle forms
     if request.method == 'POST':
         # get picked country in previous submit
         chose_country = request.POST.get('pais')
@@ -350,10 +355,20 @@ def edit_loja(request, id):
         # ELSE use default country
         form = LojaForm( load=request.session.get('chose_country') )
 
-        # load values from get_loja view to set them as initial values in edit_loja view
-        form.set_initial_values( request.session.get('get_loja_data') )
+        # --- get loja from DB as DICT to set forms' initial values
+        query = g.get_loja_regular(id)
+        query += g.get_loja_morada(id)
+        query += g.get_loja_contacto(id)
 
-    # search box
+        loja = {}
+        for e in query:
+            pred = g.get_value( e, 'pred' )
+            obj = g.get_value( e, 'obj' )
+            loja.update( {pred:obj} )
+
+        form.set_initial_values( loja )
+
+    # --- search box
     search = search_box(request)
 
     if isinstance(search, tuple):
@@ -368,47 +383,33 @@ def edit_loja(request, id):
 #
 def get_cliente(request, id):
 
-    pprint( id )
-
-    # get cliente from DB
-    query = g.get_cliente_regular(id)['results']['bindings']
+    # --- get cliente from DB as DICT
+    query = g.get_cliente_regular(id)
 
     # if cliente doesn't exist, go home
     if ( not(query) ):
         return redirect( 'home' )
 
-    query += g.get_morada('cliente', id)['results']['bindings']
-    query += g.get_contacto('cliente', id)['results']['bindings']
+    query += g.get_morada('cliente', id)
+    query += g.get_contacto('cliente', id)
 
-    # get query result as tuples: ( pred, obj )
-    cliente = []
+    cliente = {}
     for e in query:
-        pred = e['pred']['value'].split('/')[-1]
-        obj = e['obj']['value']
-        cliente.append( (pred, obj) )
+        pred = g.get_value( e, 'pred' )
+        obj = g.get_value( e, 'obj' )
+        cliente.update( {pred:obj} )
 
-    # # get up to 4 modelos in this loja
-    # query = g.list_modelo_in_loja( id )['results']['bindings']
-    # modelos = []
-    # for e in query:
-    #     modelo_id = e['modelo_uri']['value'].split('/')[-1]
-    #     nome = e['nome']['value']
-    #     categoria = e['categoria']['value']
-    #     preco = e['preco']['value']
-    #     # get discount based on availiable units across all loja
-    #     (preco_discount, discount) = get_discount( modelo_id, preco )
-    #     modelos.append( (modelo_id, nome, categoria, preco, preco_discount, discount) )
-    #
-    # # search box
-    # search = search_box(request)
-    #
-    # if isinstance(search, tuple):
-    #     return redirect( search[0], id=search[1] )
+    # --- search box
+    search = search_box(request)
 
-    return render(request, 'shop/get_cliente.html', {'cliente': cliente, 'id': id, })
+    if isinstance(search, tuple):
+        return redirect( search[0], id=search[1] )
+
+    return render(request, 'shop/get_cliente.html', {'id': id, 'cliente': cliente, 'search': search, })
 
 def add_cliente( signup_forms ):
     # this is not a view
+    # a cliente is added when creating a new user
 
     new_id = g.get_next_id( 'cliente' )
 
